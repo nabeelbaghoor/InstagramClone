@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         FileInputStream serviceAccount =
-                new FileInputStream("C:\\Users\\nabeelbaghoor\\IdeaProjects\\InstagramClone\\instagramclone-58441-firebase-adminsdk-taebo-2cba3bad0c.json");
+                new FileInputStream("C:\\Users\\nabeelbaghoor\\IdeaProjects\\theInstagramClone\\instagramclone-58441-firebase-adminsdk-taebo-2cba3bad0c.json");
 
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
