@@ -2,9 +2,9 @@
 We are developing a simpler and abridged version of Instagram for a University Project.
 
 # Students Assigned to different Layers:
-Ali Humza
+Ali Humza   DB_Text
 Rehman Butt
-Anser Butt      Business Layer
+Anser Butt  BL(Business Layer)
 Usama Zahid
 Haseeb Ahmed
-Nabeel Hassan
+Nabeel Hassan   DB_Firebase
