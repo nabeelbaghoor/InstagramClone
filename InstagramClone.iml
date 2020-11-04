@@ -11,5 +11,14 @@
     <orderEntry type="library" name="org.slf4j:slf4j-api:1.7.5" level="project" />
     <orderEntry type="library" name="org.slf4j:slf4j-log4j12:1.7.5" level="project" />
     <orderEntry type="library" name="javax.json-1.0" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/annotations/19.0.0/annotations-19.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

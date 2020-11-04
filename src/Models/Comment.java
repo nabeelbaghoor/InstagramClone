@@ -1,19 +1,24 @@
 package Models;
 
 public class Comment implements IModel{
-    public String text;
+
+    public String commentid;
     public String postID;
     public String userid;
-    public String commentid;
+    public String text;
 
-    public  Comment(){
-        text = "";
-        postID = "";
-        userid = "";
-        commentid = "";
+    public Comment(){
+
+    }
+    public  Comment(String _commentid,String _postID,String _userid,String _text){
+        commentid = _commentid;
+        postID = _postID;
+        userid = _userid;
+        text = _text;
     }
 
     public String getID(){return commentid;}
 
-    public void setID(String id){commentid = id; }
+    public void setID(String id){
+        commentid = id; }
 }

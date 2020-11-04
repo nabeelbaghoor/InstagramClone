@@ -1,4 +1,6 @@
 package DB_Firebase.company;
+import Models.Post;
+
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
@@ -7,12 +9,21 @@ public class Main {
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
        FirebaseMethods.initFirebase();
        IDB_FirebaseOperations _IDB = new DB_FirebaseOperations();
-        //_IUser.addUser(new User(null,"Sarim"));
-        //_IUser.addUser(new User(null,"Ali"));
-        //_IUser.addUser(new User(null,"Faizan"));
-        //_IUser.addUser(new User(null,"Faris"));
-        String currentUserId = "8X0FIpj5qBeKk5gbRxTf";
-        System.out.println("User Data:\t" + _IDB.getObject(currentUserId, IDB_FirebaseOperations.ModelType.User));
+        //  _IDB.addObject(new User(null,"Sarim",null,null,null), IDB_FirebaseOperations.ModelType.Users);
+        // _IDB.addObject(new User(null,"Ali",null,null,null),IDB_FirebaseOperations.ModelType.Users);
+        // _IDB.addObject(new User(null,"Faizan",null, null,null),IDB_FirebaseOperations.ModelType.Users);
+        // _IDB.addObject(new User(null,"Faris",null,null, null),IDB_FirebaseOperations.ModelType.Users);
+
+        /*_IDB.addObject(new Comment(null,"CLOvb3RxrWp8Ue0nfCmM","TmfogDtTYA4kk5SF5gZv","Hahahahahhhahahah"),IDB_FirebaseOperations.ModelType.Comments);*/
+
+       /* Vector<String> _likedBy =  new Vector<String>();
+        _likedBy.add("TmfogDtTYA4kk5SF5gZv");
+        _likedBy.add("pUf8yYkacNgeRufL8v8O");
+        _IDB.addObject(new Post(null,"TmfogDtTYA4kk5SF5gZv",_likedBy),IDB_FirebaseOperations.ModelType.Posts);*/
+
+
+        String currentPostId = "CLOvb3RxrWp8Ue0nfCmM";
+        System.out.println("Post Data:\t" + ((Post) _IDB.getObject(currentPostId, IDB_FirebaseOperations.ModelType.Posts)).postID);
     }
 }
 

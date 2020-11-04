@@ -1,6 +1,6 @@
 package DB_Firebase.company;
 
-import Models.IModel;
+import Models.*;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -8,6 +8,7 @@ import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
 
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class DB_FirebaseOperations implements IDB_FirebaseOperations {
@@ -23,7 +24,7 @@ public class DB_FirebaseOperations implements IDB_FirebaseOperations {
         DocumentSnapshot document = future.get();
         if (document.exists()) {
             // convert document to User
-            IModel _object = document.toObject(IModel.class);//..............ERROR
+            IModel _object = documentToClassType(document,modelType);
             System.out.println(_object);
             return _object;
         } else {
@@ -31,7 +32,31 @@ public class DB_FirebaseOperations implements IDB_FirebaseOperations {
             return null;
         }
     }
+    public IModel documentToClassType(DocumentSnapshot document,ModelType modelType)
+    {
+        switch (modelType)
+        {
+            case Likes:
+                return document.toObject(Like.class);
+            case Posts:
+                return document.toObject(Post.class);
+            case Users:
+                return document.toObject(User.class);
+            case Comments:
+                return document.toObject(Comment.class);
+            case Notifications:
+                return document.toObject(Notification.class);
+            default:
+                return null;
+        }
+    }
+    @Override
+    public IModel getObjectsList(HashMap<String, String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException {
+        return null;
+        //use where in
+    }
 
+    //see extra id attribute which it is creating                   //..............ERROR
     /*Firebase will create documentId(objectId) ,and we will assign it*/
     @Override
     public String addObject(IModel object,ModelType modelType) throws ExecutionException, InterruptedException {
@@ -51,9 +76,10 @@ public class DB_FirebaseOperations implements IDB_FirebaseOperations {
     }
 
     @Override
-    public boolean updateObject(String objectId, IModel object,ModelType modelType) {
+    public boolean updateObject(String objectId,HashMap<String,String> attributesToBeUpdated,ModelType modelType){
 
         return false;
+        //use wherein
     }
 }
 
