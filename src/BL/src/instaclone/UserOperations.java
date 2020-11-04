@@ -5,6 +5,8 @@
  */
 package BL.src.instaclone;
 
+import Models.User;
+
 /**
  *
  * @author inspiron
@@ -12,28 +14,45 @@ package BL.src.instaclone;
 
 public class UserOperations implements Operations{
     private User curruser;
-    private Profile currprofile;
 
     public UserOperations(){
-        curruser = null;
-        currprofile = null;
+        UserFunctions temp = new UserFunctions();
+        curruser = temp.getUser("User1");
+
     }
 
-    public boolean removeFollower(String userid){
-        //return currprofile.
-        return true;
+    public boolean removeFollower(String userid){ //Remove from my Followers
+        UserFunctions temp = new UserFunctions();
+        return temp.removeFollowing(userid,curruser.myid,curruser.followingList);
     }
-    
-    public boolean blockUser(String userid){return true;}
-    public boolean unblockUser(String userid){return true;}
-    public boolean followUser(String userid){return true;}
-    public boolean unfollowUser(String userid){return true;}
+
+    public boolean unfollowUser(String userid){ //Unfollow a user
+        UserFunctions temp = new UserFunctions();
+        return temp.unfollowerUser(userid,curruser.myid,curruser.followers);
+    }
+
+    public boolean followUser(String userid){   //Follow new User
+        UserFunctions temp = new UserFunctions();
+        return temp.followerUser(userid,curruser.myid,curruser.followers);
+    }
+
+    public boolean blockUser(String userid){    //Block User
+        UserFunctions temp = new UserFunctions();
+        return temp.blockFollower(userid,curruser.myid,curruser.blockedList);
+    }
+
+    public boolean unblockUser(String userid){
+        UserFunctions temp = new UserFunctions();
+        return temp.unBlockFollower(userid,curruser.myid,curruser.blockedList);
+    }
+
     public boolean likePost(String postid,String userid){
     if (curruser != null)
         //return curruser.likePost(postid,userid);
         return true;
     return false;
     }
+
     public boolean unlikePost(String postid){return true;}
     public boolean addPost(String postdata){return true;}
     public boolean removePost(String postid){return true;}

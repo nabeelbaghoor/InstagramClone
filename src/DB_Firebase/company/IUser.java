@@ -1,6 +1,7 @@
 
 package DB_Firebase.company;
 import BL.src.instaclone.User;
+import Models.User;
 
 import java.util.concurrent.ExecutionException;
 

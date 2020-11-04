@@ -15,4 +15,10 @@ public class Notification{
     public String msg;
     public String sender;
     public String receiver;
+
+    public Notification(){
+        msg = "";
+        sender = "";
+        receiver = "";
+    }
 }

@@ -1,5 +1,5 @@
 package DB_Firebase.company;
-import BL.src.instaclone.*;
+import Models.*;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -8,7 +8,7 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
 import java.util.concurrent.ExecutionException;
 
-public class UserOperations implements IDBOperations {
+public class UserOperations implements IUser {
     public User getUser(String userid) throws ExecutionException, InterruptedException //returns User object with key == userid
     {
         Firestore db = FirestoreClient.getFirestore();

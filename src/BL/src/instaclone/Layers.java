@@ -10,7 +10,5 @@ package BL.src.instaclone;
  * @author inspiron
  */
 public interface Layers {
-    
-    public static DBLayer DBUsed = new DBLayer1();
-    
+     
 }

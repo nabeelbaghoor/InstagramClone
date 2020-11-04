@@ -16,7 +16,7 @@ public class Notification implements Layers{
         msg = m;
     }
     
-    public boolean sendNotification(String myid,String postid, String userid){
-        return DBUsed.writeNotification(myid, postid, userid, msg);
-    }
+//    public boolean sendNotification(String myid,String postid, String userid){
+//        return DBUsed.writeNotification(myid, postid, userid, msg);
+//    }
 }
