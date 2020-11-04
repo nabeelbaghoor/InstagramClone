@@ -1,7 +1,5 @@
 package DB_Firebase.company;
 
-import BL.src.instaclone.Like;
-
 import java.util.concurrent.ExecutionException;
 
 public interface ILike extends IDBOperations {

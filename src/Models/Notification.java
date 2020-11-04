@@ -18,12 +18,14 @@ public class Notification implements IModel{
     public String msg;
     public String sender;
     public String receiver;
+    public String postid;
 
     public Notification(){
         NotifID = "";
         msg = "";
         sender = "";
         receiver = "";
+        postid = "";
     }
 
     public String getID(){return NotifID;}

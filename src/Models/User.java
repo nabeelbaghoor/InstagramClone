@@ -8,13 +8,14 @@ public class User implements IModel{
     public Vector<String> followers;
     public Vector<String> blockedList;
     public Vector<String> followingList;
-
+    public Vector<String> notification;
     public User(){
         username = "";
         myid = "";
         followers = new Vector<>();
         blockedList = new Vector<>();
         followingList = new Vector<>();
+        notification = new Vector<>();
     }
 
     public String getID(){return myid;}
