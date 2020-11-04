@@ -1,8 +1,4 @@
-package instaclone;
-
-import java.util.Vector;
-import java.rmi.server.Operation;
-import javax.json.JsonObjectBuilder;
+package BL.src.instaclone;
 
 public class InstaClone {
     public static void main(String[] args) {

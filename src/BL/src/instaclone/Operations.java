@@ -1,5 +1,5 @@
 
-package instaclone;
+package BL.src.instaclone;
 
 
 public interface Operations{

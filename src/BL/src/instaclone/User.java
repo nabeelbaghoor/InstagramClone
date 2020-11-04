@@ -1,4 +1,4 @@
-package instaclone;
+package BL.src.instaclone;
 
 public class User{
     private String username;

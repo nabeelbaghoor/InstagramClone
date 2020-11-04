@@ -1,16 +1,7 @@
 
-package instaclone;
+package BL.src.instaclone;
 
-import static instaclone.Functions.addJObj;
-import java.io.StringWriter;
-import java.math.BigDecimal;
 import java.util.Vector;
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
-import javax.json.JsonWriter;
 
 /**
  *
