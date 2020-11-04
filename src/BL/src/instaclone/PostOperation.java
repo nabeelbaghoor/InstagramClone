@@ -5,6 +5,8 @@
  */
 package BL.src.instaclone;
 
+import Models.Notification;
+
 /**
  *
  * @author inspiron
