@@ -5,8 +5,6 @@
  */
 package BL.src.instaclone;
 
-import javax.json.JsonObjectBuilder;
-
 /**
  *
  * @author inspiron
