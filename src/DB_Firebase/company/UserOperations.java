@@ -1,5 +1,5 @@
 package DB_Firebase.company;
-import BL.src.instaclone.User;
+import BL.src.instaclone.*;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -8,7 +8,7 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
 import java.util.concurrent.ExecutionException;
 
-public class UserOperations implements IUser {
+public class UserOperations implements IDBOperations {
     public User getUser(String userid) throws ExecutionException, InterruptedException //returns User object with key == userid
     {
         Firestore db = FirestoreClient.getFirestore();
@@ -46,5 +46,85 @@ public class UserOperations implements IUser {
     public boolean updateUser(String userid,User user) //overwrites the user with key == usserid
     {
         return true;
+    }
+
+    @Override
+    public Like getLike(String likeId) throws ExecutionException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public String addLike(Like like) throws ExecutionException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public boolean removeLike(String likeId) {
+        return false;
+    }
+
+    @Override
+    public boolean updateLike(String likeId, Like like) {
+        return false;
+    }
+
+    @Override
+    public Post getPost(String postId) throws ExecutionException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public String addPost(Post post) throws ExecutionException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public boolean removePost(String postId) {
+        return false;
+    }
+
+    @Override
+    public boolean updatePost(String postId, Post post) {
+        return false;
+    }
+
+    @Override
+    public Profile getProfile(String profileId) throws ExecutionException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public String addProfile(Profile profile) throws ExecutionException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public boolean removeProfile(String profileId) {
+        return false;
+    }
+
+    @Override
+    public boolean updateProfile(String profileId, Profile profile) {
+        return false;
+    }
+
+    @Override
+    public Comment getComment(String commentId) throws ExecutionException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public String addComment(Comment comment) throws ExecutionException, InterruptedException {
+        return null;
+    }
+
+    @Override
+    public boolean removeComment(String commentId) {
+        return false;
+    }
+
+    @Override
+    public boolean updateComment(String commentId, Comment comment) {
+        return false;
     }
 }
