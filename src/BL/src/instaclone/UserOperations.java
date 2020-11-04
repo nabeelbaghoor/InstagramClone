@@ -18,7 +18,6 @@ public class UserOperations implements Operations{
     public UserOperations(){
         UserFunctions temp = new UserFunctions();
         curruser = temp.getUser("User1");
-
     }
 
     public boolean removeFollower(String userid){ //Remove from my Followers
@@ -59,6 +58,7 @@ public class UserOperations implements Operations{
     public boolean sharePost(String postid, String userid){return true;}
     public boolean addComment(String postid, String comtext){return true;}
     public boolean editUserData(String data){return true;}
+
     public String getNewsFeedPosts(){
         String ans = "Hello"; 
         return ans;
