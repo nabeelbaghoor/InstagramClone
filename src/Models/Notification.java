@@ -5,6 +5,10 @@
  */
 package Models;
 
+import BL.src.instaclone.Layers;
+
+import java.security.PublicKey;
+
 /**
  *
  * @author inspiron
@@ -16,14 +20,12 @@ public class Notification implements IModel{
     public String receiver;
 
     public Notification(){
+        NotifID = "";
+        msg = "";
+        sender = "";
+        receiver = "";
+    }
 
-    }
-    public  Notification(String _NotifID,String _msg,String _sender,String _receiver){
-        NotifID = _NotifID;
-        msg = _msg;
-        sender = _sender;
-        receiver = _receiver;
-    }
     public String getID(){return NotifID;}
 
     public void setID(String id){NotifID = id;}

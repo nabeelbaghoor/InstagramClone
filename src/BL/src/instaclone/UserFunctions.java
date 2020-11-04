@@ -4,7 +4,9 @@ import java.util.Vector;
 import Models.User;
 
 public class UserFunctions {
-    
+
+    public UserFunctions(){ }
+
     public boolean removeFollowing(String userid, String myid, Vector<String> followers){
         if (followers.contains(userid)){
             //DB Code

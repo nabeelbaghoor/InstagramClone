@@ -6,13 +6,11 @@ public class Post implements IModel{
     public String postID;
     public String myID;
     public Vector<String> likedBy;
-    public Post(){
 
-    }
-    public Post(String _postID,String _myID,Vector<String> _likedBy){
-        postID = _postID;
-        myID = _myID;
-        likedBy = _likedBy;
+    public Post(){
+        postID = "";
+        myID = "";
+        likedBy = new Vector<>();
     }
 
     public String getID(){return postID;}

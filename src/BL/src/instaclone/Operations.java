@@ -2,6 +2,10 @@
 package BL.src.instaclone;
 
 
+import Models.User;
+
+import java.util.Vector;
+
 public interface Operations{
     public boolean removeFollower(String userid);
     public boolean blockUser(String userid);
@@ -16,10 +20,10 @@ public interface Operations{
     public boolean addComment(String postid, String comtext);
     public boolean editUserData(String data);
     public String getNewsFeedPosts();
-    public String getMyProfile();
-    public String getProfileInfo(String userid);
-    public String getFollowers();
-    public String getBlocked();
-    public String getFollowing();
+    public User getMyProfile();
+    public User getProfileInfo(String userid);
+    public Vector<String> getFollowers();
+    public Vector<String> getBlocked();
+    public Vector<String> getFollowing();
     public boolean addFollowing(String userid); //Admin function to add followers
 }

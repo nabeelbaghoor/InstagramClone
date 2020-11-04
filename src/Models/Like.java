@@ -1,5 +1,5 @@
 package Models;
-
+//Yaar isko delete kr lete. Iski zrorat nhi.
 public class Like implements IModel{
     public String likeID;
     public String postID;

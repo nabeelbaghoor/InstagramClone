@@ -10,10 +10,10 @@ package BL.src.instaclone;
  * @author inspiron
  */
 public class PostOperation {
-   /* public boolean sendNotification(String myid,String postid, String userid, String msg){
+    public boolean sendNotification(String myid,String postid, String userid, String msg){
         Notification temp = new Notification(msg);
         temp.sendNotification(myid,postid,userid);
         return false;
-    }*/
+    }
     
 }
