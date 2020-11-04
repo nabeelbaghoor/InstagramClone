@@ -17,7 +17,12 @@ public class User{
     public String getUserName(){return username;}
     
     public String getUserID(){return myid;}
-    
+    public void setUserName(String _username){
+        username = _username;
+    }
+    public void setUserID(String _userid){
+        myid = _userid;
+    }
 //    public boolean likePost(String postid,String userid){
 //        PostOperation temp = new PostOperation();
 //        if(temp.sendNotification(myid,postid,userid))
