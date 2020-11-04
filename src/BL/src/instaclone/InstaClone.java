@@ -1,6 +1,5 @@
 package BL.src.instaclone;
 
-import DB_Firebase.company.IUser;
 
 public class InstaClone {
     public static void main(String[] args) {
