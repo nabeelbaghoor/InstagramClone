@@ -5,6 +5,7 @@
  */
 package BL;
 
+import Models.Operations;
 import Models.User;
 
 import java.util.ArrayList;

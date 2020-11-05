@@ -1,11 +1,8 @@
 package DB_Firebase;
 
 import Models.IDB_Operations;
-import Models.IModel;
-import Models.User;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public class Main {
@@ -13,10 +10,79 @@ public class Main {
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
         IDB_Operations _IDB = new DB_FirebaseOperations();
         _IDB.initDB();
-        //  _IDB.addObject(new User(null,"Sarim",null,null,null), IDB_FirebaseOperations.ModelType.Users);
-        // _IDB.addObject(new User(null,"Ali",null,null,null),IDB_FirebaseOperations.ModelType.Users);
-        // _IDB.addObject(new User(null,"Faizan",null, null,null),IDB_FirebaseOperations.ModelType.Users);
-        // _IDB.addObject(new User(null,"Faris",null,null, null),IDB_FirebaseOperations.ModelType.Users);
+        //addded all group members
+       /* _IDB.addObject(new User(null,
+                "nabeelbaghoor",
+                "nabeelbaghoor@gmail.com",
+                "Nabeel",
+                "Hassan",
+                "Male",
+                "03001234456",
+                new Date(),
+                "studios.com",
+                "bio",
+                null,
+                null), IDB_Operations.ModelType.Users);
+        _IDB.addObject(new User(null,
+                "anserbutt",
+                "anserbutt@gmail.com",
+                "Anser",
+                "Butt",
+                "Male",
+                "03001235644",
+                new Date(),
+                "studios.com",
+                "bio",
+                null,
+                null), IDB_Operations.ModelType.Users);
+        _IDB.addObject(new User(null,
+                "alihumza",
+                "alihumza@gmail.com",
+                "Ali",
+                "Humza",
+                "Male",
+                "03001234456",
+                new Date(),
+                "studios.com",
+                "bio",
+                null,
+                null), IDB_Operations.ModelType.Users);
+        _IDB.addObject(new User(null,
+                "rehmanbutt",
+                "rehmanbutt@gmail.com",
+                "Rehman",
+                "Butt",
+                "Male",
+                "03001234456",
+                new Date(),
+                "studios.com",
+                "bio",
+                null,
+                null), IDB_Operations.ModelType.Users);
+        _IDB.addObject(new User(null,
+                "usamazahid",
+                "usamazahid@gmail.com",
+                "Usama",
+                "Zahid",
+                "Male",
+                "03001234456",
+                new Date(),
+                "studios.com",
+                "bio",
+                null,
+                null), IDB_Operations.ModelType.Users);
+        _IDB.addObject(new User(null,
+                "haseebahmed",
+                "haseebahmed@gmail.com",
+                "Haseeb",
+                "Ahmed",
+                "Male",
+                "03001234456",
+                new Date(),
+                "studios.com",
+                "bio",
+                null,
+                null), IDB_Operations.ModelType.Users);*/
 
         /*_IDB.addObject(new Comment(null,"CLOvb3RxrWp8Ue0nfCmM","TmfogDtTYA4kk5SF5gZv","Hahahahahhhahahah"),IDB_FirebaseOperations.ModelType.Comments);*/
 
@@ -30,13 +96,18 @@ public class Main {
         System.out.println(_object.getID());*/
 
         //get list of objects
-        ArrayList<String> objectIds = new ArrayList<String>();
+        /*ArrayList<String> objectIds = new ArrayList<String>();
         objectIds.add("TmfogDtTYA4kk5SF5gZv");
         objectIds.add("UBlkTuejFwjTJavHRSi3");
         ArrayList<IModel> _objects = _IDB.getObjectsList(objectIds, IDB_Operations.ModelType.Users);
-        for (IModel _object : _objects) {
-            System.out.println(((User) _object).username);
-        }
+        if(_objects!=null) {
+            for (IModel _object : _objects) {
+                User user = ((User) _object);
+                if(user!=null) {
+                    System.out.println(user.username);
+                }
+            }
+        }*/
 
         //remove object
         /*_IDB.removeObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);*/

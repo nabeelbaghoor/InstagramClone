@@ -1,7 +1,5 @@
-package BL;
+package Models;
 
-
-import Models.User;
 
 import java.util.ArrayList;
 

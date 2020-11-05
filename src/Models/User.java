@@ -2,6 +2,7 @@ package Models;
 
 import java.security.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class User implements IModel {
 
@@ -35,7 +36,7 @@ public class User implements IModel {
     public String lastName;
     public String gender;
     public String phoneNumber;
-    public String dateOfBirth;
+    public Date dateOfBirth;
     public String website;
     public String bio;
     public Timestamp timestamp; //profileCreatedTimestamp
@@ -56,7 +57,7 @@ public class User implements IModel {
             String _lastName,
             String _gender,
             String _phoneNumber,
-            String _dateOfBirth,
+            Date _dateOfBirth,
             String _website,
             String _bio,
             Timestamp _timestamp,

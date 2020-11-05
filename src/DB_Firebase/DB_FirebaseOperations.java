@@ -22,12 +22,10 @@ public class DB_FirebaseOperations implements IDB_Operations {
     public void initDB() throws IOException {
         FileInputStream serviceAccount =
                 new FileInputStream(".\\instagramclone-58441-firebase-adminsdk-taebo-2cba3bad0c.json");
-
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                 .build();
         //.setDatabaseUrl("https://instagramclone-58441.firebaseio.com")
-
         FirebaseApp.initializeApp(options);
     }
 
