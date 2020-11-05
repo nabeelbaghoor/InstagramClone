@@ -1,4 +1,5 @@
 package Models;
+import java.security.Timestamp;
 import java.util.ArrayList;
 
 public class User implements IModel{
@@ -23,29 +24,57 @@ public class User implements IModel{
     }
     configuration file will contain this userid
      */
-//usrid,username,email,Name,gender,phoneNumber,dateOfbirth,profileCreatedDateTime(Timedstamp),website,bio,
+    //userid,username,email,Name,gender,phoneNumber,dateOfBirth,profileCreatedDateTime(Timedstamp),website,bio,
     //ImagePath(only one image enough),image name is userid
     //followingList,followersList,blockedUsersList,
-    public String myid;
+    public String userId;
     public String username;
-    public ArrayList<String> followers;
-    public ArrayList<String> blockedList;
-    public ArrayList<String> followingList;
+    public String emailAddress;
+    public String firstName;
+    public String lastName;
+    public String gender;
+    public String phoneNumber;
+    public String dateOfBirth;
+    public String website;
+    public String bio;
+    public Timestamp timestamp; //profileCreatedTimestamp
+    public String imagePath;    //image Name will basically be the userId
 
-    public User(){
+    public ArrayList<String> followersList;
+    public ArrayList<String> blockedUsersList;
+    public ArrayList<String> followingsList;
 
-    }
-
-    public User(String _myid, String _username, ArrayList<String> _followers, ArrayList<String> _blockedList, ArrayList<String> _followingList){
-        myid = _myid;
+    public User(){}
+    public User(
+            String userId,
+            String _username,
+            String _emailAddress,
+            String _firstName,
+            String _lastName,
+            String _gender,
+            String _phoneNumber,
+            String _dateOfBirth,
+            String _website,
+            String _bio,
+            Timestamp _timestamp,
+            String _imagePath
+    ){
         username = _username;
-        followers = _followers;
-        blockedList = _blockedList;
-        followingList = _followingList;
+        emailAddress = _emailAddress;
+        firstName = _firstName;
+        lastName = _lastName;
+        gender = _gender;
+        phoneNumber = _phoneNumber;
+        dateOfBirth = _dateOfBirth;
+        website = _website;
+        bio = _bio;
+        timestamp = _timestamp;
+        imagePath = _imagePath;
     }
-
-    public String getID(){return myid;}
-
-    public void setID(String id){myid = id; }
-
+    public String getID(){
+        return userId;
+    }
+    public void setID(String _userId){
+        userId = _userId;
+    }
 }

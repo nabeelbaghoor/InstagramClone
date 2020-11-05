@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutionException;
 
 public class DB_FirebaseOperations implements IDB_Operations {
 
-    //getObject based on HashMap key value pairs
+    //getObject based on HashMap key value pairs    (must)
     @Override
     public void initDB() throws IOException {
         FileInputStream serviceAccount =
