@@ -1,5 +1,6 @@
 package DB_Firebase.company;
-import Models.Post;
+
+import Models.User;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
@@ -22,8 +23,8 @@ public class Main {
         _IDB.addObject(new Post(null,"TmfogDtTYA4kk5SF5gZv",_likedBy),IDB_FirebaseOperations.ModelType.Posts);*/
 
 
-        String currentPostId = "CLOvb3RxrWp8Ue0nfCmM";
-        System.out.println("Post Data:\t" + ((Post) _IDB.getObject(currentPostId, IDB_FirebaseOperations.ModelType.Posts)).likedBy.size());
+        String currentUserId = "TmfogDtTYA4kk5SF5gZv";
+        System.out.println("User Data:\t" + ((User) _IDB.getObject(currentUserId, IDB_FirebaseOperations.ModelType.Users)).username);
     }
 }
 

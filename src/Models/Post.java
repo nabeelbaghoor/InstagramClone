@@ -2,7 +2,7 @@ package Models;
 
 import java.util.ArrayList;
 
-public class Post extends Model{
+public class Post implements IModel{
     public String postID;
     public String myID;
     public ArrayList<String> likedBy;

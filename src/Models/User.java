@@ -2,7 +2,7 @@ package Models;
 
 import java.util.ArrayList;
 
-public class User extends Model{
+public class User implements IModel{
 
     public String myid;
     public String username;
