@@ -1,25 +1,26 @@
 package Models;
 
+import java.sql.Timestamp;
+
 public class Comment implements IModel{
+//text,userid,commentid,datetime(timestamp mb by firebase),no postId
 
-    public String commentid;
-    public String postID;
-    public String userid;
-    public String text;
+    public String commentId;
+    public String userId;
+    public String commentText;
+    public Timestamp timestamp; //db will initialize it,when creating
 
-    public Comment(){
-
+    public Comment(){}
+    public  Comment(String _commentId,String _userId,String _commentText,Timestamp _timestamp){
+        commentId = _commentId;
+        userId = _userId;
+        commentText = _commentText;
+        timestamp = _timestamp;
     }
-    public  Comment(String _commentid,String _postID,String _userid,String _text){
-        commentid = _commentid;
-        postID = _postID;
-        userid = _userid;
-        text = _text;
+    public String getID(){
+        return commentId;
     }
-
-    public String getID(){return commentid;}
-
-    public void setID(String id){
-        commentid = id;
+    public void setID(String _commentId){
+        commentId = _commentId;
     }
 }

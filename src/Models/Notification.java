@@ -10,6 +10,10 @@ package Models;
  * @author inspiron
  */
 public class Notification implements IModel{
+    //We call it as ACtivity
+    //viewed(booleean),notifID,postId,sharerID,viewerID,dateTime(Timestamp)
+    //no msg text feature
+    //tobeshown(boolean),if blocked ,make query on blokuser action,
     public String NotifID;
     public String msg;
     public String sender;

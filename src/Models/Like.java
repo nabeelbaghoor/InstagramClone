@@ -1,20 +1,25 @@
 package Models;
+
+import java.sql.Timestamp;
+
 //Yaar isko delete kr lete. Iski zrorat nhi.
 public class Like implements IModel{
-    public String likeID;
-    public String postID;
-    public String userID;
 
-    public Like(){
+    //userid,likeid,datetime(timestamp mb by firebase),no postid
+    public String likeId;
+    public String userId;
+    public Timestamp timestamp; //db will initialize it,when creating
 
+    public Like(){}
+    public Like(String _likeId,String _userId,Timestamp _timestamp){
+        likeId = _likeId;
+        userId = _userId;
+        timestamp = _timestamp;
     }
-    public Like(String _likeID,String _postID,String _userID){
-        postID = _likeID;
-        likeID = _postID;
-        userID = _userID;
+    public void setID(String id){
+        likeId = id;
     }
-
-    public void setID(String id){likeID = id; }
-
-    public String getID(){return likeID; }
+    public String getID(){
+        return likeId;
+    }
 }
