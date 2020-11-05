@@ -19,7 +19,7 @@ public class UserOperations implements Operations {
 
     public UserOperations() {
         UserFunctions temp = new UserFunctions();
-        curruser = temp.getUser("User1");
+        curruser = temp.getUser("dLus5uS81GWRv5dT3Ve1");
     }
 
     public boolean removeFollower(String userid) { //Remove from my Followers

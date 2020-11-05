@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Operations obj = new UserOperations();
         User curr = obj.getMyProfile();
-        System.out.println(curr);
+
+        System.out.println(curr.firstName+" "+curr.emailAddress);
     }
 }

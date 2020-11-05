@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Post implements IModel {
     //postid,userid,imagePath(only one enough),dateTime(timstamp),likesList(ids only),commentsList(ids only),
     //  no tagsList(ids only),as no use case for it, and no search feature,so no tagging
-    //post desvcription/text
+    //post description/text
     public String postId;
     public String userId;
     public String imagePath;    //only one image allowed

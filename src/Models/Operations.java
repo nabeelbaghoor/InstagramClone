@@ -30,15 +30,15 @@ public interface Operations {
 
     String getNewsFeedPosts();
 
-    User getMyProfile();
+    User getMyProfile();                    //Done
 
-    User getProfileInfo(String userid);
+    User getProfileInfo(String userid);     //Done
 
-    ArrayList<String> getFollowers();
+    ArrayList<String> getFollowers();       //Done
 
-    ArrayList<String> getBlocked();
+    ArrayList<String> getBlocked();         //Done
 
-    ArrayList<String> getFollowing();
+    ArrayList<String> getFollowing();       //Done
 
     boolean addFollowing(String userid); //Admin function to add followers
 }
