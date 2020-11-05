@@ -1,15 +1,15 @@
 package Models;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
-public class Post implements IModel{
+public class Post extends Model{
     public String postID;
     public String myID;
-    public Vector<String> likedBy;
+    public ArrayList<String> likedBy;
     public Post(){
 
     }
-    public Post(String _postID,String _myID,Vector<String> _likedBy){
+    public Post(String _postID,String _myID,ArrayList<String> _likedBy){
         postID = _postID;
         myID = _myID;
         likedBy = _likedBy;

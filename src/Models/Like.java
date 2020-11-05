@@ -1,6 +1,6 @@
 package Models;
 //Yaar isko delete kr lete. Iski zrorat nhi.
-public class Like implements IModel{
+public class Like extends Model{
     public String likeID;
     public String postID;
     public String userID;

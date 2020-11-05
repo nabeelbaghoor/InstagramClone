@@ -9,7 +9,7 @@ package Models;
  *
  * @author inspiron
  */
-public class Notification implements IModel{
+public class Notification extends Model{
     public String NotifID;
     public String msg;
     public String sender;

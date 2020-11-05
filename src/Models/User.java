@@ -1,18 +1,18 @@
 package Models;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
-public class User implements IModel{
+public class User extends Model{
 
     public String myid;
     public String username;
-    public Vector<String> followers;
-    public Vector<String> blockedList;
-    public Vector<String> followingList;
+    public ArrayList<String> followers;
+    public ArrayList<String> blockedList;
+    public ArrayList<String> followingList;
     public User(){
 
     }
-    public User(String _myid,String _username,Vector<String> _followers,Vector<String> _blockedList,Vector<String> _followingList){
+    public User(String _myid, String _username, ArrayList<String> _followers, ArrayList<String> _blockedList, ArrayList<String> _followingList){
         myid = _myid;
         username = _username;
         followers = _followers;

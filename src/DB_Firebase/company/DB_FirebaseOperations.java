@@ -14,7 +14,7 @@ import java.util.concurrent.ExecutionException;
 public class DB_FirebaseOperations implements IDB_FirebaseOperations {
 
     @Override
-    public IModel getObject(String objectId,ModelType modelType) throws ExecutionException, InterruptedException {
+    public Model getObject(String objectId, ModelType modelType) throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();
         System.out.println("modelType.toString()"+modelType.toString());
         DocumentReference docRef  = db.collection(modelType.toString()).document(objectId);
@@ -24,7 +24,7 @@ public class DB_FirebaseOperations implements IDB_FirebaseOperations {
         DocumentSnapshot document = future.get();
         if (document.exists()) {
             // convert document to User
-            IModel _object = documentToClassType(document,modelType);
+            Model _object = documentToClassType(document,modelType);
             System.out.println(_object);
             return _object;
         } else {
@@ -32,7 +32,7 @@ public class DB_FirebaseOperations implements IDB_FirebaseOperations {
             return null;
         }
     }
-    public IModel documentToClassType(DocumentSnapshot document,ModelType modelType)
+    public Model documentToClassType(DocumentSnapshot document,ModelType modelType)
     {
         switch (modelType)
         {
@@ -50,8 +50,27 @@ public class DB_FirebaseOperations implements IDB_FirebaseOperations {
                 return null;
         }
     }
+
+   /* public Class modelTypeToClassType(ModelType modelType)
+    {
+        switch (modelType)
+        {
+            case Likes:
+                return Like.class;
+            case Posts:
+                return Post.class;
+            case Users:
+                return User.class;
+            case Comments:
+                return Comment.class;
+            case Notifications:
+                return Notification.class;
+            default:
+                return null;
+        }
+    }*/
     @Override
-    public IModel getObjectsList(HashMap<String, String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException {
+    public Model getObjectsList(HashMap<String, String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException {
         return null;
         //use where in
     }
@@ -59,12 +78,12 @@ public class DB_FirebaseOperations implements IDB_FirebaseOperations {
     //see extra id attribute which it is creating                   //..............ERROR
     /*Firebase will create documentId(objectId) ,and we will assign it*/
     @Override
-    public String addObject(IModel object,ModelType modelType) throws ExecutionException, InterruptedException {
+    public String addObject(Model object,ModelType modelType) throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();
         // Add document data after generating an id.
         DocumentReference addedDocRef = db.collection(modelType.toString()).document();
         object.setID(addedDocRef.getId());
-        ApiFuture<WriteResult> writeResult = addedDocRef.set(object);
+        ApiFuture<WriteResult> writeResult = addedDocRef.set(((Notification) object));
         System.out.println("Successfully updated at: " + writeResult.get().getUpdateTime());
         return  object.getID();
     }

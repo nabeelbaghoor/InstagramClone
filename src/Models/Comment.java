@@ -1,6 +1,6 @@
 package Models;
 
-public class Comment implements IModel{
+public class Comment extends Model{
 
     public String commentid;
     public String postID;

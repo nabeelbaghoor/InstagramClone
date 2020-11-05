@@ -23,7 +23,7 @@ public class Main {
 
 
         String currentPostId = "CLOvb3RxrWp8Ue0nfCmM";
-        System.out.println("Post Data:\t" + ((Post) _IDB.getObject(currentPostId, IDB_FirebaseOperations.ModelType.Posts)).postID);
+        System.out.println("Post Data:\t" + ((Post) _IDB.getObject(currentPostId, IDB_FirebaseOperations.ModelType.Posts)).likedBy.size());
     }
 }
 
