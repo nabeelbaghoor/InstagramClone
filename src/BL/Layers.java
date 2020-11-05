@@ -3,6 +3,17 @@ package BL;
 import DB_Firebase.company.DB_FirebaseOperations;
 import Models.IDB_Operations;
 
-public interface Layers {
-    IDB_Operations DBLayer = new DB_FirebaseOperations();
+import java.io.IOException;
+
+public class Layers {
+    public IDB_Operations DBLayer = new DB_FirebaseOperations();
+
+    public Layers(){
+        try {
+            DBLayer.initDB();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -19,7 +19,7 @@ public class UserOperations implements Operations{
 
     public UserOperations(){
         UserFunctions temp = new UserFunctions();
-        curruser = temp.getUser("User1");
+        curruser = temp.getUser("KLyQtLWHU1zpXnCa1nO0");
     }
 
     public boolean removeFollower(String userid){ //Remove from my Followers
@@ -95,15 +95,20 @@ public class UserOperations implements Operations{
         return temp.getUser(userid);
     }
     
-    public ArrayList<String> getFollowers(){
-        return curruser.followers;
+    public ArrayList<User> getFollowers(){
+        UserFunctions temp = new UserFunctions();
+        return temp.getUserList(curruser.followers);
     }
     
-    public ArrayList<String> getBlocked(){
-        return curruser.blockedList;
+    public ArrayList<User> getBlocked(){
+        UserFunctions temp = new UserFunctions();
+        return temp.getUserList(curruser.blockedList);
     }
-    public ArrayList<String> getFollowing(){
-        return curruser.followingList;
+
+    public ArrayList<User> getFollowing(){
+        UserFunctions temp = new UserFunctions();
+        return temp.getUserList(curruser.followingList);
     }
+
     public boolean addFollowing(String userid){return true;} //Admin function to add followers
 }

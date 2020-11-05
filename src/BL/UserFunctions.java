@@ -1,12 +1,17 @@
 package BL;
 
+import java.rmi.MarshalledObject;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 import Models.IDB_Operations;
+import Models.IModel;
 import Models.User;
 
-public class UserFunctions implements Layers{
+import static Models.IDB_Operations.ModelType.Users;
+
+public class UserFunctions{
+    private Layers DB = new Layers();
 
     public UserFunctions(){ }
 
@@ -58,12 +63,27 @@ public class UserFunctions implements Layers{
     public User getUser(String user1) {
         User temp = null;
         try{
-            temp = (User) DBLayer.getObject(user1, IDB_Operations.ModelType.Users);
+            temp = (User) DB.DBLayer.getObject(user1, Users);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
         return temp;
+    }
+
+    public ArrayList<User> getUserList(ArrayList<String> arr) {
+        ArrayList<IModel> temp = null;
+        ArrayList<User> ans = new ArrayList<>();
+        try{
+            temp =  DB.DBLayer.getObjectsList(arr, Users);
+            for (int i = 0; i < temp.size(); i++)
+                ans.add((User) temp.get(i));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return ans;
     }
 }
