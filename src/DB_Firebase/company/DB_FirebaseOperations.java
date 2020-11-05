@@ -2,13 +2,12 @@ package DB_Firebase.company;
 
 import Models.*;
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
+import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class DB_FirebaseOperations implements IDB_FirebaseOperations {
@@ -16,7 +15,6 @@ public class DB_FirebaseOperations implements IDB_FirebaseOperations {
     @Override
     public IModel getObject(String objectId, ModelType modelType) throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();
-        System.out.println("modelType.toString()"+modelType.toString());
         DocumentReference docRef  = db.collection(modelType.toString()).document(objectId);
         // asynchronously retrieve the document
         ApiFuture<DocumentSnapshot> future = docRef.get();
@@ -50,8 +48,16 @@ public class DB_FirebaseOperations implements IDB_FirebaseOperations {
                 return null;
         }
     }
+    public ArrayList<IModel> queryDocumentsToClassTypes(List<QueryDocumentSnapshot> documents, ModelType modelType)
+    {
+        ArrayList<IModel> _objects = new ArrayList<>();
+        for (QueryDocumentSnapshot _document : documents) {
+            _objects.add(documentToClassType(_document,modelType));
+        }
+        return _objects;
+    }
 
-   /* public Class modelTypeToClassType(ModelType modelType)
+    /* public Class modelTypeToClassType(ModelType modelType)
     {
         switch (modelType)
         {
@@ -69,10 +75,27 @@ public class DB_FirebaseOperations implements IDB_FirebaseOperations {
                 return null;
         }
     }*/
+    //This function can just return 10 objects at a time
+    //will update it later
     @Override
-    public IModel getObjectsList(HashMap<String, String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException {
-        return null;
-        //use where in
+    public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException {
+        Firestore db = FirestoreClient.getFirestore();
+        // Create a reference to the cities collection
+        CollectionReference docsRef  = db.collection(modelType.toString());
+        // Create a query against the collection.
+        Query query = docsRef.whereIn(FieldPath.documentId(),objectIds);
+        // retrieve  query results asynchronously using query.get()
+        ApiFuture<QuerySnapshot> querySnapshot = query.get();
+        ArrayList<IModel> _objects = queryDocumentsToClassTypes(querySnapshot.get().getDocuments(),modelType);
+        if (!_objects.isEmpty()) {
+            for (IModel _object : _objects) {
+                System.out.println(_object.getID());
+            }
+            return _objects;
+        } else {
+            System.out.println("No such documents!");
+            return null;
+        }
     }
 
     //see extra id attribute which it is creating                   //..............ERROR
@@ -89,9 +112,19 @@ public class DB_FirebaseOperations implements IDB_FirebaseOperations {
     }
 
     @Override
-    public boolean removeObject(String objectId,ModelType modelType) {
-
-        return false;
+    public boolean removeObject(String objectId,ModelType modelType) throws ExecutionException, InterruptedException {
+        Firestore db = FirestoreClient.getFirestore();
+        // asynchronously delete a document
+        ApiFuture<WriteResult> writeResult = db.collection(modelType.toString()).document(objectId).delete();
+        //maybe it works
+        if (!writeResult.isCancelled()) {
+            System.out.println("Update time : " + writeResult.get().getUpdateTime());
+            System.out.println("document removed Successfully");
+            return true;
+        } else {
+            System.out.println("Failed to Remove document!");
+            return false;
+        }
     }
 
     @Override

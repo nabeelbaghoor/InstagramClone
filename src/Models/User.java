@@ -22,4 +22,5 @@ public class User implements IModel{
 
     public String getID(){return myid;}
     public void setID(String id){myid = id; }
+
 }

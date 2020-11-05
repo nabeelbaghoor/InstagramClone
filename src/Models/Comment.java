@@ -20,5 +20,6 @@ public class Comment implements IModel{
     public String getID(){return commentid;}
 
     public void setID(String id){
-        commentid = id; }
+        commentid = id;
+    }
 }

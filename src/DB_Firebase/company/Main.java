@@ -1,7 +1,5 @@
 package DB_Firebase.company;
 
-import Models.User;
-
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
@@ -22,9 +20,21 @@ public class Main {
         _likedBy.add("pUf8yYkacNgeRufL8v8O");
         _IDB.addObject(new Post(null,"TmfogDtTYA4kk5SF5gZv",_likedBy),IDB_FirebaseOperations.ModelType.Posts);*/
 
+       /* IModel _object =  _IDB.getObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);
+        System.out.println(_object.getID());*/
 
-        String currentUserId = "TmfogDtTYA4kk5SF5gZv";
-        System.out.println("User Data:\t" + ((User) _IDB.getObject(currentUserId, IDB_FirebaseOperations.ModelType.Users)).username);
+        /*ArrayList<String> objectIds = new  ArrayList<String>();
+        objectIds.add("TmfogDtTYA4kk5SF5gZv");
+        objectIds.add("UBlkTuejFwjTJavHRSi3");
+        for (String _object : objectIds) {
+            System.out.println(_object);
+        }
+        ArrayList<IModel> _objects =  _IDB.getObjectsList(objectIds, IDB_FirebaseOperations.ModelType.Users);
+        for (IModel _object : _objects) {
+            System.out.println(((User)_object).username);
+        }*/
+
+        /*_IDB.removeObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);*/
     }
 }
 
