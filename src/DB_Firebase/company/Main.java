@@ -1,13 +1,18 @@
 package DB_Firebase.company;
 
+import Models.IDB_Operations;
+import Models.IModel;
+import Models.User;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public class Main {
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
-       FirebaseMethods.initFirebase();
-       IDB_FirebaseOperations _IDB = new DB_FirebaseOperations();
+       IDB_Operations _IDB = new DB_FirebaseOperations();
+       _IDB.initDB();
         //  _IDB.addObject(new User(null,"Sarim",null,null,null), IDB_FirebaseOperations.ModelType.Users);
         // _IDB.addObject(new User(null,"Ali",null,null,null),IDB_FirebaseOperations.ModelType.Users);
         // _IDB.addObject(new User(null,"Faizan",null, null,null),IDB_FirebaseOperations.ModelType.Users);
@@ -25,16 +30,13 @@ public class Main {
         System.out.println(_object.getID());*/
 
         //get list of objects
-        /*ArrayList<String> objectIds = new  ArrayList<String>();
+        ArrayList<String> objectIds = new  ArrayList<String>();
         objectIds.add("TmfogDtTYA4kk5SF5gZv");
         objectIds.add("UBlkTuejFwjTJavHRSi3");
-        for (String _object : objectIds) {
-            System.out.println(_object);
-        }
-        ArrayList<IModel> _objects =  _IDB.getObjectsList(objectIds, IDB_FirebaseOperations.ModelType.Users);
+        ArrayList<IModel> _objects =  _IDB.getObjectsList(objectIds, IDB_Operations.ModelType.Users);
         for (IModel _object : _objects) {
             System.out.println(((User)_object).username);
-        }*/
+        }
 
         //remove object
         /*_IDB.removeObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);*/

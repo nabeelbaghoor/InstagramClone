@@ -2,15 +2,33 @@ package DB_Firebase.company;
 
 import Models.*;
 import com.google.api.core.ApiFuture;
+import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.*;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class DB_FirebaseOperations implements IDB_FirebaseOperations {
+public class DB_FirebaseOperations implements IDB_Operations {
+
+    @Override
+    public void initDB() throws IOException {
+        FileInputStream serviceAccount =
+                new FileInputStream(".\\instagramclone-58441-firebase-adminsdk-taebo-2cba3bad0c.json");
+
+        FirebaseOptions options = new FirebaseOptions.Builder()
+                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                .build();
+        //.setDatabaseUrl("https://instagramclone-58441.firebaseio.com")
+
+        FirebaseApp.initializeApp(options);
+    }
     @Override
     public IModel getObject(String objectId, ModelType modelType) throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();

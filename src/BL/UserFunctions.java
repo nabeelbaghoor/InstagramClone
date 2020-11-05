@@ -1,10 +1,9 @@
 package BL;
 
 import java.util.ArrayList;
-import java.util.Vector;
 import java.util.concurrent.ExecutionException;
 
-import DB_Firebase.company.IDB_FirebaseOperations;
+import Models.IDB_Operations;
 import Models.User;
 
 public class UserFunctions implements Layers{
@@ -59,7 +58,7 @@ public class UserFunctions implements Layers{
     public User getUser(String user1) {
         User temp = null;
         try{
-            temp = (User) DBLayer.getObject(user1, IDB_FirebaseOperations.ModelType.Users);
+            temp = (User) DBLayer.getObject(user1, IDB_Operations.ModelType.Users);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
