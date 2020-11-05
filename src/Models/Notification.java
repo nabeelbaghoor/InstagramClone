@@ -14,15 +14,17 @@ public class Notification implements IModel{
     public String msg;
     public String sender;
     public String receiver;
+    public String postID;
 
     public Notification(){
 
     }
-    public  Notification(String _NotifID,String _msg,String _sender,String _receiver){
+    public  Notification(String _NotifID,String _msg,String _sender,String _receiver, String _postID){
         NotifID = _NotifID;
         msg = _msg;
         sender = _sender;
         receiver = _receiver;
+        postID = _postID;
     }
     public String getID(){return NotifID;}
 

@@ -1,10 +1,10 @@
 
-package BL.src.instaclone;
+package BL;
 
 
 import Models.User;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public interface Operations{
     public boolean removeFollower(String userid);
@@ -22,8 +22,8 @@ public interface Operations{
     public String getNewsFeedPosts();
     public User getMyProfile();
     public User getProfileInfo(String userid);
-    public Vector<String> getFollowers();
-    public Vector<String> getBlocked();
-    public Vector<String> getFollowing();
+    public ArrayList<String> getFollowers();
+    public ArrayList<String> getBlocked();
+    public ArrayList<String> getFollowing();
     public boolean addFollowing(String userid); //Admin function to add followers
 }

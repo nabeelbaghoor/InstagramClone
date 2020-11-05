@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BL.src.instaclone;
+package BL;
 
 /**
  *
  * @author inspiron
  */
-public interface Layers {
-     
+public class Functions {
+
 }

@@ -1,4 +1,4 @@
-package BL.src.instaclone;
+package BL;
 
 import Models.Notification;
 

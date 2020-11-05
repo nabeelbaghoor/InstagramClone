@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BL.src.instaclone;
+package BL;
 
 import Models.User;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  *
@@ -95,14 +95,14 @@ public class UserOperations implements Operations{
         return temp.getUser(userid);
     }
     
-    public Vector<String> getFollowers(){
+    public ArrayList<String> getFollowers(){
         return curruser.followers;
     }
     
-    public Vector<String> getBlocked(){
+    public ArrayList<String> getBlocked(){
         return curruser.blockedList;
     }
-    public Vector<String> getFollowing(){
+    public ArrayList<String> getFollowing(){
         return curruser.followingList;
     }
     public boolean addFollowing(String userid){return true;} //Admin function to add followers

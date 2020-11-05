@@ -9,9 +9,11 @@ public class User implements IModel{
     public ArrayList<String> followers;
     public ArrayList<String> blockedList;
     public ArrayList<String> followingList;
+
     public User(){
 
     }
+
     public User(String _myid, String _username, ArrayList<String> _followers, ArrayList<String> _blockedList, ArrayList<String> _followingList){
         myid = _myid;
         username = _username;
@@ -21,6 +23,7 @@ public class User implements IModel{
     }
 
     public String getID(){return myid;}
+
     public void setID(String id){myid = id; }
 
 }

@@ -6,6 +6,7 @@ public class Post implements IModel{
     public String postID;
     public String myID;
     public ArrayList<String> likedBy;
+
     public Post(){
 
     }
