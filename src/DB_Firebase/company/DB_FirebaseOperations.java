@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class DB_FirebaseOperations implements IDB_FirebaseOperations {
-
     @Override
     public IModel getObject(String objectId, ModelType modelType) throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();

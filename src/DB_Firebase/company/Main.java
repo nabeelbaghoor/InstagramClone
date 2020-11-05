@@ -20,9 +20,11 @@ public class Main {
         _likedBy.add("pUf8yYkacNgeRufL8v8O");
         _IDB.addObject(new Post(null,"TmfogDtTYA4kk5SF5gZv",_likedBy),IDB_FirebaseOperations.ModelType.Posts);*/
 
+        //add object
        /* IModel _object =  _IDB.getObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);
         System.out.println(_object.getID());*/
 
+        //get list of objects
         /*ArrayList<String> objectIds = new  ArrayList<String>();
         objectIds.add("TmfogDtTYA4kk5SF5gZv");
         objectIds.add("UBlkTuejFwjTJavHRSi3");
@@ -34,6 +36,7 @@ public class Main {
             System.out.println(((User)_object).username);
         }*/
 
+        //remove object
         /*_IDB.removeObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);*/
     }
 }
