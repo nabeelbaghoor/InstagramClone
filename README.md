@@ -3,8 +3,8 @@ We are developing a simpler and abridged version of Instagram for a University P
 
 # Students Assigned to different Layers:
 Ali Humza   DB_Text
-Rehman Butt
+Rehman Butt UI_Swing
 Anser Butt  BL(Business Layer)
-Usama Zahid
-Haseeb Ahmed
+Usama Zahid UI_Swing + UI_Console
+Haseeb Ahmed UI_Swing
 Nabeel Hassan   DB_Firebase
