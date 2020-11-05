@@ -1,8 +1,9 @@
 package Models;
+
 import java.security.Timestamp;
 import java.util.ArrayList;
 
-public class User implements IModel{
+public class User implements IModel {
 
     /*
     //as on page,USerOperations
@@ -44,7 +45,9 @@ public class User implements IModel{
     public ArrayList<String> blockedUsersList;
     public ArrayList<String> followingsList;
 
-    public User(){}
+    public User() {
+    }
+
     public User(
             String userId,
             String _username,
@@ -58,7 +61,7 @@ public class User implements IModel{
             String _bio,
             Timestamp _timestamp,
             String _imagePath
-    ){
+    ) {
         username = _username;
         emailAddress = _emailAddress;
         firstName = _firstName;
@@ -71,10 +74,12 @@ public class User implements IModel{
         timestamp = _timestamp;
         imagePath = _imagePath;
     }
-    public String getID(){
+
+    public String getID() {
         return userId;
     }
-    public void setID(String _userId){
+
+    public void setID(String _userId) {
         userId = _userId;
     }
 }

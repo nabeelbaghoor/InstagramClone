@@ -1,4 +1,3 @@
-
 package BL;
 
 
@@ -6,24 +5,42 @@ import Models.User;
 
 import java.util.ArrayList;
 
-public interface Operations{
-    public boolean removeFollower(String userid);
-    public boolean blockUser(String userid);
-    public boolean unblockUser(String userid);
-    public boolean followUser(String userid);
-    public boolean unfollowUser(String userid);
-    public boolean likePost(String postid,String userid);   //PostID and UserID of person who issued post
-    public boolean unlikePost(String postid);
-    public boolean addPost(String postdata);
-    public boolean removePost(String postid);
-    public boolean sharePost(String postid, String userid);
-    public boolean addComment(String postid, String comtext);
-    public boolean editUserData(String data);
-    public String getNewsFeedPosts();
-    public User getMyProfile();
-    public User getProfileInfo(String userid);
-    public ArrayList<String> getFollowers();
-    public ArrayList<String> getBlocked();
-    public ArrayList<String> getFollowing();
-    public boolean addFollowing(String userid); //Admin function to add followers
+public interface Operations {
+    boolean removeFollower(String userid);
+
+    boolean blockUser(String userid);
+
+    boolean unblockUser(String userid);
+
+    boolean followUser(String userid);
+
+    boolean unfollowUser(String userid);
+
+    boolean likePost(String postid, String userid);   //PostID and UserID of person who issued post
+
+    boolean unlikePost(String postid);
+
+    boolean addPost(String postdata);
+
+    boolean removePost(String postid);
+
+    boolean sharePost(String postid, String userid);
+
+    boolean addComment(String postid, String comtext);
+
+    boolean editUserData(String data);
+
+    String getNewsFeedPosts();
+
+    User getMyProfile();
+
+    User getProfileInfo(String userid);
+
+    ArrayList<String> getFollowers();
+
+    ArrayList<String> getBlocked();
+
+    ArrayList<String> getFollowing();
+
+    boolean addFollowing(String userid); //Admin function to add followers
 }

@@ -8,12 +8,12 @@ package BL;
 import Models.Notification;
 
 /**
- *
  * @author inspiron
  */
 public class PostOperation {
 
-    PostOperation(){ }
+    PostOperation() {
+    }
 
     public boolean sendNotification(String userid, String myid, String postid) {
         Notification obj = new Notification();
@@ -25,7 +25,7 @@ public class PostOperation {
         return temp.sendNotification(obj);
     }
 
-    public boolean addLike(String userid, String postid){
+    public boolean addLike(String userid, String postid) {
         //DB Code
         return true;
     }
@@ -40,7 +40,7 @@ public class PostOperation {
         return temp.removeNotification(obj);
     }
 
-    public boolean unLike(String myid, String postid){
+    public boolean unLike(String myid, String postid) {
         //DB Code
         return true;
     }

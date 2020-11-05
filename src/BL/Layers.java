@@ -1,6 +1,6 @@
 package BL;
 
-import DB_Firebase.company.DB_FirebaseOperations;
+import DB_Firebase.DB_FirebaseOperations;
 import Models.IDB_Operations;
 
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Layers {
     public IDB_Operations DBLayer = new DB_FirebaseOperations();
 
-    public Layers(){
+    public Layers() {
         try {
             DBLayer.initDB();
         } catch (IOException e) {

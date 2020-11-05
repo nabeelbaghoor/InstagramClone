@@ -6,7 +6,6 @@
 package BL;
 
 /**
- *
  * @author inspiron
  */
 public class Functions {

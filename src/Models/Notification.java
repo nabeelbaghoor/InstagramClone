@@ -8,10 +8,9 @@ package Models;
 import java.security.Timestamp;
 
 /**
- *
  * @author inspiron
  */
-public class Notification implements IModel{
+public class Notification implements IModel {
     //We call it as ACtivity
     //viewed(booleean),notifID,postId,sharerID,viewerID,dateTime(Timestamp)
     //no msg text feature
@@ -29,9 +28,11 @@ public class Notification implements IModel{
     public boolean shouldShow;
     Timestamp timestamp;
 
-    public Notification(){}
-    public  Notification(String _notificationId,String _postId,String _sharerId,String _viewerId,
-                         boolean _isViewed,boolean _shouldShow,Timestamp _timestamp){
+    public Notification() {
+    }
+
+    public Notification(String _notificationId, String _postId, String _sharerId, String _viewerId,
+                        boolean _isViewed, boolean _shouldShow, Timestamp _timestamp) {
         notificationId = _notificationId;
         postId = _postId;
         sharerId = _sharerId;
@@ -40,10 +41,12 @@ public class Notification implements IModel{
         shouldShow = _shouldShow;
         timestamp = _timestamp;
     }
-    public String getID(){
+
+    public String getID() {
         return notificationId;
     }
-    public void setID(String _notificationId){
+
+    public void setID(String _notificationId) {
         notificationId = _notificationId;
     }
 }

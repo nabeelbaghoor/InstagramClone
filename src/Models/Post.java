@@ -3,7 +3,7 @@ package Models;
 import java.security.Timestamp;
 import java.util.ArrayList;
 
-public class Post implements IModel{
+public class Post implements IModel {
     //postid,userid,imagePath(only one enough),dateTime(timstamp),likesList(ids only),commentsList(ids only),
     //  no tagsList(ids only),as no use case for it, and no search feature,so no tagging
     //post desvcription/text
@@ -14,9 +14,11 @@ public class Post implements IModel{
     public ArrayList<String> commentsList; //list of commentId's
     Timestamp timestamp;
 
-    public Post(){}
-    public Post(String _postId,String _userId,String _imagePath,ArrayList<String> _likesList,
-                ArrayList<String> _commentsList,Timestamp _timestamp){
+    public Post() {
+    }
+
+    public Post(String _postId, String _userId, String _imagePath, ArrayList<String> _likesList,
+                ArrayList<String> _commentsList, Timestamp _timestamp) {
         postId = _postId;
         userId = _userId;
         imagePath = _imagePath;
@@ -24,10 +26,12 @@ public class Post implements IModel{
         commentsList = _commentsList;
         timestamp = _timestamp;
     }
-    public String getID(){
+
+    public String getID() {
         return postId;
     }
-    public void setID(String _postId){
+
+    public void setID(String _postId) {
         postId = _postId;
     }
 }
