@@ -25,46 +25,46 @@ public class UserOperations implements Operations{
     public boolean removeFollower(String userid){ //Remove from my Followers
         UserFunctions temp = new UserFunctions();
         if (curruser != null)
-            return temp.removeFollowing(userid,curruser.myid,curruser.followingList);
+            return temp.removeFollowing(userid,curruser.userId, curruser.followingsList);
         return false;
     }
 
     public boolean unfollowUser(String userid){ //Unfollow a user
         UserFunctions temp = new UserFunctions();
         if (curruser != null)
-            return temp.unfollowerUser(userid,curruser.myid,curruser.followers);
+            return temp.unfollowerUser(userid,curruser.userId, curruser.followersList);
         return false;
     }
 
     public boolean followUser(String userid){   //Follow new User
         UserFunctions temp = new UserFunctions();
         if (curruser != null)
-        return temp.followerUser(userid,curruser.myid,curruser.followers);
+        return temp.followerUser(userid,curruser.userId, curruser.followersList);
         return false;
     }
 
     public boolean blockUser(String userid){    //Block User
         UserFunctions temp = new UserFunctions();
         if (curruser != null)
-            return temp.blockFollower(userid,curruser.myid,curruser.blockedList);
+            return temp.blockFollower(userid,curruser.userId, curruser.blockedUsersList);
         return false;
     }
 
     public boolean unblockUser(String userid){
         UserFunctions temp = new UserFunctions();
         if (curruser != null)
-            return temp.unBlockFollower(userid,curruser.myid,curruser.blockedList);
+            return temp.unBlockFollower(userid,curruser.userId, curruser.blockedUsersList);
         return false;
     }
 
     public boolean likePost(String postid,String userid){
         if (curruser != null){
             PostOperation temp = new PostOperation();
-            if(temp.sendNotification(userid,curruser.myid,postid,"Liked"))
-                if(temp.addLike(curruser.myid,postid))
+            if(temp.sendNotification(userid,curruser.userId,postid))
+                if(temp.addLike(curruser.userId,postid))
                     return true;
                 else
-                    temp.removeNotification(userid,curruser.myid,postid,"Liked");
+                    temp.removeNotification(userid,curruser.userId,postid);
         }
         return false;
     }
@@ -72,7 +72,7 @@ public class UserOperations implements Operations{
     public boolean unlikePost(String postid){
         if (curruser != null){
             PostOperation temp = new PostOperation();
-            if(temp.unLike(curruser.myid,postid))
+            if(temp.unLike(curruser.userId,postid))
                 return true;
         }
         return false;
@@ -96,14 +96,14 @@ public class UserOperations implements Operations{
     }
     
     public ArrayList<String> getFollowers(){
-        return curruser.followers;
+        return curruser.followersList;
     }
     
     public ArrayList<String> getBlocked(){
-        return curruser.blockedList;
+        return curruser.blockedUsersList;
     }
     public ArrayList<String> getFollowing(){
-        return curruser.followingList;
+        return curruser.followingsList;
     }
     public boolean addFollowing(String userid){return true;} //Admin function to add followers
 }

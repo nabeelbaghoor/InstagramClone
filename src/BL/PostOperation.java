@@ -15,12 +15,11 @@ public class PostOperation {
 
     PostOperation(){ }
 
-    public boolean sendNotification(String userid, String myid, String postid,String msg) {
+    public boolean sendNotification(String userid, String myid, String postid) {
         Notification obj = new Notification();
-        obj.receiver = userid;
-        obj.msg = msg;
-        obj.sender = myid;
-        obj.postID = postid;
+        obj.viewerId = userid;
+        obj.sharerId = myid;
+        obj.postId = postid;
 
         NotificationFunction temp = new NotificationFunction();
         return temp.sendNotification(obj);
@@ -31,12 +30,11 @@ public class PostOperation {
         return true;
     }
 
-    public boolean removeNotification(String userid, String myid, String postid,String msg) {
+    public boolean removeNotification(String userid, String myid, String postid) {
         Notification obj = new Notification();
-        obj.receiver = userid;
-        obj.sender = msg;
-        obj.sender = myid;
-        obj.postID = postid;
+        obj.viewerId = userid;
+        obj.sharerId = myid;
+        obj.postId = postid;
 
         NotificationFunction temp = new NotificationFunction();
         return temp.removeNotification(obj);
