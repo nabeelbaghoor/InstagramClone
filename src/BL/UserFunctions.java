@@ -19,27 +19,9 @@ public class UserFunctions {
     public UserFunctions() {
     }
 
-    public boolean removeFollowing(String userid, String myid, ArrayList<String> followers) {
-        if (followers.contains(userid)) {
-            //DB Code
-            followers.remove(userid);
-            return true;
-        }
-        return false;
-    }
-
     public boolean followerUser(String userid, String myid, ArrayList<String> followers) {
         if (!followers.contains(userid)) {
             followers.add(userid);
-            //DB Code
-            return true;
-        }
-        return false;
-    }
-
-    public boolean unfollowerUser(String userid, String myid, ArrayList<String> followers) {
-        if (followers.contains(userid)) {
-            followers.remove(userid);
             //DB Code
             return true;
         }
@@ -55,16 +37,6 @@ public class UserFunctions {
         return false;
 
     }
-
-    public boolean unBlockFollower(String userid, String myid, ArrayList<String> blockedList) {
-        if (blockedList.contains(userid)) {
-            blockedList.remove(userid);
-            //DB COde
-            return true;
-        }
-        return false;
-    }
-
 
     public User getUser(String user1) {
         User temp = null;
@@ -110,8 +82,6 @@ public class UserFunctions {
 
         if (!data.emailAddress.equals(curr.emailAddress))
             map.put("emailAddress",data.emailAddress);
-        if (!data.username.equals(curr.username))
-            map.put("username",data.username);
         if (!data.bio.equals(curr.bio))
             map.put("bio",data.bio);
         if (!data.dateOfBirth.equals(curr.dateOfBirth))
@@ -130,5 +100,17 @@ public class UserFunctions {
             map.put("phoneNumber",data.phoneNumber);
 
         return DB.DBLayer.updateObject(data.userId,map, Users);
+    }
+
+    public boolean removeFromList(String myID, String userid, String key) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put(key,userid);
+        return DB.DBLayer.updateArrayObject(myID,map,IDB_Operations.UpdateOperation.Remove,Users);
+    }
+
+    public boolean addToList(String myID, String userid, String key) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put(key,userid);
+        return DB.DBLayer.updateArrayObject(myID,map,IDB_Operations.UpdateOperation.Add,Users);
     }
 }

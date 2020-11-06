@@ -17,74 +17,88 @@ import java.util.ArrayList;
 
 public class UserOperations implements Operations {
     private User curruser;
+    private UserFunctions uFunc;
+    private PostOperation pOperations;
 
     public UserOperations() {
-        UserFunctions temp = new UserFunctions();
-        curruser = temp.getUser("dLus5uS81GWRv5dT3Ve1");
+        uFunc = new UserFunctions();
+        pOperations = new PostOperation();
+        curruser = uFunc.getUser("dLus5uS81GWRv5dT3Ve1");
     }
 
     public boolean removeFollower(String userid) { //Remove from my Followers
-        UserFunctions temp = new UserFunctions();
-        if (curruser != null)
-            return temp.removeFollowing(userid, curruser.userId, curruser.followingsList);
-        return false;
+        if (curruser != null){
+            if (curruser.followersList.contains(userid))
+                if (uFunc.removeFromList(curruser.userId,userid,"followersList"))
+                    return curruser.followersList.remove(userid);
+        }
+            return false;
     }
 
     public boolean unfollowUser(String userid) { //Unfollow a user
-        UserFunctions temp = new UserFunctions();
-        if (curruser != null)
-            return temp.unfollowerUser(userid, curruser.userId, curruser.followersList);
+        if (curruser != null){
+            if (curruser.followingsList.contains(userid))
+                if (uFunc.removeFromList(curruser.userId,userid,"followingsList"))
+                    return curruser.followingsList.remove(userid);
+        }
         return false;
     }
 
     public boolean followUser(String userid) {   //Follow new User
-        UserFunctions temp = new UserFunctions();
-        if (curruser != null)
-            return temp.followerUser(userid, curruser.userId, curruser.followersList);
+        if (curruser != null){
+            if (!curruser.followingsList.contains(userid))
+                if (uFunc.addToList(curruser.userId,userid,"followingsList"))
+                    return curruser.followingsList.remove(userid);
+        }
         return false;
     }
 
     public boolean blockUser(String userid) {    //Block User
-        UserFunctions temp = new UserFunctions();
-        if (curruser != null)
-            return temp.blockFollower(userid, curruser.userId, curruser.blockedUsersList);
+        if (curruser != null){
+            if (!curruser.blockedUsersList.contains(userid))
+                if (uFunc.addToList(curruser.userId,userid,"blockedUsersList"))
+                    return curruser.blockedUsersList.remove(userid);
+        }
         return false;
     }
 
     public boolean unblockUser(String userid) {
-        UserFunctions temp = new UserFunctions();
-        if (curruser != null)
-            return temp.unBlockFollower(userid, curruser.userId, curruser.blockedUsersList);
+        if (curruser != null){
+            if (curruser.blockedUsersList.contains(userid))
+                if (uFunc.removeFromList(curruser.userId,userid,"blockedUsersList"))
+                    return curruser.blockedUsersList.remove(userid);
+        }
         return false;
     }
 
     public boolean likePost(String postid, String userid) {
         if (curruser != null) {
-            PostOperation temp = new PostOperation();
-            if (temp.sendNotification(userid, curruser.userId, postid))
-                if (temp.addLike(curruser.userId, postid))
+            if (pOperations.sendNotification(userid, curruser.userId, postid))
+                if (pOperations.addLike(curruser.userId, postid))
                     return true;
                 else
-                    temp.removeNotification(userid, curruser.userId, postid);
+                    pOperations.removeNotification(userid, curruser.userId, postid);
         }
         return false;
     }
 
     public boolean unlikePost(String postid) {
         if (curruser != null) {
-            PostOperation temp = new PostOperation();
-            return temp.unLike(curruser.userId, postid);
+            return pOperations.unLike(curruser.userId, postid);
         }
         return false;
     }
 
     public boolean addPost(String posturl, String text) {
-        PostOperation temp = new PostOperation();
-        return temp.addPost(posturl,text,curruser.userId);
+        return pOperations.addPost(posturl,text,curruser.userId);
     }
 
     public boolean removePost(String postid) {
-        return true;
+        if (curruser.postList.contains(postid)){
+            if(pOperations.removePost(postid))
+                return curruser.postList.remove(postid);
+        }
+        return false;
     }
 
     public boolean sharePost(String postid, String userid) {
@@ -96,24 +110,21 @@ public class UserOperations implements Operations {
     }
 
     public boolean editUserData(User data) {
-        UserFunctions temp = new UserFunctions();
-         if(temp.editUserData(data, curruser)){
-             curruser = temp.getUser(data.userId);
+         if(uFunc.editUserData(data, curruser)){
+             curruser = uFunc.getUser(data.userId);
              return true;
          }
          return false;
     }
 
     public ArrayList<Post> getNewsFeedPosts() {
-        UserFunctions temp = new UserFunctions();
-        return temp.getPosts(curruser.followingsList);
+        return uFunc.getPosts(curruser.followingsList);
     }
 
     public ArrayList<Post> getNewsFeedPosts(String myid){
-        UserFunctions temp = new UserFunctions();
         ArrayList<String> tempList = new ArrayList<>();
         tempList.add(curruser.userId);
-        return temp.getPosts(tempList);
+        return uFunc.getPosts(tempList);
     }
 
     public User getMyProfile() {
@@ -121,8 +132,7 @@ public class UserOperations implements Operations {
     }
 
     public User getProfileInfo(String userid) {
-        UserFunctions temp = new UserFunctions();
-        return temp.getUser(userid);
+        return uFunc.getUser(userid);
     }
 
     public ArrayList<String> getFollowers() {

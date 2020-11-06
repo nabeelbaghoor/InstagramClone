@@ -3,27 +3,27 @@ package Models;
 import java.util.ArrayList;
 
 public interface Operations {
-    boolean removeFollower(String userid);
+    boolean removeFollower(String userid);  //Done
 
-    boolean blockUser(String userid);
+    boolean blockUser(String userid);  //Done
 
-    boolean unblockUser(String userid);
+    boolean unblockUser(String userid);  //Done
 
-    boolean followUser(String userid);
+    boolean followUser(String userid);  //Done
 
-    boolean unfollowUser(String userid);
+    boolean unfollowUser(String userid);  //Done
 
     boolean likePost(String postid, String userid);             //PostID and UserID of person who issued post
 
     boolean unlikePost(String postid);
 
-    boolean addPost(String posturl, String text);               //Parameter Post URL and Text. Done
-
-    boolean removePost(String postid);
-
     boolean sharePost(String postid, String userid);
 
     boolean addComment(String postid, String comtext);
+
+    boolean addPost(String posturl, String text);   //Done
+
+    boolean removePost(String postid);      //Done
 
     boolean editUserData(User data);        //Done
 
@@ -41,5 +41,5 @@ public interface Operations {
 
     ArrayList<String> getFollowing();       //Done
 
-    boolean addFollowing(String userid);    //Admin function to add followers
+    //boolean addFollowing(String userid);    //Admin function to add followers
 }

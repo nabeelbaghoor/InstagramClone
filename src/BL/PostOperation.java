@@ -81,5 +81,16 @@ public class PostOperation {
         ans.sort((p1,p2)->{return p2.timestamp.getTimestamp().compareTo(p1.timestamp.getTimestamp()); });
         return ans;
     }
+
+    public boolean removePost(String postid) {
+        boolean flag = false;
+        try {
+            flag = DB.DBLayer.removeObject(postid, IDB_Operations.ModelType.Posts);
+        }
+        catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
 }
 
