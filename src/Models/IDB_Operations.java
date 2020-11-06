@@ -12,11 +12,21 @@ public interface IDB_Operations {
 
     ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException; //returns objects list with keys matching objectIds
 
+    ArrayList<IModel> getObjectsList(HashMap<String, String> attributesToQuery, ModelType modelType) throws ExecutionException, InterruptedException; //returns objects list with attributesToQuery Condition
+
     String addObject(IModel object, ModelType modelType) throws ExecutionException, InterruptedException;   //returns objectId of new created object
 
     boolean removeObject(String objectId, ModelType modelType) throws ExecutionException, InterruptedException;  //removes object , and returns boolean
 
-    boolean updateObject(String objectId, HashMap<String, String> attributesToBeUpdated, ModelType modelType); //overwrites the object with key == objectId
+    /*
+       updateObject supports any number of Attribute Overwrite operations on a single object at a time
+    */
+    boolean updateObject(String objectId, HashMap<String, String> attributesToBeUpdated, ModelType modelType);  //fo update variable(s) operations
+
+    /*
+    updateArrayObject supports only one Add/Remove Operation on only one Array (of an object) at a time
+     */
+    boolean updateArrayObject(String objectId, HashMap<String, String> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType); //for update Array operation
 
     enum ModelType {
         Comments,
@@ -24,5 +34,10 @@ public interface IDB_Operations {
         Notifications,
         Posts,
         Users
+    }
+
+    enum UpdateOperation {
+        Add,
+        Remove
     }
 }
