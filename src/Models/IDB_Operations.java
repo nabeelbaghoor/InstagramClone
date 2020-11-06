@@ -17,14 +17,16 @@ public interface IDB_Operations {
     String addObject(IModel object, ModelType modelType) throws ExecutionException, InterruptedException;   //returns objectId of new created object
 
     boolean removeObject(String objectId, ModelType modelType) throws ExecutionException, InterruptedException;  //removes object , and returns boolean
+
     /*
        updateObject supports any number of Attribute Overwrite operations on a single object at a time
     */
     boolean updateObject(String objectId, HashMap<String, String> attributesToBeUpdated, ModelType modelType);  //fo update variable(s) operations
+
     /*
     updateArrayObject supports only one Add/Remove Operation on only one Array (of an object) at a time
      */
-    boolean updateArrayObject(String objectId, HashMap<String, String> arrayAttributeToBeUpdated, UpdateOperation updateOperation,ModelType modelType); //for update Array operation
+    boolean updateArrayObject(String objectId, HashMap<String, String> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType); //for update Array operation
 
     enum ModelType {
         Comments,
@@ -33,7 +35,8 @@ public interface IDB_Operations {
         Posts,
         Users
     }
-    enum UpdateOperation{
+
+    enum UpdateOperation {
         Add,
         Remove
     }

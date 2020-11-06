@@ -72,6 +72,7 @@ public class DB_FirebaseOperations implements IDB_Operations {
         }
         return _objects;
     }
+
     public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();
         // Create a reference to the cities collection
@@ -91,6 +92,7 @@ public class DB_FirebaseOperations implements IDB_Operations {
             return null;
         }
     }
+
     /* public Class modelTypeToClassType(ModelType modelType)
     {
         switch (modelType)
