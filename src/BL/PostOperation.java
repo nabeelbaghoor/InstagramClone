@@ -5,12 +5,10 @@
  */
 package BL;
 
-import Models.IDB_Operations;
-import Models.IModel;
-import Models.Notification;
-import Models.Post;
+import Models.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -22,29 +20,45 @@ public class PostOperation {
     PostOperation() {
     }
 
-    public boolean sendNotification(String userid, String myid, String postid) {
-        Notification obj = new Notification();
-        obj.viewerId = userid;
-        obj.sharerId = myid;
-        obj.postId = postid;
-
+    public String sendNotification(String userid, String myid, String postid, String msg) {
         NotificationFunction temp = new NotificationFunction();
-        return temp.sendNotification(obj);
+        return temp.sendNotification(userid, myid, postid, msg);
     }
 
     public boolean addLike(String userid, String postid) {
-        //DB Code
-        return true;
+        Like obj = new Like();
+        obj.userId = userid;
+        String id = null;
+
+        try {
+            id = DB.DBLayer.addObject(obj, IDB_Operations.ModelType.Likes);
+        }
+        catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (id != null){
+            HashMap <String,String> map = new HashMap<>();
+            map.put("likesList",id);
+            boolean flag = false;
+
+            flag = DB.DBLayer.updateArrayObject(postid,map, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Likes);
+
+            if(!flag) {
+                try {
+                    flag = DB.DBLayer.removeObject(id, IDB_Operations.ModelType.Likes);
+                }
+                catch (ExecutionException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            return flag;
+        }
+        return false;
     }
 
-    public boolean removeNotification(String userid, String myid, String postid) {
-        Notification obj = new Notification();
-        obj.viewerId = userid;
-        obj.sharerId = myid;
-        obj.postId = postid;
-
+    public boolean removeNotification(String id) {
         NotificationFunction temp = new NotificationFunction();
-        return temp.removeNotification(obj);
+        return temp.removeNotification(id);
     }
 
     public boolean unLike(String myid, String postid) {

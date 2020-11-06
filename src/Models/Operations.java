@@ -5,15 +5,15 @@ import java.util.ArrayList;
 public interface Operations {
     boolean removeFollower(String userid);  //Done
 
-    boolean blockUser(String userid);  //Done
+    boolean blockUser(String userid);       //Done
 
-    boolean unblockUser(String userid);  //Done
+    boolean unblockUser(String userid);     //Done
 
-    boolean followUser(String userid);  //Done
+    boolean followUser(String userid);      //Done
 
-    boolean unfollowUser(String userid);  //Done
+    boolean unfollowUser(String userid);    //Done
 
-    boolean likePost(String postid, String userid);             //PostID and UserID of person who issued post
+    boolean likePost(String postid, String userid);     //Done        //PostID and UserID of person who issued post
 
     boolean unlikePost(String postid);
 

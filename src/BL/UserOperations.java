@@ -73,11 +73,13 @@ public class UserOperations implements Operations {
 
     public boolean likePost(String postid, String userid) {
         if (curruser != null) {
-            if (pOperations.sendNotification(userid, curruser.userId, postid))
+            String id = null;
+            id = pOperations.sendNotification(userid, curruser.userId, postid, "Liked");
+            if (id != null)
                 if (pOperations.addLike(curruser.userId, postid))
                     return true;
                 else
-                    pOperations.removeNotification(userid, curruser.userId, postid);
+                    pOperations.removeNotification(id);
         }
         return false;
     }

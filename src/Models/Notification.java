@@ -19,6 +19,7 @@ public class Notification implements IModel {
     public String postId;
     public String sharerId;
     public String viewerId;
+    public String msg;
     /*isViewed:
     Notification badge will be shown on it, if not yet viewed
      */
@@ -31,7 +32,7 @@ public class Notification implements IModel {
     public Notification() {
     }
 
-    public Notification(String _notificationId, String _postId, String _sharerId, String _viewerId,
+    public Notification(String _notificationId, String _postId, String _sharerId, String _viewerId,String _msg,
                         boolean _isViewed, boolean _shouldShow, Timestamp _timestamp) {
         notificationId = _notificationId;
         postId = _postId;
@@ -40,6 +41,7 @@ public class Notification implements IModel {
         isViewed = _isViewed;
         shouldShow = _shouldShow;
         timestamp = _timestamp;
+        msg = _msg;
     }
 
     public String getID() {
