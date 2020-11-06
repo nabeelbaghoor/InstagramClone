@@ -15,7 +15,6 @@ import java.util.concurrent.ExecutionException;
  * @author inspiron
  */
 public class PostOperation {
-    private final Layers DB = new Layers();
 
     PostOperation() {
     }
@@ -31,7 +30,7 @@ public class PostOperation {
         String id = null;
 
         try {
-            id = DB.DBLayer.addObject(obj, IDB_Operations.ModelType.Likes);
+            id = Layers.DBLayer.addObject(obj, IDB_Operations.ModelType.Likes);
         }
         catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -41,11 +40,11 @@ public class PostOperation {
             map.put("likesList",id);
             boolean flag = false;
 
-            flag = DB.DBLayer.updateArrayObject(postid,map, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Likes);
+            flag = Layers.DBLayer.updateArrayObject(postid,map, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Likes);
 
             if(!flag) {
                 try {
-                    flag = DB.DBLayer.removeObject(id, IDB_Operations.ModelType.Likes);
+                    flag = Layers.DBLayer.removeObject(id, IDB_Operations.ModelType.Likes);
                 }
                 catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
@@ -56,20 +55,32 @@ public class PostOperation {
         return false;
     }
 
-    public boolean removeNotification(String id) {
+    public boolean removeNotification(String id, String myid) {
         NotificationFunction temp = new NotificationFunction();
-        return temp.removeNotification(id);
+        return temp.removeNotification(id,myid);
     }
 
-    public boolean unLike(String myid, String postid) {
-        //DB Code
-        return true;
+    public boolean unLike(String likeID, String postid) {
+        boolean flag = false;
+        try {
+         flag = Layers.DBLayer.removeObject(likeID, IDB_Operations.ModelType.Likes);
+        }
+        catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        HashMap<String,String> map = new HashMap<>();
+        map.put("likesList",likeID);
+        if (flag)
+            flag = Layers.DBLayer.updateArrayObject(likeID,map, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Posts);
+
+        return flag;
     }
 
     public boolean addPost(String posturl, String text,String userid) {
         Post obj = new Post("",userid,posturl,text,null,null,null);
         try {
-            if (DB.DBLayer.addObject(obj, IDB_Operations.ModelType.Posts) != null)
+            if (Layers.DBLayer.addObject(obj, IDB_Operations.ModelType.Posts) != null)
                 return true;
         }
         catch (ExecutionException | InterruptedException e) {
@@ -83,7 +94,7 @@ public class PostOperation {
         ArrayList<IModel> temp = null;
 
         try {
-            temp = DB.DBLayer.getObjectsList(postList, IDB_Operations.ModelType.Posts);
+            temp = Layers.DBLayer.getObjectsList(postList, IDB_Operations.ModelType.Posts);
         }
         catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -99,12 +110,33 @@ public class PostOperation {
     public boolean removePost(String postid) {
         boolean flag = false;
         try {
-            flag = DB.DBLayer.removeObject(postid, IDB_Operations.ModelType.Posts);
+            flag = Layers.DBLayer.removeObject(postid, IDB_Operations.ModelType.Posts);
         }
         catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
         return flag;
+    }
+
+    public boolean addComment(String postid, String comtext, String userId) {
+        String id = "";
+        Comment obj = new Comment();
+        obj.commentText = comtext;
+        obj.userId = userId;
+
+        try {
+            id = Layers.DBLayer.addObject(obj, IDB_Operations.ModelType.Comments);
+        }
+        catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if (!id.equals("")) {
+            HashMap<String, String> map = new HashMap<>();
+            map.put("commentsList", id);
+            return Layers.DBLayer.updateArrayObject(postid, map, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Posts);
+        }
+        return false;
     }
 }
 

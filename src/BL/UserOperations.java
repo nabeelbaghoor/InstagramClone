@@ -5,6 +5,7 @@
  */
 package BL;
 
+import Models.Notification;
 import Models.Operations;
 import Models.Post;
 import Models.User;
@@ -19,6 +20,7 @@ public class UserOperations implements Operations {
     private User curruser;
     private UserFunctions uFunc;
     private PostOperation pOperations;
+    private Layers dTemp = new Layers();
 
     public UserOperations() {
         uFunc = new UserFunctions();
@@ -79,16 +81,13 @@ public class UserOperations implements Operations {
                 if (pOperations.addLike(curruser.userId, postid))
                     return true;
                 else
-                    pOperations.removeNotification(id);
+                    pOperations.removeNotification(id,curruser.userId);
         }
         return false;
     }
 
-    public boolean unlikePost(String postid) {
-        if (curruser != null) {
-            return pOperations.unLike(curruser.userId, postid);
-        }
-        return false;
+    public boolean unlikePost(String postid,String likeID) {
+        return pOperations.unLike(likeID, postid);
     }
 
     public boolean addPost(String posturl, String text) {
@@ -104,11 +103,13 @@ public class UserOperations implements Operations {
     }
 
     public boolean sharePost(String postid, String userid) {
-        return true;
+        String id = "";
+        id = pOperations.sendNotification(userid, curruser.userId, postid, "Shared");
+        return !id.equals("");
     }
 
     public boolean addComment(String postid, String comtext) {
-        return true;
+        return pOperations.addComment(postid,comtext,curruser.userId);
     }
 
     public boolean editUserData(User data) {
@@ -147,6 +148,12 @@ public class UserOperations implements Operations {
 
     public ArrayList<String> getFollowing() {
         return curruser.followingsList;
+    }
+
+    public ArrayList<Notification> getNotification(){
+        ArrayList<Notification> arr = null;
+        arr = uFunc.getNotification(curruser.notificationList);
+        return arr;
     }
 
     public boolean addFollowing(String userid) {

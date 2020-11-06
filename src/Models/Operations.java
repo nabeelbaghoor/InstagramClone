@@ -15,11 +15,11 @@ public interface Operations {
 
     boolean likePost(String postid, String userid);     //Done        //PostID and UserID of person who issued post
 
-    boolean unlikePost(String postid);
+    boolean unlikePost(String postid, String unlike);   //Done
 
     boolean sharePost(String postid, String userid);
 
-    boolean addComment(String postid, String comtext);
+    boolean addComment(String postid, String comtext);  //Done
 
     boolean addPost(String posturl, String text);   //Done
 
@@ -40,6 +40,8 @@ public interface Operations {
     ArrayList<String> getBlocked();         //Done
 
     ArrayList<String> getFollowing();       //Done
+
+    ArrayList<Notification> getNotification();  //Done
 
     //boolean addFollowing(String userid);    //Admin function to add followers
 }

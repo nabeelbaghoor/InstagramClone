@@ -4,22 +4,25 @@ import Models.IDB_Operations;
 import Models.Notification;
 import Models.User;
 
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class NotificationFunction {
-    private final Layers layer = new Layers();
 
     public NotificationFunction() {
     }
 
-    public boolean removeNotification(String id) {
+    public boolean removeNotification(String id,String userid) {
         boolean flag = false;
         try {
-            flag = layer.DBLayer.removeObject(id, IDB_Operations.ModelType.Notifications);
+            flag = Layers.DBLayer.removeObject(id, IDB_Operations.ModelType.Notifications);
         }
         catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
+        HashMap<String,String> map = new HashMap<>();
+        map.put("notificationList",id);
+        Layers.DBLayer.updateArrayObject(userid,map, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Users);
         return flag;
     }
 
@@ -34,7 +37,7 @@ public class NotificationFunction {
 
         User temp = null;
         try {
-            temp = (User)layer.DBLayer.getObject(userid, IDB_Operations.ModelType.Users);
+            temp = (User)Layers.DBLayer.getObject(userid, IDB_Operations.ModelType.Users);
         }
         catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -47,11 +50,16 @@ public class NotificationFunction {
         String ans = null;
 
         try {
-            ans = layer.DBLayer.addObject(obj, IDB_Operations.ModelType.Notifications);
+            ans = Layers.DBLayer.addObject(obj, IDB_Operations.ModelType.Notifications);
         }
         catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
+
+        HashMap<String,String> map = new HashMap<>();
+        map.put("notificationList",ans);
+        Layers.DBLayer.updateArrayObject(userid,map, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Users);
+
         return ans;
     }
 }

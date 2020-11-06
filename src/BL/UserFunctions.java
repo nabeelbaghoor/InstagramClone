@@ -1,9 +1,6 @@
 package BL;
 
-import Models.IDB_Operations;
-import Models.IModel;
-import Models.Post;
-import Models.User;
+import Models.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,34 +11,14 @@ import java.util.concurrent.ExecutionException;
 import static Models.IDB_Operations.ModelType.Users;
 
 public class UserFunctions {
-    private final Layers DB = new Layers();
 
     public UserFunctions() {
-    }
-
-    public boolean followerUser(String userid, String myid, ArrayList<String> followers) {
-        if (!followers.contains(userid)) {
-            followers.add(userid);
-            //DB Code
-            return true;
-        }
-        return false;
-    }
-
-    public boolean blockFollower(String userid, String myid, ArrayList<String> blockedList) {
-        if (!blockedList.contains(userid)) {
-            blockedList.add(userid);
-            //DB COde
-            return true;
-        }
-        return false;
-
     }
 
     public User getUser(String user1) {
         User temp = null;
         try {
-            temp = (User) DB.DBLayer.getObject(user1, Users);
+            temp = (User) Layers.DBLayer.getObject(user1, Users);
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
@@ -53,7 +30,7 @@ public class UserFunctions {
         ArrayList<IModel> temp = null;
 
         try {
-            temp = DB.DBLayer.getObjectsList(arr, Users);
+            temp = Layers.DBLayer.getObjectsList(arr, Users);
             for (IModel iModel : temp)
                 ans.add((User) iModel);
         }
@@ -99,18 +76,32 @@ public class UserFunctions {
         if (!data.phoneNumber.equals(curr.phoneNumber))
             map.put("phoneNumber",data.phoneNumber);
 
-        return DB.DBLayer.updateObject(data.userId,map, Users);
+        return Layers.DBLayer.updateObject(data.userId,map, Users);
     }
 
     public boolean removeFromList(String myID, String userid, String key) {
         HashMap<String, String> map = new HashMap<>();
         map.put(key,userid);
-        return DB.DBLayer.updateArrayObject(myID,map,IDB_Operations.UpdateOperation.Remove,Users);
+        return Layers.DBLayer.updateArrayObject(myID,map,IDB_Operations.UpdateOperation.Remove,Users);
     }
 
     public boolean addToList(String myID, String userid, String key) {
         HashMap<String, String> map = new HashMap<>();
         map.put(key,userid);
-        return DB.DBLayer.updateArrayObject(myID,map,IDB_Operations.UpdateOperation.Add,Users);
+        return Layers.DBLayer.updateArrayObject(myID,map,IDB_Operations.UpdateOperation.Add,Users);
+    }
+
+    public ArrayList<Notification> getNotification(ArrayList<String> notificationList) {
+        ArrayList<Notification> ans = new ArrayList<>();
+        ArrayList<IModel> temp;
+        try {
+            temp = Layers.DBLayer.getObjectsList(notificationList, IDB_Operations.ModelType.Notifications);
+            for (IModel iModel : temp)
+                ans.add((Notification) iModel);
+        }
+        catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return ans;
     }
 }
