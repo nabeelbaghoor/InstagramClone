@@ -10,6 +10,7 @@ public class Post implements IModel {
     public String postId;
     public String userId;
     public String imagePath;    //only one image allowed
+    public String postText;
     public ArrayList<String> likesList; //list of likeId's
     public ArrayList<String> commentsList; //list of commentId's
     Timestamp timestamp;
@@ -17,7 +18,7 @@ public class Post implements IModel {
     public Post() {
     }
 
-    public Post(String _postId, String _userId, String _imagePath, ArrayList<String> _likesList,
+    public Post(String _postId, String _userId, String _imagePath, String _postText,ArrayList<String> _likesList,
                 ArrayList<String> _commentsList, Timestamp _timestamp) {
         postId = _postId;
         userId = _userId;
@@ -25,6 +26,7 @@ public class Post implements IModel {
         likesList = _likesList;
         commentsList = _commentsList;
         timestamp = _timestamp;
+        postText = _postText;
     }
 
     public String getID() {

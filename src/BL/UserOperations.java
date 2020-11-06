@@ -77,7 +77,7 @@ public class UserOperations implements Operations {
         return false;
     }
 
-    public boolean addPost(String postdata) {
+    public boolean addPost(String posturl, String text) {
         return true;
     }
 
@@ -93,7 +93,7 @@ public class UserOperations implements Operations {
         return true;
     }
 
-    public boolean editUserData(String data) {
+    public boolean editUserData(User data) {
         return true;
     }
 

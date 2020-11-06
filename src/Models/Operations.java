@@ -13,11 +13,11 @@ public interface Operations {
 
     boolean unfollowUser(String userid);
 
-    boolean likePost(String postid, String userid);   //PostID and UserID of person who issued post
+    boolean likePost(String postid, String userid);             //PostID and UserID of person who issued post
 
     boolean unlikePost(String postid);
 
-    boolean addPost(String postdata);
+    boolean addPost(String posturl, String text);               //Parameter Post URL and Text
 
     boolean removePost(String postid);
 
@@ -25,7 +25,7 @@ public interface Operations {
 
     boolean addComment(String postid, String comtext);
 
-    boolean editUserData(String data);
+    boolean editUserData(User data);
 
     String getNewsFeedPosts();
 
@@ -39,5 +39,5 @@ public interface Operations {
 
     ArrayList<String> getFollowing();       //Done
 
-    boolean addFollowing(String userid); //Admin function to add followers
+    boolean addFollowing(String userid);    //Admin function to add followers
 }
