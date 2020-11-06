@@ -17,7 +17,7 @@ public interface Operations {
 
     boolean unlikePost(String postid);
 
-    boolean addPost(String posturl, String text);               //Parameter Post URL and Text
+    boolean addPost(String posturl, String text);               //Parameter Post URL and Text. Done
 
     boolean removePost(String postid);
 
@@ -25,9 +25,11 @@ public interface Operations {
 
     boolean addComment(String postid, String comtext);
 
-    boolean editUserData(User data);
+    boolean editUserData(User data);        //Done
 
-    String getNewsFeedPosts();
+    ArrayList<Post> getNewsFeedPosts();     //Done
+
+    ArrayList<Post> getNewsFeedPosts(String myid);  //To get Current User Posts. Done
 
     User getMyProfile();                    //Done
 

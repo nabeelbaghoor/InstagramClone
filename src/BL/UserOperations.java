@@ -6,6 +6,7 @@
 package BL;
 
 import Models.Operations;
+import Models.Post;
 import Models.User;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  */
 
 public class UserOperations implements Operations {
-    private final User curruser;
+    private User curruser;
 
     public UserOperations() {
         UserFunctions temp = new UserFunctions();
@@ -78,7 +79,8 @@ public class UserOperations implements Operations {
     }
 
     public boolean addPost(String posturl, String text) {
-        return true;
+        PostOperation temp = new PostOperation();
+        return temp.addPost(posturl,text,curruser.userId);
     }
 
     public boolean removePost(String postid) {
@@ -94,12 +96,24 @@ public class UserOperations implements Operations {
     }
 
     public boolean editUserData(User data) {
-        return true;
+        UserFunctions temp = new UserFunctions();
+         if(temp.editUserData(data, curruser)){
+             curruser = temp.getUser(data.userId);
+             return true;
+         }
+         return false;
     }
 
-    public String getNewsFeedPosts() {
-        String ans = "Hello";
-        return ans;
+    public ArrayList<Post> getNewsFeedPosts() {
+        UserFunctions temp = new UserFunctions();
+        return temp.getPosts(curruser.followingsList);
+    }
+
+    public ArrayList<Post> getNewsFeedPosts(String myid){
+        UserFunctions temp = new UserFunctions();
+        ArrayList<String> tempList = new ArrayList<>();
+        tempList.add(curruser.userId);
+        return temp.getPosts(tempList);
     }
 
     public User getMyProfile() {

@@ -45,6 +45,7 @@ public class User implements IModel {
     public ArrayList<String> followersList;
     public ArrayList<String> blockedUsersList;
     public ArrayList<String> followingsList;
+    public ArrayList<String> postList;
 
     public User() {
     }

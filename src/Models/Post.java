@@ -13,7 +13,7 @@ public class Post implements IModel {
     public String postText;
     public ArrayList<String> likesList; //list of likeId's
     public ArrayList<String> commentsList; //list of commentId's
-    Timestamp timestamp;
+    public Timestamp timestamp;
 
     public Post() {
     }
