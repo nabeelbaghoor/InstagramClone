@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
         IDB_Operations _IDB = new DB_FirebaseOperations();
         _IDB.initDB();
-        //addded all group members
+        //added all group members
        /* _IDB.addObject(new User(null,
                 "nabeelbaghoor",
                 "nabeelbaghoor@gmail.com",
@@ -83,13 +83,6 @@ public class Main {
                 "bio",
                 null,
                 null), IDB_Operations.ModelType.Users);*/
-
-        /*_IDB.addObject(new Comment(null,"CLOvb3RxrWp8Ue0nfCmM","TmfogDtTYA4kk5SF5gZv","Hahahahahhhahahah"),IDB_FirebaseOperations.ModelType.Comments);*/
-
-       /* Vector<String> _likedBy =  new Vector<String>();
-        _likedBy.add("TmfogDtTYA4kk5SF5gZv");
-        _likedBy.add("pUf8yYkacNgeRufL8v8O");
-        _IDB.addObject(new Post(null,"TmfogDtTYA4kk5SF5gZv",_likedBy),IDB_FirebaseOperations.ModelType.Posts);*/
 
         //add object
        /* IModel _object =  _IDB.getObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);

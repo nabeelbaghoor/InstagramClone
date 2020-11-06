@@ -72,7 +72,25 @@ public class DB_FirebaseOperations implements IDB_Operations {
         }
         return _objects;
     }
-
+    public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException {
+        Firestore db = FirestoreClient.getFirestore();
+        // Create a reference to the cities collection
+        CollectionReference docsRef = db.collection(modelType.toString());
+        // Create a query against the collection.
+        Query query = docsRef.whereIn(FieldPath.documentId(), objectIds);
+        // retrieve  query results asynchronously using query.get()
+        ApiFuture<QuerySnapshot> querySnapshot = query.get();
+        ArrayList<IModel> _objects = queryDocumentsToClassTypes(querySnapshot.get().getDocuments(), modelType);
+        if (!_objects.isEmpty()) {
+            for (IModel _object : _objects) {
+                System.out.println(_object.getID());
+            }
+            return _objects;
+        } else {
+            System.out.println("No such documents!");
+            return null;
+        }
+    }
     /* public Class modelTypeToClassType(ModelType modelType)
     {
         switch (modelType)
@@ -94,24 +112,25 @@ public class DB_FirebaseOperations implements IDB_Operations {
     //This function can just return 10 objects at a time
     //will update it later to support more
     @Override
-    public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException {
-        Firestore db = FirestoreClient.getFirestore();
-        // Create a reference to the cities collection
-        CollectionReference docsRef = db.collection(modelType.toString());
-        // Create a query against the collection.
-        Query query = docsRef.whereIn(FieldPath.documentId(), objectIds);
-        // retrieve  query results asynchronously using query.get()
-        ApiFuture<QuerySnapshot> querySnapshot = query.get();
-        ArrayList<IModel> _objects = queryDocumentsToClassTypes(querySnapshot.get().getDocuments(), modelType);
-        if (!_objects.isEmpty()) {
-            for (IModel _object : _objects) {
-                System.out.println(_object.getID());
-            }
-            return _objects;
-        } else {
-            System.out.println("No such documents!");
-            return null;
-        }
+    public ArrayList<IModel> getObjectsList(HashMap<String, String> attributesToQuery, ModelType modelType) throws ExecutionException, InterruptedException {
+//        Firestore db = FirestoreClient.getFirestore();
+//        // Create a reference to the cities collection
+//        CollectionReference docsRef = db.collection(modelType.toString());
+//        // Create a query against the collection.
+//        Query query = docsRef.whereIn(FieldPath.documentId(), objectIds);
+//        // retrieve  query results asynchronously using query.get()
+//        ApiFuture<QuerySnapshot> querySnapshot = query.get();
+//        ArrayList<IModel> _objects = queryDocumentsToClassTypes(querySnapshot.get().getDocuments(), modelType);
+//        if (!_objects.isEmpty()) {
+//            for (IModel _object : _objects) {
+//                System.out.println(_object.getID());
+//            }
+//            return _objects;
+//        } else {
+//            System.out.println("No such documents!");
+//            return null;
+//        }
+        return null;
     }
 
     //see extra id attribute which it is creating                   //..............ERROR
@@ -146,6 +165,12 @@ public class DB_FirebaseOperations implements IDB_Operations {
     @Override
     public boolean updateObject(String objectId, HashMap<String, String> attributesToBeUpdated, ModelType modelType) {
 
+        return false;
+        //use wherein
+    }
+
+    @Override
+    public boolean updateArrayObject(String objectId, HashMap<String, String> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) {
         return false;
         //use wherein
     }
