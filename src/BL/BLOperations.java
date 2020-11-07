@@ -17,13 +17,13 @@ import java.util.concurrent.ExecutionException;
  * @author inspiron
  */
 
-public class UserOperations implements Operations {
+public class BLOperations implements Operations {
     private final UserFunctions uFunc;
     private final PostOperation pOperations;
     private final Layers dTemp = new Layers();
     private User curruser;
 
-    public UserOperations() {
+    public BLOperations() {
         uFunc = new UserFunctions();
         pOperations = new PostOperation();
         curruser = uFunc.getUser("dLus5uS81GWRv5dT3Ve1");
