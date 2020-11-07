@@ -17,6 +17,7 @@ public interface IDB_Operations {
 
     ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws ExecutionException, InterruptedException; //returns objects list with attributesToQuery Condition
 
+
     String addObject(IModel object, ModelType modelType) throws ExecutionException, InterruptedException;   //returns objectId of new created object
 
     boolean removeObject(String objectId, ModelType modelType) throws ExecutionException, InterruptedException;  //removes object , and returns boolean
