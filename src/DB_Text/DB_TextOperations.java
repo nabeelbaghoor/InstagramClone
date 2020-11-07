@@ -16,7 +16,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 //import org.json.simple.JSONObject;
 
 public class DB_TextOperations implements IDB_Operations{
@@ -85,27 +84,30 @@ public class DB_TextOperations implements IDB_Operations{
     @Override
     public ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws Exception {
         HashMap<String,User> _objects = new HashMap<String ,User>();
+        ArrayList<IModel> _objectsToQuery = new ArrayList<IModel>();
         _objects = loadUser();  //only user,for now
         if(_objects != null) {
             User user = null;
-            for (Map.Entry<String, Object> entry : attributesToQuery.entrySet()) {
-                for (Field field : user.getClass().getFields()) {
-                    if (entry.getKey() == field.getName()) {
-                        user.getClass().getField(field.getName()).set(user, entry.getValue());   //make it better
+            for (Map.Entry<String, Object> attributeEntry : attributesToQuery.entrySet()) {
+                for (HashMap.Entry<String, User> objEntry : _objects.entrySet()) {
+                    for (Field field : objEntry.getValue().getClass().getFields()) {
+                        if (attributeEntry.getKey() == field.getName() && attributeEntry.getValue() == field.get(objEntry)) {
+                            _objectsToQuery.add(objEntry.getValue());
+                            _objects.remove(objEntry.getKey()); //maybe it will work
+                        }
                     }
                 }
             }
-            _objects.replace(user.getID(), user);
-            if(saveUser(_objects) == true){
-                System.out.println("Object updated Successfully");
-                return true;
+            if(_objectsToQuery!=null) {
+                System.out.println("Objects found Successfully");
+                return _objectsToQuery;
             }else{
-                System.out.println("Failed to update Object!");
-                return false;
+                System.out.println("No objects Found!");
+                return null;
             }
         }else{
-            System.out.println("Failed to update Object!"); //for now, making it same as firebase
-            return false;
+            System.out.println("No objects Found!");
+            return null;
         }
     }
 
