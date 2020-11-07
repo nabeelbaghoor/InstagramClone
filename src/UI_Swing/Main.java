@@ -6,6 +6,7 @@ import java.awt.*;
 public class Main {
     public static void main(String[] args)
     {
+        //Operation obj =
         //Setting Look and Feel
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");  // This line gives Windows Theme
@@ -14,7 +15,7 @@ public class Main {
         { e.printStackTrace(); }
 
         //Changeable Variables
-        String urlpath = "file:\\C:\\Users\\nabeelbaghoor\\IdeaProjects\\theInstagramClone\\s.png";
+        String urlpath = "file:\\C:\\Users\\inspiron\\Pictures\\Saved Pictures\\received_1367138483367972.jpeg";
         String Fullname = "FullName PlaceHolder";
         int FollowingC = 10;
         int FollowerC = 10;

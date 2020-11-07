@@ -15,12 +15,13 @@ import java.util.concurrent.ExecutionException;
  * @author inspiron
  */
 public class PostOperation {
-
-    PostOperation() {
+    private final IDB_Operations DB;
+    PostOperation(IDB_Operations _obj) {
+        DB = _obj;
     }
 
     public String sendNotification(String userid, String myid, String postid, String msg) throws ExecutionException, InterruptedException {
-        NotificationFunction temp = new NotificationFunction();
+        NotificationFunction temp = new NotificationFunction(DB);
         return temp.sendNotification(userid, myid, postid, msg);
     }
 
@@ -30,7 +31,7 @@ public class PostOperation {
         String id = null;
 
         try {
-            id = Layers.DBLayer.addObject(obj, IDB_Operations.ModelType.Likes);
+            id = DB.addObject(obj, IDB_Operations.ModelType.Likes);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -38,11 +39,11 @@ public class PostOperation {
             Pair<String, Object> pair = new Pair<String, Object>("likesList", id);
             boolean flag = false;
 
-            flag = Layers.DBLayer.updateArrayObject(postid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Likes);
+            flag = DB.updateArrayObject(postid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Likes);
 
             if (!flag) {
                 try {
-                    flag = Layers.DBLayer.removeObject(id, IDB_Operations.ModelType.Likes);
+                    flag = DB.removeObject(id, IDB_Operations.ModelType.Likes);
                 } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -53,21 +54,21 @@ public class PostOperation {
     }
 
     public boolean removeNotification(String id, String myid) throws ExecutionException, InterruptedException {
-        NotificationFunction temp = new NotificationFunction();
+        NotificationFunction temp = new NotificationFunction(DB);
         return temp.removeNotification(id, myid);
     }
 
     public boolean unLike(String likeID, String postid) throws ExecutionException, InterruptedException {
         boolean flag = false;
         try {
-            flag = Layers.DBLayer.removeObject(likeID, IDB_Operations.ModelType.Likes);
+            flag = DB.removeObject(likeID, IDB_Operations.ModelType.Likes);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
 
         Pair<String, Object> pair = new Pair<String, Object>("likesList", likeID);
         if (flag)
-            flag = Layers.DBLayer.updateArrayObject(likeID, pair, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Posts);
+            flag = DB.updateArrayObject(postid, pair, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Posts);
 
         return flag;
     }
@@ -75,7 +76,7 @@ public class PostOperation {
     public boolean addPost(String posturl, String text, String userid) {
         Post obj = new Post("", userid, posturl, text, null, null, null);
         try {
-            if (Layers.DBLayer.addObject(obj, IDB_Operations.ModelType.Posts) != null)
+            if (DB.addObject(obj, IDB_Operations.ModelType.Posts) != null)
                 return true;
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
@@ -88,7 +89,7 @@ public class PostOperation {
         ArrayList<IModel> temp = null;
 
         try {
-            temp = Layers.DBLayer.getObjectsList(postList, IDB_Operations.ModelType.Posts);
+            temp = DB.getObjectsList(postList, IDB_Operations.ModelType.Posts);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -105,7 +106,7 @@ public class PostOperation {
     public boolean removePost(String postid) {
         boolean flag = false;
         try {
-            flag = Layers.DBLayer.removeObject(postid, IDB_Operations.ModelType.Posts);
+            flag = DB.removeObject(postid, IDB_Operations.ModelType.Posts);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -119,14 +120,14 @@ public class PostOperation {
         obj.userId = userId;
 
         try {
-            id = Layers.DBLayer.addObject(obj, IDB_Operations.ModelType.Comments);
+            id = DB.addObject(obj, IDB_Operations.ModelType.Comments);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
 
         if (!id.equals("")) {
             Pair<String, Object> pair = new Pair<String, Object>("commentsList", id);
-            return Layers.DBLayer.updateArrayObject(postid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Posts);
+            return DB.updateArrayObject(postid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Posts);
         }
         return false;
     }
