@@ -1,6 +1,7 @@
 package Models;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public interface Operations {
     boolean removeFollower(String userid);  //Done
@@ -25,7 +26,7 @@ public interface Operations {
 
     boolean removePost(String postid);      //Done
 
-    boolean editUserData(User data);        //Done
+    boolean editUserData(User data) throws ExecutionException, InterruptedException;        //Done
 
     ArrayList<Post> getNewsFeedPosts();     //Done
 

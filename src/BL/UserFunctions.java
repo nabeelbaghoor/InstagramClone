@@ -3,8 +3,6 @@ package BL;
 import Models.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
@@ -54,8 +52,8 @@ public class UserFunctions {
         return ans;
     }
 
-    public boolean editUserData(User data, User curr) {
-        HashMap<String,String> map = new HashMap<>();
+    public boolean editUserData(User data, User curr) throws ExecutionException, InterruptedException {
+        HashMap<String,Object> map = new HashMap<>();
 
         if (!data.emailAddress.equals(curr.emailAddress))
             map.put("emailAddress",data.emailAddress);
@@ -80,13 +78,13 @@ public class UserFunctions {
     }
 
     public boolean removeFromList(String myID, String userid, String key) {
-        HashMap<String, String> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>();
         map.put(key,userid);
         return Layers.DBLayer.updateArrayObject(myID,map,IDB_Operations.UpdateOperation.Remove,Users);
     }
 
     public boolean addToList(String myID, String userid, String key) {
-        HashMap<String, String> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>();
         map.put(key,userid);
         return Layers.DBLayer.updateArrayObject(myID,map,IDB_Operations.UpdateOperation.Add,Users);
     }

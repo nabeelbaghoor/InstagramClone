@@ -75,7 +75,7 @@ public class DB_FirebaseOperations implements IDB_Operations {
 
     public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();
-        // Create a reference to the cities collection
+        // Create a reference to the collection
         CollectionReference docsRef = db.collection(modelType.toString());
         // Create a query against the collection.
         Query query = docsRef.whereIn(FieldPath.documentId(), objectIds);
@@ -153,7 +153,7 @@ public class DB_FirebaseOperations implements IDB_Operations {
         Firestore db = FirestoreClient.getFirestore();
         // asynchronously delete a document
         ApiFuture<WriteResult> writeResult = db.collection(modelType.toString()).document(objectId).delete();
-        //maybe it works
+        //check it again
         if (!writeResult.isCancelled()) {
             System.out.println("Update time : " + writeResult.get().getUpdateTime());
             System.out.println("document removed Successfully");
@@ -165,15 +165,40 @@ public class DB_FirebaseOperations implements IDB_Operations {
     }
 
     @Override
-    public boolean updateObject(String objectId, HashMap<String, String> attributesToBeUpdated, ModelType modelType) {
-
-        return false;
-        //use wherein
+    public boolean updateObject(String objectId, HashMap<String, Object> attributesToBeUpdated, ModelType modelType) throws ExecutionException, InterruptedException {
+        Firestore db = FirestoreClient.getFirestore();
+        // Create a reference to the cities collection
+        DocumentReference docRef = db.collection(modelType.toString()).document(objectId);
+        // Async update document
+        ApiFuture<WriteResult> writeResult = docRef.update(attributesToBeUpdated);
+        //check it again
+        if (!writeResult.isCancelled()) {
+            System.out.println("Update time : " + writeResult.get().getUpdateTime());
+            System.out.println("document updated Successfully");
+            return true;
+        } else {
+            System.out.println("Failed to update document!");
+            return false;
+        }
     }
 
     @Override
-    public boolean updateArrayObject(String objectId, HashMap<String, String> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) {
+    public boolean updateArrayObject(String objectId, HashMap<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) {
+
+        Firestore db = FirestoreClient.getFirestore();
+        // Create a reference to the cities collection
+        DocumentReference docRef = db.collection(modelType.toString()).document(objectId);
+        // Async update document
+        //ApiFuture<WriteResult> writeResult = docRef.update(attributesToBeUpdated);
+        //check it again
+       /* if (!writeResult.isCancelled()) {
+            System.out.println("Update time : " + writeResult.get().getUpdateTime());
+            System.out.println("document updated Successfully");
+            return true;
+        } else {
+            System.out.println("Failed to update document!");
+            return false;
+        }*/
         return false;
-        //use wherein
     }
 }

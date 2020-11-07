@@ -36,7 +36,7 @@ public class PostOperation {
             e.printStackTrace();
         }
         if (id != null){
-            HashMap <String,String> map = new HashMap<>();
+            HashMap <String,Object> map = new HashMap<>();
             map.put("likesList",id);
             boolean flag = false;
 
@@ -69,7 +69,7 @@ public class PostOperation {
             e.printStackTrace();
         }
 
-        HashMap<String,String> map = new HashMap<>();
+        HashMap<String,Object> map = new HashMap<>();
         map.put("likesList",likeID);
         if (flag)
             flag = Layers.DBLayer.updateArrayObject(likeID,map, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Posts);
@@ -132,7 +132,7 @@ public class PostOperation {
         }
 
         if (!id.equals("")) {
-            HashMap<String, String> map = new HashMap<>();
+            HashMap<String, Object> map = new HashMap<>();
             map.put("commentsList", id);
             return Layers.DBLayer.updateArrayObject(postid, map, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Posts);
         }

@@ -11,6 +11,7 @@ import Models.Post;
 import Models.User;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @author inspiron
@@ -112,7 +113,7 @@ public class UserOperations implements Operations {
         return pOperations.addComment(postid,comtext,curruser.userId);
     }
 
-    public boolean editUserData(User data) {
+    public boolean editUserData(User data) throws ExecutionException, InterruptedException {
          if(uFunc.editUserData(data, curruser)){
              curruser = uFunc.getUser(data.userId);
              return true;

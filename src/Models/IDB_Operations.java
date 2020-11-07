@@ -21,12 +21,12 @@ public interface IDB_Operations {
     /*
        updateObject supports any number of Attribute Overwrite operations on a single object at a time
     */
-    boolean updateObject(String objectId, HashMap<String, String> attributesToBeUpdated, ModelType modelType);  //fo update variable(s) operations
+    boolean updateObject(String objectId, HashMap<String, Object> attributesToBeUpdated, ModelType modelType) throws ExecutionException, InterruptedException;  //fo update variable(s) operations
 
-    /*
+    /*s
     updateArrayObject supports only one Add/Remove Operation on only one Array (of an object) at a time
      */
-    boolean updateArrayObject(String objectId, HashMap<String, String> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType); //for update Array operation
+    boolean updateArrayObject(String objectId, HashMap<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType); //for update Array operation
 
     enum ModelType {
         Comments,
