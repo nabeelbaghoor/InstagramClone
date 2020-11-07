@@ -25,7 +25,7 @@ public class Factory {
         Properties prop = new Properties();
         FileInputStream ip = null;
         try {
-            ip = new FileInputStream("\\..\\Models\\Layer.cfg");
+            ip = new FileInputStream("F:\\Git\\InstagramClone\\src\\Models\\Layer.cfg");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class Factory {
         Properties prop = new Properties();
         FileInputStream ip = null;
         try {
-            ip = new FileInputStream("\\..\\Models\\Layer.cfg");
+            ip = new FileInputStream("F:\\Git\\InstagramClone\\src\\Models\\Layer.cfg");
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -74,7 +74,7 @@ public class Factory {
         Properties prop = new Properties();
         FileInputStream ip = null;
         try {
-            ip = new FileInputStream("\\..\\Models\\Layer.cfg");
+            ip = new FileInputStream("F:\\Git\\InstagramClone\\src\\Models\\Layer.cfg");
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -95,13 +95,28 @@ public class BLOperations implements Operations {
     }
 
     public boolean addPost(String posturl, String text) {
-        return pOperations.addPost(posturl, text, curruser.userId);
+        String id = pOperations.addPost(posturl, text, curruser.userId);
+        if (!id.equals("")) {
+            try {
+                return uFunc.addToList(curruser.userId,id,"postList");
+            }
+            catch (ExecutionException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
     }
 
     public boolean removePost(String postid) {
         if (curruser.postList.contains(postid)) {
-            if (pOperations.removePost(postid))
+            if (pOperations.removePost(postid)){
+                try {
+                    uFunc.removeFromList(curruser.userId,postid,"postList");
+                } catch (ExecutionException | InterruptedException e) {
+                    e.printStackTrace();
+                }
                 return curruser.postList.remove(postid);
+            }
         }
         return false;
     }
@@ -135,7 +150,7 @@ public class BLOperations implements Operations {
     }
 
     public User getMyProfile() {
-        return curruser;
+        return uFunc.getUser(curruser.userId);
     }
 
     public User getProfileInfo(String userid) {

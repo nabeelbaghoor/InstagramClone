@@ -76,16 +76,18 @@ public class UserFunctions {
         if (!data.phoneNumber.equals(curr.phoneNumber))
             map.put("phoneNumber", data.phoneNumber);
 
-        return DB.updateObject(data.userId, map, Users);
+        if (!map.isEmpty())
+            return DB.updateObject(data.userId, map, Users);
+        return true;
     }
 
-    public boolean removeFromList(String myID, String userid, String key) throws ExecutionException, InterruptedException {
-        Pair<String, Object> pair = new Pair<String, Object>(key, userid);
+    public boolean removeFromList(String myID, String id, String key) throws ExecutionException, InterruptedException {
+        Pair<String, Object> pair = new Pair<String, Object>(key, id);
         return DB.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Remove, Users);
     }
 
-    public boolean addToList(String myID, Object userid, String key) throws ExecutionException, InterruptedException {
-        Pair<String, Object> pair = new Pair<String, Object>(key, userid);
+    public boolean addToList(String myID, Object id, String key) throws ExecutionException, InterruptedException {
+        Pair<String, Object> pair = new Pair<String, Object>(key, id);
         return DB.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Add, Users);
     }
 
@@ -101,4 +103,5 @@ public class UserFunctions {
         }
         return ans;
     }
+
 }
