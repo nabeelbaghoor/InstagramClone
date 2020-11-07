@@ -18,7 +18,13 @@ import java.util.concurrent.ExecutionException;
 //import org.json.simple.JSONObject;
 
 public class DB_TextOperations implements IDB_Operations{
-    public static void saveUser(HashMap<String,Object> map) throws IOException, JSONException {
+
+    int currUserId;
+    DB_TextOperations()
+    {
+        currUserId = 0;
+    }
+    public static void saveUser(HashMap<String,User> map) throws IOException, JSONException {
         Gson gson = new Gson();
         String data = gson.toJson(map);
         //Write to JSON file
@@ -68,7 +74,9 @@ public class DB_TextOperations implements IDB_Operations{
 
     @Override
     public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws Exception {
-        return loadUser();
+       ArrayList<IModel> _objects = new ArrayList<IModel>();
+        _objects.addAll(loadUser().values());
+        return  _objects;
     }
 
     @Override
@@ -77,8 +85,13 @@ public class DB_TextOperations implements IDB_Operations{
     }
 
     @Override
-    public String addObject(IModel object, ModelType modelType) throws ExecutionException, InterruptedException {
-        return null;
+    public String addObject(IModel object, ModelType modelType) throws Exception {
+        HashMap<String,User> _objects = new HashMap<String ,User>();
+        _objects = loadUser();
+        object.setID(String.valueOf(currUserId));
+        currUserId++;
+        _objects.put(object.getID(), (User) object);
+        saveUser(_objects);
     }
 
     @Override
