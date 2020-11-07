@@ -14,7 +14,7 @@ public class Main {
         { e.printStackTrace(); }
 
         //Changeable Variables
-        String urlpath = "file:\\C:\\Users\\nabeelbaghoor\\IdeaProjects\\theInstagramClone\\s.png";
+        String urlpath = ".\\Images\\s.png";
         String Fullname = "FullName PlaceHolder";
         int FollowingC = 10;
         int FollowerC = 10;
