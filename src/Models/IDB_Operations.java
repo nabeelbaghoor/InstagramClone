@@ -11,9 +11,9 @@ import java.util.concurrent.ExecutionException;
 public interface IDB_Operations {
     void initDB() throws IOException;
 
-    IModel getObject(String objectId, ModelType modelType) throws ExecutionException, InterruptedException; //returns object with key == objectId
+    IModel getObject(String objectId, ModelType modelType) throws Exception; //returns object with key == objectId
 
-    ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException; //returns objects list with keys matching objectIds
+    ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws Exception; //returns objects list with keys matching objectIds
 
     ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws ExecutionException, InterruptedException; //returns objects list with attributesToQuery Condition
 

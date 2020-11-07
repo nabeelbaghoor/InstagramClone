@@ -2,13 +2,14 @@ package DB_Text;
 
 import Models.IDB_Operations;
 import Models.IModel;
+import Models.User;
 import com.google.firebase.database.utilities.Pair;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.json.JSONException;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -44,11 +45,10 @@ public class DB_TextOperations implements IDB_Operations{
                 return 0;
         }
     }
-    public static HashMap<String,Object> loadUser() throws Exception {
+    public static HashMap<String, User> loadUser() throws Exception {
         String data = readFileAsString(".\\DBText_DATA\\Users.json");
-        System.out.println(data);
         Gson gson = new Gson();
-        return gson.fromJson(data, (Type) HashMap.class);
+        return gson.fromJson(data, new TypeToken<HashMap<String, User>>() {}.getType());
     }
     public static String readFileAsString(String fileName)throws Exception
     {
@@ -62,13 +62,13 @@ public class DB_TextOperations implements IDB_Operations{
     }
 
     @Override
-    public IModel getObject(String objectId, ModelType modelType) throws ExecutionException, InterruptedException {
-        return null;
+    public IModel getObject(String objectId, ModelType modelType) throws Exception {
+        return loadUser().get(objectId);
     }
 
     @Override
-    public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException {
-        return null;
+    public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws Exception {
+        return loadUser();
     }
 
     @Override

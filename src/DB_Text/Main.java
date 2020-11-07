@@ -15,6 +15,6 @@ public class Main {
         HashMap<String ,Object> map = new HashMap<String ,Object>();
         map.put(user1.getID(),user1);
         map.put(user2.getID(),user2);
-        DB_TextOperations.loadUser().get("56t4zAWnB6PetHY4AAgW");
+       System.out.println (((User) DB_TextOperations.loadUser().get("56t4zAWnB6PetHY4AAgW")).username);
     }
 }
