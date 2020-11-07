@@ -32,7 +32,7 @@ public class Notification implements IModel {
     public Notification() {
     }
 
-    public Notification(String _notificationId, String _postId, String _sharerId, String _viewerId,String _msg,
+    public Notification(String _notificationId, String _postId, String _sharerId, String _viewerId, String _msg,
                         boolean _isViewed, boolean _shouldShow, Timestamp _timestamp) {
         notificationId = _notificationId;
         postId = _postId;

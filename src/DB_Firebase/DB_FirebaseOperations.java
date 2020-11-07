@@ -7,6 +7,7 @@ import com.google.cloud.firestore.*;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
+import com.google.firebase.database.utilities.Pair;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -183,22 +184,27 @@ public class DB_FirebaseOperations implements IDB_Operations {
     }
 
     @Override
-    public boolean updateArrayObject(String objectId, HashMap<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) {
+    public boolean updateArrayObject(String objectId, Pair<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) throws ExecutionException, InterruptedException {
 
         Firestore db = FirestoreClient.getFirestore();
         // Create a reference to the cities collection
         DocumentReference docRef = db.collection(modelType.toString()).document(objectId);
         // Async update document
-        //ApiFuture<WriteResult> writeResult = docRef.update(attributesToBeUpdated);
+        ApiFuture<WriteResult> writeResult = null;
+        if (updateOperation == UpdateOperation.Add) {
+            writeResult = docRef.update(arrayAttributeToBeUpdated.getFirst(), FieldValue.arrayUnion(arrayAttributeToBeUpdated.getSecond()));
+        } else if (updateOperation == UpdateOperation.Remove) {
+
+            writeResult = docRef.update(arrayAttributeToBeUpdated.getFirst(), FieldValue.arrayRemove(arrayAttributeToBeUpdated.getSecond()));
+        }
         //check it again
-       /* if (!writeResult.isCancelled()) {
+        if (writeResult != null && !writeResult.isCancelled()) {
             System.out.println("Update time : " + writeResult.get().getUpdateTime());
             System.out.println("document updated Successfully");
             return true;
         } else {
             System.out.println("Failed to update document!");
             return false;
-        }*/
-        return false;
+        }
     }
 }

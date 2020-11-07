@@ -8,6 +8,6 @@ public class Main {
         Operations obj = new UserOperations();
         User curr = obj.getMyProfile();
 
-        System.out.println(curr.firstName+" "+curr.emailAddress);
+        System.out.println(curr.firstName + " " + curr.emailAddress);
     }
 }

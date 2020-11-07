@@ -3,8 +3,8 @@ package BL;
 import Models.IDB_Operations;
 import Models.Notification;
 import Models.User;
+import com.google.firebase.database.utilities.Pair;
 
-import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class NotificationFunction {
@@ -12,21 +12,19 @@ public class NotificationFunction {
     public NotificationFunction() {
     }
 
-    public boolean removeNotification(String id,String userid) {
+    public boolean removeNotification(String id, String userid) throws ExecutionException, InterruptedException {
         boolean flag = false;
         try {
             flag = Layers.DBLayer.removeObject(id, IDB_Operations.ModelType.Notifications);
-        }
-        catch (ExecutionException | InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
-        HashMap<String,String> map = new HashMap<>();
-        map.put("notificationList",id);
-        Layers.DBLayer.updateArrayObject(userid,map, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Users);
+        Pair<String, Object> pair = new Pair<String, Object>("notificationList", id);
+        Layers.DBLayer.updateArrayObject(userid, pair, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Users);
         return flag;
     }
 
-    public String sendNotification(String userid, String myid, String postid, String msg) {
+    public String sendNotification(String userid, String myid, String postid, String msg) throws ExecutionException, InterruptedException {
         Notification obj = new Notification();
         obj.viewerId = userid;
         obj.sharerId = myid;
@@ -37,9 +35,8 @@ public class NotificationFunction {
 
         User temp = null;
         try {
-            temp = (User)Layers.DBLayer.getObject(userid, IDB_Operations.ModelType.Users);
-        }
-        catch (ExecutionException | InterruptedException e) {
+            temp = (User) Layers.DBLayer.getObject(userid, IDB_Operations.ModelType.Users);
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -51,14 +48,12 @@ public class NotificationFunction {
 
         try {
             ans = Layers.DBLayer.addObject(obj, IDB_Operations.ModelType.Notifications);
-        }
-        catch (ExecutionException | InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
 
-        HashMap<String,String> map = new HashMap<>();
-        map.put("notificationList",ans);
-        Layers.DBLayer.updateArrayObject(userid,map, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Users);
+        Pair<String, Object> pair = new Pair<String, Object>("notificationList", ans);
+        Layers.DBLayer.updateArrayObject(userid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Users);
 
         return ans;
     }

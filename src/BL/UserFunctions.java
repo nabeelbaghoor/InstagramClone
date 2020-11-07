@@ -1,6 +1,7 @@
 package BL;
 
 import Models.*;
+import com.google.firebase.database.utilities.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,8 +32,7 @@ public class UserFunctions {
             temp = Layers.DBLayer.getObjectsList(arr, Users);
             for (IModel iModel : temp)
                 ans.add((User) iModel);
-        }
-        catch (InterruptedException | ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
         return ans;
@@ -53,40 +53,38 @@ public class UserFunctions {
     }
 
     public boolean editUserData(User data, User curr) throws ExecutionException, InterruptedException {
-        HashMap<String,Object> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>();
 
         if (!data.emailAddress.equals(curr.emailAddress))
-            map.put("emailAddress",data.emailAddress);
+            map.put("emailAddress", data.emailAddress);
         if (!data.bio.equals(curr.bio))
-            map.put("bio",data.bio);
+            map.put("bio", data.bio);
         if (!data.dateOfBirth.equals(curr.dateOfBirth))
             map.put("dateOfBirth", String.valueOf(data.dateOfBirth));
         if (!data.firstName.equals(curr.firstName))
-            map.put("firstName",data.firstName);
+            map.put("firstName", data.firstName);
         if (!data.gender.equals(curr.gender))
-            map.put("gender",data.gender);
+            map.put("gender", data.gender);
         if (!data.website.equals(curr.website))
             map.put("website", data.website);
         if (!data.imagePath.equals(curr.imagePath))
-            map.put("imagePath",data.imagePath);
+            map.put("imagePath", data.imagePath);
         if (!data.lastName.equals(curr.lastName))
-            map.put("lastName",data.lastName);
+            map.put("lastName", data.lastName);
         if (!data.phoneNumber.equals(curr.phoneNumber))
-            map.put("phoneNumber",data.phoneNumber);
+            map.put("phoneNumber", data.phoneNumber);
 
-        return Layers.DBLayer.updateObject(data.userId,map, Users);
+        return Layers.DBLayer.updateObject(data.userId, map, Users);
     }
 
-    public boolean removeFromList(String myID, String userid, String key) {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put(key,userid);
-        return Layers.DBLayer.updateArrayObject(myID,map,IDB_Operations.UpdateOperation.Remove,Users);
+    public boolean removeFromList(String myID, String userid, String key) throws ExecutionException, InterruptedException {
+        Pair<String, Object> pair = new Pair<String, Object>(key, userid);
+        return Layers.DBLayer.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Remove, Users);
     }
 
-    public boolean addToList(String myID, String userid, String key) {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put(key,userid);
-        return Layers.DBLayer.updateArrayObject(myID,map,IDB_Operations.UpdateOperation.Add,Users);
+    public boolean addToList(String myID, Object userid, String key) throws ExecutionException, InterruptedException {
+        Pair<String, Object> pair = new Pair<String, Object>(key, userid);
+        return Layers.DBLayer.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Add, Users);
     }
 
     public ArrayList<Notification> getNotification(ArrayList<String> notificationList) {
@@ -96,8 +94,7 @@ public class UserFunctions {
             temp = Layers.DBLayer.getObjectsList(notificationList, IDB_Operations.ModelType.Notifications);
             for (IModel iModel : temp)
                 ans.add((Notification) iModel);
-        }
-        catch (ExecutionException | InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
         return ans;

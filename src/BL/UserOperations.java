@@ -19,9 +19,9 @@ import java.util.concurrent.ExecutionException;
 
 public class UserOperations implements Operations {
     private User curruser;
-    private UserFunctions uFunc;
-    private PostOperation pOperations;
-    private Layers dTemp = new Layers();
+    private final UserFunctions uFunc;
+    private final PostOperation pOperations;
+    private final Layers dTemp = new Layers();
 
     public UserOperations() {
         uFunc = new UserFunctions();
@@ -29,52 +29,52 @@ public class UserOperations implements Operations {
         curruser = uFunc.getUser("dLus5uS81GWRv5dT3Ve1");
     }
 
-    public boolean removeFollower(String userid) { //Remove from my Followers
-        if (curruser != null){
+    public boolean removeFollower(String userid) throws ExecutionException, InterruptedException { //Remove from my Followers
+        if (curruser != null) {
             if (curruser.followersList.contains(userid))
-                if (uFunc.removeFromList(curruser.userId,userid,"followersList"))
+                if (uFunc.removeFromList(curruser.userId, userid, "followersList"))
                     return curruser.followersList.remove(userid);
         }
-            return false;
+        return false;
     }
 
-    public boolean unfollowUser(String userid) { //Unfollow a user
-        if (curruser != null){
+    public boolean unfollowUser(String userid) throws ExecutionException, InterruptedException { //Unfollow a user
+        if (curruser != null) {
             if (curruser.followingsList.contains(userid))
-                if (uFunc.removeFromList(curruser.userId,userid,"followingsList"))
+                if (uFunc.removeFromList(curruser.userId, userid, "followingsList"))
                     return curruser.followingsList.remove(userid);
         }
         return false;
     }
 
-    public boolean followUser(String userid) {   //Follow new User
-        if (curruser != null){
+    public boolean followUser(String userid) throws ExecutionException, InterruptedException {   //Follow new User
+        if (curruser != null) {
             if (!curruser.followingsList.contains(userid))
-                if (uFunc.addToList(curruser.userId,userid,"followingsList"))
+                if (uFunc.addToList(curruser.userId, userid, "followingsList"))
                     return curruser.followingsList.remove(userid);
         }
         return false;
     }
 
-    public boolean blockUser(String userid) {    //Block User
-        if (curruser != null){
+    public boolean blockUser(String userid) throws ExecutionException, InterruptedException {    //Block User
+        if (curruser != null) {
             if (!curruser.blockedUsersList.contains(userid))
-                if (uFunc.addToList(curruser.userId,userid,"blockedUsersList"))
+                if (uFunc.addToList(curruser.userId, userid, "blockedUsersList"))
                     return curruser.blockedUsersList.remove(userid);
         }
         return false;
     }
 
-    public boolean unblockUser(String userid) {
-        if (curruser != null){
+    public boolean unblockUser(String userid) throws ExecutionException, InterruptedException {
+        if (curruser != null) {
             if (curruser.blockedUsersList.contains(userid))
-                if (uFunc.removeFromList(curruser.userId,userid,"blockedUsersList"))
+                if (uFunc.removeFromList(curruser.userId, userid, "blockedUsersList"))
                     return curruser.blockedUsersList.remove(userid);
         }
         return false;
     }
 
-    public boolean likePost(String postid, String userid) {
+    public boolean likePost(String postid, String userid) throws ExecutionException, InterruptedException {
         if (curruser != null) {
             String id = null;
             id = pOperations.sendNotification(userid, curruser.userId, postid, "Liked");
@@ -82,50 +82,50 @@ public class UserOperations implements Operations {
                 if (pOperations.addLike(curruser.userId, postid))
                     return true;
                 else
-                    pOperations.removeNotification(id,curruser.userId);
+                    pOperations.removeNotification(id, curruser.userId);
         }
         return false;
     }
 
-    public boolean unlikePost(String postid,String likeID) {
+    public boolean unlikePost(String postid, String likeID) throws ExecutionException, InterruptedException {
         return pOperations.unLike(likeID, postid);
     }
 
     public boolean addPost(String posturl, String text) {
-        return pOperations.addPost(posturl,text,curruser.userId);
+        return pOperations.addPost(posturl, text, curruser.userId);
     }
 
     public boolean removePost(String postid) {
-        if (curruser.postList.contains(postid)){
-            if(pOperations.removePost(postid))
+        if (curruser.postList.contains(postid)) {
+            if (pOperations.removePost(postid))
                 return curruser.postList.remove(postid);
         }
         return false;
     }
 
-    public boolean sharePost(String postid, String userid) {
+    public boolean sharePost(String postid, String userid) throws ExecutionException, InterruptedException {
         String id = "";
         id = pOperations.sendNotification(userid, curruser.userId, postid, "Shared");
         return !id.equals("");
     }
 
-    public boolean addComment(String postid, String comtext) {
-        return pOperations.addComment(postid,comtext,curruser.userId);
+    public boolean addComment(String postid, String comtext) throws ExecutionException, InterruptedException {
+        return pOperations.addComment(postid, comtext, curruser.userId);
     }
 
     public boolean editUserData(User data) throws ExecutionException, InterruptedException {
-         if(uFunc.editUserData(data, curruser)){
-             curruser = uFunc.getUser(data.userId);
-             return true;
-         }
-         return false;
+        if (uFunc.editUserData(data, curruser)) {
+            curruser = uFunc.getUser(data.userId);
+            return true;
+        }
+        return false;
     }
 
     public ArrayList<Post> getNewsFeedPosts() {
         return uFunc.getPosts(curruser.followingsList);
     }
 
-    public ArrayList<Post> getNewsFeedPosts(String myid){
+    public ArrayList<Post> getNewsFeedPosts(String myid) {
         ArrayList<String> tempList = new ArrayList<>();
         tempList.add(curruser.userId);
         return uFunc.getPosts(tempList);
@@ -151,7 +151,7 @@ public class UserOperations implements Operations {
         return curruser.followingsList;
     }
 
-    public ArrayList<Notification> getNotification(){
+    public ArrayList<Notification> getNotification() {
         ArrayList<Notification> arr = null;
         arr = uFunc.getNotification(curruser.notificationList);
         return arr;

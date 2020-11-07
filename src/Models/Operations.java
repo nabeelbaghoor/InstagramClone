@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public interface Operations {
-    boolean removeFollower(String userid);  //Done
+    boolean removeFollower(String userid) throws ExecutionException, InterruptedException;  //Done
 
-    boolean blockUser(String userid);       //Done
+    boolean blockUser(String userid) throws ExecutionException, InterruptedException;       //Done
 
-    boolean unblockUser(String userid);     //Done
+    boolean unblockUser(String userid) throws ExecutionException, InterruptedException;     //Done
 
-    boolean followUser(String userid);      //Done
+    boolean followUser(String userid) throws ExecutionException, InterruptedException;      //Done
 
-    boolean unfollowUser(String userid);    //Done
+    boolean unfollowUser(String userid) throws ExecutionException, InterruptedException;    //Done
 
-    boolean likePost(String postid, String userid);     //Done        //PostID and UserID of person who issued post
+    boolean likePost(String postid, String userid) throws ExecutionException, InterruptedException;     //Done        //PostID and UserID of person who issued post
 
-    boolean unlikePost(String postid, String unlike);   //Done
+    boolean unlikePost(String postid, String unlike) throws ExecutionException, InterruptedException;   //Done
 
-    boolean sharePost(String postid, String userid);
+    boolean sharePost(String postid, String userid) throws ExecutionException, InterruptedException;
 
-    boolean addComment(String postid, String comtext);  //Done
+    boolean addComment(String postid, String comtext) throws ExecutionException, InterruptedException;  //Done
 
     boolean addPost(String posturl, String text);   //Done
 

@@ -18,7 +18,7 @@ public class Post implements IModel {
     public Post() {
     }
 
-    public Post(String _postId, String _userId, String _imagePath, String _postText,ArrayList<String> _likesList,
+    public Post(String _postId, String _userId, String _imagePath, String _postText, ArrayList<String> _likesList,
                 ArrayList<String> _commentsList, Timestamp _timestamp) {
         postId = _postId;
         userId = _userId;

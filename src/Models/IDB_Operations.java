@@ -1,5 +1,8 @@
 package Models;
 
+
+import com.google.firebase.database.utilities.Pair;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +29,7 @@ public interface IDB_Operations {
     /*s
     updateArrayObject supports only one Add/Remove Operation on only one Array (of an object) at a time
      */
-    boolean updateArrayObject(String objectId, HashMap<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType); //for update Array operation
+    boolean updateArrayObject(String objectId, Pair<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) throws ExecutionException, InterruptedException; //for update Array operation
 
     enum ModelType {
         Comments,
