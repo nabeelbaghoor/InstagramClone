@@ -8,19 +8,20 @@ import com.google.firebase.database.utilities.Pair;
 import java.util.concurrent.ExecutionException;
 
 public class NotificationFunction {
-
-    public NotificationFunction() {
+    private final IDB_Operations DB;
+    public NotificationFunction(IDB_Operations _obj) {
+        DB=_obj;
     }
 
     public boolean removeNotification(String id, String userid) throws ExecutionException, InterruptedException {
         boolean flag = false;
         try {
-            flag = Layers.DBLayer.removeObject(id, IDB_Operations.ModelType.Notifications);
+            flag = DB.removeObject(id, IDB_Operations.ModelType.Notifications);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
         Pair<String, Object> pair = new Pair<String, Object>("notificationList", id);
-        Layers.DBLayer.updateArrayObject(userid, pair, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Users);
+        DB.updateArrayObject(userid, pair, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Users);
         return flag;
     }
 
@@ -35,7 +36,7 @@ public class NotificationFunction {
 
         User temp = null;
         try {
-            temp = (User) Layers.DBLayer.getObject(userid, IDB_Operations.ModelType.Users);
+            temp = (User) DB.getObject(userid, IDB_Operations.ModelType.Users);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -47,13 +48,13 @@ public class NotificationFunction {
         String ans = null;
 
         try {
-            ans = Layers.DBLayer.addObject(obj, IDB_Operations.ModelType.Notifications);
+            ans = DB.addObject(obj, IDB_Operations.ModelType.Notifications);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
 
         Pair<String, Object> pair = new Pair<String, Object>("notificationList", ans);
-        Layers.DBLayer.updateArrayObject(userid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Users);
+        DB.updateArrayObject(userid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Users);
 
         return ans;
     }

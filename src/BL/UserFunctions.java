@@ -10,14 +10,16 @@ import java.util.concurrent.ExecutionException;
 import static Models.IDB_Operations.ModelType.Users;
 
 public class UserFunctions {
+    private final IDB_Operations DB;
 
-    public UserFunctions() {
+    public UserFunctions(IDB_Operations _obj) {
+        DB = _obj;
     }
 
     public User getUser(String user1) {
         User temp = null;
         try {
-            temp = (User) Layers.DBLayer.getObject(user1, Users);
+            temp = (User) DB.getObject(user1, Users);
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
@@ -29,7 +31,7 @@ public class UserFunctions {
         ArrayList<IModel> temp = null;
 
         try {
-            temp = Layers.DBLayer.getObjectsList(arr, Users);
+            temp = DB.getObjectsList(arr, Users);
             for (IModel iModel : temp)
                 ans.add((User) iModel);
         } catch (InterruptedException | ExecutionException e) {
@@ -47,7 +49,7 @@ public class UserFunctions {
             postList.addAll(temp.postList);
         }
 
-        PostOperation temp = new PostOperation();
+        PostOperation temp = new PostOperation(DB);
         ans = temp.getUserPosts(postList);
         return ans;
     }
@@ -74,24 +76,24 @@ public class UserFunctions {
         if (!data.phoneNumber.equals(curr.phoneNumber))
             map.put("phoneNumber", data.phoneNumber);
 
-        return Layers.DBLayer.updateObject(data.userId, map, Users);
+        return DB.updateObject(data.userId, map, Users);
     }
 
     public boolean removeFromList(String myID, String userid, String key) throws ExecutionException, InterruptedException {
         Pair<String, Object> pair = new Pair<String, Object>(key, userid);
-        return Layers.DBLayer.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Remove, Users);
+        return DB.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Remove, Users);
     }
 
     public boolean addToList(String myID, Object userid, String key) throws ExecutionException, InterruptedException {
         Pair<String, Object> pair = new Pair<String, Object>(key, userid);
-        return Layers.DBLayer.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Add, Users);
+        return DB.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Add, Users);
     }
 
     public ArrayList<Notification> getNotification(ArrayList<String> notificationList) {
         ArrayList<Notification> ans = new ArrayList<>();
         ArrayList<IModel> temp;
         try {
-            temp = Layers.DBLayer.getObjectsList(notificationList, IDB_Operations.ModelType.Notifications);
+            temp = DB.getObjectsList(notificationList, IDB_Operations.ModelType.Notifications);
             for (IModel iModel : temp)
                 ans.add((Notification) iModel);
         } catch (ExecutionException | InterruptedException e) {

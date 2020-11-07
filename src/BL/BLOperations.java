@@ -5,11 +5,9 @@
  */
 package BL;
 
-import Models.Notification;
-import Models.Operations;
-import Models.Post;
-import Models.User;
+import Models.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -20,13 +18,18 @@ import java.util.concurrent.ExecutionException;
 public class BLOperations implements Operations {
     private final UserFunctions uFunc;
     private final PostOperation pOperations;
-    private final Layers dTemp = new Layers();
     private User curruser;
 
-    public BLOperations() {
-        uFunc = new UserFunctions();
-        pOperations = new PostOperation();
-        curruser = uFunc.getUser("dLus5uS81GWRv5dT3Ve1");
+    public BLOperations(IDB_Operations _obj,String id) {
+        try {
+            _obj.initDB();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        uFunc = new UserFunctions(_obj);
+        pOperations = new PostOperation(_obj);
+        curruser = uFunc.getUser(id);
     }
 
     public boolean removeFollower(String userid) throws ExecutionException, InterruptedException { //Remove from my Followers
