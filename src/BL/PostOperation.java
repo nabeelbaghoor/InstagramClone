@@ -73,15 +73,16 @@ public class PostOperation {
         return flag;
     }
 
-    public boolean addPost(String posturl, String text, String userid) {
+    public String addPost(String posturl, String text, String userid) {
         Post obj = new Post("", userid, posturl, text, null, null, null);
+        String id = "";
         try {
-            if (DB.addObject(obj, IDB_Operations.ModelType.Posts) != null)
-                return true;
+            id = DB.addObject(obj, IDB_Operations.ModelType.Posts);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
-        return false;
+
+        return id;
     }
 
     public ArrayList<Post> getUserPosts(ArrayList<String> postList) {
