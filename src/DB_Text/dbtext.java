@@ -1,20 +1,18 @@
 package DB_Text;
-import Models.*;
-import com.google.api.client.json.JsonString;
-import com.google.cloud.firestore.DocumentSnapshot;
-import netscape.javascript.JSObject;
-//import org.json.simple.JSONObject;
+import Models.IDB_Operations;
+import Models.User;
 import com.google.gson.Gson;
 import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.JSONException;
 
-import java.util.ArrayList;
-import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+//import org.json.simple.JSONObject;
 
 public class dbtext {
     private Object JSONObject;
@@ -22,7 +20,7 @@ public class dbtext {
     public dbtext() throws FileNotFoundException {
     }
 
-    void saveuser( User u) throws IOException {
+    void saveuser( User u) throws IOException, JSONException {
 
         ArrayList<String> listdata = new ArrayList<String>();
         JSONArray jArray = (JSONArray) JSONObject;
@@ -78,8 +76,6 @@ public class dbtext {
         System.out.println("User Details\n");
         System.out.println("\n"+u3.getID());
         System.out.println("\n"+u3.firstName);
-
-
     }
 
 }
