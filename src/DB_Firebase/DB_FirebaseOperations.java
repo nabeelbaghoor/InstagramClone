@@ -11,8 +11,10 @@ import com.google.firebase.database.utilities.Pair;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class DB_FirebaseOperations implements IDB_Operations {
@@ -148,7 +150,7 @@ public class DB_FirebaseOperations implements IDB_Operations {
         DocumentReference addedDocRef = db.collection(modelType.toString()).document();
         object.setID(addedDocRef.getId());
         //set timestamp of creation of the object
-        object.setTimestamp(new Timestamp(System.currentTimeMillis()));
+        object.setTimestamp(new java.sql.Timestamp(System.currentTimeMillis()));
         ApiFuture<WriteResult> writeResult = addedDocRef.set(object);
         System.out.println("Successfully updated at: " + writeResult.get().getUpdateTime());
         return object.getID();

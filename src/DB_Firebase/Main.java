@@ -2,7 +2,7 @@ package DB_Firebase;
 
 import Models.IDB_Operations;
 import Models.IModel;
-import Models.User;
+import Models.Like;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
@@ -89,8 +89,9 @@ public class Main {
 
 
         //add object
-        IModel _object =  _IDB.getObject("xECfetjpysBxJilVLyf4", IDB_Operations.ModelType.Users);
-        System.out.println(((User)_object).username);
+        //_IDB.addObject(new Like(null,"TD4mSFzDUBJXas7Emj0N",null), IDB_Operations.ModelType.Likes);
+        IModel _object =  _IDB.getObject("ApxgTOfsNLVzHENkx6pl", IDB_Operations.ModelType.Likes);
+        System.out.println(((Like)_object).timestamp);
 
         //get list of objects
   /*      ArrayList<String> objectIds = new ArrayList<String>();
