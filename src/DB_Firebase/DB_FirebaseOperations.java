@@ -120,7 +120,6 @@ public class DB_FirebaseOperations implements IDB_Operations {
         // Create a query against the collection.
         Iterator entries = attributesToQuery.entrySet().iterator();
         HashMap.Entry<String, Object> thisEntry = (HashMap.Entry) entries.next();
-        ;
         Query query = docsRef.whereEqualTo(thisEntry.getKey(), thisEntry.getValue());
         while (entries.hasNext()) {
             thisEntry = (HashMap.Entry) entries.next();

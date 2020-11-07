@@ -5,8 +5,6 @@ import Models.IModel;
 import Models.User;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class Main {
@@ -91,14 +89,17 @@ public class Main {
 
 
         //add object
-       /* IModel _object =  _IDB.getObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);
-        System.out.println(_object.getID());*/
+        IModel _object =  _IDB.getObject("xECfetjpysBxJilVLyf4", IDB_Operations.ModelType.Users);
+        System.out.println(((User)_object).username);
 
         //get list of objects
-        ArrayList<String> objectIds = new ArrayList<String>();
-        HashMap<String, Object> map = new HashMap<String, Object>();
-        map.put("phoneNumber", "03001234456");
-        ArrayList<IModel> _objects = _IDB.getObjectsList(map, IDB_Operations.ModelType.Users);
+  /*      ArrayList<String> objectIds = new ArrayList<String>();
+        objectIds.add("xECfetjpysBxJilVLyf4");
+        objectIds.add("sD3TyX1DPGXnI7QmYODc");
+        objectIds.add("GqTxH2YqK96iiM1Yy8TR");
+        //HashMap<String, Object> map = new HashMap<String, Object>();
+        //map.put("phoneNumber", "03001234456");
+        ArrayList<IModel> _objects = _IDB.getObjectsList(objectIds, IDB_Operations.ModelType.Users);
         if (_objects != null) {
             for (IModel _object : _objects) {
                 User user = ((User) _object);
@@ -106,7 +107,7 @@ public class Main {
                     System.out.println(user.username);
                 }
             }
-        }
+        }*/
         //remove object
         /*_IDB.removeObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);*/
     }

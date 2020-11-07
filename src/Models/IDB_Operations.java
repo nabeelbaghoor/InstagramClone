@@ -26,7 +26,7 @@ public interface IDB_Operations {
     */
     boolean updateObject(String objectId, HashMap<String, Object> attributesToBeUpdated, ModelType modelType) throws ExecutionException, InterruptedException;  //fo update variable(s) operations
 
-    /*s
+    /*
     updateArrayObject supports only one Add/Remove Operation on only one Array (of an object) at a time
      */
     boolean updateArrayObject(String objectId, Pair<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) throws ExecutionException, InterruptedException; //for update Array operation

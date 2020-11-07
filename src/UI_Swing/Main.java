@@ -2,10 +2,6 @@ package UI_Swing;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-import java.io.File;
 
 public class Main {
     public static void main(String[] args)
@@ -18,7 +14,7 @@ public class Main {
         { e.printStackTrace(); }
 
         //Changeable Variables
-        String urlpath = "file:///D:/Eclipse/EclipseProjects/UI_Frame/src/bg.jpg";
+        String urlpath = "file:\\C:\\Users\\nabeelbaghoor\\IdeaProjects\\theInstagramClone\\s.png";
         String Fullname = "FullName PlaceHolder";
         int FollowingC = 10;
         int FollowerC = 10;

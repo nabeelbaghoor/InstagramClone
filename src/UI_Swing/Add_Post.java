@@ -1,21 +1,13 @@
 package UI_Swing;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-import java.io.File;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class Add_Post extends JFrame {
     private int image_height;
@@ -116,7 +108,7 @@ public class Add_Post extends JFrame {
                     FileType = FileLocation.substring(FileLocation.lastIndexOf("."), FileLocation.length());
                 }
 
-                if(FileType.compareTo(".jpg") != 0)
+                if(FileType.compareTo(".png") != 0)
                 {
                     JOptionPane.showMessageDialog(Confirm, "Please Add a Photo For Post");
                 }
