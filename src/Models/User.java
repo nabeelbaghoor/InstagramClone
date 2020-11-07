@@ -1,34 +1,11 @@
 package Models;
 
-import java.sql.Timestamp;
+import com.google.cloud.Timestamp;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 public class User implements IModel {
-
-    /*
-    //as on page,USerOperations
-    UserService should implement two functions
-    isHeFollower()
-    isHeFollowing()
-    will help in showing buttons state
-     */
-
-    /*
-    There should be a model,which stores current user.
-    String static userid
-    static User ref
-    on creating,will load,
-    (in contructor)
-    {
-    read userid from cinfig file
-    get user object from memory
-    }
-    configuration file will contain this userid
-     */
-    //userid,username,email,Name,gender,phoneNumber,dateOfBirth,profileCreatedDateTime(Timedstamp),website,bio,
-    //ImagePath(only one image enough),image name is userid
-    //followingList,followersList,blockedUsersList,
     public String userId;
     public String username;
     public String emailAddress;
@@ -87,7 +64,7 @@ public class User implements IModel {
     }
 
     @Override
-    public void setTimestamp(java.sql.Timestamp _timestamp) {
+    public void setTimestamp(com.google.cloud.Timestamp _timestamp) {
         timestamp = _timestamp;
     }
 }

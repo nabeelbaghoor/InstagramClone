@@ -1,11 +1,8 @@
 package Models;
 
-
-import java.sql.Timestamp;
+import com.google.cloud.Timestamp;
 
 public class Comment implements IModel {
-//text,userid,commentid,datetime(timestamp mb by firebase),no postId
-
     public String commentId;
     public String userId;
     public String commentText;
@@ -30,7 +27,7 @@ public class Comment implements IModel {
     }
 
     @Override
-    public void setTimestamp(java.sql.Timestamp _timestamp) {
+    public void setTimestamp(com.google.cloud.Timestamp _timestamp) {
         timestamp = _timestamp;
     }
 }

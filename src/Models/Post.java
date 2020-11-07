@@ -1,12 +1,10 @@
 package Models;
 
-import java.sql.Timestamp;
+import com.google.cloud.Timestamp;
+
 import java.util.ArrayList;
 
 public class Post implements IModel {
-    //postid,userid,imagePath(only one enough),dateTime(timstamp),likesList(ids only),commentsList(ids only),
-    //  no tagsList(ids only),as no use case for it, and no search feature,so no tagging
-    //post description/text
     public String postId;
     public String userId;
     public String imagePath;    //only one image allowed
@@ -38,7 +36,7 @@ public class Post implements IModel {
     }
 
     @Override
-    public void setTimestamp(java.sql.Timestamp _timestamp) {
+    public void setTimestamp(com.google.cloud.Timestamp _timestamp) {
         timestamp = _timestamp;
     }
 }

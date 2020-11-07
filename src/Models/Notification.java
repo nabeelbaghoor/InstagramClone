@@ -5,16 +5,12 @@
  */
 package Models;
 
-import java.sql.Timestamp;
+import com.google.cloud.Timestamp;
 
 /**
  * @author inspiron
  */
 public class Notification implements IModel {
-    //We call it as ACtivity
-    //viewed(booleean),notifID,postId,sharerID,viewerID,dateTime(Timestamp)
-    //no msg text feature
-    //tobeshown(boolean),if blocked ,make query on blockuser action,
     public String notificationId;
     public String postId;
     public String sharerId;
@@ -53,7 +49,7 @@ public class Notification implements IModel {
     }
 
     @Override
-    public void setTimestamp(java.sql.Timestamp _timestamp) {
+    public void setTimestamp(com.google.cloud.Timestamp _timestamp) {
         timestamp = _timestamp;
     }
 }

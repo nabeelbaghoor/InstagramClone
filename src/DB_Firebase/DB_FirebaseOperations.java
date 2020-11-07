@@ -3,6 +3,7 @@ package DB_Firebase;
 import Models.*;
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.Timestamp;
 import com.google.cloud.firestore.*;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -150,7 +151,7 @@ public class DB_FirebaseOperations implements IDB_Operations {
         DocumentReference addedDocRef = db.collection(modelType.toString()).document();
         object.setID(addedDocRef.getId());
         //set timestamp of creation of the object
-        object.setTimestamp(new java.sql.Timestamp(System.currentTimeMillis()));
+        object.setTimestamp(Timestamp.now());
         ApiFuture<WriteResult> writeResult = addedDocRef.set(object);
         System.out.println("Successfully updated at: " + writeResult.get().getUpdateTime());
         return object.getID();

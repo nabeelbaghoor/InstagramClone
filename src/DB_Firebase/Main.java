@@ -1,8 +1,6 @@
 package DB_Firebase;
 
 import Models.IDB_Operations;
-import Models.IModel;
-import Models.Like;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
@@ -87,20 +85,22 @@ public class Main {
                 null), IDB_Operations.ModelType.Users);
 */
 
-
         //add object
         //_IDB.addObject(new Like(null,"TD4mSFzDUBJXas7Emj0N",null), IDB_Operations.ModelType.Likes);
-        IModel _object =  _IDB.getObject("ApxgTOfsNLVzHENkx6pl", IDB_Operations.ModelType.Likes);
-        System.out.println(((Like)_object).timestamp);
+      /*  IModel _object =  _IDB.getObject("vK0qiLVNh3CA7c66QlCh", IDB_Operations.ModelType.Likes);
+        System.out.println(((Like)_object).userId);*/
 
         //get list of objects
-  /*      ArrayList<String> objectIds = new ArrayList<String>();
-        objectIds.add("xECfetjpysBxJilVLyf4");
-        objectIds.add("sD3TyX1DPGXnI7QmYODc");
-        objectIds.add("GqTxH2YqK96iiM1Yy8TR");
-        //HashMap<String, Object> map = new HashMap<String, Object>();
-        //map.put("phoneNumber", "03001234456");
-        ArrayList<IModel> _objects = _IDB.getObjectsList(objectIds, IDB_Operations.ModelType.Users);
+        /*ArrayList<String> objectIds = new ArrayList<String>();
+        objectIds.add("7FaaX7kg8M8lRIqfYzMh");
+        objectIds.add("E0zzH66ulW3GEoevTgmx");
+        objectIds.add("atvNZf2Hi0rbwJrjJHVc");*/
+       /* HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("phoneNumber", "03001234456");
+        map.put("gender","Male");
+        map.put("website","1studios.com");
+        map.put("lastName","Hassan");
+        ArrayList<IModel> _objects = _IDB.getObjectsList(map, IDB_Operations.ModelType.Users);
         if (_objects != null) {
             for (IModel _object : _objects) {
                 User user = ((User) _object);
@@ -110,6 +110,18 @@ public class Main {
             }
         }*/
         //remove object
-        /*_IDB.removeObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);*/
+        /*HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("phoneNumber", "03001234456");
+        map.put("gender","gender");
+        map.put("website","2studios.com");
+        map.put("lastName","Hassan");*/
+        /*Pair<String ,Object> pair = new Pair<String, Object>("blockedUsersList", "atvNZf2Hi0rbwJrjJHVc");
+        _IDB.updateArrayObject("buxocf1ivbTgdcroluOn",pair,IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Users);
+
+        Pair<String ,Object> pair2 = new Pair<String, Object>("blockedUsersList", "7FaaX7kg8M8lRIqfYzMh ");
+        _IDB.updateArrayObject("buxocf1ivbTgdcroluOn",pair2,IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Users);
+
+        Pair<String ,Object> pair3 = new Pair<String, Object>("blockedUsersList", "buxocf1ivbTgdcroluOn");
+        _IDB.updateArrayObject("buxocf1ivbTgdcroluOn",pair3, IDB_Operations.UpdateOperation.Add,IDB_Operations.ModelType.Users);*/
     }
 }

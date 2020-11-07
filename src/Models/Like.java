@@ -1,11 +1,8 @@
 package Models;
 
-import java.sql.Timestamp;
+import com.google.cloud.Timestamp;
 
-//Yaar isko delete kr lete. Iski zrorat nhi.
 public class Like implements IModel {
-
-    //userid,likeid,datetime(timestamp mb by firebase),no postid
     public String likeId;
     public String userId;
     public Timestamp timestamp; //db will initialize it,when creating
@@ -28,7 +25,7 @@ public class Like implements IModel {
     }
 
     @Override
-    public void setTimestamp(java.sql.Timestamp _timestamp) {
+    public void setTimestamp(com.google.cloud.Timestamp _timestamp) {
         timestamp = _timestamp;
     }
 

@@ -1,6 +1,7 @@
 package Models;
 
-import java.sql.Timestamp;
+
+import com.google.cloud.Timestamp;
 
 public interface IModel {
     String getID();
