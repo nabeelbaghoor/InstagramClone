@@ -11,14 +11,11 @@ import com.google.firebase.database.utilities.Pair;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 public class DB_FirebaseOperations implements IDB_Operations {
 
-    //getObject based on HashMap key value pairs    (must)
     @Override
     public void initDB() throws IOException {
         FileInputStream serviceAccount =
@@ -115,25 +112,30 @@ public class DB_FirebaseOperations implements IDB_Operations {
     //This function can just return 10 objects at a time
     //will update it later to support more
     @Override
-    public ArrayList<IModel> getObjectsList(HashMap<String, String> attributesToQuery, ModelType modelType) throws ExecutionException, InterruptedException {
-//        Firestore db = FirestoreClient.getFirestore();
-//        // Create a reference to the cities collection
-//        CollectionReference docsRef = db.collection(modelType.toString());
-//        // Create a query against the collection.
-//        Query query = docsRef.whereIn(FieldPath.documentId(), objectIds);
-//        // retrieve  query results asynchronously using query.get()
-//        ApiFuture<QuerySnapshot> querySnapshot = query.get();
-//        ArrayList<IModel> _objects = queryDocumentsToClassTypes(querySnapshot.get().getDocuments(), modelType);
-//        if (!_objects.isEmpty()) {
-//            for (IModel _object : _objects) {
-//                System.out.println(_object.getID());
-//            }
-//            return _objects;
-//        } else {
-//            System.out.println("No such documents!");
-//            return null;
-//        }
-        return null;
+    public ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws ExecutionException, InterruptedException {
+        Firestore db = FirestoreClient.getFirestore();
+        // Create a reference to the cities collection
+        CollectionReference docsRef = db.collection(modelType.toString());
+        // Create a query against the collection.
+        Iterator entries = attributesToQuery.entrySet().iterator();
+        HashMap.Entry<String, Object> thisEntry = (HashMap.Entry) entries.next();;
+        Query query = docsRef.whereEqualTo(thisEntry.getKey(),thisEntry.getValue());
+        while (entries.hasNext()) {
+            thisEntry = (HashMap.Entry) entries.next();
+            query = query.whereEqualTo(thisEntry.getKey(),thisEntry.getValue());
+        }
+        // retrieve  query results asynchronously using query.get()
+        ApiFuture<QuerySnapshot> querySnapshot = query.get();
+        ArrayList<IModel> _objects = queryDocumentsToClassTypes(querySnapshot.get().getDocuments(), modelType);
+        if (!_objects.isEmpty()) {
+            for (IModel _object : _objects) {
+                System.out.println(_object.getID());
+            }
+            return _objects;
+        } else {
+            System.out.println("No such documents!");
+            return null;
+        }
     }
 
     //see extra id attribute which it is creating                   //..............ERROR
