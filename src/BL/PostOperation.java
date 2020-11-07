@@ -97,7 +97,7 @@ public class PostOperation {
             ans.add((Post) iModel);
 
         ans.sort((p1, p2) -> {
-            return p2.timestamp.getTimestamp().compareTo(p1.timestamp.getTimestamp());
+            return p2.timestamp.toString().compareTo(p1.timestamp.toString());  //Code chnaged from timestamp.getTimestamp() to timestamp.toString()
         });
         return ans;
     }

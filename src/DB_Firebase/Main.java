@@ -1,8 +1,12 @@
 package DB_Firebase;
 
 import Models.IDB_Operations;
+import Models.IModel;
+import Models.User;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class Main {
@@ -11,7 +15,7 @@ public class Main {
         IDB_Operations _IDB = new DB_FirebaseOperations();
         _IDB.initDB();
         //added all group members
-       /* _IDB.addObject(new User(null,
+        /*_IDB.addObject(new User(null,
                 "nabeelbaghoor",
                 "nabeelbaghoor@gmail.com",
                 "Nabeel",
@@ -82,26 +86,27 @@ public class Main {
                 "studios.com",
                 "bio",
                 null,
-                null), IDB_Operations.ModelType.Users);*/
+                null), IDB_Operations.ModelType.Users);
+*/
+
 
         //add object
        /* IModel _object =  _IDB.getObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);
         System.out.println(_object.getID());*/
 
         //get list of objects
-        /*ArrayList<String> objectIds = new ArrayList<String>();
-        objectIds.add("TmfogDtTYA4kk5SF5gZv");
-        objectIds.add("UBlkTuejFwjTJavHRSi3");
-        ArrayList<IModel> _objects = _IDB.getObjectsList(objectIds, IDB_Operations.ModelType.Users);
-        if(_objects!=null) {
+        ArrayList<String> objectIds = new ArrayList<String>();
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("phoneNumber", "03001234456");
+        ArrayList<IModel> _objects = _IDB.getObjectsList(map, IDB_Operations.ModelType.Users);
+        if (_objects != null) {
             for (IModel _object : _objects) {
                 User user = ((User) _object);
-                if(user!=null) {
+                if (user != null) {
                     System.out.println(user.username);
                 }
             }
-        }*/
-
+        }
         //remove object
         /*_IDB.removeObject("TmfogDtTYA4kk5SF5gZv", IDB_FirebaseOperations.ModelType.Users);*/
     }

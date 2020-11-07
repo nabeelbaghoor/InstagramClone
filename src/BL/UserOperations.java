@@ -18,10 +18,10 @@ import java.util.concurrent.ExecutionException;
  */
 
 public class UserOperations implements Operations {
-    private User curruser;
     private final UserFunctions uFunc;
     private final PostOperation pOperations;
     private final Layers dTemp = new Layers();
+    private User curruser;
 
     public UserOperations() {
         uFunc = new UserFunctions();

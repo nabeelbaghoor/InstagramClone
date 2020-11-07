@@ -1,6 +1,6 @@
 package Models;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -84,5 +84,10 @@ public class User implements IModel {
 
     public void setID(String _userId) {
         userId = _userId;
+    }
+
+    @Override
+    public void setTimestamp(java.sql.Timestamp _timestamp) {
+        timestamp = _timestamp;
     }
 }

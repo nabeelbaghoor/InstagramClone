@@ -11,6 +11,7 @@ import com.google.firebase.database.utilities.Pair;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 
@@ -118,11 +119,12 @@ public class DB_FirebaseOperations implements IDB_Operations {
         CollectionReference docsRef = db.collection(modelType.toString());
         // Create a query against the collection.
         Iterator entries = attributesToQuery.entrySet().iterator();
-        HashMap.Entry<String, Object> thisEntry = (HashMap.Entry) entries.next();;
-        Query query = docsRef.whereEqualTo(thisEntry.getKey(),thisEntry.getValue());
+        HashMap.Entry<String, Object> thisEntry = (HashMap.Entry) entries.next();
+        ;
+        Query query = docsRef.whereEqualTo(thisEntry.getKey(), thisEntry.getValue());
         while (entries.hasNext()) {
             thisEntry = (HashMap.Entry) entries.next();
-            query = query.whereEqualTo(thisEntry.getKey(),thisEntry.getValue());
+            query = query.whereEqualTo(thisEntry.getKey(), thisEntry.getValue());
         }
         // retrieve  query results asynchronously using query.get()
         ApiFuture<QuerySnapshot> querySnapshot = query.get();
@@ -146,6 +148,8 @@ public class DB_FirebaseOperations implements IDB_Operations {
         // Add document data after generating an id.
         DocumentReference addedDocRef = db.collection(modelType.toString()).document();
         object.setID(addedDocRef.getId());
+        //set timestamp of creation of the object
+        object.setTimestamp(new Timestamp(System.currentTimeMillis()));
         ApiFuture<WriteResult> writeResult = addedDocRef.set(object);
         System.out.println("Successfully updated at: " + writeResult.get().getUpdateTime());
         return object.getID();

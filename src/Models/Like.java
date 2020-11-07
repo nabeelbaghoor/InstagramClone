@@ -26,4 +26,10 @@ public class Like implements IModel {
     public void setID(String id) {
         likeId = id;
     }
+
+    @Override
+    public void setTimestamp(java.sql.Timestamp _timestamp) {
+        timestamp = _timestamp;
+    }
+
 }

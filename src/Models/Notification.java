@@ -5,7 +5,7 @@
  */
 package Models;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 /**
  * @author inspiron
@@ -50,5 +50,10 @@ public class Notification implements IModel {
 
     public void setID(String _notificationId) {
         notificationId = _notificationId;
+    }
+
+    @Override
+    public void setTimestamp(java.sql.Timestamp _timestamp) {
+        timestamp = _timestamp;
     }
 }

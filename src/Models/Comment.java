@@ -1,5 +1,6 @@
 package Models;
 
+
 import java.sql.Timestamp;
 
 public class Comment implements IModel {
@@ -26,5 +27,10 @@ public class Comment implements IModel {
 
     public void setID(String _commentId) {
         commentId = _commentId;
+    }
+
+    @Override
+    public void setTimestamp(java.sql.Timestamp _timestamp) {
+        timestamp = _timestamp;
     }
 }

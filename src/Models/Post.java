@@ -1,6 +1,6 @@
 package Models;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class Post implements IModel {
@@ -35,5 +35,10 @@ public class Post implements IModel {
 
     public void setID(String _postId) {
         postId = _postId;
+    }
+
+    @Override
+    public void setTimestamp(java.sql.Timestamp _timestamp) {
+        timestamp = _timestamp;
     }
 }
