@@ -27,8 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="added info in UI_Console">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBText_DATA/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Users.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI_Console/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Console/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +92,7 @@
       <command value="likesList" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (4)">
+  <component name="RunManager" selected="Application.Main (2)">
     <configuration name="Add_Post" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UI_Swing.Add_Post" />
       <module name="InstagramClone" />
@@ -174,8 +173,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (4)" />
         <item itemvalue="Application.Main (2)" />
+        <item itemvalue="Application.Main (4)" />
         <item itemvalue="Application.Add_Post" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main (3)" />
@@ -190,13 +189,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Removed Erros&#10;Removed Errors">
-      <created>1604528223912</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1604528223912</updated>
     </task>
     <task id="LOCAL-00019" summary="used Model parent class instead of IModel">
       <created>1604561165907</created>
@@ -534,7 +526,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604829245328</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="added info in UI_Console">
+      <created>1604834528511</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1604834528511</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -590,10 +589,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="added info in UI_Console" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="163" y="0" key="#Project_Structure" timestamp="1604834505477">
+    <state x="163" y="0" key="#Project_Structure" timestamp="1604834509010">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1604834505477" />
+    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1604834509010" />
     <state x="319" y="27" key="#com.intellij.codeInsight.i18n.I18nizeQuickFixDialog_Form" timestamp="1604492778087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -678,10 +677,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="490" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1604647854932" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604829250572">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604834533427">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604829250572" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604834533427" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604527997999">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -690,10 +689,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="387" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1604824440572" />
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604828655937">
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604834515381">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1604828655937" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1604834515381" />
     <state x="413" y="114" key="extract.method.dialog" timestamp="1604825605274">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
