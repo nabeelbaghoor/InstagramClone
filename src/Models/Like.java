@@ -29,4 +29,13 @@ public class Like implements IModel {
         timestamp = _timestamp;
     }
 
+    @Override
+    public void print() {
+        System.out.println("likeId = " + likeId + "\n");
+        System.out.println("userId = " + userId + "\n");
+        System.out.println("timestamp = " + timestamp.toString() + "\n");
+
+        System.out.println("-----------------------------------------------------------------" + "\n");
+    }
+
 }

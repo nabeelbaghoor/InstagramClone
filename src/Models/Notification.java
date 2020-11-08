@@ -52,4 +52,18 @@ public class Notification implements IModel {
     public void setTimestamp(com.google.cloud.Timestamp _timestamp) {
         timestamp = _timestamp;
     }
+
+    @Override
+    public void print() {
+        System.out.println("notificationId = " + notificationId + "\n");
+        System.out.println("postId = " + postId + "\n");
+        System.out.println("sharerId = " + sharerId + "\n");
+        System.out.println("viewerId = " + viewerId + "\n");
+        System.out.println("msg = " + msg + "\n");
+        System.out.println("isViewed = " + isViewed + "\n");
+        System.out.println("shouldShow = " + shouldShow + "\n");
+        System.out.println("timestamp = " + timestamp.toString() + "\n");
+
+        System.out.println("-----------------------------------------------------------------" + "\n");
+    }
 }

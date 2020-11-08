@@ -67,4 +67,44 @@ public class User implements IModel {
     public void setTimestamp(com.google.cloud.Timestamp _timestamp) {
         timestamp = _timestamp;
     }
+
+    @Override
+    public void print() {
+
+        System.out.println("userId = " + userId + "\n");
+        System.out.println("username = " + username + "\n");
+        System.out.println("emailAddress = " + emailAddress + "\n");
+        System.out.println("firstName = " + firstName + "\n");
+        System.out.println("lastName = " + lastName + "\n");
+        System.out.println("gender = " + gender + "\n");
+        System.out.println("phoneNumber = " + phoneNumber + "\n");
+        System.out.println("dateOfBirth = " + dateOfBirth.toString() + "\n");
+        System.out.println("website = " + website + "\n");
+        System.out.println("dateOfBirth = " + dateOfBirth.toString() + "\n");
+        System.out.println("bio = " + bio + "\n");
+        System.out.println("timestamp = " + timestamp.toString() + "\n");
+        System.out.println("imagePath = " + imagePath + "\n");
+        System.out.println("dateOfBirth = " + dateOfBirth.toString() + "\n");
+        System.out.println("followersList = " + "\n");
+        for(String follower : followersList){
+            System.out.println("\t" + follower + " ,\n");
+        }
+        System.out.println("blockedUsersList = " + "\n");
+        for(String blocked : blockedUsersList){
+            System.out.println("\t" + blocked + " ,\n");
+        }
+        System.out.println("followingsList = " + "\n");
+        for(String following : followingsList){
+            System.out.println("\t" + following + " ,\n");
+        }
+        System.out.println("postList = " + "\n");
+        for(String post : postList){
+            System.out.println("\t" + post + " ,\n");
+        }
+        System.out.println("notificationList = " + "\n");
+        for(String notification : notificationList){
+            System.out.println("\t" + notification + " ,\n");
+        }
+        System.out.println("-----------------------------------------------------------------" + "\n");
+    }
 }
