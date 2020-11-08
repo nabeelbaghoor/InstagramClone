@@ -4,29 +4,29 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public interface Operations {
-    boolean removeFollower(String userid) throws ExecutionException, InterruptedException;  //Done
+    boolean removeFollower(String userid) throws Exception;  //Done
 
-    boolean blockUser(String userid) throws ExecutionException, InterruptedException;       //Done
+    boolean blockUser(String userid) throws Exception;       //Done
 
-    boolean unblockUser(String userid) throws ExecutionException, InterruptedException;     //Done
+    boolean unblockUser(String userid) throws Exception;     //Done
 
-    boolean followUser(String userid) throws ExecutionException, InterruptedException;      //Done
+    boolean followUser(String userid) throws Exception;      //Done
 
-    boolean unfollowUser(String userid) throws ExecutionException, InterruptedException;    //Done
+    boolean unfollowUser(String userid) throws Exception;    //Done
 
-    boolean likePost(String postid, String userid) throws ExecutionException, InterruptedException;     //Done        //PostID and UserID of person who issued post
+    boolean likePost(String postid, String userid) throws Exception;     //Done        //PostID and UserID of person who issued post
 
-    boolean unlikePost(String postid, String unlike) throws ExecutionException, InterruptedException;   //Done
+    boolean unlikePost(String postid, String unlike) throws Exception;   //Done
 
-    boolean sharePost(String postid, String userid) throws ExecutionException, InterruptedException;
+    boolean sharePost(String postid, String userid) throws Exception;
 
-    boolean addComment(String postid, String comtext) throws ExecutionException, InterruptedException;  //Done
+    boolean addComment(String postid, String comtext) throws Exception;  //Done
 
     boolean addPost(String posturl, String text);   //Done
 
     boolean removePost(String postid);      //Done
 
-    boolean editUserData(User data) throws ExecutionException, InterruptedException;        //Done
+    boolean editUserData(User data) throws Exception;        //Done
 
     ArrayList<Post> getNewsFeedPosts();     //Done
 

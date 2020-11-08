@@ -1,5 +1,5 @@
 package Models;
 
 public interface IUI {
-    void start();
+    void start(Operations BLOp);
 }

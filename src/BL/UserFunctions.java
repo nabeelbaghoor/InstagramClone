@@ -3,9 +3,14 @@ package BL;
 import Models.*;
 import com.google.firebase.database.utilities.Pair;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.concurrent.ExecutionException;
 
 import static Models.IDB_Operations.ModelType.Users;
 
@@ -20,7 +25,7 @@ public class UserFunctions {
         User temp = null;
         try {
             temp = (User) DB.getObject(user1, Users);
-        } catch (InterruptedException | ExecutionException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return temp;
@@ -34,7 +39,7 @@ public class UserFunctions {
             temp = DB.getObjectsList(arr, Users);
             for (IModel iModel : temp)
                 ans.add((User) iModel);
-        } catch (InterruptedException | ExecutionException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return ans;
@@ -54,7 +59,7 @@ public class UserFunctions {
         return ans;
     }
 
-    public boolean editUserData(User data, User curr) throws ExecutionException, InterruptedException {
+    public boolean editUserData(User data, User curr) throws Exception {
         HashMap<String, Object> map = new HashMap<>();
 
         if (!data.emailAddress.equals(curr.emailAddress))
@@ -69,23 +74,47 @@ public class UserFunctions {
             map.put("gender", data.gender);
         if (!data.website.equals(curr.website))
             map.put("website", data.website);
-        if (!data.imagePath.equals(curr.imagePath))
-            map.put("imagePath", data.imagePath);
+        if (!data.imagePath.equals(curr.imagePath)){
+            URL imageURL = null;
+            try {
+                imageURL = new URL("file:///"+data.imagePath);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+
+            BufferedImage bi = null;
+            try {
+                bi = ImageIO.read(imageURL);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String newURL = "\\Images\\" + data.userId;
+            try {
+                ImageIO.write(bi, "jpg", new File(newURL));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            map.put("imagePath", "."+newURL);
+        }
         if (!data.lastName.equals(curr.lastName))
             map.put("lastName", data.lastName);
         if (!data.phoneNumber.equals(curr.phoneNumber))
             map.put("phoneNumber", data.phoneNumber);
 
-        return DB.updateObject(data.userId, map, Users);
+        if (!map.isEmpty())
+            return DB.updateObject(data.userId, map, Users);
+        return true;
     }
 
-    public boolean removeFromList(String myID, String userid, String key) throws ExecutionException, InterruptedException {
-        Pair<String, Object> pair = new Pair<String, Object>(key, userid);
+    public boolean removeFromList(String myID, String id, String key) throws Exception {
+        Pair<String, Object> pair = new Pair<String, Object>(key, id);
         return DB.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Remove, Users);
     }
 
-    public boolean addToList(String myID, Object userid, String key) throws ExecutionException, InterruptedException {
-        Pair<String, Object> pair = new Pair<String, Object>(key, userid);
+    public boolean addToList(String myID, Object id, String key) throws Exception {
+        Pair<String, Object> pair = new Pair<String, Object>(key, id);
         return DB.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Add, Users);
     }
 
@@ -96,9 +125,10 @@ public class UserFunctions {
             temp = DB.getObjectsList(notificationList, IDB_Operations.ModelType.Notifications);
             for (IModel iModel : temp)
                 ans.add((Notification) iModel);
-        } catch (ExecutionException | InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return ans;
     }
+
 }

@@ -39,4 +39,27 @@ public class Post implements IModel {
     public void setTimestamp(com.google.cloud.Timestamp _timestamp) {
         timestamp = _timestamp;
     }
+
+    @Override
+    public void print() {
+        System.out.println("postId = " + postId);
+        System.out.println("userId = " + userId);
+        System.out.println("imagePath = " + imagePath);
+        System.out.println("postText = " + postText);
+        System.out.println("likesList = ");
+        if(likesList!=null) {
+            for (String like : likesList) {
+                System.out.println("\t" + like + " ,");
+            }
+        }
+        System.out.println("commentsList = ");
+        if(commentsList!=null) {
+            for (String comment : commentsList) {
+                System.out.println("\t" + comment + " ,");
+            }
+        }
+        System.out.println("timestamp = " + timestamp.toString());
+
+        System.out.println("-----------------------------------------------------------------" + "\n");
+    }
 }

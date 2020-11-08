@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="wokring on making dbtext generic">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBText_DATA/Posts.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Posts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBText_DATA/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Combination/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combination/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jfwcooaut4mU1Kilkcp4Wg4x8w" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/java-json.jar/java-json.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="BL.src.instaclone" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\src\DB_Firebase\company" />
+      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="DB_Firebase.company" />
+      <recent name="model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\Images" />
+      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\src\DB_Firebase\company" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="likesList" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main (4)">
+    <configuration name="Add_Post" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UI_Swing.Add_Post" />
+      <module name="InstagramClone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UI_Swing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UI_Swing.Main" />
+      <module name="InstagramClone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UI_Swing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UI_Console.Main" />
+      <module name="InstagramClone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UI_Console.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DB_Text.Main" />
+      <module name="InstagramClone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DB_Text.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Combination.Main" />
+      <module name="InstagramClone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Combination.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DB_Firebase.Main" />
+      <module name="InstagramClone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DB_Firebase.company.DB_FirebaseOperations" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main (4)" />
+        <item itemvalue="Application.Main (5)" />
+        <item itemvalue="Application.Main (2)" />
+        <item itemvalue="Application.Add_Post" />
+        <item itemvalue="Application.Main (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="" />
+      <created>1604208536352</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604208536352</updated>
+    </task>
+    <task id="LOCAL-00022" summary="implemented mathods for DB_Firebase">
+      <created>1604572933841</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1604572933842</updated>
+    </task>
+    <task id="LOCAL-00023" summary="deleted model class">
+      <created>1604573017656</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1604573017656</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added initFirebase in IDB_FirebaseOperations">
+      <created>1604580873129</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1604580873129</updated>
+    </task>
+    <task id="LOCAL-00025" summary="renamed IDB_FirebaseOperations to IDB_Operations and moved it to Model">
+      <created>1604583004739</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1604583004739</updated>
+    </task>
+    <task id="LOCAL-00026" summary="renamed IDB_FirebaseOperations to IDB_Operations and moved it to Model">
+      <created>1604583011637</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1604583011637</updated>
+    </task>
+    <task id="LOCAL-00027" summary="chnaged some models,">
+      <created>1604591976478</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1604591976478</updated>
+    </task>
+    <task id="LOCAL-00028" summary="changed all Models">
+      <created>1604598436487</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1604598436487</updated>
+    </task>
+    <task id="LOCAL-00029" summary="chnaged">
+      <created>1604599978825</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1604599978825</updated>
+    </task>
+    <task id="LOCAL-00030" summary="chnaged">
+      <created>1604600087127</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1604600087127</updated>
+    </task>
+    <task id="LOCAL-00031" summary="changed README.md">
+      <created>1604600195547</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1604600195547</updated>
+    </task>
+    <task id="LOCAL-00032" summary="changed README.md">
+      <created>1604600359061</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1604600359061</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Removed Company folder from DB_Firebase">
+      <created>1604601213911</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1604601213911</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added new data,,,&#10;removed old">
+      <created>1604602740744</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1604602740744</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Added new update Array operation in interface">
+      <created>1604647838370</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1604647838370</updated>
+    </task>
+    <task id="LOCAL-00036" summary="code cleanup">
+      <created>1604648407035</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1604648407035</updated>
+    </task>
+    <task id="LOCAL-00037" summary="added exceptions in anser's code,where DB_FirebaseOperations is using.also chnaged hashmap parameters">
+      <created>1604738519519</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1604738519519</updated>
+    </task>
+    <task id="LOCAL-00038" summary="made update method in DB_FirebaseOperations and changed Anser's code (BL) accordingly">
+      <created>1604740545704</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1604740545704</updated>
+    </task>
+    <task id="LOCAL-00039" summary="made getobject list query version">
+      <created>1604743286215</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1604743286215</updated>
+    </task>
+    <task id="LOCAL-00040" summary="chnaged  Models">
+      <created>1604747499254</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1604747499254</updated>
+    </task>
+    <task id="LOCAL-00041" summary="chnaged  Models">
+      <created>1604751037698</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1604751037698</updated>
+    </task>
+    <task id="LOCAL-00042" summary="chnaged  Models">
+      <created>1604751044822</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1604751044822</updated>
+    </task>
+    <task id="LOCAL-00043" summary="resolving get operation sin firebase">
+      <created>1604753866418</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1604753866418</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Firebase Completed!!">
+      <created>1604756880159</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1604756880159</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Made DummyDB script">
+      <created>1604767928159</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1604767928159</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Made DummyDB script">
+      <created>1604774562329</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1604774562329</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Made DummyDB script">
+      <created>1604778749971</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1604778749971</updated>
+    </task>
+    <task id="LOCAL-00048" summary="changed Ali's files">
+      <created>1604781707078</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1604781707078</updated>
+    </task>
+    <task id="LOCAL-00049" summary="changed Ali's files">
+      <created>1604782324687</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1604782324687</updated>
+    </task>
+    <task id="LOCAL-00050" summary="changed Ali's files">
+      <created>1604783098622</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1604783098623</updated>
+    </task>
+    <task id="LOCAL-00051" summary="changed Ali's files">
+      <created>1604785706389</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1604785706389</updated>
+    </task>
+    <task id="LOCAL-00052" summary="changed Ali's files">
+      <created>1604786595813</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1604786595813</updated>
+    </task>
+    <task id="LOCAL-00053" summary="changed Ali's files">
+      <created>1604816648229</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1604816648229</updated>
+    </task>
+    <task id="LOCAL-00054" summary="changed Ali's files">
+      <created>1604816655640</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1604816655640</updated>
+    </task>
+    <task id="LOCAL-00055" summary="changed Ali's files">
+      <created>1604816775224</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1604816775224</updated>
+    </task>
+    <task id="LOCAL-00056" summary="added exceptions in BL's code">
+      <created>1604817255091</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1604817255091</updated>
+    </task>
+    <task id="LOCAL-00057" summary="added exceptions in BL's code">
+      <created>1604817261210</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1604817261210</updated>
+    </task>
+    <task id="LOCAL-00058" summary="added print function in Imodel">
+      <created>1604818850717</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1604818850717</updated>
+    </task>
+    <task id="LOCAL-00059" summary="added print function in Imodel">
+      <created>1604819415059</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1604819415060</updated>
+    </task>
+    <task id="LOCAL-00060" summary="remove idea from gitignore">
+      <created>1604821741239</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1604821741239</updated>
+    </task>
+    <task id="LOCAL-00061" summary="remove idea from gitignore">
+      <created>1604821748610</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1604821748610</updated>
+    </task>
+    <task id="LOCAL-00062" summary="remove idea from gitignore">
+      <created>1604821827114</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1604821827114</updated>
+    </task>
+    <task id="LOCAL-00063" summary=".pom file">
+      <created>1604821993269</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1604821993269</updated>
+    </task>
+    <task id="LOCAL-00064" summary="shifted from java.jar to maven">
+      <created>1604824516173</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1604824516173</updated>
+    </task>
+    <task id="LOCAL-00065" summary="added info in UI_Console">
+      <created>1604829179942</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1604829179942</updated>
+    </task>
+    <task id="LOCAL-00066" summary="added info in UI_Console">
+      <created>1604829245328</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1604829245328</updated>
+    </task>
+    <task id="LOCAL-00067" summary="added info in UI_Console">
+      <created>1604834528511</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1604834528511</updated>
+    </task>
+    <task id="LOCAL-00068" summary="made factory ,cfg filepath relativve">
+      <created>1604834776206</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1604834776206</updated>
+    </task>
+    <task id="LOCAL-00069" summary="wokring on making dbtext generic">
+      <created>1604851519005</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1604851519005</updated>
+    </task>
+    <task id="LOCAL-00070" summary="wokring on making dbtext generic">
+      <created>1604851594945</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1604851594945</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chnaged some models," />
+    <MESSAGE value="changed all Models" />
+    <MESSAGE value="chnaged" />
+    <MESSAGE value="changed README.md" />
+    <MESSAGE value="Removed Company folder from DB_Firebase" />
+    <MESSAGE value="Added new data,,,&#10;removed old" />
+    <MESSAGE value="Added new update Array operation in interface" />
+    <MESSAGE value="code cleanup" />
+    <MESSAGE value="added exceptions in anser's code,where DB_FirebaseOperations is using.also chnaged hashmap parameters" />
+    <MESSAGE value="made update method in DB_FirebaseOperations" />
+    <MESSAGE value="made update method in DB_FirebaseOperations and changed Anser's code (BL) accordingly" />
+    <MESSAGE value="made getobject list query version" />
+    <MESSAGE value="chnaged  Models" />
+    <MESSAGE value="resolving get operation sin firebase" />
+    <MESSAGE value="Firebase Completed!!" />
+    <MESSAGE value="Made DummyDB script" />
+    <MESSAGE value="changed Ali's files" />
+    <MESSAGE value="added exceptions in BL's code" />
+    <MESSAGE value="added print function in Imodel" />
+    <MESSAGE value="remove idea from gitignore" />
+    <MESSAGE value=".pom file" />
+    <MESSAGE value="shifted from java.jar to maven" />
+    <MESSAGE value="added info in UI_Console" />
+    <MESSAGE value="made factory ,cfg filepath relativve" />
+    <MESSAGE value="wokring on making dbtext generic" />
+    <option name="LAST_COMMIT_MESSAGE" value="wokring on making dbtext generic" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="163" y="0" key="#Project_Structure" timestamp="1604834509010">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1604834509010" />
+    <state x="319" y="27" key="#com.intellij.codeInsight.i18n.I18nizeQuickFixDialog_Form" timestamp="1604492778087">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="319" y="27" key="#com.intellij.codeInsight.i18n.I18nizeQuickFixDialog_Form/0.0.1366.728@0.0.1366.728" timestamp="1604492778087" />
+    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604745243487">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1604745243487" />
+    <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604780975905">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1604780975905" />
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1604818963904">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1604818963904" />
+    <state x="413" y="140" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1604509534405">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="140" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1604509534405" />
+    <state x="607" y="228" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1604516375507">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="607" y="228" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1366.728@0.0.1366.728" timestamp="1604516375507" />
+    <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1604521746414">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="466" y="258" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1604521746414" />
+    <state x="132" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604582811590">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="132" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1604582811590" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604472152954">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1604472152954" />
+    <state x="413" y="111" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1604826829935">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1366.728@0.0.1366.728" timestamp="1604826829935" />
+    <state x="430" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1604780853706">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="430" y="219" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1604780853706" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1604558606070">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1604558606070" />
+    <state x="462" y="119" key="FileChooserDialogImpl" timestamp="1604777119907">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604777119907" />
+    <state width="1033" height="118" key="GridCell.Tab.0.bottom" timestamp="1604859969793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1033" height="118" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
+    <state width="1033" height="118" key="GridCell.Tab.0.center" timestamp="1604859969793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1033" height="118" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
+    <state width="1033" height="118" key="GridCell.Tab.0.left" timestamp="1604859969793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1033" height="118" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
+    <state width="1033" height="118" key="GridCell.Tab.0.right" timestamp="1604859969793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1033" height="118" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
+    <state x="129" y="55" key="MergeDialog" timestamp="1604778788319">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="129" y="55" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1604778788319" />
+    <state x="321" y="125" key="MultipleFileMergeDialog" timestamp="1604782396389">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="321" y="125" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1604782396389" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1604824452860">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604824452860" />
+    <state x="490" y="278" key="VCS.EditChangelistDialog" timestamp="1604647854932">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="490" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1604647854932" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604851600276">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604851600276" />
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604527997999">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1604527997999" />
+    <state x="387" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1604824440572">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="387" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1604824440572" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604854175437">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1604854175437" />
+    <state x="413" y="114" key="extract.method.dialog" timestamp="1604825605274">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="114" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1604825605274" />
+    <state x="466" y="265" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1604208716649">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="466" y="265" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1366.728@0.0.1366.728" timestamp="1604208716649" />
+    <state x="65" y="0" key="new project wizard" timestamp="1604465459086">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1604465459086" />
+    <state x="383" y="121" key="refactoring.ChangeSignatureDialog" timestamp="1604824675328">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="383" y="121" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1604824675328" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1604827142897">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1604827142897" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1604523115848">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1604523115848" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/theInstagramClone$Main.ic" NAME="Main Coverage Results" MODIFIED="1604522363354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>DB_Firebase.company.DB_FirebaseOperations</FILTER>
+    </SUITE>
+  </component>
+</project>

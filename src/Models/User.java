@@ -67,4 +67,54 @@ public class User implements IModel {
     public void setTimestamp(com.google.cloud.Timestamp _timestamp) {
         timestamp = _timestamp;
     }
+
+    @Override
+    public void print() {
+
+        System.out.println("userId = " + userId);
+        System.out.println("username = " + username);
+        System.out.println("emailAddress = " + emailAddress);
+        System.out.println("firstName = " + firstName);
+        System.out.println("lastName = " + lastName);
+        System.out.println("gender = " + gender);
+        System.out.println("phoneNumber = " + phoneNumber);
+        System.out.println("dateOfBirth = " + dateOfBirth.toString());
+        System.out.println("website = " + website);
+        System.out.println("dateOfBirth = " + dateOfBirth.toString());
+        System.out.println("bio = " + bio);
+        System.out.println("timestamp = " + timestamp.toString());
+        System.out.println("imagePath = " + imagePath);
+        System.out.println("dateOfBirth = " + dateOfBirth.toString());
+        System.out.println("followersList = ");
+        if(followersList!=null) {
+            for (String follower : followersList) {
+                System.out.println("\t" + follower + " ,");
+            }
+        }
+        System.out.println("blockedUsersList = ");
+        if(blockedUsersList!=null) {
+            for (String blocked : blockedUsersList) {
+                System.out.println("\t" + blocked + " ,");
+            }
+        }
+        System.out.println("followingsList = ");
+        if(followingsList!=null) {
+            for (String following : followingsList) {
+                System.out.println("\t" + following + " ,");
+            }
+        }
+        System.out.println("postList = ");
+        if(postList!=null) {
+            for (String post : postList) {
+                System.out.println("\t" + post + " ,");
+            }
+        }
+        System.out.println("notificationList = ");
+        if(notificationList!=null) {
+            for (String notification : notificationList) {
+                System.out.println("\t" + notification + " ,");
+            }
+        }
+        System.out.println("-----------------------------------------------------------------" + "\n");
+    }
 }

@@ -9,23 +9,23 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Factory {
-    public Factory(){
+    public Factory() {
 
     }
 
-    public Operations getOperations(){
+    public Operations getOperations() {
         IDB_Operations DB = getDB();
         String ID = getID();
-        Operations op = new BLOperations(DB,ID);
+        Operations op = new BLOperations(DB, ID);
 
         return op;
     }
 
-    IDB_Operations getDB(){
+    IDB_Operations getDB() {
         Properties prop = new Properties();
         FileInputStream ip = null;
         try {
-            ip = new FileInputStream("\\..\\Models\\Layer.cfg");
+            ip = new FileInputStream(".\\src\\Models\\Layer.cfg");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -46,13 +46,12 @@ public class Factory {
         return null;
     }
 
-    String getID(){
+    String getID() {
         Properties prop = new Properties();
         FileInputStream ip = null;
         try {
-            ip = new FileInputStream("\\..\\Models\\Layer.cfg");
-        }
-        catch (FileNotFoundException e) {
+            ip = new FileInputStream(".\\src\\Models\\Layer.cfg");
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -70,13 +69,12 @@ public class Factory {
         return null;
     }
 
-    public IUI getUI(){
+    public IUI getUI() {
         Properties prop = new Properties();
         FileInputStream ip = null;
         try {
-            ip = new FileInputStream("\\..\\Models\\Layer.cfg");
-        }
-        catch (FileNotFoundException e) {
+            ip = new FileInputStream(".\\src\\Models\\Layer.cfg");
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 

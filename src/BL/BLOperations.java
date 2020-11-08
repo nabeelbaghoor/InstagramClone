@@ -9,22 +9,16 @@ import Models.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
-
-/**
- * @author inspiron
- */
 
 public class BLOperations implements Operations {
     private final UserFunctions uFunc;
     private final PostOperation pOperations;
     private User curruser;
 
-    public BLOperations(IDB_Operations _obj,String id) {
+    public BLOperations(IDB_Operations _obj, String id) {
         try {
             _obj.initDB();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         uFunc = new UserFunctions(_obj);
@@ -32,7 +26,7 @@ public class BLOperations implements Operations {
         curruser = uFunc.getUser(id);
     }
 
-    public boolean removeFollower(String userid) throws ExecutionException, InterruptedException { //Remove from my Followers
+    public boolean removeFollower(String userid) throws Exception { //Remove from my Followers
         if (curruser != null) {
             if (curruser.followersList.contains(userid))
                 if (uFunc.removeFromList(curruser.userId, userid, "followersList"))
@@ -41,7 +35,7 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean unfollowUser(String userid) throws ExecutionException, InterruptedException { //Unfollow a user
+    public boolean unfollowUser(String userid) throws Exception { //Unfollow a user
         if (curruser != null) {
             if (curruser.followingsList.contains(userid))
                 if (uFunc.removeFromList(curruser.userId, userid, "followingsList"))
@@ -50,7 +44,7 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean followUser(String userid) throws ExecutionException, InterruptedException {   //Follow new User
+    public boolean followUser(String userid) throws Exception {   //Follow new User
         if (curruser != null) {
             if (!curruser.followingsList.contains(userid))
                 if (uFunc.addToList(curruser.userId, userid, "followingsList"))
@@ -59,7 +53,7 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean blockUser(String userid) throws ExecutionException, InterruptedException {    //Block User
+    public boolean blockUser(String userid) throws Exception {    //Block User
         if (curruser != null) {
             if (!curruser.blockedUsersList.contains(userid))
                 if (uFunc.addToList(curruser.userId, userid, "blockedUsersList"))
@@ -68,7 +62,7 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean unblockUser(String userid) throws ExecutionException, InterruptedException {
+    public boolean unblockUser(String userid) throws Exception {
         if (curruser != null) {
             if (curruser.blockedUsersList.contains(userid))
                 if (uFunc.removeFromList(curruser.userId, userid, "blockedUsersList"))
@@ -77,7 +71,7 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean likePost(String postid, String userid) throws ExecutionException, InterruptedException {
+    public boolean likePost(String postid, String userid) throws Exception {
         if (curruser != null) {
             String id = null;
             id = pOperations.sendNotification(userid, curruser.userId, postid, "Liked");
@@ -90,33 +84,47 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean unlikePost(String postid, String likeID) throws ExecutionException, InterruptedException {
+    public boolean unlikePost(String postid, String likeID) throws Exception {
         return pOperations.unLike(likeID, postid);
     }
 
     public boolean addPost(String posturl, String text) {
-        return pOperations.addPost(posturl, text, curruser.userId);
-    }
-
-    public boolean removePost(String postid) {
-        if (curruser.postList.contains(postid)) {
-            if (pOperations.removePost(postid))
-                return curruser.postList.remove(postid);
+        String id = pOperations.addPost(posturl, text, curruser.userId, curruser.postList.size());
+        if (!id.equals("")) {
+            try {
+                return uFunc.addToList(curruser.userId, id, "postList");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return false;
     }
 
-    public boolean sharePost(String postid, String userid) throws ExecutionException, InterruptedException {
+    public boolean removePost(String postid) {
+        if (curruser.postList.contains(postid)) {
+            if (pOperations.removePost(postid)) {
+                try {
+                    uFunc.removeFromList(curruser.userId, postid, "postList");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return curruser.postList.remove(postid);
+            }
+        }
+        return false;
+    }
+
+    public boolean sharePost(String postid, String userid) throws Exception {
         String id = "";
         id = pOperations.sendNotification(userid, curruser.userId, postid, "Shared");
         return !id.equals("");
     }
 
-    public boolean addComment(String postid, String comtext) throws ExecutionException, InterruptedException {
+    public boolean addComment(String postid, String comtext) throws Exception {
         return pOperations.addComment(postid, comtext, curruser.userId);
     }
 
-    public boolean editUserData(User data) throws ExecutionException, InterruptedException {
+    public boolean editUserData(User data) throws Exception {
         if (uFunc.editUserData(data, curruser)) {
             curruser = uFunc.getUser(data.userId);
             return true;
@@ -135,7 +143,7 @@ public class BLOperations implements Operations {
     }
 
     public User getMyProfile() {
-        return curruser;
+        return uFunc.getUser(curruser.userId);
     }
 
     public User getProfileInfo(String userid) {
