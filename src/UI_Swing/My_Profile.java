@@ -154,6 +154,8 @@ public class My_Profile extends JFrame {
         JButton btnOK = new JButton("OK\r\n");
         btnOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                Main_Frame Window = new Main_Frame(user,BLop);
+                Window.setVisible(true);
                 dispose();
             }
         });
@@ -208,7 +210,9 @@ public class My_Profile extends JFrame {
         JButton btnEditProfile = new JButton("Edit Profile");
         btnEditProfile.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-
+                Edit_Profile Window = new Edit_Profile(user,BLop);
+                Window.setVisible(true);
+                dispose();
             }
         });
         btnEditProfile.setBounds(206, 208, 112, 23);
