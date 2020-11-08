@@ -164,26 +164,32 @@ public class DB_TextOperations implements IDB_Operations {
     @Override
     public ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws Exception {
         HashMap<String, IModel> _objects = new HashMap<String, IModel>();
-        ArrayList<IModel> _objectsToQuery = new ArrayList<IModel>();
+        ArrayList<String> _objectsToRemove = new ArrayList<String>();
         _objects = loadObject(modelType);  //only user,for now
         if (_objects != null) {
-            for (Map.Entry<String, IModel> objEntry : _objects.entrySet()) {
-                boolean allAttributesMatched = true;
-                for (Map.Entry<String, Object> attributeEntry : attributesToQuery.entrySet()){
+            for (Map.Entry<String, Object> attributeEntry : attributesToQuery.entrySet()){
+                for (Map.Entry<String, IModel> objEntry : _objects.entrySet()){
                     for (Field field : objEntry.getValue().getClass().getFields()) {
                         if(attributeEntry.getKey() == field.getName()) {
                             String attributeValue = attributeEntry.getValue().toString();
                             String fieldValue = field.get(objEntry.getValue()).toString();
-                            if (attributeValue.equals(fieldValue)) {
-                                _objectsToQuery.add(objEntry.getValue());
+                            if (!attributeValue.equals(fieldValue)) {
+                                _objectsToRemove.add(objEntry.getKey());
                             }
                         }
                     }
                 }
+                for (String key:_objectsToRemove){
+                    _objects.remove(key);
+                }
             }
-            if (_objectsToQuery != null) {
+            ArrayList<IModel> _queriedObjects = new ArrayList<IModel>();
+            for (IModel iModel:_objects.values()) {
+                _queriedObjects.add(iModel);
+            }
+            if (_queriedObjects != null) {
                 System.out.println("Objects found Successfully");
-                return _objectsToQuery;
+                return _queriedObjects;
             } else {
                 System.out.println("No objects Found!");
                 return null;
