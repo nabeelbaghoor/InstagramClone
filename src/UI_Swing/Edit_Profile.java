@@ -35,10 +35,10 @@ public class Edit_Profile extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        Image image = null;
+        BufferedImage image = null;
         URL url = null;
         try {
-            url = new URL("file:"+user.imagePath);
+            url = new URL("file:.\\"+user.imagePath);
         } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -51,7 +51,12 @@ public class Edit_Profile extends JFrame {
         }
 
 
-        lblImage = new JLabel(new ImageIcon(image));
+        lblImage = null;
+        try {
+            lblImage = new JLabel(new ImageIcon(scaleImage(170, 180,image)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         lblImage.setBackground(Color.WHITE);
         lblImage.setOpaque(true);
         lblImage.setBounds(10, 11, 170, 180);

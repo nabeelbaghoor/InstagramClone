@@ -51,7 +51,7 @@ public class Main_Frame extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        Image image = null;
+        BufferedImage image = null;
         URL url = null;
         try {
             url = new URL("file:.\\"+user.imagePath);
@@ -69,7 +69,12 @@ public class Main_Frame extends JFrame {
         AccountInfoPane.setBounds(10, 11, 528, 178);
         contentPane.add(AccountInfoPane);
 
-        JLabel lblImage = new JLabel(new ImageIcon(image));
+        JLabel lblImage = null;
+        try {
+            lblImage = new JLabel(new ImageIcon(scaleImage(170, 180,image)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         lblImage.setBounds(0, 0, 170, 180);
 
         JPanel Divider_Panel = new JPanel();
@@ -117,7 +122,12 @@ public class Main_Frame extends JFrame {
         JButton btnProfileButton = new JButton("My Profile");
         btnProfileButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                My_Profile Window = new My_Profile(user,BLOp);
+                My_Profile Window = null;
+                try {
+                    Window = new My_Profile(user,BLOp);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 Window.setVisible(true);
                 dispose();
             }

@@ -2,10 +2,7 @@ package DB_Text;
 
 import DB_Firebase.DB_FirebaseOperations;
 import Models.IDB_Operations;
-import Models.IModel;
-
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.google.firebase.database.utilities.Pair;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -21,15 +18,7 @@ public class Main {
         /*_IDB_Text.getObject("9pn3HOdtQ2ZAEYcCumKs", IDB_Operations.ModelType.Posts).print()*/;
         //_IDB_Text.removeObject("MWAy2U6SGdbfwjcptrwa", IDB_Operations.ModelType.Users);
 
-
-        HashMap<String,Object > attributesToQuery = new HashMap<String ,Object>();
-        attributesToQuery.put("phoneNumber","03001234456");
-        attributesToQuery.put("gender","Female");
-        ArrayList<IModel> _objects  = _IDB_Text.getObjectsList(attributesToQuery,IDB_Operations.ModelType.Users);
-        if(_objects!=null) {
-            for (IModel object : _objects) {
-                object.print();
-            }
-        }
-    }
+        Pair<String, Object> pair = new Pair<String, Object>("commentsList", "WKhmPAS8GPB1RrZHXYCz");
+        _IDB_Text.updateArrayObject("H0L4e918lZp5ugEEciCo",pair, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Posts);
+         }
 }

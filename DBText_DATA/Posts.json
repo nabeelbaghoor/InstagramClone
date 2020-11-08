@@ -5,11 +5,7 @@
     "1Cuhps4UwoJ6UfcANunt",
     "qoDmlbTBomxXD3QPvO9a",
     "MrymQDKJU1tQo6vZJ8X9",
-    "9TAKvQqEJzlwEVaURxg7",
-    "5ehxvsuV3dWOM8KcMQHA",
-    "iQeIEexyX4db4FFfaTwE",
-    "VnUhbFmupT54cPIPS0Wi",
-    "gHZuojHXNUICLcvAtRqP"
+    "9TAKvQqEJzlwEVaURxg7"
   ],
   "imagePath": ".\\Images\\s.png",
   "postId": "H0L4e918lZp5ugEEciCo",
@@ -19,13 +15,4 @@
     "nanos": 580000000
   },
   "userId": "bWrqOomgbUrlmIj79X8L"
-},"ClenGXKpdw6JCEJ1ZKLk": {
-  "imagePath": ".\\Images\\s.png",
-  "postId": "ClenGXKpdw6JCEJ1ZKLk",
-  "postText": "A little bit of summer is what the whole year is all about",
-  "timestamp": {
-    "seconds": 1604768224,
-    "nanos": 788000000
-  },
-  "userId": "qaBkB6olxwV0G77HKfBv"
-}}
+},"ClenGXKpdw6JCEJ1ZKLk":{"postId":"ClenGXKpdw6JCEJ1ZKLk","userId":"qaBkB6olxwV0G77HKfBv","imagePath":".\\Images\\s.png","postText":"A little bit of summer is what the whole year is all about","timestamp":{"seconds":1604768224,"nanos":788000000}}}
