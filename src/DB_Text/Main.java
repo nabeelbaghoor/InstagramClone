@@ -18,8 +18,6 @@ public class Main {
         /*_IDB_Text.getObject("9pn3HOdtQ2ZAEYcCumKs", IDB_Operations.ModelType.Posts).print()*/;
         //_IDB_Text.removeObject("MWAy2U6SGdbfwjcptrwa", IDB_Operations.ModelType.Users);
 
-
-
         Pair<String, Object> pair = new Pair<String, Object>("commentsList", "WKhmPAS8GPB1RrZHXYCz");
         _IDB_Text.updateArrayObject("H0L4e918lZp5ugEEciCo",pair, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Posts);
          }
