@@ -29,7 +29,8 @@ public class Main_Frame extends JFrame {
         return bi;
     }
 
-    public Main_Frame(User user, Operations BLOp) {
+    public Main_Frame(Operations BLOp) {
+        User user = BLOp.getMyProfile();
         int FollowingC = 0;
         int FollowerC = 0;
         if (user.followersList != null)

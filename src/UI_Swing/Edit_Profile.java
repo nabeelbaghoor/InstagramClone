@@ -142,7 +142,7 @@ public class Edit_Profile extends JFrame {
         JButton btnCancel = new JButton("Cancel");
         btnCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                Main_Frame Window = new Main_Frame(user,BLOp);
+                Main_Frame Window = new Main_Frame(BLOp);
                 Window.setVisible(true);
                 dispose();
             }
@@ -231,8 +231,12 @@ public class Edit_Profile extends JFrame {
                 user.emailAddress = lblEmailEntry.getText();
 
                 JOptionPane.showMessageDialog(Confirm, "Profile Has Been Edited");
-
-                Main_Frame Window = new Main_Frame(user,BLOp);
+                try {
+                    BLOp.editUserData(user);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Main_Frame Window = new Main_Frame(BLOp);
                 Window.setVisible(true);
                 dispose();
             }

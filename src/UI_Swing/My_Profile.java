@@ -154,7 +154,7 @@ public class My_Profile extends JFrame {
         JButton btnOK = new JButton("OK\r\n");
         btnOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                Main_Frame Window = new Main_Frame(user,BLop);
+                Main_Frame Window = new Main_Frame(BLop);
                 Window.setVisible(true);
                 dispose();
             }
