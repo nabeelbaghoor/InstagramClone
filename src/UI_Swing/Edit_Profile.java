@@ -222,15 +222,15 @@ public class Edit_Profile extends JFrame {
                 user.username = lblUserNameEntry.getText();
                 user.phoneNumber = lblPhoneEntry.getText();
 
+                String FileLocation = "";
                 String FileType = "";
-                if (lblImagePath.getText().compareTo("") != 0) {
-                    FileType = lblImagePath.getText().substring(lblImagePath.getText().lastIndexOf("."), lblImagePath.getText().length());
+                FileLocation = lblImagePath.getText();
+                if (FileLocation.compareTo("") != 0) {
+                    FileType = FileLocation.substring(FileLocation.lastIndexOf("."));
                 }
 
-                if (FileType.compareTo(".png")  != 0)
-                    user.imagePath = "file:///"+ lblImagePath.getText();
-                else
-                    JOptionPane.showMessageDialog(Confirm, "Photo not added due to unsupported type");
+                user.imagePath = "file:\\"+ lblImagePath.getText();
+                //JOptionPane.showMessageDialog(Confirm, "Photo not added due to unsupported type");
 
                 user.lastName = lblLnameEntry.getText();
                 user.firstName = lblFnameEntry.getText();
@@ -249,7 +249,6 @@ public class Edit_Profile extends JFrame {
         });
         btnConfirm.setBounds(206, 208, 112, 23);
         panel_1.add(btnConfirm);
-
     }
 
     private void jButton1ActionPerformed(ActionEvent evt) {
