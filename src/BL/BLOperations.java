@@ -89,7 +89,7 @@ public class BLOperations implements Operations {
     }
 
     public boolean addPost(String posturl, String text) {
-        String id = pOperations.addPost(posturl, text, curruser.userId);
+        String id = pOperations.addPost(posturl, text, curruser.userId, curruser.postList.size());
         if (!id.equals("")) {
             try {
                 return uFunc.addToList(curruser.userId, id, "postList");

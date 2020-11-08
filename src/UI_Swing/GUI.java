@@ -21,13 +21,11 @@ public class GUI implements IUI {
         }
         catch (Exception e)
         { e.printStackTrace(); }
-
-        User inv = BLOp.getMyProfile();
         EventQueue.invokeLater(new Runnable()
         {
             public void run() {
                 try {
-                    Main_Frame frame = new Main_Frame(inv,BLOp);
+                    Main_Frame frame = new Main_Frame(BLOp);
                     frame.setVisible(true); }
                 catch (Exception e)
                 { e.printStackTrace(); }

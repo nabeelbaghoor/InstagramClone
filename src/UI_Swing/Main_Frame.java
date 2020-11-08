@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,8 +18,19 @@ public class Main_Frame extends JFrame {
 
     private JPanel contentPane;
 
-    public Main_Frame(User user, Operations BLOp) {
+    public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
+        BufferedImage bi;
+        bi = new BufferedImage(w, h, BufferedImage.TRANSLUCENT);
+        Graphics2D g2d = bi.createGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
+        g2d.drawImage(img, 0, 0, w, h, null);
+        g2d.dispose();
+        return bi;
+    }
 
+    public Main_Frame(Operations BLOp) {
+        User user = BLOp.getMyProfile();
         int FollowingC = 0;
         int FollowerC = 0;
         if (user.followersList != null)
@@ -107,6 +119,7 @@ public class Main_Frame extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 My_Profile Window = new My_Profile(user,BLOp);
                 Window.setVisible(true);
+                dispose();
             }
         });
         btnProfileButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
