@@ -195,10 +195,11 @@ public class Edit_Profile extends JFrame {
         lblImagePath.setBounds(10, 41, 209, 25);
         panel_1.add(lblImagePath);
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(user.dateOfBirth);
         SimpleDateFormat model = new SimpleDateFormat("dd.MM.yyyy");
         JSpinner Yearspinner = new JSpinner(new SpinnerDateModel());
-        Yearspinner.setValue(user.dateOfBirth);
-        Yearspinner.setModel(new SpinnerDateModel(new Date(1577818800000L), new Date(-2209006800000L), new Date(1609354800000L), Calendar.DAY_OF_YEAR));
+        Yearspinner.setValue(calendar.getTime());
         Yearspinner.setEditor(new JSpinner.DateEditor(Yearspinner,model.toPattern()));
         Yearspinner.setBounds(237, 41, 105, 25);
         panel_1.add(Yearspinner);
@@ -216,7 +217,7 @@ public class Edit_Profile extends JFrame {
                 JFrame Confirm = new JFrame();
 
                 user.bio = lblBioEntry.getText();
-                //user.dateOfBirth = (Date) Yearspinner.getValue();
+                user.dateOfBirth = (Date) Yearspinner.getValue();
                 user.gender= lblGenderEntry.getSelectedItem().toString();
                 user.username = lblUserNameEntry.getText();
                 user.phoneNumber = lblPhoneEntry.getText();

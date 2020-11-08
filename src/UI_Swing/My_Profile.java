@@ -13,6 +13,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Calendar;
 
 public class My_Profile extends JFrame {
 
@@ -185,8 +186,9 @@ public class My_Profile extends JFrame {
         lblDOB.setBounds(237, 202, 200, 25);
         contentPane.add(lblDOB);
 
-        String datevalues;
-        datevalues = user.dateOfBirth.getDay() + "";
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(user.dateOfBirth);
+        String datevalues = calendar.get(Calendar.DAY_OF_MONTH) + "";
         JLabel lblDay = new JLabel(datevalues);
         lblDay.setHorizontalAlignment(SwingConstants.CENTER);
         lblDay.setOpaque(true);
@@ -194,7 +196,7 @@ public class My_Profile extends JFrame {
         lblDay.setBounds(237, 238, 59, 25);
         contentPane.add(lblDay);
 
-        datevalues = user.dateOfBirth.getMonth() + "";
+        datevalues = (calendar.get(Calendar.MONTH)+1) + "";
         JLabel lblMonth = new JLabel(datevalues);
         lblMonth.setHorizontalAlignment(SwingConstants.CENTER);
         lblMonth.setOpaque(true);
@@ -202,7 +204,7 @@ public class My_Profile extends JFrame {
         lblMonth.setBounds(309, 238, 59, 25);
         contentPane.add(lblMonth);
 
-        datevalues = user.dateOfBirth.getYear() + "";
+        datevalues = calendar.get(Calendar.YEAR) + "";
         JLabel lblYear = new JLabel(datevalues);
         lblYear.setHorizontalAlignment(SwingConstants.CENTER);
         lblYear.setOpaque(true);
