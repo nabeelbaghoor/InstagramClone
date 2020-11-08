@@ -30,4 +30,14 @@ public class Comment implements IModel {
     public void setTimestamp(com.google.cloud.Timestamp _timestamp) {
         timestamp = _timestamp;
     }
+
+    @Override
+    public void print() {
+        System.out.println("commentId = " + commentId);
+        System.out.println("userId = " + userId);
+        System.out.println("commentText = " + commentText);
+        System.out.println("timestamp = " + timestamp.toString());
+
+        System.out.println("-----------------------------------------------------------------" + "\n");
+    }
 }

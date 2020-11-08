@@ -55,14 +55,14 @@ public class Notification implements IModel {
 
     @Override
     public void print() {
-        System.out.println("notificationId = " + notificationId + "\n");
-        System.out.println("postId = " + postId + "\n");
-        System.out.println("sharerId = " + sharerId + "\n");
-        System.out.println("viewerId = " + viewerId + "\n");
-        System.out.println("msg = " + msg + "\n");
-        System.out.println("isViewed = " + isViewed + "\n");
-        System.out.println("shouldShow = " + shouldShow + "\n");
-        System.out.println("timestamp = " + timestamp.toString() + "\n");
+        System.out.println("notificationId = " + notificationId);
+        System.out.println("postId = " + postId);
+        System.out.println("sharerId = " + sharerId);
+        System.out.println("viewerId = " + viewerId);
+        System.out.println("msg = " + msg);
+        System.out.println("isViewed = " + isViewed);
+        System.out.println("shouldShow = " + shouldShow);
+        System.out.println("timestamp = " + timestamp.toString());
 
         System.out.println("-----------------------------------------------------------------" + "\n");
     }

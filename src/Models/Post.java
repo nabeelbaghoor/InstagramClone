@@ -42,19 +42,23 @@ public class Post implements IModel {
 
     @Override
     public void print() {
-        System.out.println("postId = " + postId + "\n");
-        System.out.println("userId = " + userId + "\n");
-        System.out.println("imagePath = " + imagePath + "\n");
-        System.out.println("postText = " + postText + "\n");
-        System.out.println("likesList = " + "\n");
-        for(String like : likesList){
-            System.out.println("\t" + like + " ,\n");
+        System.out.println("postId = " + postId);
+        System.out.println("userId = " + userId);
+        System.out.println("imagePath = " + imagePath);
+        System.out.println("postText = " + postText);
+        System.out.println("likesList = ");
+        if(likesList!=null) {
+            for (String like : likesList) {
+                System.out.println("\t" + like + " ,");
+            }
         }
-        System.out.println("commentsList = "  + "\n");
-        for(String comment : commentsList){
-            System.out.println("\t" + comment + " ,\n");
+        System.out.println("commentsList = ");
+        if(commentsList!=null) {
+            for (String comment : commentsList) {
+                System.out.println("\t" + comment + " ,");
+            }
         }
-        System.out.println("timestamp = " + timestamp.toString() + "\n");
+        System.out.println("timestamp = " + timestamp.toString());
 
         System.out.println("-----------------------------------------------------------------" + "\n");
     }
