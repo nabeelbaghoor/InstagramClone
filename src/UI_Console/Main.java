@@ -17,7 +17,9 @@ public class Main {
         user.print();
 
         /*Caution:
-        Please add meaningful and valid Posts :))   */
+        Please add meaningful and valid Posts :))
+        (Image path will be same as below for all posts)
+         */
 
         //add a post by current(Logged in) user
         operations.addPost(".\\Images\\s.png",

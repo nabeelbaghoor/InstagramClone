@@ -25,15 +25,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="shifted from java.jar to maven">
+    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="added info in UI_Console">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBText_DATA/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB_Text/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI_Console/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Console/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -196,13 +189,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
-    </task>
-    <task id="LOCAL-00016" summary="working on converting ModelType Enum to document or Class Type">
-      <created>1604527474834</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1604527474834</updated>
     </task>
     <task id="LOCAL-00017" summary="working on converting ModelType Enum to document or Class Type">
       <created>1604527491413</created>
@@ -540,7 +526,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604824516173</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="added info in UI_Console">
+      <created>1604829179942</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1604829179942</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -568,7 +561,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deleted model class" />
     <MESSAGE value="added initFirebase in IDB_FirebaseOperations" />
     <MESSAGE value="renamed IDB_FirebaseOperations to IDB_Operations and moved it to Model" />
     <MESSAGE value="chnaged some models," />
@@ -593,7 +585,8 @@
     <MESSAGE value="remove idea from gitignore" />
     <MESSAGE value=".pom file" />
     <MESSAGE value="shifted from java.jar to maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="shifted from java.jar to maven" />
+    <MESSAGE value="added info in UI_Console" />
+    <option name="LAST_COMMIT_MESSAGE" value="added info in UI_Console" />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1604759284353">
@@ -684,10 +677,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="490" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1604647854932" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604824523636">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604829182939">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604824523636" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604829182939" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604527997999">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
