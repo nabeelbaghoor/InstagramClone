@@ -10,10 +10,6 @@ import Models.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * @author inspiron
- */
-
 public class BLOperations implements Operations {
     private final UserFunctions uFunc;
     private final PostOperation pOperations;

@@ -11,9 +11,6 @@ import com.google.firebase.database.utilities.Pair;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-/**
- * @author inspiron
- */
 public class PostOperation {
     private final IDB_Operations DB;
 
