@@ -27,7 +27,8 @@
   <component name="ChangeListManager">
     <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="added info in UI_Console">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI_Console/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Console/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBText_DATA/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Users.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +65,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/java-json.jar/java-json.jar" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -189,13 +190,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
-    </task>
-    <task id="LOCAL-00017" summary="working on converting ModelType Enum to document or Class Type">
-      <created>1604527491413</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1604527491413</updated>
     </task>
     <task id="LOCAL-00018" summary="Removed Erros&#10;Removed Errors">
       <created>1604528223912</created>
@@ -533,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604829179942</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="added info in UI_Console">
+      <created>1604829245328</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1604829245328</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -589,10 +590,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="added info in UI_Console" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="163" y="0" key="#Project_Structure" timestamp="1604759284353">
+    <state x="163" y="0" key="#Project_Structure" timestamp="1604834505477">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1604759284353" />
+    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1604834505477" />
     <state x="319" y="27" key="#com.intellij.codeInsight.i18n.I18nizeQuickFixDialog_Form" timestamp="1604492778087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -645,22 +646,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604777119907" />
-    <state width="1166" height="335" key="GridCell.Tab.0.bottom" timestamp="1604827511701">
+    <state width="1166" height="13" key="GridCell.Tab.0.bottom" timestamp="1604834373312">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1166" height="335" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604827511701" />
-    <state width="1166" height="335" key="GridCell.Tab.0.center" timestamp="1604827511701">
+    <state width="1166" height="13" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604834373312" />
+    <state width="1166" height="13" key="GridCell.Tab.0.center" timestamp="1604834373312">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1166" height="335" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604827511701" />
-    <state width="1166" height="335" key="GridCell.Tab.0.left" timestamp="1604827511701">
+    <state width="1166" height="13" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604834373312" />
+    <state width="1166" height="13" key="GridCell.Tab.0.left" timestamp="1604834373311">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1166" height="335" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604827511701" />
-    <state width="1166" height="335" key="GridCell.Tab.0.right" timestamp="1604827511701">
+    <state width="1166" height="13" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604834373311" />
+    <state width="1166" height="13" key="GridCell.Tab.0.right" timestamp="1604834373312">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1166" height="335" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604827511701" />
+    <state width="1166" height="13" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604834373312" />
     <state x="129" y="55" key="MergeDialog" timestamp="1604778788319">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -677,10 +678,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="490" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1604647854932" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604829182939">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604829250572">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604829182939" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604829250572" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604527997999">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
