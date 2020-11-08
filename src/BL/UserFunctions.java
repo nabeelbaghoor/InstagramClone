@@ -77,7 +77,7 @@ public class UserFunctions {
         if (!data.imagePath.equals(curr.imagePath)){
             URL imageURL = null;
             try {
-                imageURL = new URL("file:///"+data.imagePath);
+                imageURL = new URL(data.imagePath);
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -89,14 +89,15 @@ public class UserFunctions {
                 e.printStackTrace();
             }
 
-            String newURL = "\\Images\\" + data.userId;
+            String newURL = ".\\Images\\" + data.userId + ".png";
             try {
-                ImageIO.write(bi, "jpg", new File(newURL));
+                ImageIO.write(bi, "png", new File(newURL));
             } catch (IOException e) {
-                e.printStackTrace();
+                e.getCause();
             }
 
-            map.put("imagePath", "."+newURL);
+            map.put("imagePath", newURL);
+            //map.put("imagePath", data.imagePath);
         }
         if (!data.lastName.equals(curr.lastName))
             map.put("lastName", data.lastName);

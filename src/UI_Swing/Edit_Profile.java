@@ -35,10 +35,10 @@ public class Edit_Profile extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        Image image = null;
+        BufferedImage image = null;
         URL url = null;
         try {
-            url = new URL(user.imagePath);
+            url = new URL("file:.\\"+user.imagePath);
         } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -51,7 +51,12 @@ public class Edit_Profile extends JFrame {
         }
 
 
-        lblImage = new JLabel(new ImageIcon(image));
+        lblImage = null;
+        try {
+            lblImage = new JLabel(new ImageIcon(scaleImage(170, 180,image)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         lblImage.setBackground(Color.WHITE);
         lblImage.setOpaque(true);
         lblImage.setBounds(10, 11, 170, 180);
@@ -190,10 +195,11 @@ public class Edit_Profile extends JFrame {
         lblImagePath.setBounds(10, 41, 209, 25);
         panel_1.add(lblImagePath);
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(user.dateOfBirth);
         SimpleDateFormat model = new SimpleDateFormat("dd.MM.yyyy");
         JSpinner Yearspinner = new JSpinner(new SpinnerDateModel());
-        Yearspinner.setValue(user.dateOfBirth);
-        Yearspinner.setModel(new SpinnerDateModel(new Date(1577818800000L), new Date(-2209006800000L), new Date(1609354800000L), Calendar.DAY_OF_YEAR));
+        Yearspinner.setValue(calendar.getTime());
         Yearspinner.setEditor(new JSpinner.DateEditor(Yearspinner,model.toPattern()));
         Yearspinner.setBounds(237, 41, 105, 25);
         panel_1.add(Yearspinner);
@@ -216,15 +222,15 @@ public class Edit_Profile extends JFrame {
                 user.username = lblUserNameEntry.getText();
                 user.phoneNumber = lblPhoneEntry.getText();
 
+                String FileLocation = "";
                 String FileType = "";
-                if (lblImagePath.getText().compareTo("") != 0) {
-                    FileType = lblImagePath.getText().substring(lblImagePath.getText().lastIndexOf("."), lblImagePath.getText().length());
+                FileLocation = lblImagePath.getText();
+                if (FileLocation.compareTo("") != 0) {
+                    FileType = FileLocation.substring(FileLocation.lastIndexOf("."));
                 }
 
-                if (FileType.compareTo(".png")  != 0)
-                    user.imagePath = "file:///"+ lblImagePath.getText();
-                else
-                    JOptionPane.showMessageDialog(Confirm, "Photo not added due to unsupported type");
+                user.imagePath = "file:\\"+ lblImagePath.getText();
+                //JOptionPane.showMessageDialog(Confirm, "Photo not added due to unsupported type");
 
                 user.lastName = lblLnameEntry.getText();
                 user.firstName = lblFnameEntry.getText();
@@ -243,7 +249,6 @@ public class Edit_Profile extends JFrame {
         });
         btnConfirm.setBounds(206, 208, 112, 23);
         panel_1.add(btnConfirm);
-
     }
 
     private void jButton1ActionPerformed(ActionEvent evt) {
