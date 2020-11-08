@@ -21,7 +21,7 @@ public class PostOperation {
         DB = _obj;
     }
 
-    public String sendNotification(String userid, String myid, String postid, String msg) throws ExecutionException, InterruptedException {
+    public String sendNotification(String userid, String myid, String postid, String msg) throws Exception {
         NotificationFunction temp = new NotificationFunction(DB);
         return temp.sendNotification(userid, myid, postid, msg);
     }
