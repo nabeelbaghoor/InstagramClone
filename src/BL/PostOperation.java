@@ -8,6 +8,12 @@ package BL;
 import Models.*;
 import com.google.firebase.database.utilities.Pair;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -71,8 +77,29 @@ public class PostOperation {
         return flag;
     }
 
-    public String addPost(String posturl, String text, String userid) {
-        Post obj = new Post("", userid, posturl, text, null, null, null);
+    public String addPost(String posturl, String text, String userid, Integer num) {
+        URL imageURL = null;
+        try {
+            imageURL = new URL("file:///"+posturl);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        BufferedImage bi = null;
+        try {
+            bi = ImageIO.read(imageURL);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String newURL = "\\Images\\" + userid + "-" +num.toString();
+        try {
+            ImageIO.write(bi, "jpg", new File(newURL));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Post obj = new Post("", userid, newURL, text, null, null, null);
         String id = "";
         try {
             id = DB.addObject(obj, IDB_Operations.ModelType.Posts);

@@ -3,6 +3,12 @@ package BL;
 import Models.*;
 import com.google.firebase.database.utilities.Pair;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -68,8 +74,30 @@ public class UserFunctions {
             map.put("gender", data.gender);
         if (!data.website.equals(curr.website))
             map.put("website", data.website);
-        if (!data.imagePath.equals(curr.imagePath))
-            map.put("imagePath", data.imagePath);
+        if (!data.imagePath.equals(curr.imagePath)){
+            URL imageURL = null;
+            try {
+                imageURL = new URL("file:///"+data.imagePath);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+
+            BufferedImage bi = null;
+            try {
+                bi = ImageIO.read(imageURL);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String newURL = "\\Images\\" + data.userId;
+            try {
+                ImageIO.write(bi, "jpg", new File(newURL));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            map.put("imagePath", "."+newURL);
+        }
         if (!data.lastName.equals(curr.lastName))
             map.put("lastName", data.lastName);
         if (!data.phoneNumber.equals(curr.phoneNumber))
