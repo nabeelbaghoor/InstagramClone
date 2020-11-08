@@ -211,7 +211,7 @@ public class Edit_Profile extends JFrame {
                 JFrame Confirm = new JFrame();
 
                 user.bio = lblBioEntry.getText();
-                user.dateOfBirth = (Date) Yearspinner.getValue();
+                //user.dateOfBirth = (Date) Yearspinner.getValue();
                 user.gender= lblGenderEntry.getSelectedItem().toString();
                 user.username = lblUserNameEntry.getText();
                 user.phoneNumber = lblPhoneEntry.getText();
