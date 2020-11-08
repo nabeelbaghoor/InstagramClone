@@ -9,7 +9,6 @@ import Models.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
 /**
  * @author inspiron
@@ -76,7 +75,7 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean likePost(String postid, String userid) throws ExecutionException, InterruptedException {
+    public boolean likePost(String postid, String userid) throws Exception {
         if (curruser != null) {
             String id = null;
             id = pOperations.sendNotification(userid, curruser.userId, postid, "Liked");
@@ -89,7 +88,7 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean unlikePost(String postid, String likeID) throws ExecutionException, InterruptedException {
+    public boolean unlikePost(String postid, String likeID) throws Exception {
         return pOperations.unLike(likeID, postid);
     }
 
@@ -119,13 +118,13 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean sharePost(String postid, String userid) throws ExecutionException, InterruptedException {
+    public boolean sharePost(String postid, String userid) throws Exception {
         String id = "";
         id = pOperations.sendNotification(userid, curruser.userId, postid, "Shared");
         return !id.equals("");
     }
 
-    public boolean addComment(String postid, String comtext) throws ExecutionException, InterruptedException {
+    public boolean addComment(String postid, String comtext) throws Exception {
         return pOperations.addComment(postid, comtext, curruser.userId);
     }
 

@@ -3,22 +3,20 @@ package DB_Firebase;
 import Models.*;
 import com.google.firebase.database.utilities.Pair;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
+    public static void main(String[] args) throws Exception {
         IDB_Operations _IDB = new DB_FirebaseOperations();
         _IDB.initDB();
         CreateDummyDB();
     }
 
-    public static void CreateDummyDB() throws IOException, ExecutionException, InterruptedException {
+    public static void CreateDummyDB() throws Exception {
         IDB_Operations _IDB = new DB_FirebaseOperations();
         _IDB.initDB();
 
