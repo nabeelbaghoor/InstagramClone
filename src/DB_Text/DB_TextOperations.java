@@ -166,16 +166,14 @@ public class DB_TextOperations implements IDB_Operations {
         HashMap<String, IModel> _objects = new HashMap<String, IModel>();
         ArrayList<IModel> _objectsToQuery = new ArrayList<IModel>();
         _objects = loadObject(modelType);  //only user,for now
-
         if (_objects != null) {
-            for (Map.Entry<String, Object> attributeEntry : attributesToQuery.entrySet()) {
-                for (HashMap.Entry<String, IModel> objEntry : _objects.entrySet()) {
+            for (Map.Entry<String, IModel> objEntry : _objects.entrySet()) {
+                for (Map.Entry<String, Object> attributeEntry : attributesToQuery.entrySet()){
                     for (Field field : objEntry.getValue().getClass().getFields()) {
-                        field.setAccessible(true);
-                        if (attributeEntry.getKey() == field.getName()) {// && attributeEntry.getValue() == field.get(objEntry.getValue())) {
-                            objEntry.getValue().print();
-                            _objectsToQuery.add(objEntry.getValue());
-                            _objects.remove(objEntry.getKey()); //maybe it will work
+                        String attributeValue = attributeEntry.getValue().toString();
+                        String fieldValue = field.get(objEntry.getValue()).toString();
+                        if(attributeEntry.getKey() == field.getName() && attributeValue.equals(fieldValue)) {
+                                _objectsToQuery.add(objEntry.getValue());
                         }
                     }
                 }

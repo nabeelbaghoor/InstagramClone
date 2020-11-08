@@ -23,8 +23,9 @@ public class Main {
 
 
         HashMap<String,Object > attributesToQuery = new HashMap<String ,Object>();
-        attributesToQuery.put("postId","ClenGXKpdw6JCEJ1ZKLk");
-        ArrayList<IModel> _objects  = _IDB_Text.getObjectsList(attributesToQuery,IDB_Operations.ModelType.Posts);
+        attributesToQuery.put("phoneNumber","03001234456");
+        attributesToQuery.put("gender","Female");
+        ArrayList<IModel> _objects  = _IDB_Text.getObjectsList(attributesToQuery,IDB_Operations.ModelType.Users);
         if(_objects!=null) {
             for (IModel object : _objects) {
                 object.print();
