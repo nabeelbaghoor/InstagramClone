@@ -168,13 +168,15 @@ public class DB_TextOperations implements IDB_Operations {
         _objects = loadObject(modelType);  //only user,for now
         if (_objects != null) {
             for (Map.Entry<String, IModel> objEntry : _objects.entrySet()) {
-
+                boolean allAttributesMatched = true;
                 for (Map.Entry<String, Object> attributeEntry : attributesToQuery.entrySet()){
                     for (Field field : objEntry.getValue().getClass().getFields()) {
-                        String attributeValue = attributeEntry.getValue().toString();
-                        String fieldValue = field.get(objEntry.getValue()).toString();
-                        if(attributeEntry.getKey() == field.getName() && attributeValue.equals(fieldValue)) {
+                        if(attributeEntry.getKey() == field.getName()) {
+                            String attributeValue = attributeEntry.getValue().toString();
+                            String fieldValue = field.get(objEntry.getValue()).toString();
+                            if (attributeValue.equals(fieldValue)) {
                                 _objectsToQuery.add(objEntry.getValue());
+                            }
                         }
                     }
                 }

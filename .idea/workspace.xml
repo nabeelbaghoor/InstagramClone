@@ -25,16 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="wokring on making dbtext generic">
+    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="&#10;a">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBText_DATA/Posts.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Posts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBText_DATA/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combination/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combination/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB_Text/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,20 +189,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
-    </task>
-    <task id="LOCAL-00022" summary="implemented mathods for DB_Firebase">
-      <created>1604572933841</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1604572933842</updated>
-    </task>
-    <task id="LOCAL-00023" summary="deleted model class">
-      <created>1604573017656</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1604573017656</updated>
     </task>
     <task id="LOCAL-00024" summary="added initFirebase in IDB_FirebaseOperations">
       <created>1604580873129</created>
@@ -540,7 +519,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604851594945</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="wokring on making dbtext generic">
+      <created>1604860147509</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1604860147509</updated>
+    </task>
+    <task id="LOCAL-00072" summary="&#10;a">
+      <created>1604860226259</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1604860226259</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -568,7 +561,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chnaged some models," />
     <MESSAGE value="changed all Models" />
     <MESSAGE value="chnaged" />
     <MESSAGE value="changed README.md" />
@@ -593,7 +585,8 @@
     <MESSAGE value="added info in UI_Console" />
     <MESSAGE value="made factory ,cfg filepath relativve" />
     <MESSAGE value="wokring on making dbtext generic" />
-    <option name="LAST_COMMIT_MESSAGE" value="wokring on making dbtext generic" />
+    <MESSAGE value="&#10;a" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;a" />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1604834509010">
@@ -652,30 +645,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604777119907" />
-    <state width="1033" height="118" key="GridCell.Tab.0.bottom" timestamp="1604859969793">
+    <state width="1033" height="118" key="GridCell.Tab.0.bottom" timestamp="1604859987499">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1033" height="118" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
-    <state width="1033" height="118" key="GridCell.Tab.0.center" timestamp="1604859969793">
+    <state width="1033" height="118" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604859987499" />
+    <state width="1033" height="118" key="GridCell.Tab.0.center" timestamp="1604859987498">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1033" height="118" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
-    <state width="1033" height="118" key="GridCell.Tab.0.left" timestamp="1604859969793">
+    <state width="1033" height="118" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604859987498" />
+    <state width="1033" height="118" key="GridCell.Tab.0.left" timestamp="1604859987498">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1033" height="118" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
-    <state width="1033" height="118" key="GridCell.Tab.0.right" timestamp="1604859969793">
+    <state width="1033" height="118" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604859987498" />
+    <state width="1033" height="118" key="GridCell.Tab.0.right" timestamp="1604859987499">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1033" height="118" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
-    <state x="129" y="55" key="MergeDialog" timestamp="1604778788319">
+    <state width="1033" height="118" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604859987499" />
+    <state x="129" y="55" key="MergeDialog" timestamp="1604860198327">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="129" y="55" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1604778788319" />
-    <state x="321" y="125" key="MultipleFileMergeDialog" timestamp="1604782396389">
+    <state x="129" y="55" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1604860198327" />
+    <state x="321" y="125" key="MultipleFileMergeDialog" timestamp="1604860210075">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="321" y="125" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1604782396389" />
+    <state x="321" y="125" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1604860210075" />
     <state x="163" y="0" key="SettingsEditor" timestamp="1604824452860">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -684,10 +677,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="490" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1604647854932" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604851600276">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604860233179">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604851600276" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604860233179" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604527997999">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -696,10 +689,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="387" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1604824440572" />
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604854175437">
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604860150951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1604854175437" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1604860150951" />
     <state x="413" y="114" key="extract.method.dialog" timestamp="1604825605274">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
