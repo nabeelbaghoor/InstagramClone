@@ -25,14 +25,44 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="added info in UI_Console">
+    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="wokring on making dbtext generic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBText_DATA/Posts.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Posts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBText_DATA/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Users.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/BL/BLOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/BL/BLOperations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/BL/PostOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/BL/PostOperation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BL/BLOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BL/BLOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BL/PostOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BL/PostOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Models/IUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/Models/IUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Add_Post$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Add_Post$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Add_Post$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Add_Post$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Add_Post$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Add_Post$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Add_Post$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Add_Post$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Add_Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Add_Post.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/GUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/GUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/My_Profile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/My_Profile$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/My_Profile$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/My_Profile$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/My_Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/My_Profile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Combination/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combination/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +127,7 @@
       <command value="likesList" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main(Combinations)">
+  <component name="RunManager" selected="Application.Main (5)">
     <configuration name="Add_Post" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UI_Swing.Add_Post" />
       <module name="InstagramClone" />
@@ -137,12 +167,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="BL.Main" />
+    <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DB_Text.Main" />
       <module name="InstagramClone" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="BL.*" />
+          <option name="PATTERN" value="DB_Text.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -150,12 +180,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DB_Text.Main" />
+    <configuration name="Main (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Combination.Main" />
       <module name="InstagramClone" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DB_Text.*" />
+          <option name="PATTERN" value="Combination.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -176,35 +206,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main(Combinations)" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="Combination.Main" />
-      <module name="InstagramClone" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DB_Text.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Main (4)" />
-      <item itemvalue="Application.Main(Combinations)" />
-      <item itemvalue="Application.Add_Post" />
-      <item itemvalue="Application.Main (1)" />
-      <item itemvalue="Application.Main (2)" />
-      <item itemvalue="Application.Main (3)" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main(Combinations)" />
+        <item itemvalue="Application.Main (5)" />
+        <item itemvalue="Application.Main (4)" />
         <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Add_Post" />
         <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.Main (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -216,6 +224,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
+    </task>
+    <task id="LOCAL-00020" summary="used Model parent class instead of IModel">
+      <created>1604561172959</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1604561172959</updated>
     </task>
     <task id="LOCAL-00021" summary="rollbacked to IModel">
       <created>1604564589719</created>
@@ -553,14 +568,7 @@
       <option name="project" value="LOCAL" />
       <updated>1604834776206</updated>
     </task>
-    <task id="LOCAL-00069" summary="Setup of GUI in Main(Combination)&#10;Works for Add Post and Show My Profile">
-      <created>1604848257859</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1604848257861</updated>
-    </task>
-    <option name="localTasksCounter" value="70" />
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -588,6 +596,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="renamed IDB_FirebaseOperations to IDB_Operations and moved it to Model" />
     <MESSAGE value="chnaged some models," />
     <MESSAGE value="changed all Models" />
     <MESSAGE value="chnaged" />
@@ -612,8 +621,7 @@
     <MESSAGE value="shifted from java.jar to maven" />
     <MESSAGE value="added info in UI_Console" />
     <MESSAGE value="made factory ,cfg filepath relativve" />
-    <MESSAGE value="Setup of GUI in Main(Combination)&#10;Works for Add Post and Show My Profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup of GUI in Main(Combination)&#10;Works for Add Post and Show My Profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="made factory ,cfg filepath relativve" />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1604834509010">
@@ -624,10 +632,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="319" y="27" key="#com.intellij.codeInsight.i18n.I18nizeQuickFixDialog_Form/0.0.1366.728@0.0.1366.728" timestamp="1604492778087" />
-    <state x="131" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604847799822">
-      <screen x="0" y="0" width="1303" height="768" />
+    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604745243487">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="131" y="14" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1303.768@0.0.1303.768" timestamp="1604847799822" />
     <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1604745243487" />
     <state x="442" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604780975905">
       <screen x="0" y="0" width="1366" height="728" />
@@ -641,10 +648,6 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="140" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1604509534405" />
-    <state x="381" y="180" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1604847774787">
-      <screen x="0" y="0" width="1303" height="768" />
-    </state>
-    <state x="381" y="180" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1303.768@0.0.1303.768" timestamp="1604847774787" />
     <state x="607" y="228" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1604516375507">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -677,46 +680,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604777119907" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1604849514545">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1163" height="187" key="GridCell.Tab.0.bottom" timestamp="1604851432049">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1259" height="187" key="GridCell.Tab.0.bottom/0.0.1303.768@0.0.1303.768" timestamp="1604848164536" />
-    <state width="1164" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604842179829" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604849514545" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1604849514545">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1163" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604851432049" />
+    <state width="1163" height="187" key="GridCell.Tab.0.center" timestamp="1604851432049">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1259" height="187" key="GridCell.Tab.0.center/0.0.1303.768@0.0.1303.768" timestamp="1604848164535" />
-    <state width="1164" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604842179829" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604849514545" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1604849514545">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1163" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604851432049" />
+    <state width="1163" height="187" key="GridCell.Tab.0.left" timestamp="1604851432049">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1259" height="187" key="GridCell.Tab.0.left/0.0.1303.768@0.0.1303.768" timestamp="1604848164535" />
-    <state width="1164" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604842179829" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604849514545" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1604849514545">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1163" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604851432049" />
+    <state width="1163" height="187" key="GridCell.Tab.0.right" timestamp="1604851432049">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1259" height="187" key="GridCell.Tab.0.right/0.0.1303.768@0.0.1303.768" timestamp="1604848164535" />
-    <state width="1164" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604842179829" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604849514545" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1604849209236">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604849209236" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1604849209235">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1604849209235" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1604849209235">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1604849209235" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1604849209236">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1604849209236" />
+    <state width="1163" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604851432049" />
     <state x="129" y="55" key="MergeDialog" timestamp="1604778788319">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -733,10 +712,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="490" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1604647854932" />
-    <state x="262" y="102" key="Vcs.Push.Dialog.v2" timestamp="1604848259871">
-      <screen x="0" y="0" width="1303" height="768" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604834780665">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="262" y="102" key="Vcs.Push.Dialog.v2/0.0.1303.768@0.0.1303.768" timestamp="1604848259871" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604834780665" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604527997999">
       <screen x="0" y="0" width="1366" height="728" />
@@ -746,10 +724,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="387" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1604824440572" />
-    <state x="477" y="293" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604848013611">
-      <screen x="0" y="0" width="1303" height="768" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604834515381">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="477" y="293" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1303.768@0.0.1303.768" timestamp="1604848013611" />
     <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1604834515381" />
     <state x="413" y="114" key="extract.method.dialog" timestamp="1604825605274">
       <screen x="0" y="0" width="1366" height="728" />

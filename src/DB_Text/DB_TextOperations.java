@@ -12,6 +12,7 @@ import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 //import org.json.simple.JSONObject;
@@ -79,7 +80,11 @@ public class DB_TextOperations implements IDB_Operations {
     }
 
     public HashMap<String, IModel> loadObject(ModelType modelType) throws Exception {
-        String data = readFileAsString(".\\DBText_DATA\\Users.json");
+        //make filename
+        String filename = ".\\DBText_DATA\\";
+        filename+=modelType.toString();
+        filename+=".json";
+        String data = readFileAsString(filename);
         Gson gson = new Gson();
         switch (modelType) {
             case Likes:
@@ -146,36 +151,29 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws Exception {
-       /* Collection<User> _objectsTemp =  loadObject(modelType).values();
-       *//* ArrayList<IModel> _objects = new ArrayList<IModel>();
-       for (User user:_objectsTemp){
-           _objects.add(((IModel) user));
-       }
-        if(_objects!=null) {
-            for (IModel object : _objects) {
-                if (!(objectIds.contains(object.getID()))) {
-                    _objects.remove(object);    //make it efficient
-                }
+        Collection<IModel> _objectsCollection =loadObject(modelType).values();
+        ArrayList<IModel> _objects = new ArrayList<IModel>();
+        for (IModel iModel:_objectsCollection) {
+            if(objectIds.contains(iModel.getID())) {
+                _objects.add(iModel);
             }
-        }*//*
-        for(IModel imodel:_objectsTemp){
-            imodel.print();
         }
-        return ((ArrayList) _objectsTemp);*/
-        return null;
+        return _objects;
     }
 
     @Override
     public ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws Exception {
-        /*HashMap<String, User> _objects = new HashMap<String, User>();
+        HashMap<String, IModel> _objects = new HashMap<String, IModel>();
         ArrayList<IModel> _objectsToQuery = new ArrayList<IModel>();
         _objects = loadObject(modelType);  //only user,for now
+
         if (_objects != null) {
-            User user = null;
             for (Map.Entry<String, Object> attributeEntry : attributesToQuery.entrySet()) {
-                for (HashMap.Entry<String, User> objEntry : _objects.entrySet()) {
+                for (HashMap.Entry<String, IModel> objEntry : _objects.entrySet()) {
                     for (Field field : objEntry.getValue().getClass().getFields()) {
-                        if (attributeEntry.getKey() == field.getName() && attributeEntry.getValue() == field.get(objEntry)) {
+                        field.setAccessible(true);
+                        if (attributeEntry.getKey() == field.getName()) {// && attributeEntry.getValue() == field.get(objEntry.getValue())) {
+                            objEntry.getValue().print();
                             _objectsToQuery.add(objEntry.getValue());
                             _objects.remove(objEntry.getKey()); //maybe it will work
                         }
@@ -192,8 +190,7 @@ public class DB_TextOperations implements IDB_Operations {
         } else {
             System.out.println("No objects Found!");
             return null;
-        }*/
-        return null;
+        }
     }
 
     @Override
