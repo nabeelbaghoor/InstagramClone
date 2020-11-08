@@ -20,14 +20,14 @@ public class Main {
 
         //BLOp.addPost("C:\\1.jpeg","Testing Add Post");
         //BLOp.removePost("DHpxRsyjT2M4heFBN6UL");
-//        User temp = BLOp.getMyProfile();
-//        //temp.imagePath = "file:"+temp.imagePath;
-//        temp.imagePath = ".\\Images\\brackeys.png";
-//        try {
-//            BLOp.editUserData(temp);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+/*        User temp = BLOp.getMyProfile();
+        //temp.imagePath = "file:"+temp.imagePath;
+        temp.imagePath = ".\\Images\\brackeys.png";
+        try {
+            BLOp.editUserData(temp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
         System.out.println("Done");
         IUI UI;
         UI = new GUI();

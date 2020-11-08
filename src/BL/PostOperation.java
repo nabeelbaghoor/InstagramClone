@@ -80,7 +80,7 @@ public class PostOperation {
     public String addPost(String posturl, String text, String userid, Integer num) {
         URL imageURL = null;
         try {
-            imageURL = new URL("file:///"+posturl);
+            imageURL = new URL(posturl);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -92,9 +92,9 @@ public class PostOperation {
             e.printStackTrace();
         }
 
-        String newURL = "\\Images\\" + userid + "-" +num.toString();
+        String newURL = ".\\Images\\" + userid + "-" +num.toString() + ".png";
         try {
-            ImageIO.write(bi, "jpg", new File(newURL));
+            ImageIO.write(bi, "png", new File(newURL));
         } catch (IOException e) {
             e.printStackTrace();
         }

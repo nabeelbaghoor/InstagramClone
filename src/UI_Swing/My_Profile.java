@@ -29,7 +29,7 @@ public class My_Profile extends JFrame {
         Image image = null;
         URL url = null;
         try {
-            url = new URL(user.imagePath);
+            url = new URL("file:"+user.imagePath);
         } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
