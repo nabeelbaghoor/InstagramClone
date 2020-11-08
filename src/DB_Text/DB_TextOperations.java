@@ -14,6 +14,7 @@ import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 //import org.json.simple.JSONObject;
@@ -26,7 +27,7 @@ public class DB_TextOperations implements IDB_Operations {
         currUserId = 0;
     }
 
-    public static boolean saveUser(HashMap<String, User> map) throws IOException, JSONException {
+    public boolean saveUser(HashMap<String, User> map) throws IOException, JSONException {
         Gson gson = new Gson();
         String data = gson.toJson(map);
         //Write to JSON file
@@ -39,7 +40,7 @@ public class DB_TextOperations implements IDB_Operations {
         return true;
     }
 
-    public static HashMap<String, User> loadUser() throws Exception {
+    public HashMap<String, User> loadUser() throws Exception {
         String data = readFileAsString(".\\DBText_DATA\\Users.json");
         Gson gson = new Gson();
         return gson.fromJson(data, new TypeToken<HashMap<String, User>>() {
@@ -81,9 +82,22 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws Exception {
-        ArrayList<IModel> _objects = new ArrayList<IModel>();
-        _objects.addAll(loadUser().values());
-        return _objects;
+        Collection<User> _objectsTemp =  loadUser().values();
+       /* ArrayList<IModel> _objects = new ArrayList<IModel>();
+       for (User user:_objectsTemp){
+           _objects.add(((IModel) user));
+       }
+        if(_objects!=null) {
+            for (IModel object : _objects) {
+                if (!(objectIds.contains(object.getID()))) {
+                    _objects.remove(object);    //make it efficient
+                }
+            }
+        }*/
+        for(IModel imodel:_objectsTemp){
+            imodel.print();
+        }
+        return ((ArrayList) _objectsTemp);
     }
 
     @Override
@@ -118,9 +132,12 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public String addObject(IModel object, ModelType modelType) throws Exception {
-        HashMap<String, User> _objects = new HashMap<String, User>();
-        _objects = loadUser();
-        object.setID(String.valueOf(currUserId));
+        HashMap<String, User> _objects = loadUser();
+        if(_objects == null){
+            _objects = new HashMap<String, User>();
+        }
+        //object.setID(String.valueOf(currUserId));
+        //object.print();
         currUserId++;
         _objects.put(object.getID(), (User) object);
         saveUser(_objects);
