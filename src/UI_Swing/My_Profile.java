@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,7 +18,19 @@ public class My_Profile extends JFrame {
 
     private JPanel contentPane;
 
-    public My_Profile(User user, Operations BLop) {
+
+    public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
+        BufferedImage bi;
+        bi = new BufferedImage(w, h, BufferedImage.TRANSLUCENT);
+        Graphics2D g2d = bi.createGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
+        g2d.drawImage(img, 0, 0, w, h, null);
+        g2d.dispose();
+        return bi;
+    }
+
+    public My_Profile(User user, Operations BLop) throws Exception {
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 464, 477);
@@ -26,10 +39,10 @@ public class My_Profile extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        Image image = null;
+        BufferedImage image = null;
         URL url = null;
         try {
-            url = new URL(user.imagePath);
+            url = new URL("file:.\\"+user.imagePath);
         } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -41,7 +54,12 @@ public class My_Profile extends JFrame {
             e.printStackTrace();
         }
 
-        JLabel lblImage = new JLabel(new ImageIcon(image));
+        JLabel lblImage = null;
+        try {
+            lblImage = new JLabel(new ImageIcon(scaleImage(170, 180,image)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         lblImage.setBackground(Color.WHITE);
         lblImage.setOpaque(true);
         lblImage.setBounds(10, 11, 170, 180);
