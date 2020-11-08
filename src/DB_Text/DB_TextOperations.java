@@ -6,15 +6,13 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.json.JSONException;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 //import org.json.simple.JSONObject;
 
 public class DB_TextOperations implements IDB_Operations {
@@ -84,6 +82,7 @@ public class DB_TextOperations implements IDB_Operations {
         String filename = ".\\DBText_DATA\\";
         filename+=modelType.toString();
         filename+=".json";
+
         String data = readFileAsString(filename);
         Gson gson = new Gson();
         switch (modelType) {
@@ -134,9 +133,14 @@ public class DB_TextOperations implements IDB_Operations {
     }*/
 
     public static String readFileAsString(String fileName) throws Exception {
-        String data = "";
-        data = new String(Files.readAllBytes(Paths.get(fileName)));
-        return data;
+        File f = new File(fileName);
+        if(f.exists() && !f.isDirectory()) {
+            String data = "";
+            data = new String(Files.readAllBytes(Paths.get(fileName)));
+            return data;
+        }else{
+            return "";
+        }
     }
 
     @Override
@@ -206,8 +210,9 @@ public class DB_TextOperations implements IDB_Operations {
         if(_objects == null){
             _objects = new HashMap<String, IModel>();
         }
-        //object.setID(String.valueOf(currUserId));             //see it
-        //object.print();
+        String uniqueKey = UUID.randomUUID().toString();
+        object.setID(uniqueKey);
+        //System.out.println(object.getID());
         currUserId++;
         _objects.put(object.getID(), object);
         saveObject(_objects,modelType);
@@ -271,16 +276,19 @@ public class DB_TextOperations implements IDB_Operations {
             for (Field field : object.getClass().getFields()) {
                 if (arrayAttributeToBeUpdated.getFirst() == field.getName()) {
                     Object value = object.getClass().getField(field.getName()).get(object);   //make it better
+
                     if (updateOperation == UpdateOperation.Add) {
                         ((ArrayList) value).add(arrayAttributeToBeUpdated.getSecond());
                     } else {
-                        ((ArrayList) value).remove(((ArrayList) value).size() - 1);
+                        ((ArrayList) value).remove(arrayAttributeToBeUpdated.getSecond());
                     }
                     object.getClass().getField(field.getName()).set(object, value);
+
                     break;  //only one update operation allowed at a time, just copying Firebase (forNow)
                 }
             }
             _objects.replace(object.getID(), object);
+            System.out.println(((Post)_objects.get(object.getID())).commentsList.toString());
             if (saveObject(_objects,modelType) == true) {
                 System.out.println("Object updated Successfully");
                 return true;
