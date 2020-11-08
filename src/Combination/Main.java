@@ -3,6 +3,7 @@ package Combination;
 import Models.Factory;
 import Models.IUI;
 import Models.Operations;
+import UI_Swing.GUI;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,6 +22,8 @@ public class Main {
         //BLOp.removePost("DHpxRsyjT2M4heFBN6UL");
         System.out.println("Done");
         IUI UI;
+        UI = new GUI();
+        UI.start(BLOp);
         //UI = func.getUI();
         //UI.setOperations(BLOp);
         //UI.start();

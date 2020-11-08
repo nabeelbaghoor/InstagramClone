@@ -1,5 +1,8 @@
 package UI_Swing;
 
+import Models.Operations;
+import Models.User;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -12,10 +15,17 @@ import java.net.URL;
 
 public class Main_Frame extends JFrame {
 
-    private final JPanel contentPane;
+    private JPanel contentPane;
 
-    public Main_Frame(String FullName, String urlpath, int FollowingC, int FollowerC) {
-        String FollowingCount = FollowingC + " Following";
+    public Main_Frame(User user, Operations BLOp) {
+
+        int FollowingC = 0;
+        int FollowerC = 0;
+        if (user.followersList != null)
+            FollowerC = user.followersList.size();
+        if (user.followingsList != null)
+            FollowingC =user.followingsList.size();
+        String FollowingCount = FollowingC  + " Following";
         String FollowerCount = FollowerC + " Followers";
 
         //JFrame Setup
@@ -23,8 +33,7 @@ public class Main_Frame extends JFrame {
         setResizable(false);
         setBackground(Color.WHITE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(565, 390));
-        setBounds(0, 0, 565, 390);
+        setBounds(100, 100, 565, 390);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -33,7 +42,7 @@ public class Main_Frame extends JFrame {
         Image image = null;
         URL url = null;
         try {
-            url = new URL(urlpath);
+            url = new URL(user.imagePath);
         } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -55,7 +64,8 @@ public class Main_Frame extends JFrame {
         Divider_Panel.setBounds(173, 0, 13, 178);
         Divider_Panel.setBackground(new Color(255, 250, 240));
 
-        JLabel lblUserName = new JLabel(FullName);
+        String Fullname = user.firstName + " " + user.lastName;
+        JLabel lblUserName = new JLabel(Fullname);
         lblUserName.setBounds(189, 0, 339, 43);
         lblUserName.setHorizontalAlignment(SwingConstants.CENTER);
         lblUserName.setFont(new Font("Tahoma", Font.BOLD, 22));
@@ -95,6 +105,8 @@ public class Main_Frame extends JFrame {
         JButton btnProfileButton = new JButton("My Profile");
         btnProfileButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                My_Profile Window = new My_Profile(user,BLOp);
+                Window.setVisible(true);
             }
         });
         btnProfileButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -143,7 +155,7 @@ public class Main_Frame extends JFrame {
         JButton btnAddPost = new JButton("Add Post");
         btnAddPost.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                Add_Post Window = new Add_Post();
+                Add_Post Window = new Add_Post(BLOp);
                 Window.setVisible(true);
             }
         });
@@ -198,4 +210,3 @@ public class Main_Frame extends JFrame {
         Action_Buttons_Panel.add(DividerPanel_2);
     }
 }
-

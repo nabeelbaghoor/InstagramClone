@@ -1,5 +1,7 @@
 package UI_Swing;
 
+import Models.Operations;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -22,11 +24,11 @@ public class Add_Post extends JFrame {
     private JLabel lblNewLabel;
     private JLabel lblNewLabel_1;
 
-    public Add_Post() {
+    public Add_Post(Operations BLOp) {
         getContentPane().setBackground(new Color(230, 230, 250));
         setResizable(false);
         setTitle("Add Post");
-        initComponents();
+        initComponents(BLOp);
     }
 
     public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
@@ -40,28 +42,7 @@ public class Add_Post extends JFrame {
         return bi;
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        //</editor-fold>
-        try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");  // This line gives Windows Theme
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Add_Post().setVisible(true);
-            }
-        });
-        //Create a file chooser
-
-    }
-
-    private void initComponents() {
+    private void initComponents(Operations BLOp) {
 
         jButtonAttach = new JButton();
         jButtonAttach.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -103,7 +84,7 @@ public class Add_Post extends JFrame {
         lblNewLabel_1.setBounds(195, 11, 239, 31);
         getContentPane().add(lblNewLabel_1);
 
-        JTextArea textArea = new JTextArea();
+        JTextArea textArea = new JTextArea("");
         textArea.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -151,6 +132,7 @@ public class Add_Post extends JFrame {
                     JOptionPane.showMessageDialog(Confirm, "Please Add a Photo For Post");
                 } else {
                     JOptionPane.showMessageDialog(Confirm, "Post Has Been Added");
+                    BLOp.addPost(jImagePath.getText(), textArea.getText());
                     dispose();
                 }
             }
