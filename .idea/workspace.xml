@@ -16,25 +16,30 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="wokring on making dbtext generic">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBText_DATA/Posts.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Posts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBText_DATA/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combination/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combination/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB_Text/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/Main.java" afterDir="false" />
+    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="Edit Profile has been added">
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/BL/BLOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/BL/BLOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/BL/PostOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/BL/PostOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/BL/UserFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/BL/UserFunctions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Edit_Profile$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Edit_Profile$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Edit_Profile$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Edit_Profile$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Edit_Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Edit_Profile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/GUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/GUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/Main_Frame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/My_Profile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/My_Profile$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/My_Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Swing/My_Profile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI_Swing/Edit_Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Swing/Edit_Profile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +183,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Add_Post" />
+      <item itemvalue="Application.Main (1)" />
+      <item itemvalue="Application.Main (4)" />
+      <item itemvalue="Application.Main (5)" />
+      <item itemvalue="Application.Main (2)" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main (4)" />
