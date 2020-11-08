@@ -1,4 +1,5 @@
 package UI_Swing;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -14,12 +15,50 @@ public class Add_Post extends JFrame {
     private int image_aspect_ratio;
     private Graphics2D engine;
     private JLabel photoComponent;
+    // Variables declaration - do not modify
+    private JButton jButtonAttach;
+    private JLabel jImageHolder;
+    private JLabel jImagePath;
+    private JLabel lblNewLabel;
+    private JLabel lblNewLabel_1;
 
     public Add_Post() {
         getContentPane().setBackground(new Color(230, 230, 250));
         setResizable(false);
         setTitle("Add Post");
         initComponents();
+    }
+
+    public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
+        BufferedImage bi;
+        bi = new BufferedImage(w, h, BufferedImage.TRANSLUCENT);
+        Graphics2D g2d = bi.createGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
+        g2d.drawImage(img, 0, 0, w, h, null);
+        g2d.dispose();
+        return bi;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        //</editor-fold>
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");  // This line gives Windows Theme
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Add_Post().setVisible(true);
+            }
+        });
+        //Create a file chooser
+
     }
 
     private void initComponents() {
@@ -69,11 +108,11 @@ public class Add_Post extends JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                 int max = 140;
-                if(textArea.getText().length() > max+1) {
+                if (textArea.getText().length() > max + 1) {
                     e.consume();
                     String shortened = textArea.getText().substring(0, max);
                     textArea.setText(shortened);
-                }else if(textArea.getText().length() > max) {
+                } else if (textArea.getText().length() > max) {
                     e.consume();
                 }
             }
@@ -103,17 +142,14 @@ public class Add_Post extends JFrame {
                 JFrame Confirm = new JFrame();
                 String FileLocation = "";
                 String FileType = "";
-                FileLocation= jImagePath.getText();
+                FileLocation = jImagePath.getText();
                 if (FileLocation.compareTo("") != 0) {
-                    FileType = FileLocation.substring(FileLocation.lastIndexOf("."), FileLocation.length());
+                    FileType = FileLocation.substring(FileLocation.lastIndexOf("."));
                 }
 
-                if(FileType.compareTo(".png") != 0)
-                {
+                if (FileType.compareTo(".png") != 0) {
                     JOptionPane.showMessageDialog(Confirm, "Please Add a Photo For Post");
-                }
-                else
-                {
+                } else {
                     JOptionPane.showMessageDialog(Confirm, "Post Has Been Added");
                     dispose();
                 }
@@ -132,54 +168,14 @@ public class Add_Post extends JFrame {
         String filename = f.getAbsolutePath();
         jImagePath.setText(filename);
         try {
-            ImageIcon ii=new ImageIcon(scaleImage(170, 180, ImageIO.read(new File(f.getAbsolutePath()))));//get the image from file chooser and scale it to match JLabel size
+            ImageIcon ii = new ImageIcon(scaleImage(170, 180, ImageIO.read(new File(f.getAbsolutePath()))));//get the image from file chooser and scale it to match JLabel size
             jImageHolder.setIcon(ii);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
-    public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
-        BufferedImage bi;
-        bi = new BufferedImage(w, h, BufferedImage.TRANSLUCENT);
-        Graphics2D g2d = (Graphics2D) bi.createGraphics();
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
-        g2d.drawImage(img, 0, 0, w, h, null);
-        g2d.dispose();
-        return bi;
-    }
-
     private void jTextField1ActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        //</editor-fold>
-        try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");  // This line gives Windows Theme
-
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Add_Post().setVisible(true);
-            }
-        });
-        //Create a file chooser
-
-    }
-    // Variables declaration - do not modify
-    private JButton jButtonAttach;
-    private JLabel jImageHolder;
-    private JLabel jImagePath;
-    private JLabel lblNewLabel;
-    private JLabel lblNewLabel_1;
 }

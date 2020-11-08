@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 public interface Operations {
-    boolean removeFollower(String userid) throws ExecutionException, InterruptedException;  //Done
+    boolean removeFollower(String userid) throws Exception;  //Done
 
-    boolean blockUser(String userid) throws ExecutionException, InterruptedException;       //Done
+    boolean blockUser(String userid) throws Exception;       //Done
 
-    boolean unblockUser(String userid) throws ExecutionException, InterruptedException;     //Done
+    boolean unblockUser(String userid) throws Exception;     //Done
 
-    boolean followUser(String userid) throws ExecutionException, InterruptedException;      //Done
+    boolean followUser(String userid) throws Exception;      //Done
 
-    boolean unfollowUser(String userid) throws ExecutionException, InterruptedException;    //Done
+    boolean unfollowUser(String userid) throws Exception;    //Done
 
     boolean likePost(String postid, String userid) throws ExecutionException, InterruptedException;     //Done        //PostID and UserID of person who issued post
 
@@ -26,7 +26,7 @@ public interface Operations {
 
     boolean removePost(String postid);      //Done
 
-    boolean editUserData(User data) throws ExecutionException, InterruptedException;        //Done
+    boolean editUserData(User data) throws Exception;        //Done
 
     ArrayList<Post> getNewsFeedPosts();     //Done
 

@@ -18,18 +18,19 @@ import java.util.HashMap;
 import java.util.Map;
 //import org.json.simple.JSONObject;
 
-public class DB_TextOperations implements IDB_Operations{
+public class DB_TextOperations implements IDB_Operations {
 
     int currUserId;
-    DB_TextOperations()
-    {
+
+    DB_TextOperations() {
         currUserId = 0;
     }
-    public static boolean saveUser(HashMap<String,User> map) throws IOException, JSONException {
+
+    public static boolean saveUser(HashMap<String, User> map) throws IOException, JSONException {
         Gson gson = new Gson();
         String data = gson.toJson(map);
         //Write to JSON file
-        try  (FileWriter file = new FileWriter(".\\DBText_DATA\\Users.json")) {
+        try (FileWriter file = new FileWriter(".\\DBText_DATA\\Users.json")) {
             file.write(data);
             file.flush();
         } catch (IOException e) {
@@ -37,6 +38,20 @@ public class DB_TextOperations implements IDB_Operations{
         }
         return true;
     }
+
+    public static HashMap<String, User> loadUser() throws Exception {
+        String data = readFileAsString(".\\DBText_DATA\\Users.json");
+        Gson gson = new Gson();
+        return gson.fromJson(data, new TypeToken<HashMap<String, User>>() {
+        }.getType());
+    }
+
+    public static String readFileAsString(String fileName) throws Exception {
+        String data = "";
+        data = new String(Files.readAllBytes(Paths.get(fileName)));
+        return data;
+    }
+
     public int documentToClassType(IDB_Operations.ModelType modelType) {
         switch (modelType) {
             case Likes:
@@ -53,17 +68,7 @@ public class DB_TextOperations implements IDB_Operations{
                 return 0;
         }
     }
-    public static HashMap<String, User> loadUser() throws Exception {
-        String data = readFileAsString(".\\DBText_DATA\\Users.json");
-        Gson gson = new Gson();
-        return gson.fromJson(data, new TypeToken<HashMap<String, User>>() {}.getType());
-    }
-    public static String readFileAsString(String fileName)throws Exception
-    {
-        String data = "";
-        data = new String(Files.readAllBytes(Paths.get(fileName)));
-        return data;
-    }
+
     @Override
     public void initDB() throws IOException {
 
@@ -76,17 +81,17 @@ public class DB_TextOperations implements IDB_Operations{
 
     @Override
     public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws Exception {
-       ArrayList<IModel> _objects = new ArrayList<IModel>();
+        ArrayList<IModel> _objects = new ArrayList<IModel>();
         _objects.addAll(loadUser().values());
-        return  _objects;
+        return _objects;
     }
 
     @Override
     public ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws Exception {
-        HashMap<String,User> _objects = new HashMap<String ,User>();
+        HashMap<String, User> _objects = new HashMap<String, User>();
         ArrayList<IModel> _objectsToQuery = new ArrayList<IModel>();
         _objects = loadUser();  //only user,for now
-        if(_objects != null) {
+        if (_objects != null) {
             User user = null;
             for (Map.Entry<String, Object> attributeEntry : attributesToQuery.entrySet()) {
                 for (HashMap.Entry<String, User> objEntry : _objects.entrySet()) {
@@ -98,14 +103,14 @@ public class DB_TextOperations implements IDB_Operations{
                     }
                 }
             }
-            if(_objectsToQuery!=null) {
+            if (_objectsToQuery != null) {
                 System.out.println("Objects found Successfully");
                 return _objectsToQuery;
-            }else{
+            } else {
                 System.out.println("No objects Found!");
                 return null;
             }
-        }else{
+        } else {
             System.out.println("No objects Found!");
             return null;
         }
@@ -113,7 +118,7 @@ public class DB_TextOperations implements IDB_Operations{
 
     @Override
     public String addObject(IModel object, ModelType modelType) throws Exception {
-        HashMap<String,User> _objects = new HashMap<String ,User>();
+        HashMap<String, User> _objects = new HashMap<String, User>();
         _objects = loadUser();
         object.setID(String.valueOf(currUserId));
         currUserId++;
@@ -125,14 +130,14 @@ public class DB_TextOperations implements IDB_Operations{
 
     @Override
     public boolean removeObject(String objectId, ModelType modelType) throws Exception {
-        HashMap<String,User> _objects = new HashMap<String ,User>();
+        HashMap<String, User> _objects = new HashMap<String, User>();
         _objects = loadUser();
         _objects.remove(objectId);
         //make it better
-        if(saveUser(_objects) == true){
+        if (saveUser(_objects) == true) {
             System.out.println("Object removed Successfully");
             return true;
-        }else{
+        } else {
             System.out.println("Failed to Remove Object!");
             return false;
         }
@@ -140,9 +145,9 @@ public class DB_TextOperations implements IDB_Operations{
 
     @Override
     public boolean updateObject(String objectId, HashMap<String, Object> attributesToBeUpdated, ModelType modelType) throws Exception {
-        HashMap<String,User> _objects = new HashMap<String ,User>();
+        HashMap<String, User> _objects = new HashMap<String, User>();
         _objects = loadUser();
-        if(_objects != null) {
+        if (_objects != null) {
             User user = _objects.get(objectId);
             if (user != null) {
                 for (Map.Entry<String, Object> entry : attributesToBeUpdated.entrySet()) {
@@ -164,7 +169,7 @@ public class DB_TextOperations implements IDB_Operations{
                 System.out.println("Failed to update Object!"); //for now, making it same as firebase
                 return false;
             }
-        }else{
+        } else {
             System.out.println("Failed to update Object!"); //for now, making it same as firebase
             return false;
         }
@@ -172,31 +177,31 @@ public class DB_TextOperations implements IDB_Operations{
 
     @Override
     public boolean updateArrayObject(String objectId, Pair<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) throws Exception {
-        HashMap<String,User> _objects = new HashMap<String ,User>();
+        HashMap<String, User> _objects = new HashMap<String, User>();
         _objects = loadUser();
         User user = _objects.get(objectId);
-        if(user != null) {
+        if (user != null) {
             for (Field field : user.getClass().getFields()) {
                 if (arrayAttributeToBeUpdated.getFirst() == field.getName()) {
                     Object value = user.getClass().getField(field.getName()).get(user);   //make it better
-                    if(updateOperation == UpdateOperation.Add) {
+                    if (updateOperation == UpdateOperation.Add) {
                         ((ArrayList) value).add(arrayAttributeToBeUpdated.getSecond());
-                    }else {
-                        ((ArrayList) value).remove( ((ArrayList) value).size() - 1);
+                    } else {
+                        ((ArrayList) value).remove(((ArrayList) value).size() - 1);
                     }
-                    user.getClass().getField(field.getName()).set(user,value);
+                    user.getClass().getField(field.getName()).set(user, value);
                     break;  //only one update operation allowed at a time, just copying Firebase (forNow)
                 }
             }
             _objects.replace(user.getID(), user);
-            if(saveUser(_objects) == true){
+            if (saveUser(_objects) == true) {
                 System.out.println("Object updated Successfully");
                 return true;
-            }else{
+            } else {
                 System.out.println("Failed to update Object!");
                 return false;
             }
-        }else{
+        } else {
             System.out.println("Failed to update Object!"); //for now, making it same as firebase
             return false;
         }

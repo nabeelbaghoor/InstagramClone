@@ -16,6 +16,7 @@ import java.util.concurrent.ExecutionException;
  */
 public class PostOperation {
     private final IDB_Operations DB;
+
     PostOperation(IDB_Operations _obj) {
         DB = _obj;
     }
@@ -25,14 +26,14 @@ public class PostOperation {
         return temp.sendNotification(userid, myid, postid, msg);
     }
 
-    public boolean addLike(String userid, String postid) throws ExecutionException, InterruptedException {
+    public boolean addLike(String userid, String postid) throws Exception {
         Like obj = new Like();
         obj.userId = userid;
         String id = null;
 
         try {
             id = DB.addObject(obj, IDB_Operations.ModelType.Likes);
-        } catch (ExecutionException | InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         if (id != null) {
@@ -53,12 +54,12 @@ public class PostOperation {
         return false;
     }
 
-    public boolean removeNotification(String id, String myid) throws ExecutionException, InterruptedException {
+    public boolean removeNotification(String id, String myid) throws Exception {
         NotificationFunction temp = new NotificationFunction(DB);
         return temp.removeNotification(id, myid);
     }
 
-    public boolean unLike(String likeID, String postid) throws ExecutionException, InterruptedException {
+    public boolean unLike(String likeID, String postid) throws Exception {
         boolean flag = false;
         try {
             flag = DB.removeObject(likeID, IDB_Operations.ModelType.Likes);
@@ -78,7 +79,7 @@ public class PostOperation {
         String id = "";
         try {
             id = DB.addObject(obj, IDB_Operations.ModelType.Posts);
-        } catch (ExecutionException | InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -91,7 +92,7 @@ public class PostOperation {
 
         try {
             temp = DB.getObjectsList(postList, IDB_Operations.ModelType.Posts);
-        } catch (ExecutionException | InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         assert temp != null;
@@ -108,13 +109,13 @@ public class PostOperation {
         boolean flag = false;
         try {
             flag = DB.removeObject(postid, IDB_Operations.ModelType.Posts);
-        } catch (ExecutionException | InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return flag;
     }
 
-    public boolean addComment(String postid, String comtext, String userId) throws ExecutionException, InterruptedException {
+    public boolean addComment(String postid, String comtext, String userId) throws Exception {
         String id = "";
         Comment obj = new Comment();
         obj.commentText = comtext;
@@ -122,7 +123,7 @@ public class PostOperation {
 
         try {
             id = DB.addObject(obj, IDB_Operations.ModelType.Comments);
-        } catch (ExecutionException | InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

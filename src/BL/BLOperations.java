@@ -20,11 +20,10 @@ public class BLOperations implements Operations {
     private final PostOperation pOperations;
     private User curruser;
 
-    public BLOperations(IDB_Operations _obj,String id) {
+    public BLOperations(IDB_Operations _obj, String id) {
         try {
             _obj.initDB();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         uFunc = new UserFunctions(_obj);
@@ -32,7 +31,7 @@ public class BLOperations implements Operations {
         curruser = uFunc.getUser(id);
     }
 
-    public boolean removeFollower(String userid) throws ExecutionException, InterruptedException { //Remove from my Followers
+    public boolean removeFollower(String userid) throws Exception { //Remove from my Followers
         if (curruser != null) {
             if (curruser.followersList.contains(userid))
                 if (uFunc.removeFromList(curruser.userId, userid, "followersList"))
@@ -41,7 +40,7 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean unfollowUser(String userid) throws ExecutionException, InterruptedException { //Unfollow a user
+    public boolean unfollowUser(String userid) throws Exception { //Unfollow a user
         if (curruser != null) {
             if (curruser.followingsList.contains(userid))
                 if (uFunc.removeFromList(curruser.userId, userid, "followingsList"))
@@ -50,7 +49,7 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean followUser(String userid) throws ExecutionException, InterruptedException {   //Follow new User
+    public boolean followUser(String userid) throws Exception {   //Follow new User
         if (curruser != null) {
             if (!curruser.followingsList.contains(userid))
                 if (uFunc.addToList(curruser.userId, userid, "followingsList"))
@@ -59,7 +58,7 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean blockUser(String userid) throws ExecutionException, InterruptedException {    //Block User
+    public boolean blockUser(String userid) throws Exception {    //Block User
         if (curruser != null) {
             if (!curruser.blockedUsersList.contains(userid))
                 if (uFunc.addToList(curruser.userId, userid, "blockedUsersList"))
@@ -68,7 +67,7 @@ public class BLOperations implements Operations {
         return false;
     }
 
-    public boolean unblockUser(String userid) throws ExecutionException, InterruptedException {
+    public boolean unblockUser(String userid) throws Exception {
         if (curruser != null) {
             if (curruser.blockedUsersList.contains(userid))
                 if (uFunc.removeFromList(curruser.userId, userid, "blockedUsersList"))
@@ -98,9 +97,8 @@ public class BLOperations implements Operations {
         String id = pOperations.addPost(posturl, text, curruser.userId);
         if (!id.equals("")) {
             try {
-                return uFunc.addToList(curruser.userId,id,"postList");
-            }
-            catch (ExecutionException | InterruptedException e) {
+                return uFunc.addToList(curruser.userId, id, "postList");
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -109,10 +107,10 @@ public class BLOperations implements Operations {
 
     public boolean removePost(String postid) {
         if (curruser.postList.contains(postid)) {
-            if (pOperations.removePost(postid)){
+            if (pOperations.removePost(postid)) {
                 try {
-                    uFunc.removeFromList(curruser.userId,postid,"postList");
-                } catch (ExecutionException | InterruptedException e) {
+                    uFunc.removeFromList(curruser.userId, postid, "postList");
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 return curruser.postList.remove(postid);
@@ -131,7 +129,7 @@ public class BLOperations implements Operations {
         return pOperations.addComment(postid, comtext, curruser.userId);
     }
 
-    public boolean editUserData(User data) throws ExecutionException, InterruptedException {
+    public boolean editUserData(User data) throws Exception {
         if (uFunc.editUserData(data, curruser)) {
             curruser = uFunc.getUser(data.userId);
             return true;

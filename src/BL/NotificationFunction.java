@@ -9,11 +9,12 @@ import java.util.concurrent.ExecutionException;
 
 public class NotificationFunction {
     private final IDB_Operations DB;
+
     public NotificationFunction(IDB_Operations _obj) {
-        DB=_obj;
+        DB = _obj;
     }
 
-    public boolean removeNotification(String id, String userid) throws ExecutionException, InterruptedException {
+    public boolean removeNotification(String id, String userid) throws Exception {
         boolean flag = false;
         try {
             flag = DB.removeObject(id, IDB_Operations.ModelType.Notifications);
@@ -25,7 +26,7 @@ public class NotificationFunction {
         return flag;
     }
 
-    public String sendNotification(String userid, String myid, String postid, String msg) throws ExecutionException, InterruptedException {
+    public String sendNotification(String userid, String myid, String postid, String msg) throws Exception {
         Notification obj = new Notification();
         obj.viewerId = userid;
         obj.sharerId = myid;
