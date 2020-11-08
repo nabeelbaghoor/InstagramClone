@@ -25,9 +25,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="added info in UI_Console">
+    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="made factory ,cfg filepath relativve">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI_Console/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Console/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBText_DATA/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +98,7 @@
       <command value="likesList" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (2)">
+  <component name="RunManager" selected="Application.Main (4)">
     <configuration name="Add_Post" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UI_Swing.Add_Post" />
       <module name="InstagramClone" />
@@ -173,8 +179,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Main (4)" />
+        <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Add_Post" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main (3)" />
@@ -189,13 +195,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
-    </task>
-    <task id="LOCAL-00019" summary="used Model parent class instead of IModel">
-      <created>1604561165907</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1604561165907</updated>
     </task>
     <task id="LOCAL-00020" summary="used Model parent class instead of IModel">
       <created>1604561172959</created>
@@ -533,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604834528511</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="made factory ,cfg filepath relativve">
+      <created>1604834776206</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1604834776206</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -561,7 +567,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added initFirebase in IDB_FirebaseOperations" />
     <MESSAGE value="renamed IDB_FirebaseOperations to IDB_Operations and moved it to Model" />
     <MESSAGE value="chnaged some models," />
     <MESSAGE value="changed all Models" />
@@ -586,7 +591,8 @@
     <MESSAGE value=".pom file" />
     <MESSAGE value="shifted from java.jar to maven" />
     <MESSAGE value="added info in UI_Console" />
-    <option name="LAST_COMMIT_MESSAGE" value="added info in UI_Console" />
+    <MESSAGE value="made factory ,cfg filepath relativve" />
+    <option name="LAST_COMMIT_MESSAGE" value="made factory ,cfg filepath relativve" />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1604834509010">
@@ -645,22 +651,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604777119907" />
-    <state width="1166" height="13" key="GridCell.Tab.0.bottom" timestamp="1604834373312">
+    <state width="1164" height="187" key="GridCell.Tab.0.bottom" timestamp="1604842179829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1166" height="13" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604834373312" />
-    <state width="1166" height="13" key="GridCell.Tab.0.center" timestamp="1604834373312">
+    <state width="1164" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604842179829" />
+    <state width="1164" height="187" key="GridCell.Tab.0.center" timestamp="1604842179829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1166" height="13" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604834373312" />
-    <state width="1166" height="13" key="GridCell.Tab.0.left" timestamp="1604834373311">
+    <state width="1164" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604842179829" />
+    <state width="1164" height="187" key="GridCell.Tab.0.left" timestamp="1604842179829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1166" height="13" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604834373311" />
-    <state width="1166" height="13" key="GridCell.Tab.0.right" timestamp="1604834373312">
+    <state width="1164" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604842179829" />
+    <state width="1164" height="187" key="GridCell.Tab.0.right" timestamp="1604842179829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1166" height="13" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604834373312" />
+    <state width="1164" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604842179829" />
     <state x="129" y="55" key="MergeDialog" timestamp="1604778788319">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -677,10 +683,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="490" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1604647854932" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604834533427">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604834780665">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604834533427" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604834780665" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604527997999">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

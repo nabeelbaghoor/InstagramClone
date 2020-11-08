@@ -1,8 +1,6 @@
 package DB_Text;
 
-import Models.IDB_Operations;
-import Models.IModel;
-import Models.User;
+import Models.*;
 import com.google.firebase.database.utilities.Pair;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -14,7 +12,6 @@ import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 //import org.json.simple.JSONObject;
@@ -26,12 +23,14 @@ public class DB_TextOperations implements IDB_Operations {
     DB_TextOperations() {
         currUserId = 0;
     }
-
-    public boolean saveUser(HashMap<String, User> map) throws IOException, JSONException {
-        Gson gson = new Gson();
-        String data = gson.toJson(map);
+    public boolean saveObject(HashMap<String, IModel> map,ModelType modelType) throws IOException, JSONException {
+        String data = convertToJson(map,modelType);
+        //make filename
+        String filename = ".\\DBText_DATA\\";
+        filename+=modelType.toString();
+        filename+=".json";
         //Write to JSON file
-        try (FileWriter file = new FileWriter(".\\DBText_DATA\\Users.json")) {
+        try (FileWriter file = new FileWriter(filename)) {
             file.write(data);
             file.flush();
         } catch (IOException e) {
@@ -40,34 +39,99 @@ public class DB_TextOperations implements IDB_Operations {
         return true;
     }
 
-    public HashMap<String, User> loadUser() throws Exception {
+    private String convertToJson(HashMap<String, IModel> map,ModelType modelType) {
+        Gson gson = new Gson();
+
+        switch (modelType) {
+            case Likes:
+                HashMap<String,Like> likeHashMap = new HashMap<String,Like>();
+                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                    likeHashMap.put(entry.getKey(),((Like) entry.getValue()));
+                }
+                return gson.toJson(likeHashMap);
+            case Posts:
+                HashMap<String,Post> postHashMap = new HashMap<String,Post>();
+                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                    postHashMap.put(entry.getKey(),((Post) entry.getValue()));
+                }
+                return gson.toJson(postHashMap);
+            case Users:
+                HashMap<String,User> userHashMap = new HashMap<String,User>();
+                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                    userHashMap.put(entry.getKey(),((User) entry.getValue()));
+                }
+                return gson.toJson(userHashMap);
+            case Comments:
+                HashMap<String,Comment> commentHashMap = new HashMap<String,Comment>();
+                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                    commentHashMap.put(entry.getKey(),((Comment) entry.getValue()));
+                }
+                return gson.toJson(commentHashMap);
+            case Notifications:
+                HashMap<String,Notification> notificationHashMap = new HashMap<String,Notification>();
+                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                    notificationHashMap.put(entry.getKey(),((Notification) entry.getValue()));
+                }
+                return gson.toJson(notificationHashMap);
+            default:
+                return "";
+        }
+    }
+
+    public HashMap<String, IModel> loadObject(ModelType modelType) throws Exception {
         String data = readFileAsString(".\\DBText_DATA\\Users.json");
         Gson gson = new Gson();
-        return gson.fromJson(data, new TypeToken<HashMap<String, User>>() {
-        }.getType());
+        switch (modelType) {
+            case Likes:
+                HashMap<String, IModel> map1 = gson.fromJson(data, new TypeToken<HashMap<String, Post>>() {
+                }.getType());
+                return map1;
+            case Posts:
+                HashMap<String, IModel> map2 = gson.fromJson(data, new TypeToken<HashMap<String, Post>>() {
+                }.getType());
+                return map2;
+            case Users:
+                HashMap<String, IModel> map3 = gson.fromJson(data, new TypeToken<HashMap<String, User>>() {
+                }.getType());
+                return map3;
+            case Comments:
+                HashMap<String, IModel> map4 = gson.fromJson(data, new TypeToken<HashMap<String, Comment>>() {
+                }.getType());
+                return map4;
+            case Notifications:
+                HashMap<String, IModel> map5 = gson.fromJson(data, new TypeToken<HashMap<String, Notification>>() {
+                }.getType());
+                return map5;
+            default:
+                return null;
+        }
     }
+    /*public HashMap<String, IModel> IModelToClassTypeLoad(Gson gson,String data,IDB_Operations.ModelType modelType) {
+        switch (modelType) {
+            case Likes:
+                return gson.fromJson(data, new TypeToken<HashMap<String, Like>>() {
+            }.getType());
+            case Posts:
+                return gson.fromJson(data, new TypeToken<HashMap<String, Post>>() {
+                }.getType());
+            case Users:
+                return gson.fromJson(data, new TypeToken<HashMap<String, User>>() {
+                }.getType());
+            case Comments:
+                return gson.fromJson(data, new TypeToken<HashMap<String, Comment>>() {
+                }.getType());
+            case Notifications:
+                return gson.fromJson(data, new TypeToken<HashMap<String, Notification>>() {
+                }.getType());
+            default:
+                return null;
+        }
+    }*/
 
     public static String readFileAsString(String fileName) throws Exception {
         String data = "";
         data = new String(Files.readAllBytes(Paths.get(fileName)));
         return data;
-    }
-
-    public int documentToClassType(IDB_Operations.ModelType modelType) {
-        switch (modelType) {
-            case Likes:
-                return 3;
-            case Posts:
-                return 2;
-            case Users:
-                return 1;//document.toObject(User.class);
-            case Comments:
-                return 4;//document.toObject(Comment.class);
-            case Notifications:
-                return 5;//document.toObject(Notification.class);
-            default:
-                return 0;
-        }
     }
 
     @Override
@@ -77,13 +141,13 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public IModel getObject(String objectId, ModelType modelType) throws Exception {
-        return loadUser().get(objectId);
+        return loadObject(modelType).get(objectId);
     }
 
     @Override
     public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws Exception {
-        Collection<User> _objectsTemp =  loadUser().values();
-       /* ArrayList<IModel> _objects = new ArrayList<IModel>();
+       /* Collection<User> _objectsTemp =  loadObject(modelType).values();
+       *//* ArrayList<IModel> _objects = new ArrayList<IModel>();
        for (User user:_objectsTemp){
            _objects.add(((IModel) user));
        }
@@ -93,18 +157,19 @@ public class DB_TextOperations implements IDB_Operations {
                     _objects.remove(object);    //make it efficient
                 }
             }
-        }*/
+        }*//*
         for(IModel imodel:_objectsTemp){
             imodel.print();
         }
-        return ((ArrayList) _objectsTemp);
+        return ((ArrayList) _objectsTemp);*/
+        return null;
     }
 
     @Override
     public ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws Exception {
-        HashMap<String, User> _objects = new HashMap<String, User>();
+        /*HashMap<String, User> _objects = new HashMap<String, User>();
         ArrayList<IModel> _objectsToQuery = new ArrayList<IModel>();
-        _objects = loadUser();  //only user,for now
+        _objects = loadObject(modelType);  //only user,for now
         if (_objects != null) {
             User user = null;
             for (Map.Entry<String, Object> attributeEntry : attributesToQuery.entrySet()) {
@@ -127,31 +192,32 @@ public class DB_TextOperations implements IDB_Operations {
         } else {
             System.out.println("No objects Found!");
             return null;
-        }
+        }*/
+        return null;
     }
 
     @Override
     public String addObject(IModel object, ModelType modelType) throws Exception {
-        HashMap<String, User> _objects = loadUser();
+        HashMap<String, IModel> _objects = loadObject(modelType);
         if(_objects == null){
-            _objects = new HashMap<String, User>();
+            _objects = new HashMap<String, IModel>();
         }
-        //object.setID(String.valueOf(currUserId));
+        //object.setID(String.valueOf(currUserId));             //see it
         //object.print();
         currUserId++;
-        _objects.put(object.getID(), (User) object);
-        saveUser(_objects);
+        _objects.put(object.getID(), object);
+        saveObject(_objects,modelType);
         System.out.println("Object Added Successfully!");
         return object.getID();
     }
 
     @Override
     public boolean removeObject(String objectId, ModelType modelType) throws Exception {
-        HashMap<String, User> _objects = new HashMap<String, User>();
-        _objects = loadUser();
+        HashMap<String, IModel> _objects = new HashMap<String, IModel>();
+        _objects = loadObject(modelType);
         _objects.remove(objectId);
         //make it better
-        if (saveUser(_objects) == true) {
+        if (saveObject(_objects,modelType) == true) {
             System.out.println("Object removed Successfully");
             return true;
         } else {
@@ -162,20 +228,20 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public boolean updateObject(String objectId, HashMap<String, Object> attributesToBeUpdated, ModelType modelType) throws Exception {
-        HashMap<String, User> _objects = new HashMap<String, User>();
-        _objects = loadUser();
+        HashMap<String, IModel> _objects = new HashMap<String, IModel>();
+        _objects = loadObject(modelType);
         if (_objects != null) {
-            User user = _objects.get(objectId);
-            if (user != null) {
+            IModel object = _objects.get(objectId);
+            if (object != null) {
                 for (Map.Entry<String, Object> entry : attributesToBeUpdated.entrySet()) {
-                    for (Field field : user.getClass().getFields()) {
+                    for (Field field : object.getClass().getFields()) {
                         if (entry.getKey() == field.getName()) {
-                            user.getClass().getField(field.getName()).set(user, entry.getValue());   //make it better
+                            object.getClass().getField(field.getName()).set(object, entry.getValue());   //make it better
                         }
                     }
                 }
-                _objects.replace(user.getID(), user);
-                if (saveUser(_objects) == true) {
+                _objects.replace(object.getID(), object);
+                if (saveObject(_objects,modelType) == true) {
                     System.out.println("Object updated Successfully");
                     return true;
                 } else {
@@ -194,24 +260,24 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public boolean updateArrayObject(String objectId, Pair<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) throws Exception {
-        HashMap<String, User> _objects = new HashMap<String, User>();
-        _objects = loadUser();
-        User user = _objects.get(objectId);
-        if (user != null) {
-            for (Field field : user.getClass().getFields()) {
+        HashMap<String, IModel> _objects = new HashMap<String, IModel>();
+        _objects = loadObject(modelType);
+        IModel object = _objects.get(objectId);
+        if (object != null) {
+            for (Field field : object.getClass().getFields()) {
                 if (arrayAttributeToBeUpdated.getFirst() == field.getName()) {
-                    Object value = user.getClass().getField(field.getName()).get(user);   //make it better
+                    Object value = object.getClass().getField(field.getName()).get(object);   //make it better
                     if (updateOperation == UpdateOperation.Add) {
                         ((ArrayList) value).add(arrayAttributeToBeUpdated.getSecond());
                     } else {
                         ((ArrayList) value).remove(((ArrayList) value).size() - 1);
                     }
-                    user.getClass().getField(field.getName()).set(user, value);
+                    object.getClass().getField(field.getName()).set(object, value);
                     break;  //only one update operation allowed at a time, just copying Firebase (forNow)
                 }
             }
-            _objects.replace(user.getID(), user);
-            if (saveUser(_objects) == true) {
+            _objects.replace(object.getID(), object);
+            if (saveObject(_objects,modelType) == true) {
                 System.out.println("Object updated Successfully");
                 return true;
             } else {
