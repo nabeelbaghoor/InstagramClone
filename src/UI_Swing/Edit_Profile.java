@@ -38,7 +38,7 @@ public class Edit_Profile extends JFrame {
         BufferedImage image = null;
         URL url = null;
         try {
-            url = new URL("file:.\\"+user.imagePath);
+            url = new URL("file:"+user.imagePath);
         } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
