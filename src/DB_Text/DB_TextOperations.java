@@ -19,7 +19,7 @@ public class DB_TextOperations implements IDB_Operations {
 
     int currUserId;
 
-    DB_TextOperations() {
+    public DB_TextOperations() {
         currUserId = 0;
     }
     public boolean saveObject(HashMap<String, IModel> map,ModelType modelType) throws IOException, JSONException {

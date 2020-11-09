@@ -3,7 +3,6 @@ package Combination;
 import Models.Factory;
 import Models.IUI;
 import Models.Operations;
-import Models.User;
 import UI_Swing.GUI;
 
 public class Main {
@@ -13,7 +12,7 @@ public class Main {
 
         //BLOp.addPost("C:\\1.jpeg","Testing Add Post");
         //BLOp.removePost("DHpxRsyjT2M4heFBN6UL");
-        User temp = BLOp.getMyProfile();
+        //User temp = BLOp.getMyProfile();
         //temp.imagePath = "file:"+temp.imagePath;
 /*        temp.imagePath = ".\\Images\\brackeys.png";
         try {

@@ -7,7 +7,7 @@ public class Main {
 //
 //        //get User Object, user's Info
 //        User user = operations.getMyProfile();
-        CLI.Start();
+        //CLI.start();
         //user.print();
 
         /*Caution:

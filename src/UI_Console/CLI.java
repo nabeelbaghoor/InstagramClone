@@ -1,21 +1,19 @@
 package UI_Console;
 
-import Models.Factory;
+import Models.IUI;
 import Models.Operations;
 import Models.User;
 
 import java.util.Scanner;
 
-public class CLI {
+public class CLI implements IUI {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
-    public static void Start() throws Exception {
+
+    public void start(Operations operations){
 
         Scanner scanner = new Scanner(System.in);
-        Factory func = new Factory();
-        Operations operations = func.getOperations();
-
         //get User Object, user's Info
         User user = operations.getMyProfile();
 

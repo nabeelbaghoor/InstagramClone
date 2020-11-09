@@ -21,8 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="Bug Fixing.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/T4CbwJ6rdSJp9amH2Jht.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/T4CbwJ6rdSJp9amH2Jht.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Console/CLI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Console/CLI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Combination/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combination/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Factory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI_Console/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Console/CLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI_Console/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Console/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,11 +170,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Main" />
       <item itemvalue="Application.Add_Post" />
       <item itemvalue="Application.Main (1)" />
       <item itemvalue="Application.Main (2)" />
       <item itemvalue="Application.Main (5)" />
-      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
