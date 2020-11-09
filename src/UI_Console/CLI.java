@@ -127,10 +127,12 @@ public class CLI {
                     user.bio = input;
 
                 }else if(input.equals("addpost")){
-                    System.out.println("Default Photo location = \\\\Images\\\\s.png = ");
+                    System.out.println("Default Photo location = "+user.imagePath);
                     System.out.print("Enter Post text : ");
                     input = scanner.nextLine();
-                    operations.addPost(".\\Images\\s.png",input);
+                    System.out.print("Enter Post URL : ");
+                    String input2 = scanner.nextLine();
+                    operations.addPost(input2,input);
 
                 }else if(input.equals("viewprofile")){
                     user.print();
