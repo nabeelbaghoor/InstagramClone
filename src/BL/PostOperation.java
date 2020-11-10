@@ -80,7 +80,7 @@ public class PostOperation {
     public String addPost(String posturl, String text, String userid, Integer num) {
         URL imageURL = null;
         try {
-            imageURL = new URL("file:\\"+posturl);
+            imageURL = new URL("file:"+posturl);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

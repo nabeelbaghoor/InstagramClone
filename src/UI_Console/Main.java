@@ -1,17 +1,14 @@
 package UI_Console;
 
-import Models.Factory;
-import Models.Operations;
-import Models.User;
-
 public class Main {
     public static void main(String[] args) throws Exception {
-        Factory func = new Factory();
-        Operations operations = func.getOperations();
-
-        //get User Object, user's Info
-        User user = operations.getMyProfile();
-        user.print();
+//        Factory func = new Factory();
+//        Operations operations = func.getOperations();
+//
+//        //get User Object, user's Info
+//        User user = operations.getMyProfile();
+        //CLI.start();
+        //user.print();
 
         /*Caution:
         Please add meaningful and valid Posts :))
