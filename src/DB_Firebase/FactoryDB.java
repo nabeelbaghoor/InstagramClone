@@ -1,30 +1,16 @@
-package Models;
+package DB_Firebase;
 
-import BL.BLOperations;
-import DB_Firebase.DB_FirebaseOperations;
 import DB_Text.DB_TextOperations;
-import UI_Console.CLI;
-import UI_Swing.GUI;
+import Models.IDB_Operations;
+import Models.IFactoryDB;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class Factory {
-    public Factory() {
-
-    }
-
-    public Operations getOperations() {
-        IDB_Operations DB = getDB();
-        String ID = getID();
-        Operations op = new BLOperations(DB, ID);
-
-        return op;
-    }
-
-    IDB_Operations getDB() {
+public class FactoryDB implements IFactoryDB {
+    public IDB_Operations getDB() {
         Properties prop = new Properties();
         FileInputStream ip = null;
         try {
@@ -49,7 +35,7 @@ public class Factory {
         return null;
     }
 
-    String getID() {
+    public String getID() {
         Properties prop = new Properties();
         FileInputStream ip = null;
         try {
@@ -70,29 +56,4 @@ public class Factory {
         return null;
     }
 
-    public IUI getUI() {
-        Properties prop = new Properties();
-        FileInputStream ip = null;
-        try {
-            ip = new FileInputStream(".\\src\\Models\\Layer.cfg");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        if (ip != null) {
-            try {
-                prop.load(ip);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            String UIType = prop.getProperty("User_Interface");
-            if (UIType.equals("Graphical"))
-                return new GUI();
-            else if (UIType.equals("Console"))
-                return new CLI();
-        }
-        return null;
-    }
-
 }
-
