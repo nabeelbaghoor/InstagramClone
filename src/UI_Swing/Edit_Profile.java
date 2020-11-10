@@ -255,7 +255,10 @@ public class Edit_Profile extends JFrame {
         JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(null);
         File f = chooser.getSelectedFile();
-        String filename = f.getAbsolutePath();
+        String filename;
+        if (f == null)
+            return;
+        filename = f.getAbsolutePath();
         lblImagePath.setText(filename);
         try {
             ImageIcon ii=new ImageIcon(scaleImage(170, 180, ImageIO.read(new File(f.getAbsolutePath()))));//get the image from file chooser and scale it to match JLabel size
