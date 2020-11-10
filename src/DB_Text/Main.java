@@ -15,7 +15,8 @@ public class Main {
         _IDB_Firebase.initDB();
          IDB_Operations _IDB_Text = new DB_TextOperations();
         _IDB_Text.initDB();
-        CreateDummyDB();
+
+        //CreateDummyDB();
     }
     public static void CreateDummyDB() throws Exception {
         IDB_Operations _IDB = new DB_TextOperations();
