@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class PostOperation {
@@ -77,7 +78,7 @@ public class PostOperation {
         return flag;
     }
 
-    public String addPost(String posturl, String text, String userid, Integer num) {
+    public String addPost(String posturl, String text, String userid) {
         URL imageURL = null;
         try {
             imageURL = new URL("file:"+posturl);
@@ -92,17 +93,22 @@ public class PostOperation {
             e.printStackTrace();
         }
 
-        String newURL = ".\\Images\\" + userid + "-" +num.toString() + ".png";
-        try {
-            ImageIO.write(bi, "png", new File(newURL));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Post obj = new Post("", userid, newURL, text, null, null, null);
+        Post obj = new Post("", userid, posturl, text, null, null, null);
         String id = "";
         try {
             id = DB.addObject(obj, IDB_Operations.ModelType.Posts);
+
+            String newURL = ".\\Images\\" + id + ".png";
+            try {
+                ImageIO.write(bi, "png", new File(newURL));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            HashMap<String,Object> map = new HashMap<>();
+            map.put("postId",id);
+            DB.updateObject(id,map, IDB_Operations.ModelType.Posts);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
