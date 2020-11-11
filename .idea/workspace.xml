@@ -211,10 +211,10 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Main" />
       <item itemvalue="Application.Add_Post" />
       <item itemvalue="Application.Main (2)" />
       <item itemvalue="Application.Main (5)" />
-      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
