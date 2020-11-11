@@ -2,7 +2,6 @@ package UI_Swing;
 
 import Models.IUI;
 import Models.Operations;
-import Models.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,9 +13,8 @@ public class GUI implements IUI {
     public void start(Operations BLOp)
     {
         //Look Setup
-
-
         try {
+            //com.sun.java.swing.plaf.gtk.GTKLookAndFeel
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");  // This line gives Windows Theme
         }
         catch (Exception e)
