@@ -9,6 +9,7 @@ import Models.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class BLOperations implements Operations {
     private final UserFunctions uFunc;
@@ -150,17 +151,13 @@ public class BLOperations implements Operations {
         return uFunc.getUser(userid);
     }
 
-    public ArrayList<String> getFollowers() {
-        return curruser.followersList;
+    public HashMap<String, String> getFollowers() { return uFunc.getUserNames(curruser.followersList); }
+
+    public HashMap<String, String> getBlocked() {
+        return uFunc.getUserNames(curruser.blockedUsersList);
     }
 
-    public ArrayList<String> getBlocked() {
-        return curruser.blockedUsersList;
-    }
-
-    public ArrayList<String> getFollowing() {
-        return curruser.followingsList;
-    }
+    public HashMap<String, String> getFollowing() { return uFunc.getUserNames(curruser.followingsList); }
 
     public ArrayList<Notification> getNotification() {
         ArrayList<Notification> arr = null;

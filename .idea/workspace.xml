@@ -19,17 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="CLI Implements IUI.">
+    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="Fixed Factory Class Issues.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/T4CbwJ6rdSJp9amH2Jht.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/T4CbwJ6rdSJp9amH2Jht.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/DB_TextOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Models/Factory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Console/CLI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Console/CLI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/UI_Console/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/UI_Console/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combination/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combination/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Factory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI_Swing/Edit_Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Swing/Edit_Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BL/BLOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BL/BLOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BL/UserFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BL/UserFunctions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Operations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Operations.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,20 +195,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
-    </task>
-    <task id="LOCAL-00025" summary="renamed IDB_FirebaseOperations to IDB_Operations and moved it to Model">
-      <created>1604583004739</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1604583004739</updated>
-    </task>
-    <task id="LOCAL-00026" summary="renamed IDB_FirebaseOperations to IDB_Operations and moved it to Model">
-      <created>1604583011637</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1604583011637</updated>
     </task>
     <task id="LOCAL-00027" summary="chnaged some models,">
       <created>1604591976478</created>
@@ -545,7 +525,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604944770203</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Fixed Factory Class Issues.">
+      <created>1604987487694</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1604987487696</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Fixed Factory Class Issues.">
+      <created>1604987504211</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1604987504211</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -573,7 +567,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chnaged" />
     <MESSAGE value="changed README.md" />
     <MESSAGE value="Removed Company folder from DB_Firebase" />
     <MESSAGE value="Added new data,,,&#10;removed old" />
@@ -598,7 +591,8 @@
     <MESSAGE value="wokring on making dbtext generic" />
     <MESSAGE value="Bug Fixing." />
     <MESSAGE value="CLI Implements IUI." />
-    <option name="LAST_COMMIT_MESSAGE" value="CLI Implements IUI." />
+    <MESSAGE value="Fixed Factory Class Issues." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Factory Class Issues." />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1604834509010">
@@ -663,30 +657,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604777119907" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1604987244287">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1604987524887">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1259" height="187" key="GridCell.Tab.0.bottom/0.0.1303.768@0.0.1303.768" timestamp="1604863594239" />
     <state width="1033" height="118" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604987244287" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1604987244286">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604987524887" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1604987524886">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1259" height="187" key="GridCell.Tab.0.center/0.0.1303.768@0.0.1303.768" timestamp="1604863594238" />
     <state width="1033" height="118" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604987244286" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1604987244286">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604987524886" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1604987524886">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1259" height="187" key="GridCell.Tab.0.left/0.0.1303.768@0.0.1303.768" timestamp="1604863594238" />
     <state width="1033" height="118" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604987244286" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1604987244286">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604987524886" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1604987524887">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1259" height="187" key="GridCell.Tab.0.right/0.0.1303.768@0.0.1303.768" timestamp="1604863594239" />
     <state width="1033" height="118" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604859969793" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604987244286" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604987524887" />
     <state x="129" y="55" key="MergeDialog" timestamp="1604778788319">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -703,11 +697,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="490" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1604647854932" />
-    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1604944774095">
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1604987512580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604851600276" />
-    <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604944774095" />
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604987512580" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604527997999">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

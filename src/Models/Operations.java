@@ -1,7 +1,7 @@
 package Models;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
+import java.util.HashMap;
 
 public interface Operations {
     boolean removeFollower(String userid) throws Exception;  //Done
@@ -36,11 +36,11 @@ public interface Operations {
 
     User getProfileInfo(String userid);     //Done
 
-    ArrayList<String> getFollowers();       //Done
+    HashMap<String,String> getFollowers();       //Done
 
-    ArrayList<String> getBlocked();         //Done
+    HashMap<String,String> getBlocked();         //Done
 
-    ArrayList<String> getFollowing();       //Done
+    HashMap<String,String> getFollowing();       //Done
 
     ArrayList<Notification> getNotification();  //Done
 
