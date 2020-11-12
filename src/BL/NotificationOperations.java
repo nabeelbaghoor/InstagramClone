@@ -7,10 +7,10 @@ import com.google.firebase.database.utilities.Pair;
 
 import java.util.concurrent.ExecutionException;
 
-public class NotificationFunction {
+public class NotificationOperations {
     private final IDB_Operations DB;
 
-    public NotificationFunction(IDB_Operations _obj) {
+    public NotificationOperations(IDB_Operations _obj) {
         DB = _obj;
     }
 

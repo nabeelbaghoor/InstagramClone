@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class BLOperations implements Operations {
-    private final UserFunctions uFunc;
-    private final PostOperation pOperations;
+    private final UserOperations uFunc;
+    private final PostOperations pOperations;
     private User curruser;
 
     public BLOperations(IDB_Operations _obj, String id) {
@@ -22,8 +22,8 @@ public class BLOperations implements Operations {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        uFunc = new UserFunctions(_obj);
-        pOperations = new PostOperation(_obj);
+        uFunc = new UserOperations(_obj);
+        pOperations = new PostOperations(_obj);
         curruser = uFunc.getUser(id);
     }
 

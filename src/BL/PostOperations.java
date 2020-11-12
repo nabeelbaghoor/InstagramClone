@@ -18,15 +18,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
-public class PostOperation {
+public class PostOperations {
     private final IDB_Operations DB;
 
-    PostOperation(IDB_Operations _obj) {
+    PostOperations(IDB_Operations _obj) {
         DB = _obj;
     }
 
     public String sendNotification(String userid, String myid, String postid, String msg) throws Exception {
-        NotificationFunction temp = new NotificationFunction(DB);
+        NotificationOperations temp = new NotificationOperations(DB);
         return temp.sendNotification(userid, myid, postid, msg);
     }
 
@@ -59,7 +59,7 @@ public class PostOperation {
     }
 
     public boolean removeNotification(String id, String myid) throws Exception {
-        NotificationFunction temp = new NotificationFunction(DB);
+        NotificationOperations temp = new NotificationOperations(DB);
         return temp.removeNotification(id, myid);
     }
 

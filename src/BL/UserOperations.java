@@ -14,10 +14,10 @@ import java.util.HashMap;
 
 import static Models.IDB_Operations.ModelType.User;
 
-public class UserFunctions {
+public class UserOperations {
     private final IDB_Operations DB;
 
-    public UserFunctions(IDB_Operations _obj) {
+    public UserOperations(IDB_Operations _obj) {
         DB = _obj;
     }
 
@@ -54,7 +54,7 @@ public class UserFunctions {
             postList.addAll(temp.postList);
         }
 
-        PostOperation temp = new PostOperation(DB);
+        PostOperations temp = new PostOperations(DB);
         ans = temp.getUserPosts(postList);
         return ans;
     }
