@@ -32,11 +32,11 @@ public interface IDB_Operations {
     boolean updateArrayObject(String objectId, Pair<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) throws Exception; //for update Array operation
 
     enum ModelType {
-        Comments,
-        Likes,
-        Notifications,
-        Posts,
-        Users
+        Comment,
+        Like,
+        Notification,
+        Post,
+        User
     }
 
     enum UpdateOperation {

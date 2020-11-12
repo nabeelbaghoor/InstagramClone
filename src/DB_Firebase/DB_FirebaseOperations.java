@@ -20,8 +20,10 @@ import java.util.concurrent.ExecutionException;
 
 public class DB_FirebaseOperations implements IDB_Operations {
 
+    private String modelsPackagePath;
     @Override
     public void initDB() throws IOException {
+        modelsPackagePath = "Models.";
         FileInputStream serviceAccount =
                 new FileInputStream(".\\instagramclone-58441-firebase-adminsdk-taebo-2cba3bad0c.json");
         FirebaseOptions options = new FirebaseOptions.Builder()
@@ -32,7 +34,7 @@ public class DB_FirebaseOperations implements IDB_Operations {
     }
 
     @Override
-    public IModel getObject(String objectId, ModelType modelType) throws ExecutionException, InterruptedException {
+    public IModel getObject(String objectId, ModelType modelType) throws ExecutionException, InterruptedException, ClassNotFoundException {
         Firestore db = FirestoreClient.getFirestore();
         DocumentReference docRef = db.collection(modelType.toString()).document(objectId);
         // asynchronously retrieve the document
@@ -41,7 +43,7 @@ public class DB_FirebaseOperations implements IDB_Operations {
         DocumentSnapshot document = future.get();
         if (document.exists()) {
             // convert document to User
-            IModel _object = documentToClassType(document, modelType);
+            IModel _object = (IModel) document.toObject(Class.forName(modelsPackagePath +modelType.toString()));//documentToClassType(document, modelType);
             System.out.println(_object);
             return _object;
         } else {
@@ -50,32 +52,16 @@ public class DB_FirebaseOperations implements IDB_Operations {
         }
     }
 
-    public IModel documentToClassType(DocumentSnapshot document, ModelType modelType) {
-        switch (modelType) {
-            case Likes:
-                return document.toObject(Like.class);
-            case Posts:
-                return document.toObject(Post.class);
-            case Users:
-                return document.toObject(User.class);
-            case Comments:
-                return document.toObject(Comment.class);
-            case Notifications:
-                return document.toObject(Notification.class);
-            default:
-                return null;
-        }
-    }
-
-    public ArrayList<IModel> queryDocumentsToClassTypes(List<QueryDocumentSnapshot> documents, ModelType modelType) {
+    public ArrayList<IModel> queryDocumentsToClassTypes(List<QueryDocumentSnapshot> documents, ModelType modelType) throws ClassNotFoundException {
         ArrayList<IModel> _objects = new ArrayList<>();
         for (QueryDocumentSnapshot _document : documents) {
-            _objects.add(documentToClassType(_document, modelType));
+            IModel _object = (IModel) _document.toObject(Class.forName(modelsPackagePath +modelType.toString()));//documentToClassType(document, modelType);
+            _objects.add(_object);
         }
         return _objects;
     }
 
-    public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException {
+    public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException, ClassNotFoundException {
         Firestore db = FirestoreClient.getFirestore();
         // Create a reference to the collection
         CollectionReference docsRef = db.collection(modelType.toString());
@@ -95,28 +81,10 @@ public class DB_FirebaseOperations implements IDB_Operations {
         }
     }
 
-    /* public Class modelTypeToClassType(ModelType modelType)
-    {
-        switch (modelType)
-        {
-            case Likes:
-                return Like.class;
-            case Posts:
-                return Post.class;
-            case Users:
-                return User.class;
-            case Comments:
-                return Comment.class;
-            case Notifications:
-                return Notification.class;
-            default:
-                return null;
-        }
-    }*/
-    //This function can just return 10 objects at a time
+   //This function can just return 10 objects at a time
     //will update it later to support more
     @Override
-    public ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws ExecutionException, InterruptedException {
+    public ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws ExecutionException, InterruptedException, ClassNotFoundException {
         Firestore db = FirestoreClient.getFirestore();
         // Create a reference to the cities collection
         CollectionReference docsRef = db.collection(modelType.toString());
@@ -216,3 +184,44 @@ public class DB_FirebaseOperations implements IDB_Operations {
         }
     }
 }
+
+
+
+
+//old
+
+   /* public IModel documentToClassType(DocumentSnapshot document, ModelType modelType) {
+        switch (modelType) {
+            case Like:
+                return document.toObject(Like.class);
+            case Post:
+                return document.toObject(Post.class);
+            case User:
+                return document.toObject(User.class);
+            case Comment:
+                return document.toObject(Comment.class);
+            case Notification:
+                return document.toObject(Notification.class);
+            default:
+                return null;
+        }
+    }*/
+
+ /* public Class modelTypeToClassType(ModelType modelType)
+    {
+        switch (modelType)
+        {
+            case Likes:
+                return Like.class;
+            case Posts:
+                return Post.class;
+            case Users:
+                return User.class;
+            case Comments:
+                return Comment.class;
+            case Notifications:
+                return Notification.class;
+            default:
+                return null;
+        }
+    }*/

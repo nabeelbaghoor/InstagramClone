@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static Models.IDB_Operations.ModelType.Users;
+import static Models.IDB_Operations.ModelType.User;
 
 public class UserFunctions {
     private final IDB_Operations DB;
@@ -24,7 +24,7 @@ public class UserFunctions {
     public User getUser(String user1) {
         User temp = null;
         try {
-            temp = (User) DB.getObject(user1, Users);
+            temp = (User) DB.getObject(user1, User);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,7 +36,7 @@ public class UserFunctions {
         ArrayList<IModel> temp = null;
 
         try {
-            temp = DB.getObjectsList(arr, Users);
+            temp = DB.getObjectsList(arr, User);
             for (IModel iModel : temp)
                 ans.add((User) iModel);
         } catch (Exception e) {
@@ -105,25 +105,25 @@ public class UserFunctions {
             map.put("phoneNumber", data.phoneNumber);
 
         if (!map.isEmpty())
-            return DB.updateObject(data.userId, map, Users);
+            return DB.updateObject(data.userId, map, User);
         return true;
     }
 
     public boolean removeFromList(String myID, String id, String key) throws Exception {
         Pair<String, Object> pair = new Pair<String, Object>(key, id);
-        return DB.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Remove, Users);
+        return DB.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Remove, User);
     }
 
     public boolean addToList(String myID, Object id, String key) throws Exception {
         Pair<String, Object> pair = new Pair<String, Object>(key, id);
-        return DB.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Add, Users);
+        return DB.updateArrayObject(myID, pair, IDB_Operations.UpdateOperation.Add, User);
     }
 
     public ArrayList<Notification> getNotification(ArrayList<String> notificationList) {
         ArrayList<Notification> ans = new ArrayList<>();
         ArrayList<IModel> temp;
         try {
-            temp = DB.getObjectsList(notificationList, IDB_Operations.ModelType.Notifications);
+            temp = DB.getObjectsList(notificationList, IDB_Operations.ModelType.Notification);
             for (IModel iModel : temp)
                 ans.add((Notification) iModel);
         } catch (Exception e) {

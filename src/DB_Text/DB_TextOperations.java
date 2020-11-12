@@ -17,6 +17,13 @@ import java.util.*;
 
 public class DB_TextOperations implements IDB_Operations {
 
+    private String modelsPackagePath;
+
+    @Override
+    public void initDB() throws IOException {
+        modelsPackagePath = "Models.";
+    }
+
     public DB_TextOperations() {
     }
     public boolean saveObject(HashMap<String, IModel> map,ModelType modelType) throws IOException, JSONException {
@@ -39,31 +46,31 @@ public class DB_TextOperations implements IDB_Operations {
         Gson gson = new Gson();
 
         switch (modelType) {
-            case Likes:
+            case Like:
                 HashMap<String,Like> likeHashMap = new HashMap<String,Like>();
                 for (HashMap.Entry<String,IModel> entry : map.entrySet()){
                     likeHashMap.put(entry.getKey(),((Like) entry.getValue()));
                 }
                 return gson.toJson(likeHashMap);
-            case Posts:
+            case Post:
                 HashMap<String,Post> postHashMap = new HashMap<String,Post>();
                 for (HashMap.Entry<String,IModel> entry : map.entrySet()){
                     postHashMap.put(entry.getKey(),((Post) entry.getValue()));
                 }
                 return gson.toJson(postHashMap);
-            case Users:
+            case User:
                 HashMap<String,User> userHashMap = new HashMap<String,User>();
                 for (HashMap.Entry<String,IModel> entry : map.entrySet()){
                     userHashMap.put(entry.getKey(),((User) entry.getValue()));
                 }
                 return gson.toJson(userHashMap);
-            case Comments:
+            case Comment:
                 HashMap<String,Comment> commentHashMap = new HashMap<String,Comment>();
                 for (HashMap.Entry<String,IModel> entry : map.entrySet()){
                     commentHashMap.put(entry.getKey(),((Comment) entry.getValue()));
                 }
                 return gson.toJson(commentHashMap);
-            case Notifications:
+            case Notification:
                 HashMap<String,Notification> notificationHashMap = new HashMap<String,Notification>();
                 for (HashMap.Entry<String,IModel> entry : map.entrySet()){
                     notificationHashMap.put(entry.getKey(),((Notification) entry.getValue()));
@@ -82,24 +89,25 @@ public class DB_TextOperations implements IDB_Operations {
 
         String data = readFileAsString(filename);
         Gson gson = new Gson();
+
         switch (modelType) {
-            case Likes:
+            case Like:
                 HashMap<String, IModel> map1 = gson.fromJson(data, new TypeToken<HashMap<String, Post>>() {
                 }.getType());
                 return map1;
-            case Posts:
+            case Post:
                 HashMap<String, IModel> map2 = gson.fromJson(data, new TypeToken<HashMap<String, Post>>() {
                 }.getType());
                 return map2;
-            case Users:
+            case User:
                 HashMap<String, IModel> map3 = gson.fromJson(data, new TypeToken<HashMap<String, User>>() {
                 }.getType());
                 return map3;
-            case Comments:
+            case Comment:
                 HashMap<String, IModel> map4 = gson.fromJson(data, new TypeToken<HashMap<String, Comment>>() {
                 }.getType());
                 return map4;
-            case Notifications:
+            case Notification:
                 HashMap<String, IModel> map5 = gson.fromJson(data, new TypeToken<HashMap<String, Notification>>() {
                 }.getType());
                 return map5;
@@ -138,11 +146,6 @@ public class DB_TextOperations implements IDB_Operations {
         }else{
             return "";
         }
-    }
-
-    @Override
-    public void initDB() throws IOException {
-
     }
 
     @Override

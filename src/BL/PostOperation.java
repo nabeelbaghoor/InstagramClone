@@ -36,7 +36,7 @@ public class PostOperation {
         String id = null;
 
         try {
-            id = DB.addObject(obj, IDB_Operations.ModelType.Likes);
+            id = DB.addObject(obj, IDB_Operations.ModelType.Like);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -44,11 +44,11 @@ public class PostOperation {
             Pair<String, Object> pair = new Pair<String, Object>("likesList", id);
             boolean flag = false;
 
-            flag = DB.updateArrayObject(postid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Likes);
+            flag = DB.updateArrayObject(postid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Like);
 
             if (!flag) {
                 try {
-                    flag = DB.removeObject(id, IDB_Operations.ModelType.Likes);
+                    flag = DB.removeObject(id, IDB_Operations.ModelType.Like);
                 } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -66,14 +66,14 @@ public class PostOperation {
     public boolean unLike(String likeID, String postid) throws Exception {
         boolean flag = false;
         try {
-            flag = DB.removeObject(likeID, IDB_Operations.ModelType.Likes);
+            flag = DB.removeObject(likeID, IDB_Operations.ModelType.Like);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
 
         Pair<String, Object> pair = new Pair<String, Object>("likesList", likeID);
         if (flag)
-            flag = DB.updateArrayObject(postid, pair, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Posts);
+            flag = DB.updateArrayObject(postid, pair, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Post);
 
         return flag;
     }
@@ -96,7 +96,7 @@ public class PostOperation {
         Post obj = new Post("", userid, posturl, text, null, null, null);
         String id = "";
         try {
-            id = DB.addObject(obj, IDB_Operations.ModelType.Posts);
+            id = DB.addObject(obj, IDB_Operations.ModelType.Post);
 
             String newURL = ".\\Images\\" + id + ".png";
             try {
@@ -107,7 +107,7 @@ public class PostOperation {
 
             HashMap<String,Object> map = new HashMap<>();
             map.put("postId",id);
-            DB.updateObject(id,map, IDB_Operations.ModelType.Posts);
+            DB.updateObject(id,map, IDB_Operations.ModelType.Post);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,7 +121,7 @@ public class PostOperation {
         ArrayList<IModel> temp = null;
 
         try {
-            temp = DB.getObjectsList(postList, IDB_Operations.ModelType.Posts);
+            temp = DB.getObjectsList(postList, IDB_Operations.ModelType.Post);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -138,7 +138,7 @@ public class PostOperation {
     public boolean removePost(String postid) {
         boolean flag = false;
         try {
-            flag = DB.removeObject(postid, IDB_Operations.ModelType.Posts);
+            flag = DB.removeObject(postid, IDB_Operations.ModelType.Post);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -152,14 +152,14 @@ public class PostOperation {
         obj.userId = userId;
 
         try {
-            id = DB.addObject(obj, IDB_Operations.ModelType.Comments);
+            id = DB.addObject(obj, IDB_Operations.ModelType.Comment);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         if (!id.equals("")) {
             Pair<String, Object> pair = new Pair<String, Object>("commentsList", id);
-            return DB.updateArrayObject(postid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Posts);
+            return DB.updateArrayObject(postid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Post);
         }
         return false;
     }

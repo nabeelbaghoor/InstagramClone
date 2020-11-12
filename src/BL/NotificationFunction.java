@@ -17,12 +17,12 @@ public class NotificationFunction {
     public boolean removeNotification(String id, String userid) throws Exception {
         boolean flag = false;
         try {
-            flag = DB.removeObject(id, IDB_Operations.ModelType.Notifications);
+            flag = DB.removeObject(id, IDB_Operations.ModelType.Notification);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
         Pair<String, Object> pair = new Pair<String, Object>("notificationList", id);
-        DB.updateArrayObject(userid, pair, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.Users);
+        DB.updateArrayObject(userid, pair, IDB_Operations.UpdateOperation.Remove, IDB_Operations.ModelType.User);
         return flag;
     }
 
@@ -37,7 +37,7 @@ public class NotificationFunction {
 
         User temp = null;
         try {
-            temp = (User) DB.getObject(userid, IDB_Operations.ModelType.Users);
+            temp = (User) DB.getObject(userid, IDB_Operations.ModelType.User);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -49,13 +49,13 @@ public class NotificationFunction {
         String ans = null;
 
         try {
-            ans = DB.addObject(obj, IDB_Operations.ModelType.Notifications);
+            ans = DB.addObject(obj, IDB_Operations.ModelType.Notification);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
 
         Pair<String, Object> pair = new Pair<String, Object>("notificationList", ans);
-        DB.updateArrayObject(userid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Users);
+        DB.updateArrayObject(userid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.User);
 
         return ans;
     }
