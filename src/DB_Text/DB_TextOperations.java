@@ -28,7 +28,9 @@ public class DB_TextOperations implements IDB_Operations {
     public DB_TextOperations() {
     }
     public boolean saveObject(HashMap<String, IModel> map,ModelType modelType) throws IOException, JSONException {
-        String data = convertToJson(map,modelType);
+
+        Gson gson = new Gson();
+        String data = gson.toJson(map);
         //make filename
         String filename = ".\\DBText_DATA\\";
         filename+=modelType.toString();
@@ -43,45 +45,6 @@ public class DB_TextOperations implements IDB_Operations {
         return true;
     }
 
-    private String convertToJson(HashMap<String, IModel> map,ModelType modelType) {
-        Gson gson = new Gson();
-
-        switch (modelType) {
-            case Like:
-                HashMap<String,Like> likeHashMap = new HashMap<String,Like>();
-                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
-                    likeHashMap.put(entry.getKey(),((Like) entry.getValue()));
-                }
-                return gson.toJson(likeHashMap);
-            case Post:
-                HashMap<String,Post> postHashMap = new HashMap<String,Post>();
-                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
-                    postHashMap.put(entry.getKey(),((Post) entry.getValue()));
-                }
-                return gson.toJson(postHashMap);
-            case User:
-                HashMap<String,User> userHashMap = new HashMap<String,User>();
-                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
-                    userHashMap.put(entry.getKey(),((User) entry.getValue()));
-                }
-                return gson.toJson(userHashMap);
-            case Comment:
-                HashMap<String,Comment> commentHashMap = new HashMap<String,Comment>();
-                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
-                    commentHashMap.put(entry.getKey(),((Comment) entry.getValue()));
-                }
-                return gson.toJson(commentHashMap);
-            case Notification:
-                HashMap<String,Notification> notificationHashMap = new HashMap<String,Notification>();
-                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
-                    notificationHashMap.put(entry.getKey(),((Notification) entry.getValue()));
-                }
-                return gson.toJson(notificationHashMap);
-            default:
-                return "";
-        }
-    }
-
     public HashMap<String, IModel> loadObject(ModelType modelType) throws Exception {
         //make filename
         String filename = ".\\DBText_DATA\\";
@@ -90,59 +53,28 @@ public class DB_TextOperations implements IDB_Operations {
 
         String data = readFileAsString(filename);
         Gson gson = new Gson();
-        return gson.fromJson(data,getType(modelType));
+        return gson.fromJson(data,getObjectType(modelType));//getClassType(modelType));
     }
-    private Type getType(ModelType modelType){
-        Type type = null;
+    private Type getObjectType(ModelType modelType){
         switch (modelType) {
             case Like:
-                type = new TypeToken<HashMap<String, Like>>() {
-                }.getType();
-                break;
+                return new TypeToken<HashMap<String, Like>>() {}.getType();
             case Post:
-                type = new TypeToken<HashMap<String, Post>>() {
-                }.getType();
-                break;
+                return new TypeToken<HashMap<String, Post>>() {}.getType();
             case User:
-                type = new TypeToken<HashMap<String, User>>() {
-                }.getType();
-                break;
+                return new TypeToken<HashMap<String, User>>() {}.getType();
             case Comment:
-                type = new TypeToken<HashMap<String, Comment>>() {
-                }.getType();
-                break;
+                return new TypeToken<HashMap<String, Comment>>() {}.getType();
             case Notification:
-                type = new TypeToken<HashMap<String, Notification>>() {
-                }.getType();
-                break;
-        }
-        return type;
-    }
-    /*public HashMap<String, IModel> IModelToClassTypeLoad(Gson gson,String data,IDB_Operations.ModelType modelType) {
-        switch (modelType) {
-            case Likes:
-                return gson.fromJson(data, new TypeToken<HashMap<String, Like>>() {
-            }.getType());
-            case Posts:
-                return gson.fromJson(data, new TypeToken<HashMap<String, Post>>() {
-                }.getType());
-            case Users:
-                return gson.fromJson(data, new TypeToken<HashMap<String, User>>() {
-                }.getType());
-            case Comments:
-                return gson.fromJson(data, new TypeToken<HashMap<String, Comment>>() {
-                }.getType());
-            case Notifications:
-                return gson.fromJson(data, new TypeToken<HashMap<String, Notification>>() {
-                }.getType());
+                return new TypeToken<HashMap<String, Notification>>() {}.getType();
             default:
                 return null;
         }
-    }*/
+    }
 
     public static String readFileAsString(String fileName) throws Exception {
-        File f = new File(fileName);
-        if(f.exists() && !f.isDirectory()) {
+        File file = new File(fileName);
+        if(file.exists() && !file.isDirectory()) {
             String data = "";
             data = new String(Files.readAllBytes(Paths.get(fileName)));
             return data;
@@ -312,3 +244,66 @@ public class DB_TextOperations implements IDB_Operations {
         myReader.hasNextLine();
         myReader.close();
         */
+
+
+ /*public HashMap<String, IModel> IModelToClassTypeLoad(Gson gson,String data,IDB_Operations.ModelType modelType) {
+        switch (modelType) {
+            case Likes:
+                return gson.fromJson(data, new TypeToken<HashMap<String, Like>>() {
+            }.getType());
+            case Posts:
+                return gson.fromJson(data, new TypeToken<HashMap<String, Post>>() {
+                }.getType());
+            case Users:
+                return gson.fromJson(data, new TypeToken<HashMap<String, User>>() {
+                }.getType());
+            case Comments:
+                return gson.fromJson(data, new TypeToken<HashMap<String, Comment>>() {
+                }.getType());
+            case Notifications:
+                return gson.fromJson(data, new TypeToken<HashMap<String, Notification>>() {
+                }.getType());
+            default:
+                return null;
+        }
+    }*/
+
+
+   /* private String convertToJson(HashMap<String, IModel> map,ModelType modelType) {
+        Gson gson = new Gson();
+
+        switch (modelType) {
+            case Like:
+                HashMap<String,Like> likeHashMap = new HashMap<String,Like>();
+                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                    likeHashMap.put(entry.getKey(),((Like) entry.getValue()));
+                }
+                return gson.toJson(likeHashMap);
+            case Post:
+                HashMap<String,Post> postHashMap = new HashMap<String,Post>();
+                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                    postHashMap.put(entry.getKey(),((Post) entry.getValue()));
+                }
+                return gson.toJson(postHashMap);
+            case User:
+                HashMap<String,User> userHashMap = new HashMap<String,User>();
+                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                    userHashMap.put(entry.getKey(),((User) entry.getValue()));
+                }
+                return gson.toJson(userHashMap);
+            case Comment:
+                HashMap<String,Comment> commentHashMap = new HashMap<String,Comment>();
+                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                    commentHashMap.put(entry.getKey(),((Comment) entry.getValue()));
+                }
+                return gson.toJson(commentHashMap);
+            case Notification:
+                HashMap<String,Notification> notificationHashMap = new HashMap<String,Notification>();
+                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                    notificationHashMap.put(entry.getKey(),((Notification) entry.getValue()));
+                }
+                return gson.toJson(notificationHashMap);
+            default:
+                return "";
+        }
+    }*/
