@@ -17,10 +17,7 @@ import java.util.*;
 
 public class DB_TextOperations implements IDB_Operations {
 
-    int currUserId;
-
     public DB_TextOperations() {
-        currUserId = 0;
     }
     public boolean saveObject(HashMap<String, IModel> map,ModelType modelType) throws IOException, JSONException {
         String data = convertToJson(map,modelType);
@@ -212,8 +209,6 @@ public class DB_TextOperations implements IDB_Operations {
         }
         String uniqueKey = UUID.randomUUID().toString();
         object.setID(uniqueKey);
-        //System.out.println(object.getID());
-        currUserId++;
         _objects.put(object.getID(), object);
         saveObject(_objects,modelType);
         System.out.println("Object Added Successfully!");
