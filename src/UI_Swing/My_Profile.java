@@ -20,17 +20,6 @@ public class My_Profile extends JFrame {
     private JPanel contentPane;
 
 
-    public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
-        BufferedImage bi;
-        bi = new BufferedImage(w, h, BufferedImage.TRANSLUCENT);
-        Graphics2D g2d = bi.createGraphics();
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
-        g2d.drawImage(img, 0, 0, w, h, null);
-        g2d.dispose();
-        return bi;
-    }
-
     public My_Profile(User user, Operations BLop) throws Exception {
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -43,7 +32,7 @@ public class My_Profile extends JFrame {
         BufferedImage image = null;
         URL url = null;
         try {
-            url = new URL("file:"+user.imagePath);
+            url = new URL("file:" + user.imagePath);
         } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -57,7 +46,7 @@ public class My_Profile extends JFrame {
 
         JLabel lblImage = null;
         try {
-            lblImage = new JLabel(new ImageIcon(scaleImage(170, 180,image)));
+            lblImage = new JLabel(new ImageIcon(scaleImage(170, 180, image)));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -196,7 +185,7 @@ public class My_Profile extends JFrame {
         lblDay.setBounds(237, 238, 59, 25);
         contentPane.add(lblDay);
 
-        datevalues = (calendar.get(Calendar.MONTH)+1) + "";
+        datevalues = (calendar.get(Calendar.MONTH) + 1) + "";
         JLabel lblMonth = new JLabel(datevalues);
         lblMonth.setHorizontalAlignment(SwingConstants.CENTER);
         lblMonth.setOpaque(true);
@@ -230,7 +219,7 @@ public class My_Profile extends JFrame {
         JButton btnEditProfile = new JButton("Edit Profile");
         btnEditProfile.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                Edit_Profile Window = new Edit_Profile(user,BLop);
+                Edit_Profile Window = new Edit_Profile(user, BLop);
                 Window.setVisible(true);
                 dispose();
             }
@@ -248,5 +237,16 @@ public class My_Profile extends JFrame {
         lblPhone.setFont(new Font("Times New Roman", Font.BOLD, 13));
         lblPhone.setBounds(237, 77, 62, 25);
         panel_1.add(lblPhone);
+    }
+
+    public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
+        BufferedImage bi;
+        bi = new BufferedImage(w, h, BufferedImage.TRANSLUCENT);
+        Graphics2D g2d = bi.createGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
+        g2d.drawImage(img, 0, 0, w, h, null);
+        g2d.dispose();
+        return bi;
     }
 }

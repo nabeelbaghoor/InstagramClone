@@ -17,20 +17,32 @@ import java.util.*;
 //import org.json.simple.JSONObject;
 
 public class DB_TextOperations implements IDB_Operations {
+    public DB_TextOperations() {
+    }
+
+    public static String readFileAsString(String fileName) throws Exception {
+        File file = new File(fileName);
+        if (file.exists() && !file.isDirectory()) {
+            String data = "";
+            data = new String(Files.readAllBytes(Paths.get(fileName)));
+            return data;
+        } else {
+            return "";
+        }
+    }
+
     @Override
     public void initDB() throws IOException {
     }
 
-    public DB_TextOperations() {
-    }
-    public boolean saveObject(HashMap<String, IModel> map,ModelType modelType) throws IOException, JSONException {
+    public boolean saveObject(HashMap<String, IModel> map, ModelType modelType) throws IOException, JSONException {
 
         Gson gson = new Gson();
         String data = gson.toJson(map);
         //make filename
         String filename = ".\\DBText_DATA\\";
-        filename+=modelType.toString();
-        filename+=".json";
+        filename += modelType.toString();
+        filename += ".json";
         //Write to JSON file
         try (FileWriter file = new FileWriter(filename)) {
             file.write(data);
@@ -44,38 +56,33 @@ public class DB_TextOperations implements IDB_Operations {
     public HashMap<String, IModel> loadObject(ModelType modelType) throws Exception {
         //make filename
         String filename = ".\\DBText_DATA\\";
-        filename+=modelType.toString();
-        filename+=".json";
+        filename += modelType.toString();
+        filename += ".json";
 
         String data = readFileAsString(filename);
         Gson gson = new Gson();
-        return gson.fromJson(data,getObjectType(modelType));//getClassType(modelType));
-    }
-    private Type getObjectType(ModelType modelType){
-        switch (modelType) {
-            case Like:
-                return new TypeToken<HashMap<String, Like>>() {}.getType();
-            case Post:
-                return new TypeToken<HashMap<String, Post>>() {}.getType();
-            case User:
-                return new TypeToken<HashMap<String, User>>() {}.getType();
-            case Comment:
-                return new TypeToken<HashMap<String, Comment>>() {}.getType();
-            case Notification:
-                return new TypeToken<HashMap<String, Notification>>() {}.getType();
-            default:
-                return null;
-        }
+        return gson.fromJson(data, getObjectType(modelType));//getClassType(modelType));
     }
 
-    public static String readFileAsString(String fileName) throws Exception {
-        File file = new File(fileName);
-        if(file.exists() && !file.isDirectory()) {
-            String data = "";
-            data = new String(Files.readAllBytes(Paths.get(fileName)));
-            return data;
-        }else{
-            return "";
+    private Type getObjectType(ModelType modelType) {
+        switch (modelType) {
+            case Like:
+                return new TypeToken<HashMap<String, Like>>() {
+                }.getType();
+            case Post:
+                return new TypeToken<HashMap<String, Post>>() {
+                }.getType();
+            case User:
+                return new TypeToken<HashMap<String, User>>() {
+                }.getType();
+            case Comment:
+                return new TypeToken<HashMap<String, Comment>>() {
+                }.getType();
+            case Notification:
+                return new TypeToken<HashMap<String, Notification>>() {
+                }.getType();
+            default:
+                return null;
         }
     }
 
@@ -86,10 +93,10 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws Exception {
-        Collection<IModel> _objectsCollection =loadObject(modelType).values();
+        Collection<IModel> _objectsCollection = loadObject(modelType).values();
         ArrayList<IModel> _objects = new ArrayList<IModel>();
-        for (IModel iModel:_objectsCollection) {
-            if(objectIds.contains(iModel.getID())) {
+        for (IModel iModel : _objectsCollection) {
+            if (objectIds.contains(iModel.getID())) {
                 _objects.add(iModel);
             }
         }
@@ -102,10 +109,10 @@ public class DB_TextOperations implements IDB_Operations {
         ArrayList<String> _objectsToRemove = new ArrayList<String>();
         _objects = loadObject(modelType);  //only user,for now
         if (_objects != null) {
-            for (Map.Entry<String, Object> attributeEntry : attributesToQuery.entrySet()){
-                for (Map.Entry<String, IModel> objEntry : _objects.entrySet()){
+            for (Map.Entry<String, Object> attributeEntry : attributesToQuery.entrySet()) {
+                for (Map.Entry<String, IModel> objEntry : _objects.entrySet()) {
                     for (Field field : objEntry.getValue().getClass().getFields()) {
-                        if(attributeEntry.getKey() == field.getName()) {
+                        if (attributeEntry.getKey() == field.getName()) {
                             String attributeValue = attributeEntry.getValue().toString();
                             String fieldValue = field.get(objEntry.getValue()).toString();
                             if (!attributeValue.equals(fieldValue)) {
@@ -114,12 +121,12 @@ public class DB_TextOperations implements IDB_Operations {
                         }
                     }
                 }
-                for (String key:_objectsToRemove){
+                for (String key : _objectsToRemove) {
                     _objects.remove(key);
                 }
             }
             ArrayList<IModel> _queriedObjects = new ArrayList<IModel>();
-            for (IModel iModel:_objects.values()) {
+            for (IModel iModel : _objects.values()) {
                 _queriedObjects.add(iModel);
             }
             if (_queriedObjects != null) {
@@ -138,13 +145,13 @@ public class DB_TextOperations implements IDB_Operations {
     @Override
     public String addObject(IModel object, ModelType modelType) throws Exception {
         HashMap<String, IModel> _objects = loadObject(modelType);
-        if(_objects == null){
+        if (_objects == null) {
             _objects = new HashMap<String, IModel>();
         }
         String uniqueKey = UUID.randomUUID().toString();
         object.setID(uniqueKey);
         _objects.put(object.getID(), object);
-        saveObject(_objects,modelType);
+        saveObject(_objects, modelType);
         System.out.println("Object Added Successfully!");
         return object.getID();
     }
@@ -155,7 +162,7 @@ public class DB_TextOperations implements IDB_Operations {
         _objects = loadObject(modelType);
         _objects.remove(objectId);
         //make it better
-        if (saveObject(_objects,modelType) == true) {
+        if (saveObject(_objects, modelType) == true) {
             System.out.println("Object removed Successfully");
             return true;
         } else {
@@ -179,7 +186,7 @@ public class DB_TextOperations implements IDB_Operations {
                     }
                 }
                 _objects.replace(object.getID(), object);
-                if (saveObject(_objects,modelType) == true) {
+                if (saveObject(_objects, modelType) == true) {
                     System.out.println("Object updated Successfully");
                     return true;
                 } else {
@@ -217,8 +224,8 @@ public class DB_TextOperations implements IDB_Operations {
                 }
             }
             _objects.replace(object.getID(), object);
-            System.out.println(((Post)_objects.get(object.getID())).commentsList.toString());
-            if (saveObject(_objects,modelType) == true) {
+            System.out.println(((Post) _objects.get(object.getID())).commentsList.toString());
+            if (saveObject(_objects, modelType) == true) {
                 System.out.println("Object updated Successfully");
                 return true;
             } else {

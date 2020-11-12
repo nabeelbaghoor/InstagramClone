@@ -4,14 +4,16 @@ import DB_Firebase.DB_FirebaseOperations;
 import Models.*;
 import com.google.firebase.database.utilities.Pair;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         IDB_Operations _IDB_Firebase = new DB_FirebaseOperations();
         _IDB_Firebase.initDB();
-         IDB_Operations _IDB_Text = new DB_TextOperations();
+        IDB_Operations _IDB_Text = new DB_TextOperations();
         _IDB_Text.initDB();
 
         /*_IDB_Text.addObject(
@@ -20,6 +22,7 @@ public class Main {
         );*/
         //CreateDummyDB();
     }
+
     public static void CreateDummyDB() throws Exception {
         IDB_Operations _IDB = new DB_TextOperations();
         _IDB.initDB();

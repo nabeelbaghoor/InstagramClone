@@ -86,31 +86,31 @@ public class User implements IModel {
         System.out.println("imagePath = " + imagePath);
         System.out.println("dateOfBirth = " + dateOfBirth.toString());
         System.out.println("followersList = ");
-        if(followersList!=null) {
+        if (followersList != null) {
             for (String follower : followersList) {
                 System.out.println("\t" + follower + " ,");
             }
         }
         System.out.println("blockedUsersList = ");
-        if(blockedUsersList!=null) {
+        if (blockedUsersList != null) {
             for (String blocked : blockedUsersList) {
                 System.out.println("\t" + blocked + " ,");
             }
         }
         System.out.println("followingsList = ");
-        if(followingsList!=null) {
+        if (followingsList != null) {
             for (String following : followingsList) {
                 System.out.println("\t" + following + " ,");
             }
         }
         System.out.println("postList = ");
-        if(postList!=null) {
+        if (postList != null) {
             for (String post : postList) {
                 System.out.println("\t" + post + " ,");
             }
         }
         System.out.println("notificationList = ");
-        if(notificationList!=null) {
+        if (notificationList != null) {
             for (String notification : notificationList) {
                 System.out.println("\t" + notification + " ,");
             }

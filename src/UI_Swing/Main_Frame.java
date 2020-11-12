@@ -18,17 +18,6 @@ public class Main_Frame extends JFrame {
 
     private JPanel contentPane;
 
-    public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
-        BufferedImage bi;
-        bi = new BufferedImage(w, h, BufferedImage.TRANSLUCENT);
-        Graphics2D g2d = bi.createGraphics();
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
-        g2d.drawImage(img, 0, 0, w, h, null);
-        g2d.dispose();
-        return bi;
-    }
-
     public Main_Frame(Operations BLOp) {
         User user = BLOp.getMyProfile();
         int FollowingC = 0;
@@ -36,8 +25,8 @@ public class Main_Frame extends JFrame {
         if (user.followersList != null)
             FollowerC = user.followersList.size();
         if (user.followingsList != null)
-            FollowingC =user.followingsList.size();
-        String FollowingCount = FollowingC  + " Following";
+            FollowingC = user.followingsList.size();
+        String FollowingCount = FollowingC + " Following";
         String FollowerCount = FollowerC + " Followers";
 
         //JFrame Setup
@@ -54,7 +43,7 @@ public class Main_Frame extends JFrame {
         BufferedImage image = null;
         URL url = null;
         try {
-            url = new URL("file:"+user.imagePath);
+            url = new URL("file:" + user.imagePath);
         } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -71,7 +60,7 @@ public class Main_Frame extends JFrame {
 
         JLabel lblImage = null;
         try {
-            lblImage = new JLabel(new ImageIcon(scaleImage(170, 180,image)));
+            lblImage = new JLabel(new ImageIcon(scaleImage(170, 180, image)));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -124,7 +113,7 @@ public class Main_Frame extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 My_Profile Window = null;
                 try {
-                    Window = new My_Profile(user,BLOp);
+                    Window = new My_Profile(user, BLOp);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -231,5 +220,16 @@ public class Main_Frame extends JFrame {
         DividerPanel_2.setBackground(new Color(255, 240, 245));
         DividerPanel_2.setBounds(0, 77, 504, 23);
         Action_Buttons_Panel.add(DividerPanel_2);
+    }
+
+    public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
+        BufferedImage bi;
+        bi = new BufferedImage(w, h, BufferedImage.TRANSLUCENT);
+        Graphics2D g2d = bi.createGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.addRenderingHints(new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
+        g2d.drawImage(img, 0, 0, w, h, null);
+        g2d.dispose();
+        return bi;
     }
 }

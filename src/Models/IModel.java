@@ -9,5 +9,6 @@ public interface IModel {
     void setID(String id);
 
     void setTimestamp(Timestamp _timestamp);
+
     void print();
 }

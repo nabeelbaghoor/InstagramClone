@@ -36,11 +36,11 @@ public interface Operations {
 
     User getProfileInfo(String userid);     //Done
 
-    HashMap<String,String> getFollowers();       //Done //User ID and User Name - Order to Follow
+    HashMap<String, String> getFollowers();       //Done //User ID and User Name - Order to Follow
 
-    HashMap<String,String> getBlocked();         //Done //User ID and User Name - Order to Follow
+    HashMap<String, String> getBlocked();         //Done //User ID and User Name - Order to Follow
 
-    HashMap<String,String> getFollowing();       //Done //User ID and User Name - Order to Follow
+    HashMap<String, String> getFollowing();       //Done //User ID and User Name - Order to Follow
 
     ArrayList<Notification> getNotification();  //Done
 

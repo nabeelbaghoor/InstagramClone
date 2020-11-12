@@ -22,7 +22,10 @@ import java.util.Date;
 
 public class Edit_Profile extends JFrame {
 
+    JLabel lblImagePath;
+    JLabel lblImage;
     private JPanel contentPane;
+
     /**
      * Create the frame.
      */
@@ -38,7 +41,7 @@ public class Edit_Profile extends JFrame {
         BufferedImage image = null;
         URL url = null;
         try {
-            url = new URL("file:"+user.imagePath);
+            url = new URL("file:" + user.imagePath);
         } catch (MalformedURLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -53,7 +56,7 @@ public class Edit_Profile extends JFrame {
 
         lblImage = null;
         try {
-            lblImage = new JLabel(new ImageIcon(scaleImage(170, 180,image)));
+            lblImage = new JLabel(new ImageIcon(scaleImage(170, 180, image)));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -106,7 +109,7 @@ public class Edit_Profile extends JFrame {
         lblUserName.setBounds(190, 119, 67, 25);
         contentPane.add(lblUserName);
 
-        String Genders[]={"Male","Female"};
+        String Genders[] = {"Male", "Female"};
         JComboBox lblGenderEntry = new JComboBox(Genders);
         lblGenderEntry.setOpaque(true);
         lblGenderEntry.setBackground(Color.WHITE);
@@ -123,11 +126,11 @@ public class Edit_Profile extends JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                 int max = 150;
-                if(lblBioEntry.getText().length() > max+1) {
+                if (lblBioEntry.getText().length() > max + 1) {
                     e.consume();
                     String shortened = lblBioEntry.getText().substring(0, max);
                     lblBioEntry.setText(shortened);
-                }else if(lblBioEntry.getText().length() > max) {
+                } else if (lblBioEntry.getText().length() > max) {
                     e.consume();
                 }
             }
@@ -200,7 +203,7 @@ public class Edit_Profile extends JFrame {
         SimpleDateFormat model = new SimpleDateFormat("dd.MM.yyyy");
         JSpinner Yearspinner = new JSpinner(new SpinnerDateModel());
         Yearspinner.setValue(calendar.getTime());
-        Yearspinner.setEditor(new JSpinner.DateEditor(Yearspinner,model.toPattern()));
+        Yearspinner.setEditor(new JSpinner.DateEditor(Yearspinner, model.toPattern()));
         Yearspinner.setBounds(237, 41, 105, 25);
         panel_1.add(Yearspinner);
 
@@ -218,7 +221,7 @@ public class Edit_Profile extends JFrame {
 
                 user.bio = lblBioEntry.getText();
                 user.dateOfBirth = (Date) Yearspinner.getValue();
-                user.gender= lblGenderEntry.getSelectedItem().toString();
+                user.gender = lblGenderEntry.getSelectedItem().toString();
                 user.username = lblUserNameEntry.getText();
                 user.phoneNumber = lblPhoneEntry.getText();
 
@@ -229,7 +232,7 @@ public class Edit_Profile extends JFrame {
                     FileType = FileLocation.substring(FileLocation.lastIndexOf("."));
                 }
 
-                user.imagePath = "file:\\"+ lblImagePath.getText();
+                user.imagePath = "file:\\" + lblImagePath.getText();
                 //JOptionPane.showMessageDialog(Confirm, "Photo not added due to unsupported type");
 
                 user.lastName = lblLnameEntry.getText();
@@ -251,23 +254,6 @@ public class Edit_Profile extends JFrame {
         panel_1.add(btnConfirm);
     }
 
-    private void jButton1ActionPerformed(ActionEvent evt) {
-        JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(null);
-        File f = chooser.getSelectedFile();
-        String filename;
-        if (f == null)
-            return;
-        filename = f.getAbsolutePath();
-        lblImagePath.setText(filename);
-        try {
-            ImageIcon ii=new ImageIcon(scaleImage(170, 180, ImageIO.read(new File(f.getAbsolutePath()))));//get the image from file chooser and scale it to match JLabel size
-            lblImage.setIcon(ii);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
     public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
         BufferedImage bi;
         bi = new BufferedImage(w, h, BufferedImage.TRANSLUCENT);
@@ -278,7 +264,22 @@ public class Edit_Profile extends JFrame {
         g2d.dispose();
         return bi;
     }
-    JLabel lblImagePath;
-    JLabel lblImage;
+
+    private void jButton1ActionPerformed(ActionEvent evt) {
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        String filename;
+        if (f == null)
+            return;
+        filename = f.getAbsolutePath();
+        lblImagePath.setText(filename);
+        try {
+            ImageIcon ii = new ImageIcon(scaleImage(170, 180, ImageIO.read(new File(f.getAbsolutePath()))));//get the image from file chooser and scale it to match JLabel size
+            lblImage.setIcon(ii);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }
 

@@ -74,7 +74,7 @@ public class UserOperations {
             map.put("gender", data.gender);
         if (!data.website.equals(curr.website))
             map.put("website", data.website);
-        if (!data.imagePath.equals(curr.imagePath)){
+        if (!data.imagePath.equals(curr.imagePath)) {
             URL imageURL = null;
             try {
                 imageURL = new URL(data.imagePath);
@@ -137,7 +137,7 @@ public class UserOperations {
         HashMap<String, String> map = new HashMap<>();
         users = getUserList(uList);
 
-        for (User user : users) map.put(user.userId,user.username);
+        for (User user : users) map.put(user.userId, user.username);
 
         return map;
     }

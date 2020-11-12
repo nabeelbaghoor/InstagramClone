@@ -81,7 +81,7 @@ public class PostOperations {
     public String addPost(String posturl, String text, String userid) {
         URL imageURL = null;
         try {
-            imageURL = new URL("file:"+posturl);
+            imageURL = new URL("file:" + posturl);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -105,9 +105,9 @@ public class PostOperations {
                 e.printStackTrace();
             }
 
-            HashMap<String,Object> map = new HashMap<>();
-            map.put("postId",id);
-            DB.updateObject(id,map, IDB_Operations.ModelType.Post);
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("postId", id);
+            DB.updateObject(id, map, IDB_Operations.ModelType.Post);
 
         } catch (Exception e) {
             e.printStackTrace();

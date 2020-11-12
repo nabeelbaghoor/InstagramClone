@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         IDB_Operations _IDB = new DB_FirebaseOperations();
         _IDB.initDB();
-        _IDB.getObject("6AH6rRjSlpt2Xf9lpff5",IDB_Operations.ModelType.User).print();
+        _IDB.getObject("6AH6rRjSlpt2Xf9lpff5", IDB_Operations.ModelType.User).print();
         //CreateDummyDB();
     }
     //Caution

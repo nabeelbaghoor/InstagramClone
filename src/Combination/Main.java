@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Main {
-    public static IUI getUI(){
+    public static IUI getUI() {
         Properties prop = new Properties();
         FileInputStream ip = null;
         try {
@@ -30,7 +30,7 @@ public class Main {
             }
             String UIType = prop.getProperty("User_Interface");
             if (UIType.equals("Graphical"))
-               return new GUI();
+                return new GUI();
             else if (UIType.equals("Console"))
                 return new CLI();
         }

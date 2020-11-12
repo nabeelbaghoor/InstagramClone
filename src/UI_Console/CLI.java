@@ -11,7 +11,7 @@ public class CLI implements IUI {
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
 
-    public void start(Operations operations){
+    public void start(Operations operations) {
 
         Scanner scanner = new Scanner(System.in);
         //get User Object, user's Info
@@ -25,18 +25,17 @@ public class CLI implements IUI {
         //String input = scanner.nextLine();
         String input = "1";
 
-        if(input.equals("1"))
-        {
+        if (input.equals("1")) {
             System.out.println("You choose Command Line Interface");
 
             System.out.println("Type in a command or to get help about command use 'man cli'");
 
-            while(!input.equals("exit")){
+            while (!input.equals("exit")) {
                 System.out.print(">>");
 
                 input = scanner.nextLine();
 
-                if(input.equals("man cli")){
+                if (input.equals("man cli")) {
 
                     System.out.println("List of Possible commands");
                     System.out.println();
@@ -63,101 +62,95 @@ public class CLI implements IUI {
 
                     System.out.println("exit");
 
-                }
-                else if(input.equals("editprofile")){
+                } else if (input.equals("editprofile")) {
 
                     System.out.println(ANSI_RED + "Argument not found (required field argument for editing profile)" + ANSI_RESET);
 
-                }
-                else if(input.equals("editprofile username")){
+                } else if (input.equals("editprofile username")) {
                     System.out.println("Current username = " + user.username);
                     System.out.print("Enter new username : ");
                     input = scanner.nextLine();
                     user.username = input;
 
 
-                }else if(input.equals("editprofile emailAddress")){
+                } else if (input.equals("editprofile emailAddress")) {
                     System.out.println("Current emailAddress = " + user.emailAddress);
                     System.out.print("Enter new emailAddress : ");
                     input = scanner.nextLine();
                     user.emailAddress = input;
 
-                }else if(input.equals("editprofile firstName")){
+                } else if (input.equals("editprofile firstName")) {
                     System.out.println("Current firstName = " + user.firstName);
                     System.out.print("Enter new firstName : ");
                     input = scanner.nextLine();
                     user.firstName = input;
 
-                }else if(input.equals("editprofile lastName")){
+                } else if (input.equals("editprofile lastName")) {
                     System.out.println("Current lastName = " + user.lastName);
                     System.out.print("Enter new lastName : ");
                     input = scanner.nextLine();
                     user.lastName = input;
 
-                }else if(input.equals("editprofile gender")){
+                } else if (input.equals("editprofile gender")) {
                     System.out.println("Current gender = " + user.gender);
                     System.out.print("Enter new gender : ");
                     input = scanner.nextLine();
                     user.gender = input;
 
-                }else if(input.equals("editprofile phoneNumber")){
+                } else if (input.equals("editprofile phoneNumber")) {
                     System.out.println("Current phoneNumber = " + user.phoneNumber);
                     System.out.print("Enter new phoneNumber : ");
                     input = scanner.nextLine();
                     user.phoneNumber = input;
 
-                }else if(input.equals("editprofile dateOfBirth")){
+                } else if (input.equals("editprofile dateOfBirth")) {
                     System.out.println("Current dateOfBirth = " + user.dateOfBirth);
                     System.out.print("Enter new dateOfBirth : ");
                     input = scanner.nextLine();
                     //user.dateOfBirth = input;
 
-                }else if(input.equals("editprofile website")){
+                } else if (input.equals("editprofile website")) {
                     System.out.println("Current website = " + user.website);
                     System.out.print("Enter new website : ");
                     input = scanner.nextLine();
                     user.website = input;
 
-                }else if(input.equals("editprofile bio")){
+                } else if (input.equals("editprofile bio")) {
                     System.out.println("Current bio = " + user.bio);
                     System.out.print("Enter new bio : ");
                     input = scanner.nextLine();
                     user.bio = input;
 
-                }else if(input.equals("addpost")){
-                    System.out.println("Default Photo location = "+user.imagePath);
+                } else if (input.equals("addpost")) {
+                    System.out.println("Default Photo location = " + user.imagePath);
                     System.out.print("Enter Post text : ");
                     input = scanner.nextLine();
                     System.out.print("Enter Post URL : ");
                     String input2 = scanner.nextLine();
-                    operations.addPost(input2,input);
+                    operations.addPost(input2, input);
 
-                }else if(input.equals("viewprofile")){
+                } else if (input.equals("viewprofile")) {
                     user.print();
 
-                }else if(input.equals("exit")){
+                } else if (input.equals("exit")) {
                     System.out.println(ANSI_GREEN + "Thank You for using our Service" + ANSI_RESET);
                     System.out.println(ANSI_RED + "Exiting Instagram!" + ANSI_RESET);
 
 
-                }else{
+                } else {
                     System.out.println(ANSI_RED + "Invalid Command!" + ANSI_RESET);
 
                 }
 
             }
 
-        }
-        else if (input.equals("2"))
-        {
+        } else if (input.equals("2")) {
             System.out.println("your choose Select Option Interface");
 
-        }
-        else{
+        } else {
             System.out.println("Wrong Input");
 
         }
-
 
 
     }

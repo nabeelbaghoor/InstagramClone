@@ -1,6 +1,7 @@
 package DB_Firebase;
 
-import Models.*;
+import Models.IDB_Operations;
+import Models.IModel;
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.Timestamp;
@@ -21,6 +22,7 @@ import java.util.concurrent.ExecutionException;
 public class DB_FirebaseOperations implements IDB_Operations {
 
     private String modelsPackagePath;
+
     @Override
     public void initDB() throws IOException {
         modelsPackagePath = "Models.";
@@ -43,7 +45,7 @@ public class DB_FirebaseOperations implements IDB_Operations {
         DocumentSnapshot document = future.get();
         if (document.exists()) {
             // convert document to User
-            IModel _object = (IModel) document.toObject(Class.forName(modelsPackagePath +modelType.toString()));//documentToClassType(document, modelType);
+            IModel _object = (IModel) document.toObject(Class.forName(modelsPackagePath + modelType.toString()));//documentToClassType(document, modelType);
             System.out.println(_object);
             return _object;
         } else {
@@ -55,7 +57,7 @@ public class DB_FirebaseOperations implements IDB_Operations {
     public ArrayList<IModel> queryDocumentsToClassTypes(List<QueryDocumentSnapshot> documents, ModelType modelType) throws ClassNotFoundException {
         ArrayList<IModel> _objects = new ArrayList<>();
         for (QueryDocumentSnapshot _document : documents) {
-            IModel _object = (IModel) _document.toObject(Class.forName(modelsPackagePath +modelType.toString()));//documentToClassType(document, modelType);
+            IModel _object = (IModel) _document.toObject(Class.forName(modelsPackagePath + modelType.toString()));//documentToClassType(document, modelType);
             _objects.add(_object);
         }
         return _objects;
@@ -81,7 +83,7 @@ public class DB_FirebaseOperations implements IDB_Operations {
         }
     }
 
-   //This function can just return 10 objects at a time
+    //This function can just return 10 objects at a time
     //will update it later to support more
     @Override
     public ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws ExecutionException, InterruptedException, ClassNotFoundException {
@@ -184,8 +186,6 @@ public class DB_FirebaseOperations implements IDB_Operations {
         }
     }
 }
-
-
 
 
 //old

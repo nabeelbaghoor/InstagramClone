@@ -12,7 +12,7 @@ public class FactoryBL implements IFactoryBL {
 
         IDB_Operations DB = obj.getDB();
         String ID = obj.getID();
-        Operations op = new BLOperations(DB, ID);
+        Operations op = new BL_Operations(DB, ID);
 
         return op;
     }

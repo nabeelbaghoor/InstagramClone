@@ -47,13 +47,13 @@ public class Post implements IModel {
         System.out.println("imagePath = " + imagePath);
         System.out.println("postText = " + postText);
         System.out.println("likesList = ");
-        if(likesList!=null) {
+        if (likesList != null) {
             for (String like : likesList) {
                 System.out.println("\t" + like + " ,");
             }
         }
         System.out.println("commentsList = ");
-        if(commentsList!=null) {
+        if (commentsList != null) {
             for (String comment : commentsList) {
                 System.out.println("\t" + comment + " ,");
             }
