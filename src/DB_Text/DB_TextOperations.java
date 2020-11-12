@@ -17,12 +17,8 @@ import java.util.*;
 //import org.json.simple.JSONObject;
 
 public class DB_TextOperations implements IDB_Operations {
-
-    private String modelsPackagePath;
-
     @Override
     public void initDB() throws IOException {
-        modelsPackagePath = "Models.";
     }
 
     public DB_TextOperations() {
