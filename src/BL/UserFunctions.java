@@ -132,4 +132,13 @@ public class UserFunctions {
         return ans;
     }
 
+    public HashMap<String, String> getUserNames(ArrayList<String> uList) {
+        ArrayList<User> users;
+        HashMap<String, String> map = new HashMap<>();
+        users = getUserList(uList);
+
+        for (User user : users) map.put(user.userId,user.username);
+
+        return map;
+    }
 }
