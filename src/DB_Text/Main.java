@@ -1,6 +1,5 @@
 package DB_Text;
 
-import DB_Firebase.DB_FirebaseOperations;
 import Models.*;
 import com.google.firebase.database.utilities.Pair;
 
@@ -11,11 +10,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+/*
         IDB_Operations _IDB_Firebase = new DB_FirebaseOperations();
         _IDB_Firebase.initDB();
          IDB_Operations _IDB_Text = new DB_TextOperations();
         _IDB_Text.initDB();
-
+*/
+        //Class aClass = Class.forName("Models.User").getClass();
+        //Class<String> a;
+        //HashMap<String,a> hashMap = new HashMap<String, a>();
         //CreateDummyDB();
     }
     public static void CreateDummyDB() throws Exception {

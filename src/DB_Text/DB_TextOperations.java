@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -89,31 +90,33 @@ public class DB_TextOperations implements IDB_Operations {
 
         String data = readFileAsString(filename);
         Gson gson = new Gson();
-
+        return gson.fromJson(data,getType(modelType));
+    }
+    private Type getType(ModelType modelType){
+        Type type = null;
         switch (modelType) {
             case Like:
-                HashMap<String, IModel> map1 = gson.fromJson(data, new TypeToken<HashMap<String, Post>>() {
-                }.getType());
-                return map1;
+                type = new TypeToken<HashMap<String, Like>>() {
+                }.getType();
+                break;
             case Post:
-                HashMap<String, IModel> map2 = gson.fromJson(data, new TypeToken<HashMap<String, Post>>() {
-                }.getType());
-                return map2;
+                type = new TypeToken<HashMap<String, Post>>() {
+                }.getType();
+                break;
             case User:
-                HashMap<String, IModel> map3 = gson.fromJson(data, new TypeToken<HashMap<String, User>>() {
-                }.getType());
-                return map3;
+                type = new TypeToken<HashMap<String, User>>() {
+                }.getType();
+                break;
             case Comment:
-                HashMap<String, IModel> map4 = gson.fromJson(data, new TypeToken<HashMap<String, Comment>>() {
-                }.getType());
-                return map4;
+                type = new TypeToken<HashMap<String, Comment>>() {
+                }.getType();
+                break;
             case Notification:
-                HashMap<String, IModel> map5 = gson.fromJson(data, new TypeToken<HashMap<String, Notification>>() {
-                }.getType());
-                return map5;
-            default:
-                return null;
+                type = new TypeToken<HashMap<String, Notification>>() {
+                }.getType();
+                break;
         }
+        return type;
     }
     /*public HashMap<String, IModel> IModelToClassTypeLoad(Gson gson,String data,IDB_Operations.ModelType modelType) {
         switch (modelType) {

@@ -30,6 +30,8 @@
   <component name="ChangeListManager">
     <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="chnaged ModelType">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,9 +81,8 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\Images" />
-      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\src\DB_Firebase\company" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="BL.src.instaclone" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\src\DB_Firebase\company" />
@@ -91,8 +92,9 @@
       <recent name="DB_Firebase.company" />
       <recent name="model" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="BL.src.instaclone" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\Images" />
+      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\src\DB_Firebase\company" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -199,13 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Removed Company folder from DB_Firebase">
-      <created>1604601213911</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1604601213911</updated>
     </task>
     <task id="LOCAL-00034" summary="Added new data,,,&#10;removed old">
       <created>1604602740744</created>
@@ -543,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605180662083</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="chnaged ModelType">
+      <created>1605180820502</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1605180820502</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
