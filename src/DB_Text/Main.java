@@ -1,6 +1,5 @@
 package DB_Text;
 
-import DB_Firebase.DB_FirebaseOperations;
 import Models.*;
 import com.google.firebase.database.utilities.Pair;
 
@@ -11,15 +10,12 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        IDB_Operations _IDB_Firebase = new DB_FirebaseOperations();
+
+        /*IDB_Operations _IDB_Firebase = new DB_FirebaseOperations();
         _IDB_Firebase.initDB();
         IDB_Operations _IDB_Text = new DB_TextOperations();
-        _IDB_Text.initDB();
+        _IDB_Text.initDB();*/
 
-        /*_IDB_Text.addObject(
-                _IDB_Firebase.getObject("2JcSa4wOLEfvl6sywby5", IDB_Operations.ModelType.Comment),
-                IDB_Operations.ModelType.Comment
-        );*/
         //CreateDummyDB();
     }
 

@@ -272,41 +272,41 @@ public class DB_TextOperations implements IDB_Operations {
     }*/
 
 
-   /* private String convertToJson(HashMap<String, IModel> map,ModelType modelType) {
-        Gson gson = new Gson();
+/* private String convertToJson(HashMap<String, IModel> map,ModelType modelType) {
+    Gson gson = new Gson();
 
-        switch (modelType) {
-            case Like:
-                HashMap<String,Like> likeHashMap = new HashMap<String,Like>();
-                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
-                    likeHashMap.put(entry.getKey(),((Like) entry.getValue()));
-                }
-                return gson.toJson(likeHashMap);
-            case Post:
-                HashMap<String,Post> postHashMap = new HashMap<String,Post>();
-                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
-                    postHashMap.put(entry.getKey(),((Post) entry.getValue()));
-                }
-                return gson.toJson(postHashMap);
-            case User:
-                HashMap<String,User> userHashMap = new HashMap<String,User>();
-                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
-                    userHashMap.put(entry.getKey(),((User) entry.getValue()));
-                }
-                return gson.toJson(userHashMap);
-            case Comment:
-                HashMap<String,Comment> commentHashMap = new HashMap<String,Comment>();
-                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
-                    commentHashMap.put(entry.getKey(),((Comment) entry.getValue()));
-                }
-                return gson.toJson(commentHashMap);
-            case Notification:
-                HashMap<String,Notification> notificationHashMap = new HashMap<String,Notification>();
-                for (HashMap.Entry<String,IModel> entry : map.entrySet()){
-                    notificationHashMap.put(entry.getKey(),((Notification) entry.getValue()));
-                }
-                return gson.toJson(notificationHashMap);
-            default:
-                return "";
-        }
-    }*/
+    switch (modelType) {
+        case Like:
+            HashMap<String,Like> likeHashMap = new HashMap<String,Like>();
+            for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                likeHashMap.put(entry.getKey(),((Like) entry.getValue()));
+            }
+            return gson.toJson(likeHashMap);
+        case Post:
+            HashMap<String,Post> postHashMap = new HashMap<String,Post>();
+            for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                postHashMap.put(entry.getKey(),((Post) entry.getValue()));
+            }
+            return gson.toJson(postHashMap);
+        case User:
+            HashMap<String,User> userHashMap = new HashMap<String,User>();
+            for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                userHashMap.put(entry.getKey(),((User) entry.getValue()));
+            }
+            return gson.toJson(userHashMap);
+        case Comment:
+            HashMap<String,Comment> commentHashMap = new HashMap<String,Comment>();
+            for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                commentHashMap.put(entry.getKey(),((Comment) entry.getValue()));
+            }
+            return gson.toJson(commentHashMap);
+        case Notification:
+            HashMap<String,Notification> notificationHashMap = new HashMap<String,Notification>();
+            for (HashMap.Entry<String,IModel> entry : map.entrySet()){
+                notificationHashMap.put(entry.getKey(),((Notification) entry.getValue()));
+            }
+            return gson.toJson(notificationHashMap);
+        default:
+            return "";
+    }
+}*/
