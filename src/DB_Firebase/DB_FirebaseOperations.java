@@ -97,7 +97,6 @@ public class DB_FirebaseOperations implements IDB_Operations {
         int numberOfObjectIdsToQuery = 0;
         while(!objectIds.isEmpty()) {
             numberOfObjectIdsToQuery = objectIds.size() > 10 ? 10 : objectIds.size();
-            System.out.println(numberOfObjectIdsToQuery);
             _objectsIdsToQuery = objectIds.subList(0, numberOfObjectIdsToQuery);
             query = docsRef.whereIn(FieldPath.documentId(), _objectsIdsToQuery);
             querySnapshot = query.get();
