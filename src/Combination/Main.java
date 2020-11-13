@@ -7,13 +7,12 @@ import Models.Operations;
 import UI_Console.CLI;
 import UI_Swing.GUI;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 
 public class Main {
     public static IUI getUI() {
+
         Properties prop = new Properties();
         FileInputStream ip = null;
         try {
@@ -36,24 +35,33 @@ public class Main {
         }
         return null;
     }
-
+    //use it to disable *every* System.out print output
+    /*public static void disablePrintLN(){
+        System.setOut(new PrintStream(new OutputStream() {
+            public void write(int b) {
+                // NO-OP
+            }
+        }));
+    }*/
     public static void main(String[] args) {
+
         IFactoryBL func = new FactoryBL();
         Operations BLOp = func.getOperations();
 
-        //BLOp.removePost("fFvhHPIKbEjZXDyZcqbp");
-        //BLOp.addPost("C:\\1.jpeg","Testing Add Post");
-        //BLOp.removePost("DHpxRsyjT2M4heFBN6UL");
-        //User temp = BLOp.getMyProfile();
-        //temp.imagePath = "file:"+temp.imagePath;
-/*        temp.imagePath = ".\\Images\\brackeys.png";
+        //old commented Code
+        /*BLOp.removePost("fFvhHPIKbEjZXDyZcqbp");
+        BLOp.addPost("C:\\1.jpeg","Testing Add Post");
+        BLOp.removePost("DHpxRsyjT2M4heFBN6UL");
+        User temp = BLOp.getMyProfile();
+        temp.imagePath = "file:"+temp.imagePath;
+        temp.imagePath = ".\\Images\\brackeys.png";
         try {
             BLOp.editUserData(temp);
         } catch (Exception e) {
             e.printStackTrace();
         }*/
-        IUI UI = getUI();
 
+        IUI UI = getUI();
 
         System.out.println("Done");
         //UI = new GUI();

@@ -30,8 +30,18 @@
   <component name="ChangeListManager">
     <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="chnaged default id in cfg Layer.cfg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Models/Operations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/Models/Operations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBText_DATA/Comment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBText_DATA/User.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/Combination/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Firebase/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Firebase/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Text/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Models/IDB_Operations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/Models/IDB_Operations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Models/Layer.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/Models/Layer.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Combination/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combination/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Firebase/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Firebase/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/IDB_Operations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/IDB_Operations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Layer.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Layer.cfg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +84,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -216,13 +226,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
-    </task>
-    <task id="LOCAL-00042" summary="chnaged  Models">
-      <created>1604751044822</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1604751044822</updated>
     </task>
     <task id="LOCAL-00043" summary="resolving get operation sin firebase">
       <created>1604753866418</created>
@@ -560,7 +563,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605243142932</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="chnaged default id in cfg Layer.cfg">
+      <created>1605243258182</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1605243258182</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -626,10 +636,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="chnaged default id in cfg Layer.cfg" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="163" y="0" key="#Project_Structure" timestamp="1605166022946">
+    <state x="163" y="0" key="#Project_Structure" timestamp="1605248752473">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1605166022946" />
+    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1605248752473" />
     <state x="319" y="27" key="#com.intellij.codeInsight.i18n.I18nizeQuickFixDialog_Form" timestamp="1604492778087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -692,29 +702,29 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605171460176" />
-    <state width="1013" height="98" key="GridCell.Tab.0.bottom" timestamp="1605243153224">
+    <state width="1013" height="129" key="GridCell.Tab.0.bottom" timestamp="1605249454856">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1259" height="187" key="GridCell.Tab.0.bottom/0.0.1303.768@0.0.1303.768" timestamp="1604863594239" />
-    <state width="1013" height="98" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605243153224" />
+    <state width="1013" height="129" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605249454856" />
     <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605116317526" />
-    <state width="1013" height="98" key="GridCell.Tab.0.center" timestamp="1605243153224">
+    <state width="1013" height="129" key="GridCell.Tab.0.center" timestamp="1605249454856">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1259" height="187" key="GridCell.Tab.0.center/0.0.1303.768@0.0.1303.768" timestamp="1604863594238" />
-    <state width="1013" height="98" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605243153224" />
+    <state width="1013" height="129" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605249454856" />
     <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605116317526" />
-    <state width="1013" height="98" key="GridCell.Tab.0.left" timestamp="1605243153224">
+    <state width="1013" height="129" key="GridCell.Tab.0.left" timestamp="1605249454856">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1259" height="187" key="GridCell.Tab.0.left/0.0.1303.768@0.0.1303.768" timestamp="1604863594238" />
-    <state width="1013" height="98" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605243153224" />
+    <state width="1013" height="129" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605249454856" />
     <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605116317526" />
-    <state width="1013" height="98" key="GridCell.Tab.0.right" timestamp="1605243153224">
+    <state width="1013" height="129" key="GridCell.Tab.0.right" timestamp="1605249454856">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1259" height="187" key="GridCell.Tab.0.right/0.0.1303.768@0.0.1303.768" timestamp="1604863594239" />
-    <state width="1013" height="98" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605243153224" />
+    <state width="1013" height="129" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605249454856" />
     <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605116317526" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1605116323105">
       <screen x="0" y="0" width="1536" height="824" />
@@ -748,10 +758,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="490" y="278" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1604647854932" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605243146972">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1605243261724">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605243146972" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605243261724" />
     <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604944774095" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604527997999">
       <screen x="0" y="0" width="1366" height="728" />
@@ -787,10 +797,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="383" y="121" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1605195487932" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1605173104019">
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1605245467329">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1605173104019" />
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1605245467329" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1605173074539">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -813,6 +823,14 @@
           <url>file://$PROJECT_DIR$/src/DB_Firebase/FactoryDB.java</url>
           <line>38</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Combination/Main.java</url>
+          <line>13</line>
+          <properties class="Combination.Main" method="getUI">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
