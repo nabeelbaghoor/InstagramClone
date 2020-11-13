@@ -41,7 +41,7 @@ public class Main {
         IFactoryBL func = new FactoryBL();
         Operations BLOp = func.getOperations();
 
-        BLOp.removePost("fFvhHPIKbEjZXDyZcqbp");
+        //BLOp.removePost("fFvhHPIKbEjZXDyZcqbp");
         //BLOp.addPost("C:\\1.jpeg","Testing Add Post");
         //BLOp.removePost("DHpxRsyjT2M4heFBN6UL");
         //User temp = BLOp.getMyProfile();
