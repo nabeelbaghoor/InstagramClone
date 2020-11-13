@@ -151,9 +151,7 @@ public class BL_Operations implements Operations {
         return uFunc.getUser(userid);
     }
 
-    public HashMap<String, String> getFollowers() {
-        return uFunc.getUserNames(currUser.followersList);
-    }
+    public HashMap<String, String> getFollowers() { return uFunc.getUserNames(currUser.followersList); }
 
     public HashMap<String, String> getBlocked() {
         return uFunc.getUserNames(currUser.blockedUsersList);

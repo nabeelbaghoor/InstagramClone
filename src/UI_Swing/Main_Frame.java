@@ -187,6 +187,8 @@ public class Main_Frame extends JFrame {
         JButton btngetFollowing = new JButton("Following List");
         btngetFollowing.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                Listing_Template Window = new Listing_Template("Following List", BLOp, 2);
+                Window.setVisible(true);
             }
         });
         btngetFollowing.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -201,6 +203,8 @@ public class Main_Frame extends JFrame {
         JButton btngetFollowers = new JButton("Follower List");
         btngetFollowers.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                Listing_Template Window = new Listing_Template("Follower List", BLOp, 1);
+                Window.setVisible(true);
             }
         });
         btngetFollowers.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -210,6 +214,8 @@ public class Main_Frame extends JFrame {
         JButton btngetBlocked = new JButton("Blocked List");
         btngetBlocked.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                Listing_Template Window = new Listing_Template("Blocked List", BLOp, 3);
+                Window.setVisible(true);
             }
         });
         btngetBlocked.setFont(new Font("Tahoma", Font.PLAIN, 15));

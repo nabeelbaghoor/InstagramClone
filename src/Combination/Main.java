@@ -12,7 +12,6 @@ import java.util.Properties;
 
 public class Main {
     public static IUI getUI() {
-
         Properties prop = new Properties();
         FileInputStream ip = null;
         try {
@@ -44,7 +43,6 @@ public class Main {
         }));
     }*/
     public static void main(String[] args) {
-
         IFactoryBL func = new FactoryBL();
         Operations BLOp = func.getOperations();
 
@@ -59,7 +57,10 @@ public class Main {
             BLOp.editUserData(temp);
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
+        System.out.println(BLOp.getFollowers());
+        System.out.println("Test");
+        System.out.println(BLOp.getFollowers());*/
 
         IUI UI = getUI();
 
