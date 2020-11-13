@@ -13,6 +13,31 @@ public class Main {
     public static void main(String[] args) throws Exception {
         IDB_Operations _IDB = new DB_FirebaseOperations();
         _IDB.initDB();
+        ArrayList<String> objectIds = new ArrayList<String>(Arrays.asList(
+                "IBO0ZjPScGjWldLOCBBD",
+                "KSfuSZKTLocCTg1tjH4K",
+                "KeZ2pIosg8FgoQ8QE21j",
+                "LKvuHX5ZuNAGkH1bsFWD",
+                "MZ5wB4PT6UFn9XOuN9CB",
+                "OnjG2h5SoqUeaKOhEqCA",
+                "QcmiHakbiNUGsFfQuObW",
+                "Qsj9GcD9bxIHVBFZPr95",
+                "SfSPEAHTZ0D0TGVgTuiW",
+                "VCeNBhyw3yts4cpVVJVz",
+                "ZuZWs2UDMp2eVlANAfL7",
+                "aGRB4k9HTCp5vSAuYGMJ",
+                "auqUJdzLpyhy0Qjpz2Wv",
+                "byOm4h0M0beP8q8m4gsd",
+                "cgledfIfXFCTFmJcTJMb",
+                "faV059qFD7CDayGrVmyU",
+                "ive5PHCoN6tyR6MN78Cj",
+                "mDfNFo26ulM6VTr81gcD",
+                "rXd1unhjkinfX2UoVMpH",
+                "sNQl8ThLztUSd6qJlvNc",
+                "wGK2dcqR9Y8g6uPCpAoA",
+                "wd97EoWA17LmRSdEk0B3"
+        ));
+        _IDB.getObjectsList(objectIds, IDB_Operations.ModelType.User).forEach(IModel::print);
     }
     public static void CreateDummyDB() throws Exception {
         IDB_Operations _IDB = new DB_FirebaseOperations();
