@@ -49,7 +49,8 @@ public class DB_FirebaseOperations implements IDB_Operations {
             System.out.println(_object);
             return _object;
         } else {
-            System.out.println("No such document!");
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("No such document!");
             return null;
         }
     }
@@ -73,12 +74,15 @@ public class DB_FirebaseOperations implements IDB_Operations {
         ApiFuture<QuerySnapshot> querySnapshot = query.get();
         ArrayList<IModel> _objects = queryDocumentsToClassTypes(querySnapshot.get().getDocuments(), modelType);
         if (!_objects.isEmpty()) {
-            for (IModel _object : _objects) {
-                System.out.println(_object.getID());
+            if (IDB_Operations.PRINTLN_ENABLED) {
+                for (IModel _object : _objects) {
+                    System.out.println(_object.getID());
+                }
             }
             return _objects;
         } else {
-            System.out.println("No such documents!");
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("No such documents!");
             return null;
         }
     }
@@ -102,12 +106,15 @@ public class DB_FirebaseOperations implements IDB_Operations {
         ApiFuture<QuerySnapshot> querySnapshot = query.get();
         ArrayList<IModel> _objects = queryDocumentsToClassTypes(querySnapshot.get().getDocuments(), modelType);
         if (!_objects.isEmpty()) {
-            for (IModel _object : _objects) {
-                System.out.println(_object.getID());
+            if (IDB_Operations.PRINTLN_ENABLED) {
+                for (IModel _object : _objects) {
+                    System.out.println(_object.getID());
+                }
             }
             return _objects;
         } else {
-            System.out.println("No such documents!");
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("No such documents!");
             return null;
         }
     }
@@ -123,7 +130,8 @@ public class DB_FirebaseOperations implements IDB_Operations {
         //set timestamp of creation of the object
         object.setTimestamp(Timestamp.now());
         ApiFuture<WriteResult> writeResult = addedDocRef.set(object);
-        System.out.println("Successfully updated at: " + writeResult.get().getUpdateTime());
+        if (IDB_Operations.PRINTLN_ENABLED)
+            System.out.println("Successfully updated at: " + writeResult.get().getUpdateTime());
         return object.getID();
     }
 
@@ -134,11 +142,14 @@ public class DB_FirebaseOperations implements IDB_Operations {
         ApiFuture<WriteResult> writeResult = db.collection(modelType.toString()).document(objectId).delete();
         //check it again
         if (!writeResult.isCancelled()) {
-            System.out.println("Update time : " + writeResult.get().getUpdateTime());
-            System.out.println("document removed Successfully");
+            if (IDB_Operations.PRINTLN_ENABLED) {
+                System.out.println("Update time : " + writeResult.get().getUpdateTime());
+                System.out.println("document removed Successfully");
+            }
             return true;
         } else {
-            System.out.println("Failed to Remove document!");
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("Failed to Remove document!");
             return false;
         }
     }
@@ -152,11 +163,14 @@ public class DB_FirebaseOperations implements IDB_Operations {
         ApiFuture<WriteResult> writeResult = docRef.update(attributesToBeUpdated);
         //check it again
         if (!writeResult.isCancelled()) {
-            System.out.println("Update time : " + writeResult.get().getUpdateTime());
-            System.out.println("document updated Successfully");
+            if (IDB_Operations.PRINTLN_ENABLED) {
+                System.out.println("Update time : " + writeResult.get().getUpdateTime());
+                System.out.println("document updated Successfully");
+            }
             return true;
         } else {
-            System.out.println("Failed to update document!");
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("Failed to update document!");
             return false;
         }
     }
@@ -177,11 +191,14 @@ public class DB_FirebaseOperations implements IDB_Operations {
         }
         //check it again
         if (writeResult != null && !writeResult.isCancelled()) {
-            System.out.println("Update time : " + writeResult.get().getUpdateTime());
-            System.out.println("document updated Successfully");
+            if (IDB_Operations.PRINTLN_ENABLED) {
+                System.out.println("Update time : " + writeResult.get().getUpdateTime());
+                System.out.println("document updated Successfully");
+            }
             return true;
         } else {
-            System.out.println("Failed to update document!");
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("Failed to update document!");
             return false;
         }
     }

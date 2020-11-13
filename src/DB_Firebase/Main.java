@@ -11,10 +11,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        IDB_Operations _IDB = new DB_FirebaseOperations();
-        _IDB.initDB();
-        _IDB.getObject("6AH6rRjSlpt2Xf9lpff5", IDB_Operations.ModelType.User).print();
-        //CreateDummyDB();
+        //IDB_Operations _IDB = new DB_FirebaseOperations();
+        //_IDB.initDB();
+        CreateDummyDB();
     }
     //Caution
 
@@ -109,10 +108,8 @@ public class Main {
             //likes
             for (int i = 0; i < userIds.size(); i++) {
                 String randomPostId = postIds.get(ThreadLocalRandom.current().nextInt(0, postIds.size()));
-                postsGotLiked.add(randomPostId);
                 int userIdRandomNum = ThreadLocalRandom.current().nextInt(0, userIds.size());
                 String randomUserId = userIds.get(userIdRandomNum);
-                usersWhoLiked.add(randomUserId);
                 if (!(usersWhoLiked.contains(randomUserId) && postsGotLiked.contains(randomPostId))) {
                     String likeId = _IDB.addObject(new Like(
                             null,
@@ -122,6 +119,8 @@ public class Main {
 
                     Pair<String, Object> pair = new Pair<String, Object>("likesList", likeId);
                     _IDB.updateArrayObject(randomPostId, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.Post);
+                    postsGotLiked.add(randomPostId);
+                    usersWhoLiked.add(randomUserId);
                 }
             }
 

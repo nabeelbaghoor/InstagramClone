@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public interface Operations {
+    public static boolean PRINTLN_ENABLED = true;
+
     boolean removeFollower(String userid) throws Exception;  //Done
 
     boolean blockUser(String userid) throws Exception;       //Done

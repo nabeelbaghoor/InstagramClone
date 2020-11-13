@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public interface IDB_Operations {
+    public static Boolean PRINTLN_ENABLED = true;
+
     void initDB() throws IOException;
 
     IModel getObject(String objectId, ModelType modelType) throws Exception; //returns object with key == objectId

@@ -14,7 +14,6 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-//import org.json.simple.JSONObject;
 
 public class DB_TextOperations implements IDB_Operations {
     public DB_TextOperations() {
@@ -58,7 +57,6 @@ public class DB_TextOperations implements IDB_Operations {
         String filename = ".\\DBText_DATA\\";
         filename += modelType.toString();
         filename += ".json";
-
         String data = readFileAsString(filename);
         Gson gson = new Gson();
         return gson.fromJson(data, getObjectType(modelType));//getClassType(modelType));
@@ -130,14 +128,17 @@ public class DB_TextOperations implements IDB_Operations {
                 _queriedObjects.add(iModel);
             }
             if (_queriedObjects != null) {
-                System.out.println("Objects found Successfully");
+                if (IDB_Operations.PRINTLN_ENABLED)
+                    System.out.println("Objects found Successfully");
                 return _queriedObjects;
             } else {
-                System.out.println("No objects Found!");
+                if (IDB_Operations.PRINTLN_ENABLED)
+                    System.out.println("No objects Found!");
                 return null;
             }
         } else {
-            System.out.println("No objects Found!");
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("No objects Found!");
             return null;
         }
     }
@@ -152,7 +153,8 @@ public class DB_TextOperations implements IDB_Operations {
         object.setID(uniqueKey);
         _objects.put(object.getID(), object);
         saveObject(_objects, modelType);
-        System.out.println("Object Added Successfully!");
+        if (IDB_Operations.PRINTLN_ENABLED)
+            System.out.println("Object Added Successfully!");
         return object.getID();
     }
 
@@ -163,10 +165,12 @@ public class DB_TextOperations implements IDB_Operations {
         _objects.remove(objectId);
         //make it better
         if (saveObject(_objects, modelType) == true) {
-            System.out.println("Object removed Successfully");
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("Object removed Successfully");
             return true;
         } else {
-            System.out.println("Failed to Remove Object!");
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("Failed to Remove Object!");
             return false;
         }
     }
@@ -187,18 +191,22 @@ public class DB_TextOperations implements IDB_Operations {
                 }
                 _objects.replace(object.getID(), object);
                 if (saveObject(_objects, modelType) == true) {
-                    System.out.println("Object updated Successfully");
+                    if (IDB_Operations.PRINTLN_ENABLED)
+                        System.out.println("Object updated Successfully");
                     return true;
                 } else {
-                    System.out.println("Failed to update Object!");
+                    if (IDB_Operations.PRINTLN_ENABLED)
+                        System.out.println("Failed to update Object!");
                     return false;
                 }
             } else {
-                System.out.println("Failed to update Object!"); //for now, making it same as firebase
+                if (IDB_Operations.PRINTLN_ENABLED)
+                    System.out.println("Failed to update Object!"); //for now, making it same as firebase
                 return false;
             }
         } else {
-            System.out.println("Failed to update Object!"); //for now, making it same as firebase
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("Failed to update Object!"); //for now, making it same as firebase
             return false;
         }
     }
@@ -226,14 +234,17 @@ public class DB_TextOperations implements IDB_Operations {
             _objects.replace(object.getID(), object);
             System.out.println(((Post) _objects.get(object.getID())).commentsList.toString());
             if (saveObject(_objects, modelType) == true) {
-                System.out.println("Object updated Successfully");
+                if (IDB_Operations.PRINTLN_ENABLED)
+                    System.out.println("Object updated Successfully");
                 return true;
             } else {
-                System.out.println("Failed to update Object!");
+                if (IDB_Operations.PRINTLN_ENABLED)
+                    System.out.println("Failed to update Object!");
                 return false;
             }
         } else {
-            System.out.println("Failed to update Object!"); //for now, making it same as firebase
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("Failed to update Object!"); //for now, making it same as firebase
             return false;
         }
     }
