@@ -6,6 +6,7 @@ import com.google.firebase.database.utilities.Pair;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
@@ -13,7 +14,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         IDB_Operations _IDB = new DB_FirebaseOperations();
         _IDB.initDB();
-        ArrayList<String> objectIds = new ArrayList<String>(Arrays.asList(
+        /*ArrayList<String> objectIds = new ArrayList<String>(Arrays.asList(
                 "IBO0ZjPScGjWldLOCBBD",
                 "KSfuSZKTLocCTg1tjH4K",
                 "KeZ2pIosg8FgoQ8QE21j",
@@ -37,7 +38,11 @@ public class Main {
                 "wGK2dcqR9Y8g6uPCpAoA",
                 "wd97EoWA17LmRSdEk0B3"
         ));
-        _IDB.getObjectsList(objectIds, IDB_Operations.ModelType.User).forEach(IModel::print);
+        _IDB.getObjectsList(objectIds, IDB_Operations.ModelType.User).forEach(IModel::print);*/
+        HashMap<String, Object> attributesToQuery = new HashMap<>();
+        attributesToQuery.put("viewerId","faV059qFD7CDayGrVmyU");
+        attributesToQuery.put("shouldShow",true);
+        _IDB.getObjectsList(attributesToQuery,IDB_Operations.ModelType.Notification).forEach(IModel::print);
     }
     public static void CreateDummyDB() throws Exception {
         IDB_Operations _IDB = new DB_FirebaseOperations();
