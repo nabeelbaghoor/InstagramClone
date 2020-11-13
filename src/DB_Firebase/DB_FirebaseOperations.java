@@ -74,16 +74,18 @@ public class DB_FirebaseOperations implements IDB_Operations {
         return _objects;
     }
 
-    public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws ExecutionException, InterruptedException, ClassNotFoundException {
-        if (objectIds == null) {
+    public ArrayList<IModel> getObjectsList(ArrayList<String> objectIdsTemp, ModelType modelType) throws ExecutionException, InterruptedException, ClassNotFoundException {
+        if (objectIdsTemp == null) {
             if (IDB_Operations.PRINTLN_ENABLED)
                 System.out.println("ObjectIds List Parameter is Null!");
             return new ArrayList<IModel>();
-        }else if(objectIds.isEmpty()){
+        }else if(objectIdsTemp.isEmpty()){
             if (IDB_Operations.PRINTLN_ENABLED)
                 System.out.println("ObjectIds List is Empty!");
             return new ArrayList<IModel>();
         }
+
+        ArrayList<String> objectIds = new ArrayList<>(objectIdsTemp);
 
         Firestore db = FirestoreClient.getFirestore();
         // Create a reference to the collection
