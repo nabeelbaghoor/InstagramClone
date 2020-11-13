@@ -141,15 +141,12 @@ public class Listing_Template extends JFrame {
         if (type == 1)
         {
             for (String username:BLOp.getFollowers().values()) {
-
                 JPanel sp1 = new Listing_InfoPane(username);
                 panel2.add(sp1);
-
             }
         }
         else if (type == 2)
         {
-
             for (String username:BLOp.getFollowing().values()) {
 
                 JPanel sp1 = new Listing_InfoPane(username);
@@ -159,7 +156,6 @@ public class Listing_Template extends JFrame {
         }
         else if (type == 3)
         {
-
             for (String username:BLOp.getBlocked().values()) {
 
                 JPanel sp1 = new Listing_InfoPane(username);
