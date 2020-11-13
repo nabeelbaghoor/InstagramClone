@@ -93,15 +93,16 @@ public class DB_FirebaseOperations implements IDB_Operations {
         Query query = null;
         ApiFuture<QuerySnapshot> querySnapshot;
         ArrayList<IModel> _objects = new ArrayList<IModel>();
+        List<String> _objectsIdsToQuery = new ArrayList<String>();
         int numberOfObjectIdsToQuery = 0;
         while(!objectIds.isEmpty()) {
             numberOfObjectIdsToQuery = objectIds.size() > 10 ? 10 : objectIds.size();
             System.out.println(numberOfObjectIdsToQuery);
-            query = docsRef.whereIn(FieldPath.documentId(), objectIds.subList(0, numberOfObjectIdsToQuery));
+            _objectsIdsToQuery = objectIds.subList(0, numberOfObjectIdsToQuery);
+            query = docsRef.whereIn(FieldPath.documentId(), _objectsIdsToQuery);
             querySnapshot = query.get();
             _objects.addAll(queryDocumentsToClassTypes(querySnapshot.get().getDocuments(), modelType));
-            objectIds.removeAll(objectIds.subList(0,numberOfObjectIdsToQuery));
-            documentsQueried+=10;
+            objectIds.removeAll(_objectsIdsToQuery);
         }
         if (!_objects.isEmpty()) {
             if (IDB_Operations.PRINTLN_ENABLED) {

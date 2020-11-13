@@ -30,10 +30,7 @@
   <component name="ChangeListManager">
     <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="working on firebase">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/DB_Firebase/DB_FirebaseOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/DB_Firebase/DB_FirebaseOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/InstagramClone/Models/IDB_Operations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/InstagramClone/Models/IDB_Operations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DB_Firebase/DB_FirebaseOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Firebase/DB_FirebaseOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/IDB_Operations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/IDB_Operations.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,13 +215,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Made DummyDB script">
-      <created>1604774562329</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1604774562329</updated>
     </task>
     <task id="LOCAL-00047" summary="Made DummyDB script">
       <created>1604778749971</created>
@@ -562,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605253269920</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="working on firebase">
+      <created>1605259848219</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1605259848219</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
