@@ -138,9 +138,7 @@ public class BL_Operations implements Operations {
     }
 
     public ArrayList<Post> getNewsFeedPosts(String myid) {
-        ArrayList<String> tempList = new ArrayList<>();
-        tempList.add(currUser.userId);
-        return uFunc.getPosts(tempList);
+        return pOperations.getUserPosts(currUser.postList);
     }
 
     public User getMyProfile() {
