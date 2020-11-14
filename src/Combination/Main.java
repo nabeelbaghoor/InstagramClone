@@ -61,7 +61,7 @@ public class Main {
         System.out.println(BLOp.getFollowers());
         System.out.println("Test");
         System.out.println(BLOp.getFollowers());*/
-
+        BLOp.getNewsFeedPosts();
         IUI UI = getUI();
 
         System.out.println("Done");

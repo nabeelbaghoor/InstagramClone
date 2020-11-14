@@ -53,15 +53,18 @@ public class UserOperations {
         ArrayList<String> tempUsers = new ArrayList<>();
 
         for (User temp : Users) {
-            postList.addAll(temp.postList);
-            tempUsers.addAll(temp.followersList);
+            if (temp.postList != null)
+                postList.addAll(temp.postList);
+            if (temp.followersList != null)
+                tempUsers.addAll(temp.followersList);
         }
 
         Users.clear();
         Users = getUserList(tempUsers);
 
         for (User temp : Users) {
-            postList.addAll(temp.postList);
+            if (temp.postList != null)
+                postList.addAll(temp.postList);
         }
 
         postList.sort(Comparator.naturalOrder());
@@ -157,5 +160,10 @@ public class UserOperations {
         for (User user : users) map.put(user.userId, user.username);
 
         return map;
+    }
+
+    public boolean setIsViewed(String notifid) {
+        NotificationOperations temp = new NotificationOperations(DB);
+        return temp.setIsViewwed(notifid);
     }
 }
