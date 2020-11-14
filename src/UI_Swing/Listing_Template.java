@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
 
 public class Listing_Template extends JFrame {
 
@@ -140,25 +141,28 @@ public class Listing_Template extends JFrame {
 
         if (type == 1)
         {
-            for (String username:BLOp.getFollowers().values()) {
-                JPanel sp1 = new Listing_InfoPane(username);
+            for (Map.Entry entry: BLOp.getFollowers().entrySet()) {
+
+                JPanel sp1 = new Listing_InfoPane((String)entry.getValue(), (String)entry.getKey(), BLOp, 1);
                 panel2.add(sp1);
+
             }
         }
         else if (type == 2)
         {
-            for (String username:BLOp.getFollowing().values()) {
 
-                JPanel sp1 = new Listing_InfoPane(username);
+            for (Map.Entry entry: BLOp.getFollowing().entrySet()) {
+
+                JPanel sp1 = new Listing_InfoPane((String)entry.getValue(), (String)entry.getKey(), BLOp, 2);
                 panel2.add(sp1);
 
             }
         }
         else if (type == 3)
         {
-            for (String username:BLOp.getBlocked().values()) {
 
-                JPanel sp1 = new Listing_InfoPane(username);
+            for (Map.Entry entry: BLOp.getBlocked().entrySet()) {
+                JPanel sp1 = new Listing_InfoPane((String)entry.getValue(), (String)entry.getKey(), BLOp , 3);
                 panel2.add(sp1);
 
             }
