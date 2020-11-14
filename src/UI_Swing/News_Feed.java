@@ -55,6 +55,7 @@ public class News_Feed extends javax.swing.JFrame {
         initComponents();
         for(int i=0;i< feedPosts.size();i++)
         {
+            System.out.println("PostID"+feedPosts.get(i).postId);
             addpic(feedPosts.get(i).imagePath);
         }
 
@@ -69,7 +70,8 @@ public class News_Feed extends javax.swing.JFrame {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        image = ImageIO.read(url);;
+        System.out.println(url);
+        image = ImageIO.read(url);
         //String convertedPicLocation="C:\\Users\\Rehman Butt\\Desktop\\p2.png";
         JLabel label= new JLabel(new ImageIcon(scaleImage(170, 180, image)));;
         //JLabel label = new JLabel(icon);
