@@ -9,7 +9,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="error resolved">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +52,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -81,7 +80,7 @@
       <command value="likesList" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (Combination)">
+  <component name="RunManager" selected="Application.Main (2)">
     <configuration name="Main (2)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UI_Console.Main" />
       <module name="InstagramClone" />
@@ -147,13 +146,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="News_Feed" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UI_Swing.News_Feed" />
+      <module name="InstagramClone" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UI_Swing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main (2)" />
       <item itemvalue="Application.Main (Combination)" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.News_Feed" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.News_Feed" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -166,13 +180,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
-    </task>
-    <task id="LOCAL-00051" summary="changed Ali's files">
-      <created>1604785706389</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1604785706389</updated>
     </task>
     <task id="LOCAL-00052" summary="changed Ali's files">
       <created>1604786595813</created>
@@ -510,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605347661111</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="error resolved">
+      <created>1605349189409</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1605349189409</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -611,10 +625,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="error resolved" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="163" y="0" key="#Project_Structure" timestamp="1605346965497">
+    <state x="163" y="0" key="#Project_Structure" timestamp="1605364914118">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1605346965497" />
+    <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1605364914118" />
     <state x="319" y="27" key="#com.intellij.codeInsight.i18n.I18nizeQuickFixDialog_Form" timestamp="1604492778087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -678,33 +692,33 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605171460176" />
-    <state width="1009" height="94" key="GridCell.Tab.0.bottom" timestamp="1605347785304">
+    <state width="1009" height="220" key="GridCell.Tab.0.bottom" timestamp="1605349722826">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="629" height="187" key="GridCell.Tab.0.bottom/0.0.1302.768@0.0.1302.768" timestamp="1605284643173" />
     <state width="1259" height="187" key="GridCell.Tab.0.bottom/0.0.1303.768@0.0.1303.768" timestamp="1604863594239" />
-    <state width="1009" height="94" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605347785304" />
+    <state width="1009" height="220" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605349722826" />
     <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605276121833" />
-    <state width="1009" height="94" key="GridCell.Tab.0.center" timestamp="1605347785304">
+    <state width="1009" height="220" key="GridCell.Tab.0.center" timestamp="1605349722825">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="629" height="187" key="GridCell.Tab.0.center/0.0.1302.768@0.0.1302.768" timestamp="1605284643172" />
     <state width="1259" height="187" key="GridCell.Tab.0.center/0.0.1303.768@0.0.1303.768" timestamp="1604863594238" />
-    <state width="1009" height="94" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605347785304" />
+    <state width="1009" height="220" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605349722825" />
     <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605276121833" />
-    <state width="1009" height="94" key="GridCell.Tab.0.left" timestamp="1605347785304">
+    <state width="1009" height="220" key="GridCell.Tab.0.left" timestamp="1605349722825">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="629" height="187" key="GridCell.Tab.0.left/0.0.1302.768@0.0.1302.768" timestamp="1605284643172" />
     <state width="1259" height="187" key="GridCell.Tab.0.left/0.0.1303.768@0.0.1303.768" timestamp="1604863594238" />
-    <state width="1009" height="94" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605347785304" />
+    <state width="1009" height="220" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605349722825" />
     <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605276121832" />
-    <state width="1009" height="94" key="GridCell.Tab.0.right" timestamp="1605347785304">
+    <state width="1009" height="220" key="GridCell.Tab.0.right" timestamp="1605349722826">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="629" height="187" key="GridCell.Tab.0.right/0.0.1302.768@0.0.1302.768" timestamp="1605284643173" />
     <state width="1259" height="187" key="GridCell.Tab.0.right/0.0.1303.768@0.0.1303.768" timestamp="1604863594239" />
-    <state width="1009" height="94" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605347785304" />
+    <state width="1009" height="220" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605349722826" />
     <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605276121833" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1605276121834">
       <screen x="0" y="0" width="1536" height="824" />
@@ -755,11 +769,15 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="387" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1605166494231" />
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605347714192">
+    <state x="500" y="53" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605364904768">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="500" y="53" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728@0.0.1366.728" timestamp="1605364904768" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605364834343">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="477" y="294" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1303.768@0.0.1303.768" timestamp="1604862780906" />
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1605347714192" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1605364834343" />
     <state x="562" y="315" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1604986280676" />
     <state x="447" y="32" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1604992155359">
       <screen x="0" y="0" width="1366" height="728" />
