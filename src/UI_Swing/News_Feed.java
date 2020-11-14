@@ -56,34 +56,39 @@ public class News_Feed extends javax.swing.JFrame {
 
     News_Feed(ArrayList<Post> feedPosts, Operations Blop) throws Exception {
         initComponents();
-        for(int i=2;i< feedPosts.size();i++)
+        for(int i=0;i< feedPosts.size();i++)
         {
-            AddUserInfo(feedPosts.get(i).postId,feedPosts.get(i).userId);
+            AddUserInfo(feedPosts.get(i).postId,feedPosts.get(i).userId,Blop);
             Addpic(feedPosts.get(i).imagePath);
             AddPicDescription(feedPosts.get(i).postId,feedPosts.get(i).userId,feedPosts.get(i).timestamp,feedPosts.get(i).postText,feedPosts.get(i).likesList,feedPosts.get(i).commentsList);
 
         }
 
     }
-    public void AddUserInfo(String postId, String userId)
+    public void AddUserInfo(String postId, String userId,Operations Blop)
     {
         jPanelUser = new JPanel();
         jPanelUser.setLayout(new FlowLayout());
 
-        JLabel pId = new JLabel(postId);
-        JLabel pIdText = new JLabel("Post ID=");
-        JLabel uId = new JLabel(userId);
-        JLabel uIdText = new JLabel("User Id =");
+        String temp = Blop.getProfileInfo(userId).username;
+
+        JLabel name = new JLabel(temp);
+        JButton checkProfile = new JButton("Check Profile");
+
+        //JLabel pIdText = new JLabel("Post ID=");
+        //JLabel uId = new JLabel(userId);
+        //JLabel uIdText = new JLabel("User Id =");
         // String time = timeStamp.toString();
         //JLabel tStamp = new JLabel(time);
-        JLabel tStampText = new JLabel("Upload Time is ");
+        //JLabel tStampText = new JLabel("Upload Time is ");
 
 
 
-        jPanelUser.add(pIdText);
-        jPanelUser.add(pId);
-        jPanelUser.add(uIdText);
-        jPanelUser.add(uId);
+        jPanelUser.add(name);
+        jPanelUser.add(checkProfile);
+        //jPanelUser.add(pId);
+        //jPanelUser.add(uIdText);
+        //jPanelUser.add(uId);
         //jPanelUser.add(tStampText);
         //jPanelUser.add(tStamp);
 
