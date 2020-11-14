@@ -106,7 +106,7 @@ public class PostOperations {
             }
 
             HashMap<String, Object> map = new HashMap<>();
-            map.put("postId", id);
+            map.put("imagePath", newURL);
             DB.updateObject(id, map, IDB_Operations.ModelType.Post);
 
         } catch (Exception e) {
