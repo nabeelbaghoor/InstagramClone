@@ -167,7 +167,7 @@ public class BL_Operations implements Operations {
         return arr;
     }
 
-    public boolean addFollowing(String userid) {
-        return true;
-    } //Admin function to add followers
+    public boolean notifIsViewed(String notifid){
+        return uFunc.setIsViewed(notifid);
+    }
 }

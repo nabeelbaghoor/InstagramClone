@@ -158,4 +158,9 @@ public class UserOperations {
 
         return map;
     }
+
+    public boolean setIsViewed(String notifid) {
+        NotificationOperations temp = new NotificationOperations(DB);
+        return temp.setIsViewwed(notifid);
+    }
 }

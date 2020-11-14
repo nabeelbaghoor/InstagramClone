@@ -5,6 +5,7 @@ import Models.Notification;
 import Models.User;
 import com.google.firebase.database.utilities.Pair;
 
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 public class NotificationOperations {
@@ -58,5 +59,16 @@ public class NotificationOperations {
         DB.updateArrayObject(userid, pair, IDB_Operations.UpdateOperation.Add, IDB_Operations.ModelType.User);
 
         return ans;
+    }
+
+    public boolean setIsViewwed(String notifid) {
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("isViewed",true);
+        try {
+            return DB.updateObject(notifid,map, IDB_Operations.ModelType.Notification);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

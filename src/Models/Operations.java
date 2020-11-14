@@ -29,6 +29,8 @@ public interface Operations {
 
     boolean editUserData(User data) throws Exception;        //Done
 
+    boolean notifIsViewed(String notifid);
+
     ArrayList<Post> getNewsFeedPosts();     //Done
 
     ArrayList<Post> getNewsFeedPosts(String myid);  //To get Current User Posts. Done
