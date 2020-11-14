@@ -14,6 +14,7 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.Semaphore;
 
 public class DB_TextOperations implements IDB_Operations {
     Semaphore mutex;
@@ -35,7 +36,7 @@ public class DB_TextOperations implements IDB_Operations {
     public void initDB() throws IOException {
     }
 
-    public boolean saveObject(HashMap<String, IModel> map, ModelType modelType) throws IOException, JSONException {
+    public boolean saveObject(HashMap<String, IModel> map, ModelType modelType) throws IOException, JSONException, InterruptedException {
         mutex.acquire();
         Gson gson = new Gson();
         String data = gson.toJson(map);

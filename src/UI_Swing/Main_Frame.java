@@ -128,6 +128,8 @@ public class Main_Frame extends JFrame {
         JButton btnNotifButton = new JButton("Notifications");
         btnNotifButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                Notif_Builder Window = new Notif_Builder("Notification List", BLOp);
+                Window.setVisible(true);
             }
         });
         btnNotifButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -153,6 +155,13 @@ public class Main_Frame extends JFrame {
         JButton btnNewsFeed = new JButton("News Feed");
         btnNewsFeed.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                News_Feed Window = null;
+                try {
+                    Window = new News_Feed(BLOp.getNewsFeedPosts(),BLOp);
+                    Window.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         btnNewsFeed.setFont(new Font("Tahoma", Font.PLAIN, 15));

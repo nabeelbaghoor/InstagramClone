@@ -5,6 +5,7 @@
  */
 package UI_Swing;
 
+import Models.Operations;
 import Models.Post;
 
 import javax.imageio.ImageIO;
@@ -49,7 +50,8 @@ public class News_Feed extends javax.swing.JFrame {
         }
     }*/
 
-    News_Feed(ArrayList<Post> feedPosts) throws Exception {
+    News_Feed(ArrayList<Post> feedPosts , Operations BLOp) throws Exception {
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         initComponents();
         for(int i=0;i< feedPosts.size();i++)
         {
@@ -180,61 +182,7 @@ public class News_Feed extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) throws Exception {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(News_Feed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(News_Feed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(News_Feed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(News_Feed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                //new News_Feed().setVisible(true);
-            }
-        });
-
-
-
-        //above is auto generated code
-
-
-        ArrayList<Post> array=new ArrayList<>();
-        Post p1=new Post();
-        p1.imagePath = "Images//T4CbwJ6rdSJp9amH2Jht-12.png";
-
-        Post p2=new Post();
-        p2.imagePath ="Images//brackeys.png";
-        array.add(p1);
-        array.add(p2);
-        News_Feed news_feed = new News_Feed(array);
-
-
-        /*ArrayList<String> locations = new ArrayList<String>();
-        locations.add("C:\\Users\\Rehman Butt\\Desktop\\p1.png");
-        String location="C:\\Users\\Rehman Butt\\Desktop\\p1.png";
-        locations.add("C:\\Users\\Rehman Butt\\Desktop\\a1.png");
-
-        News_Feed fd =  new News_Feed(locations);*/
-
-    }
 
     // Variables declaration - do not modify
     private javax.swing.JLabel jLabel1;                 // feed on the top of frame

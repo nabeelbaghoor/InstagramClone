@@ -55,8 +55,8 @@ public class UserOperations {
         for (User temp : Users) {
             if (temp.postList != null)
                 postList.addAll(temp.postList);
-            if (temp.followersList != null)
-                tempUsers.addAll(temp.followersList);
+            if (temp.followingsList != null)
+                tempUsers.addAll(temp.followingsList);
         }
 
         Users.clear();
