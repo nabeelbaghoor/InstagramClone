@@ -16,6 +16,7 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class DB_TextOperations implements IDB_Operations {
+    Semaphore mutex;
     public DB_TextOperations() {
     }
 
@@ -35,7 +36,7 @@ public class DB_TextOperations implements IDB_Operations {
     }
 
     public boolean saveObject(HashMap<String, IModel> map, ModelType modelType) throws IOException, JSONException {
-
+        mutex.acquire();
         Gson gson = new Gson();
         String data = gson.toJson(map);
         //make filename
@@ -49,16 +50,19 @@ public class DB_TextOperations implements IDB_Operations {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        mutex.release();
         return true;
     }
 
     public HashMap<String, IModel> loadObject(ModelType modelType) throws Exception {
         //make filename
+         mutex.acquire();
         String filename = ".\\DBText_DATA\\";
         filename += modelType.toString();
         filename += ".json";
         String data = readFileAsString(filename);
         Gson gson = new Gson();
+        mutex.release();
         return gson.fromJson(data, getObjectType(modelType));//getClassType(modelType));
     }
 
