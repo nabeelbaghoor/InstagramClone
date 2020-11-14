@@ -10,6 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="error resolved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBText_DATA/Post.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/Post.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBText_DATA/User.json" beforeDir="false" afterPath="$PROJECT_DIR$/DBText_DATA/User.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,13 +208,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604208536352</updated>
-    </task>
-    <task id="LOCAL-00052" summary="changed Ali's files">
-      <created>1604786595813</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1604786595813</updated>
     </task>
     <task id="LOCAL-00053" summary="changed Ali's files">
       <created>1604816648229</created>
@@ -550,7 +545,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605374758623</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="error resolved">
+      <created>1605393536838</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1605393536838</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -718,33 +720,33 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605171460176" />
-    <state width="1007" height="220" key="GridCell.Tab.0.bottom" timestamp="1605372756411">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1605393486653">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="629" height="187" key="GridCell.Tab.0.bottom/0.0.1302.768@0.0.1302.768" timestamp="1605284643173" />
     <state width="1259" height="187" key="GridCell.Tab.0.bottom/0.0.1303.768@0.0.1303.768" timestamp="1604863594239" />
-    <state width="1007" height="220" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605372756411" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605393486653" />
     <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605371131078" />
-    <state width="1007" height="220" key="GridCell.Tab.0.center" timestamp="1605372756410">
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1605393486653">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="629" height="187" key="GridCell.Tab.0.center/0.0.1302.768@0.0.1302.768" timestamp="1605284643172" />
     <state width="1259" height="187" key="GridCell.Tab.0.center/0.0.1303.768@0.0.1303.768" timestamp="1604863594238" />
-    <state width="1007" height="220" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605372756410" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605393486653" />
     <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605371131078" />
-    <state width="1007" height="220" key="GridCell.Tab.0.left" timestamp="1605372756410">
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1605393486652">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="629" height="187" key="GridCell.Tab.0.left/0.0.1302.768@0.0.1302.768" timestamp="1605284643172" />
     <state width="1259" height="187" key="GridCell.Tab.0.left/0.0.1303.768@0.0.1303.768" timestamp="1604863594238" />
-    <state width="1007" height="220" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605372756410" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605393486652" />
     <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605371131078" />
-    <state width="1007" height="220" key="GridCell.Tab.0.right" timestamp="1605372756410">
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1605393486653">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="629" height="187" key="GridCell.Tab.0.right/0.0.1302.768@0.0.1302.768" timestamp="1605284643173" />
     <state width="1259" height="187" key="GridCell.Tab.0.right/0.0.1303.768@0.0.1303.768" timestamp="1604863594239" />
-    <state width="1007" height="220" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605372756410" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605393486653" />
     <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605371131078" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1605371139344">
       <screen x="0" y="0" width="1536" height="824" />
@@ -834,16 +836,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java</url>
-          <line>255</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java</url>
-          <line>263</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Combination/Main.java</url>
           <line>13</line>
