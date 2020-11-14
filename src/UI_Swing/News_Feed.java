@@ -7,15 +7,16 @@ package UI_Swing;
 
 import Models.Operations;
 import Models.Post;
+import com.google.cloud.Timestamp;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-
 /**
  *
  * @author Rehman Butt
@@ -27,9 +28,12 @@ public class News_Feed extends javax.swing.JFrame {
      *
      */
 
-    public News_Feed() {
+    public News_Feed()
+    {
         initComponents();
     }
+
+
     public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
         BufferedImage bi;
         bi = new BufferedImage(w, h, BufferedImage.TRANSLUCENT);
@@ -50,17 +54,46 @@ public class News_Feed extends javax.swing.JFrame {
         }
     }*/
 
-    News_Feed(ArrayList<Post> feedPosts , Operations BLOp) throws Exception {
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    News_Feed(ArrayList<Post> feedPosts, Operations Blop) throws Exception {
         initComponents();
-        for(int i=0;i< feedPosts.size();i++)
+        for(int i=2;i< feedPosts.size();i++)
         {
-            addpic(feedPosts.get(i).imagePath);
+            AddUserInfo(feedPosts.get(i).postId,feedPosts.get(i).userId);
+            Addpic(feedPosts.get(i).imagePath);
+            AddPicDescription(feedPosts.get(i).postId,feedPosts.get(i).userId,feedPosts.get(i).timestamp,feedPosts.get(i).postText,feedPosts.get(i).likesList,feedPosts.get(i).commentsList);
+
         }
 
     }
+    public void AddUserInfo(String postId, String userId)
+    {
+        jPanelUser = new JPanel();
+        jPanelUser.setLayout(new FlowLayout());
 
-    public void addpic(String location) throws Exception {
+        JLabel pId = new JLabel(postId);
+        JLabel pIdText = new JLabel("Post ID=");
+        JLabel uId = new JLabel(userId);
+        JLabel uIdText = new JLabel("User Id =");
+        // String time = timeStamp.toString();
+        //JLabel tStamp = new JLabel(time);
+        JLabel tStampText = new JLabel("Upload Time is ");
+
+
+
+        jPanelUser.add(pIdText);
+        jPanelUser.add(pId);
+        jPanelUser.add(uIdText);
+        jPanelUser.add(uId);
+        //jPanelUser.add(tStampText);
+        //jPanelUser.add(tStamp);
+
+        jPanel1.add(jPanelUser);
+
+    }
+
+    public void Addpic(String location) throws Exception {
+
+
         BufferedImage image = null;
         URL url = null;
         try {
@@ -89,14 +122,14 @@ public class News_Feed extends javax.swing.JFrame {
         JButton removePost = new JButton("Remove Following Post");
         like.addActionListener( removeAction ->
         {
-            //to implement like button
+            //to implement remove button
         });
 
 
         JButton viewComments = new JButton("View Comments");
         like.addActionListener( viewCommentsAction ->
         {
-            //to implement like button
+            //to implement view Comments button
         });
 
         //like.setAlignmentX(TOP_ALIGNMENT);
@@ -105,27 +138,109 @@ public class News_Feed extends javax.swing.JFrame {
         JButton comment = new JButton("Comment");
         JTextArea commentText =new JTextArea();
         commentText.setWrapStyleWord(true);
+        commentText.setPreferredSize(new Dimension(100,30));
         setBounds(100, 100, 565, 390);
 
         //jPanel1.setBounds(100, 100, 565, 390);
 
-        JLabel test = new JLabel("this is another pannel to make buttons in flow layout");
+        //JLabel test = new JLabel("this is another pannel to make buttons in flow layout");
 
-        jPanel1.add(removePost);
-        jPanel1.add(label);
-        jPanel1.add(like);
+
+
+
+
+
+        //jPanel1.add(jPanelUser);
+        //jPanel1.add(removePost);
+        jPanel1.add(label);             //picture
+        /*jPanel1.add(like);
         jPanel1.add(share);
         jPanel1.add(comment);
         jPanel1.add(commentText);
-        jPanel1.add(viewComments);
+        jPanel1.add(viewComments);*/
 
-        jPanelDesc=new JPanel();
-        jPanelDesc.add(test);
+       /* jPanelDesc=new JPanel();
+        jPanelDesc.setLayout(new FlowLayout());
+       // jPanelDesc.add(test);
+        jPanelDesc.add(like);
+        jPanelDesc.add(share);
+        jPanelDesc.add(comment);
+        jPanelDesc.add(commentText);
+        jPanelDesc.add(viewComments);
+        //jPanelDesc.setMaximumSize(new Dimension(170,100));    // not working width
 
-        jPanel1.add(jPanelDesc);
+
+
+        jPanel1.add(jPanelDesc);*/
 
         setVisible(true);
 
+
+    }
+
+    public void AddPicDescription(String postId, String userId, Timestamp timestamp,String postText, ArrayList<String> likesList, ArrayList<String> commentsList)
+    {
+        JButton like = new JButton("Like");
+        like.addActionListener( likeAction ->
+        {
+
+        });
+        like.setBounds(1,1,1,1);
+
+
+
+        JButton viewComments = new JButton("View Comments");
+        like.addActionListener( viewCommentsAction ->
+        {
+            //to implement view Comments button
+        });
+
+        //like.setAlignmentX(TOP_ALIGNMENT);
+
+        JButton share = new JButton("Share");
+        JButton comment = new JButton("Comment");
+        JTextArea commentText =new JTextArea();
+        commentText.setWrapStyleWord(true);
+        commentText.setPreferredSize(new Dimension(100,30));
+        setBounds(100, 100, 565, 390);
+
+        JLabel captionText = new JLabel("Caption:");
+
+        JLabel caption = new JLabel(postText);
+
+
+        caption.setMaximumSize(new Dimension(20,20));
+        caption.setSize(new Dimension(50,20));
+        // from here
+
+        jPanelDesc=new JPanel();
+        jPanelDesc.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx=1;
+        c.gridy=0;
+        //jPanelDesc.setPreferredSize(new Dimension(50,100));
+        jPanelDesc.setBorder(new EmptyBorder(0, 0, 45, 0));
+        // jPanelDesc.add(test);
+        jPanelDesc.add(captionText,c);
+        c.gridx=2;
+        jPanelDesc.add(caption);
+        c.gridy=1;
+        c.gridx=1;
+        jPanelDesc.add(like,c);
+        c.gridx=2;
+        jPanelDesc.add(share,c);
+        c.gridy=2;
+        c.gridx=1;
+        jPanelDesc.add(commentText,c);      // to get comment string commentText.getText();
+        c.gridx=2;
+        jPanelDesc.add(comment,c);
+        c.gridy=3;
+        jPanelDesc.add(viewComments,c);
+        //jPanelDesc.setMaximumSize(new Dimension(170,100));    // not working width
+
+
+        // till here
+        jPanel1.add(jPanelDesc);
 
     }
 
@@ -189,5 +304,6 @@ public class News_Feed extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;                 // Child of below jScrollPanel1
     private javax.swing.JScrollPane jScrollPane1;       // child of this main JFrame
     private javax.swing.JPanel jPanelDesc;
+    private javax.swing.JPanel jPanelUser;
     // End of variables declaration
 }
