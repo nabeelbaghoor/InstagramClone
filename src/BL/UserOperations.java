@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import static Models.IDB_Operations.ModelType.User;
@@ -49,10 +50,25 @@ public class UserOperations {
         ArrayList<Post> ans = null;
         ArrayList<String> postList = new ArrayList<>();
         ArrayList<User> Users = getUserList(userList);
+        ArrayList<String> tempUsers = new ArrayList<>();
+
+        for (User temp : Users) {
+            postList.addAll(temp.postList);
+            tempUsers.addAll(temp.followersList);
+        }
+
+        Users.clear();
+        Users = getUserList(tempUsers);
 
         for (User temp : Users) {
             postList.addAll(temp.postList);
         }
+
+        postList.sort(Comparator.naturalOrder());
+
+        for (int i = 1; i < postList.size(); i++)
+            if (postList.get(i).equals(postList.get(i-1)))
+                postList.remove(i);
 
         PostOperations temp = new PostOperations(DB);
         ans = temp.getUserPosts(postList);
