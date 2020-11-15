@@ -75,7 +75,7 @@ public class BL_Operations implements Operations {
     public boolean likePost(String postid, String userid) throws Exception {
         if (currUser != null) {
             String id = null;
-            id = pOperations.sendNotification(userid, currUser.userId, postid, "Liked");
+            id = pOperations.sendNotification(userid, currUser.userId, postid, currUser.username+" Liked");
             if (id != null)
                 if (pOperations.addLike(currUser.userId, postid))
                     return true;
@@ -117,7 +117,7 @@ public class BL_Operations implements Operations {
 
     public boolean sharePost(String postid, String userid) throws Exception {
         String id = "";
-        id = pOperations.sendNotification(userid, currUser.userId, postid, "Shared");
+        id = pOperations.sendNotification(userid, currUser.userId, postid, currUser.username+" Shared");
         return !id.equals("");
     }
 
