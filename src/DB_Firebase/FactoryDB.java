@@ -50,7 +50,12 @@ public class FactoryDB implements IFactoryDB {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            String id = prop.getProperty("Default_ID");
+            String DBType = prop.getProperty("Database");
+            String id = null;
+            if (DBType.equals("Firebase"))
+                id = prop.getProperty("Default_ID_Firebase");
+            else
+                id = prop.getProperty("Default_ID_Text");
             return id;
         }
         return null;

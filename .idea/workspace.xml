@@ -8,9 +8,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="Sema">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" afterDir="false" />
+    <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="Modified ID.">
+      <change beforePath="$PROJECT_DIR$/src/DB_Firebase/FactoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Firebase/FactoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Layer.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Layer.cfg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +60,9 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="BL.src.instaclone" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\Images" />
+      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\src\DB_Firebase\company" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\src\DB_Firebase\company" />
@@ -71,9 +72,8 @@
       <recent name="DB_Firebase.company" />
       <recent name="model" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\Images" />
-      <recent name="C:\Users\nabeelbaghoor\IdeaProjects\theInstagramClone\src\DB_Firebase\company" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="BL.src.instaclone" />
     </key>
   </component>
   <component name="RunAnythingCache">
