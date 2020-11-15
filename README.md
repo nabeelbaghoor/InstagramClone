@@ -9,4 +9,6 @@ Usama Zahid     UI_Swing
 Ali Humza       DB_Text
 Nabeel Hassan   DB_Firebase
 Anser Butt      BL(Business Layer)
-[embed]http://example.com/file.pdf[/embed]
+[embed]
+https://drive.google.com/file/d/1uiJisYlVYRh1Sv2IIu1wZ4tx0p5RzwP4/view?usp=sharing
+[/embed]
