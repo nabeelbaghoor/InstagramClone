@@ -1,6 +1,7 @@
 package DB_Text;
 
 import Models.*;
+import com.google.cloud.Timestamp;
 import com.google.firebase.database.utilities.Pair;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -14,12 +15,11 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.concurrent.Semaphore;
 
 public class DB_TextOperations implements IDB_Operations {
-    Semaphore mutex;
+    //Semaphore mutex;
     public DB_TextOperations() {
-        mutex = new Semaphore(1);
+        //mutex = new Semaphore(1);
     }
 
     public static String readFileAsString(String fileName) throws Exception {
@@ -38,7 +38,7 @@ public class DB_TextOperations implements IDB_Operations {
     }
 
     public boolean saveObject(HashMap<String, IModel> map, ModelType modelType) throws IOException, JSONException, InterruptedException {
-        mutex.acquire();
+        /*mutex.acquire();*/
         Gson gson = new Gson();
         String data = gson.toJson(map);
         //make filename
@@ -52,19 +52,19 @@ public class DB_TextOperations implements IDB_Operations {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mutex.release();
+        /*mutex.release();*/
         return true;
     }
 
     public HashMap<String, IModel> loadObject(ModelType modelType) throws Exception {
         //make filename
-         mutex.acquire();
+         /*mutex.acquire();*/
         String filename = ".\\DBText_DATA\\";
         filename += modelType.toString();
         filename += ".json";
         String data = readFileAsString(filename);
         Gson gson = new Gson();
-        mutex.release();
+        /*mutex.release();*/
         return gson.fromJson(data, getObjectType(modelType));//getClassType(modelType));
     }
 
@@ -188,6 +188,7 @@ public class DB_TextOperations implements IDB_Operations {
                 System.out.println("Object Parameter is Null!");
             return "";
         }
+        /*mutex.acquire();*/
 
         HashMap<String, IModel> _objects = loadObject(modelType);
         if (_objects == null) {
@@ -195,10 +196,12 @@ public class DB_TextOperations implements IDB_Operations {
         }
         String uniqueKey = UUID.randomUUID().toString();
         object.setID(uniqueKey);
+        object.setTimestamp(Timestamp.now());
         _objects.put(object.getID(), object);
         saveObject(_objects, modelType);
         if (IDB_Operations.PRINTLN_ENABLED)
             System.out.println("Object Added Successfully!");
+        /*mutex.release();*/
         return object.getID();
     }
 
@@ -213,12 +216,16 @@ public class DB_TextOperations implements IDB_Operations {
                 System.out.println("ObjectId String is Empty!");
             return false;
         }
+        /*mutex.acquire();*/
 
         HashMap<String, IModel> _objects = new HashMap<String, IModel>();
         _objects = loadObject(modelType);
         _objects.remove(objectId);
         //make it better
-        if (saveObject(_objects, modelType) == true) {
+
+        boolean isSaved = saveObject(_objects, modelType);
+        /*mutex.release();*/
+        if (isSaved == true) {
             if (IDB_Operations.PRINTLN_ENABLED)
                 System.out.println("Object removed Successfully");
             return true;
@@ -241,6 +248,9 @@ public class DB_TextOperations implements IDB_Operations {
                 System.out.println("ObjectId String is Empty!");
             return false;
         }
+
+
+        /*mutex.acquire();*/
         HashMap<String, IModel> _objects = new HashMap<String, IModel>();
         _objects = loadObject(modelType);
         if (_objects != null) {
@@ -254,7 +264,11 @@ public class DB_TextOperations implements IDB_Operations {
                     }
                 }
                 _objects.replace(object.getID(), object);
-                if (saveObject(_objects, modelType) == true) {
+
+                boolean isSaved = saveObject(_objects, modelType);
+                /*mutex.release();*/
+
+                if ( isSaved== true) {
                     if (IDB_Operations.PRINTLN_ENABLED)
                         System.out.println("Object updated Successfully");
                     return true;
@@ -277,6 +291,7 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public boolean updateArrayObject(String objectId, Pair<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) throws Exception {
+
         if (objectId == null) {
             if (IDB_Operations.PRINTLN_ENABLED)
                 System.out.println("ObjectId String Parameter is Null!");
@@ -301,6 +316,8 @@ public class DB_TextOperations implements IDB_Operations {
             return false;
         }
 
+        /*mutex.acquire();*/
+
         HashMap<String, IModel> _objects = new HashMap<String, IModel>();
         _objects = loadObject(modelType);
         IModel object = _objects.get(objectId);
@@ -321,7 +338,10 @@ public class DB_TextOperations implements IDB_Operations {
             }
             _objects.replace(object.getID(), object);
             System.out.println(((Post) _objects.get(object.getID())).commentsList.toString());
-            if (saveObject(_objects, modelType) == true) {
+
+            boolean isSaved = saveObject(_objects, modelType);
+            /*mutex.release();*/
+            if (isSaved == true) {
                 if (IDB_Operations.PRINTLN_ENABLED)
                     System.out.println("Object updated Successfully");
                 return true;
