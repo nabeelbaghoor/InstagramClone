@@ -111,7 +111,7 @@ public class Notif_Builder extends JFrame{
         String Count = null;
         if (user.notificationList != null)
         {
-            pcount = user.notificationList.size();
+            pcount = listing.size();
         }
 
         JPanel panel2 = new JPanel();
