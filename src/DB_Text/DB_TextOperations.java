@@ -19,6 +19,7 @@ import java.util.concurrent.Semaphore;
 public class DB_TextOperations implements IDB_Operations {
     Semaphore mutex;
     public DB_TextOperations() {
+        mutex = new Semaphore(1);
     }
 
     public static String readFileAsString(String fileName) throws Exception {

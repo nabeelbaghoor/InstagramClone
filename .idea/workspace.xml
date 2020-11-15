@@ -10,9 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="98afa9ab-4ff3-4f4c-8eef-3977a7c8fc87" name="Default Changelist" comment="error resolved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI_Swing/News_Feed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Swing/News_Feed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI_Swing/Notif_Builder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Swing/Notif_Builder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI_Swing/Notif_Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI_Swing/Notif_Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/DB_TextOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB_Text/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB_Text/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +82,7 @@
       <command value="likesList" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (Combination)">
+  <component name="RunManager" selected="Application.Main (1)">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
