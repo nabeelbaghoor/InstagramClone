@@ -91,11 +91,33 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public IModel getObject(String objectId, ModelType modelType) throws Exception {
+        if (objectId == null) {
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("ObjectId String Parameter is Null!");
+            return null;
+        }else if(objectId.isEmpty()){
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("ObjectId String is Empty!");
+            return null;
+        }
+
         return loadObject(modelType).get(objectId);
     }
 
     @Override
-    public ArrayList<IModel> getObjectsList(ArrayList<String> objectIds, ModelType modelType) throws Exception {
+    public ArrayList<IModel> getObjectsList(ArrayList<String> objectIdsTemp, ModelType modelType) throws Exception {
+        if (objectIdsTemp == null) {
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("ObjectIds List Parameter is Null!");
+            return new ArrayList<IModel>();
+        }else if(objectIdsTemp.isEmpty()){
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("ObjectIds List is Empty!");
+            return new ArrayList<IModel>();
+        }
+
+        ArrayList<String> objectIds = new ArrayList<>(objectIdsTemp);
+
         Collection<IModel> _objectsCollection = loadObject(modelType).values();
         ArrayList<IModel> _objects = new ArrayList<IModel>();
         for (IModel iModel : _objectsCollection) {
@@ -108,6 +130,16 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public ArrayList<IModel> getObjectsList(HashMap<String, Object> attributesToQuery, ModelType modelType) throws Exception {
+        if (attributesToQuery == null) {
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("attributesToQuery HashMap Parameter is Null!");
+            return new ArrayList<IModel>();
+        }else if(attributesToQuery.isEmpty()){
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("No attributes Specified in attributesToQuery HashMap!");
+            return new ArrayList<IModel>();
+        }
+
         HashMap<String, IModel> _objects = new HashMap<String, IModel>();
         ArrayList<String> _objectsToRemove = new ArrayList<String>();
         _objects = loadObject(modelType);  //only user,for now
@@ -150,6 +182,12 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public String addObject(IModel object, ModelType modelType) throws Exception {
+        if (object == null) {
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("Object Parameter is Null!");
+            return "";
+        }
+
         HashMap<String, IModel> _objects = loadObject(modelType);
         if (_objects == null) {
             _objects = new HashMap<String, IModel>();
@@ -165,6 +203,16 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public boolean removeObject(String objectId, ModelType modelType) throws Exception {
+        if (objectId == null) {
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("ObjectId String Parameter is Null!");
+            return false;
+        }else if(objectId.isEmpty()){
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("ObjectId String is Empty!");
+            return false;
+        }
+
         HashMap<String, IModel> _objects = new HashMap<String, IModel>();
         _objects = loadObject(modelType);
         _objects.remove(objectId);
@@ -182,6 +230,16 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public boolean updateObject(String objectId, HashMap<String, Object> attributesToBeUpdated, ModelType modelType) throws Exception {
+
+        if (objectId == null) {
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("ObjectId String Parameter is Null!");
+            return false;
+        }else if(objectId.isEmpty()){
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("ObjectId String is Empty!");
+            return false;
+        }
         HashMap<String, IModel> _objects = new HashMap<String, IModel>();
         _objects = loadObject(modelType);
         if (_objects != null) {
@@ -218,6 +276,30 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public boolean updateArrayObject(String objectId, Pair<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) throws Exception {
+        if (objectId == null) {
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("ObjectId String Parameter is Null!");
+            return false;
+        }else if(objectId.isEmpty()){
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("ObjectId String is Empty!");
+            return false;
+        }
+
+        if (arrayAttributeToBeUpdated == null) {
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("arrayAttributeToBeUpdated HashMap Parameter is Null!");
+            return false;
+        }else if(arrayAttributeToBeUpdated.getFirst().isEmpty()){
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("First Attribute of attributesToBeUpdated Pair is Empty!");
+            return false;
+        }else if(arrayAttributeToBeUpdated.getSecond() == null){
+            if (IDB_Operations.PRINTLN_ENABLED)
+                System.out.println("Second Attribute of attributesToBeUpdated Pair is null!");
+            return false;
+        }
+
         HashMap<String, IModel> _objects = new HashMap<String, IModel>();
         _objects = loadObject(modelType);
         IModel object = _objects.get(objectId);
