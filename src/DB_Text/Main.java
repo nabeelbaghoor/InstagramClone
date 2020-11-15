@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        //CreateDummyDB();
+        CreateDummyDB();
     }
 
     public static void CreateDummyDB() throws Exception {
