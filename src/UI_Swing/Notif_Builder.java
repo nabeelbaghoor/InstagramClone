@@ -57,13 +57,6 @@ public class Notif_Builder extends JFrame{
             e.printStackTrace();
         }
 
-        //Setting List Type
-        int pcount = 0;
-        String Count = null;
-        if (user.notificationList != null)
-            pcount = user.notificationList.size();
-        Count = "Total Notifications: " + pcount;
-
         JPanel ListHolderPane = new JPanel();
         ListHolderPane.setPreferredSize(new Dimension(400,375));
         ListHolderPane.setOpaque(true);
@@ -113,6 +106,31 @@ public class Notif_Builder extends JFrame{
         lblUserName.setOpaque(true);
         MainPanel.add(lblUserName);
 
+        ArrayList<Notification> listing = BLOp.getNotification();
+        int pcount = 0;
+        String Count = null;
+        if (user.notificationList != null)
+        {
+            pcount = user.notificationList.size();
+        }
+
+        JPanel panel2 = new JPanel();
+        panel2.setPreferredSize(new Dimension(400,pcount*110));
+        int notshowed = 0;
+        for (int i = 0; i < pcount; i++)
+        {
+            if (listing.get(i).shouldShow) {
+                JPanel sp1 = new Notif_Template(listing.get(i).msg,listing.get(i).notificationId,
+                        listing.get(i).postId, listing.get(i).isViewed, BLOp);
+                panel2.add(sp1);
+            }
+            else
+                notshowed++;
+        }
+        ListHolder.getViewport().setView(panel2);
+
+        Count = "Total Notifications: " + (pcount - notshowed);
+
         JLabel lblCounter = new JLabel(Count);
         lblCounter.setFont(new Font("Tahoma", Font.PLAIN, 13));
         lblCounter.setBackground(new Color(255, 255, 255));
@@ -120,17 +138,6 @@ public class Notif_Builder extends JFrame{
         lblCounter.setBounds(152, 79, 227, 23);
         lblCounter.setOpaque(true);
         MainPanel.add(lblCounter);
-
-        JPanel panel2 = new JPanel();
-        panel2.setPreferredSize(new Dimension(400,pcount*75));
-
-        ArrayList<Notification> listing = BLOp.getNotification();
-        for (int i = 0; i < pcount; i++)
-        {
-            JPanel sp1 = new Notif_Template(listing.get(i).msg,listing.get(i).isViewed);
-            panel2.add(sp1);
-        }
-        ListHolder.getViewport().setView(panel2);
 
     }
 

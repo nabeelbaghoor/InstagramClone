@@ -65,6 +65,15 @@ public class News_Feed extends javax.swing.JFrame {
         }
 
     }
+
+    News_Feed(Post feedPost, Operations Blop) throws Exception {
+        initComponents();
+        AddUserInfo(feedPost.postId,feedPost.userId,Blop);
+        Addpic(feedPost.imagePath);
+        AddPicDescription(feedPost.postId,feedPost.userId,feedPost.timestamp,
+                feedPost.postText,feedPost.likesList,feedPost.commentsList,Blop);
+    }
+
     public void AddUserInfo(String postId, String userId,Operations Blop)
     {
         jPanelUser = new JPanel();
