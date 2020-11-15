@@ -19,7 +19,7 @@ import java.util.concurrent.Semaphore;
 public class DB_TextOperations implements IDB_Operations {
     Semaphore mutex;
     public DB_TextOperations() {
-        mutex = new Semaphore(1);
+        mutex =new Semaphore(1);
     }
 
     public static String readFileAsString(String fileName) throws Exception {
@@ -52,19 +52,22 @@ public class DB_TextOperations implements IDB_Operations {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         mutex.release();
+        System.out.println("saveobject released mutex");
         return true;
     }
 
     public HashMap<String, IModel> loadObject(ModelType modelType) throws Exception {
         //make filename
-         mutex.acquire();
+        // mutex.acquire();
         String filename = ".\\DBText_DATA\\";
         filename += modelType.toString();
         filename += ".json";
         String data = readFileAsString(filename);
         Gson gson = new Gson();
-        mutex.release();
+        //mutex.release();
+        System.out.println("loadobject released mutex");
         return gson.fromJson(data, getObjectType(modelType));//getClassType(modelType));
     }
 
@@ -183,9 +186,12 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public String addObject(IModel object, ModelType modelType) throws Exception {
+        mutex.acquire();
+        System.out.println("Here in addobject");
         if (object == null) {
             if (IDB_Operations.PRINTLN_ENABLED)
                 System.out.println("Object Parameter is Null!");
+            mutex.release();
             return "";
         }
 
@@ -199,6 +205,7 @@ public class DB_TextOperations implements IDB_Operations {
         saveObject(_objects, modelType);
         if (IDB_Operations.PRINTLN_ENABLED)
             System.out.println("Object Added Successfully!");
+        mutex.release();
         return object.getID();
     }
 
@@ -277,30 +284,38 @@ public class DB_TextOperations implements IDB_Operations {
 
     @Override
     public boolean updateArrayObject(String objectId, Pair<String, Object> arrayAttributeToBeUpdated, UpdateOperation updateOperation, ModelType modelType) throws Exception {
+       mutex.acquire();
+        System.out.println("mutex stucked here");
         if (objectId == null) {
             if (IDB_Operations.PRINTLN_ENABLED)
                 System.out.println("ObjectId String Parameter is Null!");
+            mutex.release();
             return false;
         }else if(objectId.isEmpty()){
             if (IDB_Operations.PRINTLN_ENABLED)
                 System.out.println("ObjectId String is Empty!");
+            mutex.release();
             return false;
         }
 
         if (arrayAttributeToBeUpdated == null) {
             if (IDB_Operations.PRINTLN_ENABLED)
                 System.out.println("arrayAttributeToBeUpdated HashMap Parameter is Null!");
+            mutex.release();
             return false;
         }else if(arrayAttributeToBeUpdated.getFirst().isEmpty()){
             if (IDB_Operations.PRINTLN_ENABLED)
                 System.out.println("First Attribute of attributesToBeUpdated Pair is Empty!");
+            mutex.release();
             return false;
         }else if(arrayAttributeToBeUpdated.getSecond() == null){
             if (IDB_Operations.PRINTLN_ENABLED)
                 System.out.println("Second Attribute of attributesToBeUpdated Pair is null!");
+            mutex.release();
+            System.out.println("mutex stucked here");
             return false;
         }
-
+        System.out.println("mutex stucked here in center");
         HashMap<String, IModel> _objects = new HashMap<String, IModel>();
         _objects = loadObject(modelType);
         IModel object = _objects.get(objectId);
@@ -319,20 +334,25 @@ public class DB_TextOperations implements IDB_Operations {
                     break;  //only one update operation allowed at a time, just copying Firebase (forNow)
                 }
             }
+            mutex.release();
+            System.out.println("mutex stucked here at end");
             _objects.replace(object.getID(), object);
             System.out.println(((Post) _objects.get(object.getID())).commentsList.toString());
             if (saveObject(_objects, modelType) == true) {
                 if (IDB_Operations.PRINTLN_ENABLED)
                     System.out.println("Object updated Successfully");
+                mutex.release();
                 return true;
             } else {
                 if (IDB_Operations.PRINTLN_ENABLED)
                     System.out.println("Failed to update Object!");
+                mutex.release();
                 return false;
             }
         } else {
             if (IDB_Operations.PRINTLN_ENABLED)
                 System.out.println("Failed to update Object!"); //for now, making it same as firebase
+            mutex.release();
             return false;
         }
     }
