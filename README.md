@@ -23,3 +23,10 @@ https://drive.google.com/file/d/1fJ2Q2G7lXjIUIEXS44INCc-qVJ7deqhM/view?usp=shari
 [embed]
 https://drive.google.com/file/d/1-VQwB7c2Cwr_pANTn51ETQu_R751bUxU/view?usp=sharing
 [/embed]
+
+# Design Principles
+
+-Single Purpose - i.e all Modules are developed in such a way as to enusre that they cater to a single responsibility
+-Interface Segregation - All Interfaces are created while ensuring that the modules implementing them do not have to implement any functions not part of thei design
+-Dependency Inversion - Is ensured by making sure that no one module depends on how another module implements a feature and instead that a module does implement any given feature
+-Polymorphism - As there are multiple implementations present for the same layer, polymorphism is used to make sure that program can run smoothly irrespective of layer used. e.g CLI or GUI is used.
