@@ -30,3 +30,10 @@ https://drive.google.com/file/d/1-VQwB7c2Cwr_pANTn51ETQu_R751bUxU/view?usp=shari
 -Interface Segregation - All Interfaces are created while ensuring that the modules implementing them do not have to implement any functions not part of thei design
 -Dependency Inversion - Is ensured by making sure that no one module depends on how another module implements a feature and instead that a module does implement any given feature
 -Polymorphism - As there are multiple implementations present for the same layer, polymorphism is used to make sure that program can run smoothly irrespective of layer used. e.g CLI or GUI is used.
+
+# Design Decision
+
+-Use of Models - Models/Dat Structures are used to transfer data across layers. This is done because using JSON would have required constant packing and unpacking of data which would result in excessive and needless operations
+-Use of Factories - Done to enusre that layers remain independant of how other layers work
+-Service Classes - Service Classes are used to implement methods needed by Data Structures
+-Interfaces - Used to enusre that different layers are not affected by how other layers implemnt their code
