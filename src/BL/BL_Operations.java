@@ -168,4 +168,6 @@ public class BL_Operations implements Operations {
     public boolean notifIsViewed(String notifid){
         return uFunc.setIsViewed(notifid);
     }
+
+    public Post getPost(String postID){ return  pOperations.getPost(postID);}
 }

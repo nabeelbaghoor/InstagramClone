@@ -31,6 +31,8 @@ public interface Operations {
 
     boolean notifIsViewed(String notifid);
 
+    Post getPost(String postID);
+
     ArrayList<Post> getNewsFeedPosts();     //Done
 
     ArrayList<Post> getNewsFeedPosts(String myid);  //To get Current User Posts. Done

@@ -164,5 +164,14 @@ public class PostOperations {
         }
         return false;
     }
+
+    public Post getPost(String postID) {
+        try {
+            return (Post)DB.getObject(postID, IDB_Operations.ModelType.Post);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
 
