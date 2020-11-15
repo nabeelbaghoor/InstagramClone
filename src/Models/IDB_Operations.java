@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public interface IDB_Operations {
-    public static Boolean PRINTLN_ENABLED = true;
+    public static Boolean PRINTLN_ENABLED = false;
 
     void initDB() throws IOException;
 

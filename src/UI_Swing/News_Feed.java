@@ -142,7 +142,7 @@ public class News_Feed extends javax.swing.JFrame {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        image = ImageIO.read(url);;
+        image = ImageIO.read(url);
         //String convertedPicLocation="C:\\Users\\Rehman Butt\\Desktop\\p2.png";
         JLabel label= new JLabel(new ImageIcon(scaleImage(170, 180, image)));;
         //JLabel label = new JLabel(icon);

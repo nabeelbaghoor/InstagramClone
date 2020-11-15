@@ -42,9 +42,10 @@ public class Main {
             }
         }));
     }*/
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         IFactoryBL func = new FactoryBL();
         Operations BLOp = func.getOperations();
+
 
         //old commented Code
         /*BLOp.removePost("fFvhHPIKbEjZXDyZcqbp");
@@ -68,8 +69,9 @@ public class Main {
 
         System.out.println("Done");
         //UI = new GUI();
-        //if (UI != null)
-        //    UI.start(BLOp);
+        if (UI != null) {
+            UI.start(BLOp);
+        }
         //UI = func.getUI();
         //UI.setOperations(BLOp);
         //UI.start();
