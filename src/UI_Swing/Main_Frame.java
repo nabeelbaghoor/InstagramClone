@@ -187,6 +187,13 @@ public class Main_Frame extends JFrame {
         JButton btnMyPosts = new JButton("My Posts");
         btnMyPosts.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                MyPosts Window = null;
+                try {
+                    Window = new MyPosts(BLOp.getNewsFeedPosts(user.userId),BLOp);
+                    Window.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         btnMyPosts.setFont(new Font("Tahoma", Font.PLAIN, 15));

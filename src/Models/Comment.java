@@ -21,6 +21,10 @@ public class Comment implements IModel {
     public String getID() {
         return commentId;
     }
+    public String getUserId()
+    {
+        return userId;
+    }
 
     public void setID(String _commentId) {
         commentId = _commentId;

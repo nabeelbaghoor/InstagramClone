@@ -21,14 +21,14 @@ import java.util.ArrayList;
  *
  * @author Rehman Butt
  */
-public class News_Feed extends javax.swing.JFrame {
+public class MyPosts extends javax.swing.JFrame {
 
     /**
      * Creates new form News_Feed
      *
      */
 
-    public News_Feed()
+    public MyPosts()
     {
         initComponents();
     }
@@ -54,7 +54,7 @@ public class News_Feed extends javax.swing.JFrame {
         }
     }*/
 
-    News_Feed(ArrayList<Post> feedPosts, Operations Blop) throws Exception {
+    MyPosts(ArrayList<Post> feedPosts, Operations Blop) throws Exception {
         initComponents();
         for(int i=0;i< feedPosts.size();i++)
         {
@@ -68,31 +68,20 @@ public class News_Feed extends javax.swing.JFrame {
     public void AddUserInfo(String postId, String userId,Operations Blop)
     {
         jPanelUser = new JPanel();
-        jPanelUser.setLayout(new GridBagLayout());
-
+        jPanelUser.setLayout(new FlowLayout());
 
         String temp = Blop.getProfileInfo(userId).username;
 
         JLabel name = new JLabel(temp);
-        JButton follow = new JButton("Follow");
-        follow.addActionListener(followAction ->
+        JButton checkProfile = new JButton("Check Profile");
+        checkProfile.addActionListener(checkProfileAction ->
         {
-            try {
-                Blop.followUser(userId);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            dispose();
 
         });
-        JButton block = new JButton("Block");
-        block.addActionListener(blockAction ->
+        JButton removePost = new JButton("remove Post");
+        removePost.addActionListener(removePostAction ->
         {
-            try {
-                Blop.blockUser(userId);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            Blop.removePost(postId);
             dispose();
         });
 
@@ -104,14 +93,9 @@ public class News_Feed extends javax.swing.JFrame {
         //JLabel tStampText = new JLabel("Upload Time is ");
 
 
-        GridBagConstraints c = new GridBagConstraints();
 
-        c.gridx=c.gridy=0;
-        jPanelUser.add(name,c);
-        c.gridy=1;
-        jPanelUser.add(follow,c);
-        c.gridx=1;
-        jPanelUser.add(block,c);
+        jPanelUser.add(name);
+        jPanelUser.add(removePost);
         //jPanelUser.add(pId);
         //jPanelUser.add(uIdText);
         //jPanelUser.add(uId);
@@ -232,7 +216,7 @@ public class News_Feed extends javax.swing.JFrame {
         viewComments.addActionListener( viewCommentsAction ->
         {
             //call
-           // newWindow=new View_Comments(commentList,Blop);
+            // newWindow=new View_Comments(commentList,Blop);
 
         });
 
@@ -241,7 +225,11 @@ public class News_Feed extends javax.swing.JFrame {
         JButton share = new JButton("Share");
         share.addActionListener(shareAction ->
         {
-            Share Window = new Share(Blop,postId,userId);
+            try {
+                Blop.sharePost(postId,userId);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
         JTextArea commentText =new JTextArea();
         commentText.setWrapStyleWord(true);
