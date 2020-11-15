@@ -1,13 +1,17 @@
 package UI_Console;
 
+import BL.FactoryBL;
+import Models.Operations;
+
 public class Main {
     public static void main(String[] args) throws Exception {
-//        Factory func = new Factory();
-//        Operations operations = func.getOperations();
+        FactoryBL func = new FactoryBL();
+        Operations operations = func.getOperations();
 //
 //        //get User Object, user's Info
 //        User user = operations.getMyProfile();
-        //CLI.start();
+        CLI cli = new CLI();
+        cli.start(operations);
         //user.print();
 
         /*Caution:

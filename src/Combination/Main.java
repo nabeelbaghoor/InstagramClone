@@ -68,8 +68,8 @@ public class Main {
 
         System.out.println("Done");
         //UI = new GUI();
-        if (UI != null)
-            UI.start(BLOp);
+        //if (UI != null)
+        //    UI.start(BLOp);
         //UI = func.getUI();
         //UI.setOperations(BLOp);
         //UI.start();
