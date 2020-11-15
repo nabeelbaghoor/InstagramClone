@@ -337,8 +337,6 @@ public class DB_TextOperations implements IDB_Operations {
                 }
             }
             _objects.replace(object.getID(), object);
-            System.out.println(((Post) _objects.get(object.getID())).commentsList.toString());
-
             boolean isSaved = saveObject(_objects, modelType);
             /*mutex.release();*/
             if (isSaved == true) {

@@ -25,6 +25,8 @@ public class Post implements IModel {
         commentsList = _commentsList;
         timestamp = _timestamp;
         postText = _postText;
+        commentsList= new ArrayList<String>();
+        likesList= new ArrayList<String>();
     }
 
     public String getID() {

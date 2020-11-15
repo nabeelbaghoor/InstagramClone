@@ -53,6 +53,12 @@ public class User implements IModel {
         bio = _bio;
         timestamp = _timestamp;
         imagePath = _imagePath;
+
+        notificationList= new ArrayList<String>();
+        postList= new ArrayList<String>();
+        followingsList= new ArrayList<String>();
+        blockedUsersList= new ArrayList<String>();
+        followersList = new ArrayList<String>();
     }
 
     public String getID() {
